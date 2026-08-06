@@ -51,6 +51,9 @@ Call `blotato_list_accounts` with platform="tiktok". Build handle→id map. Know
 - @under10.protein → under10.protein (45077)
 Skip @angelagiles29/41416 if present in the account list.
 
+**STEP 2.5 — Credit preflight**
+Call `blotato_get_credits`. Each visual costs ~6 credits (6 slides); a full 28-post day needs ~168. If the remaining balance is below what the planned run needs, log the shortfall prominently, process as many rows as credits allow, and note the truncation in the summary line. Do NOT abort before doing any work — a partial run beats none. Surface the remaining balance in the STEP 5 summary so top-ups can be timed before hitting zero.
+
 **STEP 3 — Assign recipes**
 For each slot in [Breakfast, Lunch, Dinner]:
    - Check past-slot skip guard first. If skip, log the reason and move on.
