@@ -1,0 +1,666 @@
+{
+  "schema_version": 1,
+  "last_updated": "2026-07-27T20:07:00+00:00",
+  "recipes": {
+    "Golden Protein Pancakes": {
+      "category": "breakfast",
+      "calories": 520,
+      "protein_g": 30,
+      "last_posted": "2026-06-27"
+    },
+    "Sunrise Power Bowl": {
+      "category": "breakfast",
+      "calories": 510,
+      "protein_g": 25,
+      "last_posted": "2026-06-28"
+    },
+    "Berry Almond Chia Parfait": {
+      "category": "breakfast",
+      "calories": 350,
+      "protein_g": 20,
+      "last_posted": "2026-06-26"
+    },
+    "Cinnamon Apple Protein Oats": {
+      "category": "breakfast",
+      "calories": 410,
+      "protein_g": 28,
+      "last_posted": "2026-06-26"
+    },
+    "Power Avocado Toast + Egg": {
+      "category": "breakfast",
+      "calories": 510,
+      "protein_g": 24,
+      "last_posted": "2026-06-27"
+    },
+    "Egg White Veggie Scramble": {
+      "category": "breakfast",
+      "calories": 320,
+      "protein_g": 32,
+      "last_posted": "2026-06-26"
+    },
+    "Chocolate Protein Overnight Oats": {
+      "category": "breakfast",
+      "calories": 460,
+      "protein_g": 35,
+      "last_posted": "2026-06-26"
+    },
+    "Cottage Cheese Power Bowl": {
+      "category": "breakfast",
+      "calories": 310,
+      "protein_g": 30,
+      "last_posted": "2026-06-26"
+    },
+    "Smoked Salmon Whole-Grain Bagel": {
+      "category": "breakfast",
+      "calories": 480,
+      "protein_g": 32,
+      "last_posted": "2026-06-28"
+    },
+    "Turkey Bacon Breakfast Burrito": {
+      "category": "breakfast",
+      "calories": 510,
+      "protein_g": 38,
+      "last_posted": "2026-06-26"
+    },
+    "Banana Protein French Toast": {
+      "category": "breakfast",
+      "calories": 440,
+      "protein_g": 30,
+      "last_posted": "2026-06-26"
+    },
+    "Protein Yogurt Bark": {
+      "category": "breakfast",
+      "calories": 180,
+      "protein_g": 20,
+      "last_posted": "2026-06-28"
+    },
+    "Egg Muffin Cups": {
+      "category": "breakfast",
+      "calories": 90,
+      "protein_g": 9,
+      "last_posted": "2026-06-26"
+    },
+    "Greek Yogurt Smoothie Bowl": {
+      "category": "breakfast",
+      "calories": 380,
+      "protein_g": 28,
+      "last_posted": "2026-06-27"
+    },
+    "High-Protein Waffles": {
+      "category": "breakfast",
+      "calories": 420,
+      "protein_g": 32,
+      "last_posted": "2026-06-27"
+    },
+    "Savory Oatmeal with Egg + Avocado": {
+      "category": "breakfast",
+      "calories": 460,
+      "protein_g": 28,
+      "last_posted": "2026-06-28"
+    },
+    "Protein Pancake Tacos": {
+      "category": "breakfast",
+      "calories": 420,
+      "protein_g": 35,
+      "last_posted": "2026-06-28"
+    },
+    "Tuna Avocado Toast": {
+      "category": "breakfast",
+      "calories": 410,
+      "protein_g": 30,
+      "last_posted": "2026-06-28"
+    },
+    "Breakfast Quesadilla": {
+      "category": "breakfast",
+      "calories": 480,
+      "protein_g": 36,
+      "last_posted": "2026-06-27"
+    },
+    "Strawberry Cheesecake Overnight Oats": {
+      "category": "breakfast",
+      "calories": 450,
+      "protein_g": 32,
+      "last_posted": "2026-06-28"
+    },
+    "Turkey Sausage + Sweet Potato Hash": {
+      "category": "breakfast",
+      "calories": 510,
+      "protein_g": 35,
+      "last_posted": "2026-06-26"
+    },
+    "PB Banana Protein Pancakes": {
+      "category": "breakfast",
+      "calories": 490,
+      "protein_g": 40,
+      "last_posted": "2026-06-27"
+    },
+    "Spinach + Feta Egg Wraps": {
+      "category": "breakfast",
+      "calories": 380,
+      "protein_g": 30,
+      "last_posted": "2026-06-28"
+    },
+    "Almond Butter Apple Cottage Cheese Bowl": {
+      "category": "breakfast",
+      "calories": 360,
+      "protein_g": 28,
+      "last_posted": "2026-06-27"
+    },
+    "Breakfast Burrito Bowl": {
+      "category": "breakfast",
+      "calories": 470,
+      "protein_g": 38,
+      "last_posted": "2026-06-27"
+    },
+    "Cinnamon Roll Protein Bowl": {
+      "category": "breakfast",
+      "calories": 430,
+      "protein_g": 32,
+      "last_posted": "2026-06-27"
+    },
+    "Smoked Salmon Egg Roll-Ups": {
+      "category": "breakfast",
+      "calories": 320,
+      "protein_g": 32,
+      "last_posted": "2026-06-28"
+    },
+    "Coconut Mango Chia Parfait": {
+      "category": "breakfast",
+      "calories": 390,
+      "protein_g": 22,
+      "last_posted": "2026-06-27"
+    },
+    "Turkey Bacon English Muffin": {
+      "category": "breakfast",
+      "calories": 410,
+      "protein_g": 32,
+      "last_posted": "2026-06-26"
+    },
+    "Steel-Cut Oats with Almond + Berry": {
+      "category": "breakfast",
+      "calories": 440,
+      "protein_g": 26,
+      "last_posted": "2026-06-28"
+    },
+    "Mediterranean Chicken Bowl": {
+      "category": "lunch",
+      "calories": 480,
+      "protein_g": 38,
+      "last_posted": "2026-07-22"
+    },
+    "High Protein Steak Salad": {
+      "category": "lunch",
+      "calories": 440,
+      "protein_g": 42,
+      "last_posted": "2026-07-22"
+    },
+    "Honey Garlic Chicken Wrap": {
+      "category": "lunch",
+      "calories": 540,
+      "protein_g": 40,
+      "last_posted": "2026-07-22"
+    },
+    "Tropical Power Salad": {
+      "category": "lunch",
+      "calories": 460,
+      "protein_g": 36,
+      "last_posted": "2026-07-17"
+    },
+    "Turkey & Hummus Wrap": {
+      "category": "lunch",
+      "calories": 450,
+      "protein_g": 35,
+      "last_posted": "2026-07-17"
+    },
+    "Tuna Avocado Salad": {
+      "category": "lunch",
+      "calories": 380,
+      "protein_g": 32,
+      "last_posted": "2026-07-17"
+    },
+    "Buffalo Chicken Lettuce Wraps": {
+      "category": "lunch",
+      "calories": 360,
+      "protein_g": 38,
+      "last_posted": "2026-07-22"
+    },
+    "Asian Beef Bowl": {
+      "category": "lunch",
+      "calories": 520,
+      "protein_g": 40,
+      "last_posted": "2026-07-17"
+    },
+    "Quinoa Power Salad": {
+      "category": "lunch",
+      "calories": 410,
+      "protein_g": 22,
+      "last_posted": "2026-07-15"
+    },
+    "Salmon Poke Bowl": {
+      "category": "lunch",
+      "calories": 540,
+      "protein_g": 36,
+      "last_posted": "2026-07-15"
+    },
+    "BBQ Chicken Stuffed Sweet Potato": {
+      "category": "lunch",
+      "calories": 510,
+      "protein_g": 38,
+      "last_posted": "2026-07-17"
+    },
+    "Mexican Chicken Quinoa Bowl": {
+      "category": "lunch",
+      "calories": 480,
+      "protein_g": 36,
+      "last_posted": "2026-07-22"
+    },
+    "Thai Chicken Lettuce Cups": {
+      "category": "lunch",
+      "calories": 420,
+      "protein_g": 38,
+      "last_posted": "2026-07-17"
+    },
+    "Caprese Chicken Wrap": {
+      "category": "lunch",
+      "calories": 480,
+      "protein_g": 38,
+      "last_posted": "2026-07-22"
+    },
+    "Greek Tuna Salad Bowl": {
+      "category": "lunch",
+      "calories": 410,
+      "protein_g": 35,
+      "last_posted": "2026-07-15"
+    },
+    "Spicy Shrimp Burrito Bowl": {
+      "category": "lunch",
+      "calories": 510,
+      "protein_g": 38,
+      "last_posted": "2026-07-17"
+    },
+    "Chicken Caesar Wrap": {
+      "category": "lunch",
+      "calories": 460,
+      "protein_g": 40,
+      "last_posted": "2026-07-22"
+    },
+    "Italian Sub Lettuce Wraps": {
+      "category": "lunch",
+      "calories": 430,
+      "protein_g": 35,
+      "last_posted": "2026-07-15"
+    },
+    "Turkey Avocado Club Wrap": {
+      "category": "lunch",
+      "calories": 490,
+      "protein_g": 38,
+      "last_posted": "2026-07-17"
+    },
+    "Curry Chicken Salad on Greens": {
+      "category": "lunch",
+      "calories": 440,
+      "protein_g": 38,
+      "last_posted": "2026-07-22"
+    },
+    "Beef Banh Mi Bowl": {
+      "category": "lunch",
+      "calories": 530,
+      "protein_g": 40,
+      "last_posted": "2026-07-17"
+    },
+    "Chickpea + Tuna Lemon Salad": {
+      "category": "lunch",
+      "calories": 380,
+      "protein_g": 30,
+      "last_posted": "2026-07-22"
+    },
+    "Pesto Chicken Pasta Salad": {
+      "category": "lunch",
+      "calories": 510,
+      "protein_g": 38,
+      "last_posted": "2026-07-15"
+    },
+    "Egg Salad Lettuce Wraps": {
+      "category": "lunch",
+      "calories": 360,
+      "protein_g": 28,
+      "last_posted": "2026-07-22"
+    },
+    "Korean Tuna Rice Bowl": {
+      "category": "lunch",
+      "calories": 450,
+      "protein_g": 36,
+      "last_posted": "2026-07-15"
+    },
+    "Ham + Swiss Egg Roll-Ups": {
+      "category": "lunch",
+      "calories": 380,
+      "protein_g": 32,
+      "last_posted": "2026-07-15"
+    },
+    "Southwest Chicken Bowl": {
+      "category": "lunch",
+      "calories": 510,
+      "protein_g": 38,
+      "last_posted": "2026-07-17"
+    },
+    "Garlic Butter Steak + Potatoes": {
+      "category": "dinner",
+      "calories": 610,
+      "protein_g": 45,
+      "last_posted": "2026-07-15"
+    },
+    "Lemon Herb Chicken Plate": {
+      "category": "dinner",
+      "calories": 490,
+      "protein_g": 42,
+      "last_posted": "2026-07-27"
+    },
+    "Chimichurri Steak Bites": {
+      "category": "dinner",
+      "calories": 560,
+      "protein_g": 44,
+      "last_posted": "2026-07-27"
+    },
+    "Honey Garlic Salmon Bowl": {
+      "category": "dinner",
+      "calories": 580,
+      "protein_g": 40,
+      "last_posted": "2026-07-17"
+    },
+    "High-Protein Chicken Alfredo": {
+      "category": "dinner",
+      "calories": 530,
+      "protein_g": 42,
+      "last_posted": "2026-07-17"
+    },
+    "Cashew Chicken Stir Fry": {
+      "category": "dinner",
+      "calories": 450,
+      "protein_g": 40,
+      "last_posted": "2026-07-27"
+    },
+    "Pesto Chicken Pasta": {
+      "category": "dinner",
+      "calories": 560,
+      "protein_g": 42,
+      "last_posted": "2026-07-27"
+    },
+    "Beef and Broccoli Stir Fry": {
+      "category": "dinner",
+      "calories": 510,
+      "protein_g": 42,
+      "last_posted": "2026-07-27"
+    },
+    "Sheet Pan Chicken Fajitas": {
+      "category": "dinner",
+      "calories": 470,
+      "protein_g": 40,
+      "last_posted": "2026-07-22"
+    },
+    "Garlic Shrimp + Lemon Rice": {
+      "category": "dinner",
+      "calories": 440,
+      "protein_g": 36,
+      "last_posted": "2026-07-17"
+    },
+    "Turkey Meatballs Marinara": {
+      "category": "dinner",
+      "calories": 530,
+      "protein_g": 44,
+      "last_posted": "2026-07-15"
+    },
+    "Korean BBQ Ground Beef Bowl": {
+      "category": "dinner",
+      "calories": 540,
+      "protein_g": 40,
+      "last_posted": "2026-07-17"
+    },
+    "Cajun Salmon Bowl": {
+      "category": "dinner",
+      "calories": 560,
+      "protein_g": 38,
+      "last_posted": "2026-07-27"
+    },
+    "Mediterranean Cod with Quinoa": {
+      "category": "dinner",
+      "calories": 460,
+      "protein_g": 38,
+      "last_posted": "2026-07-27"
+    },
+    "Teriyaki Salmon with Rice": {
+      "category": "dinner",
+      "calories": 580,
+      "protein_g": 40,
+      "last_posted": "2026-07-15"
+    },
+    "Bacon Wrapped Chicken with Broccoli": {
+      "category": "dinner",
+      "calories": 510,
+      "protein_g": 50,
+      "last_posted": "2026-07-27"
+    },
+    "Thai Peanut Chicken": {
+      "category": "dinner",
+      "calories": 560,
+      "protein_g": 42,
+      "last_posted": "2026-07-15"
+    },
+    "Stuffed Bell Peppers": {
+      "category": "dinner",
+      "calories": 480,
+      "protein_g": 38,
+      "last_posted": "2026-07-27"
+    },
+    "Greek Lamb Bowl": {
+      "category": "dinner",
+      "calories": 590,
+      "protein_g": 42,
+      "last_posted": "2026-07-17"
+    },
+    "Chicken Tikka Masala (Lightened)": {
+      "category": "dinner",
+      "calories": 530,
+      "protein_g": 42,
+      "last_posted": "2026-07-17"
+    },
+    "Shrimp Scampi over Zoodles": {
+      "category": "dinner",
+      "calories": 380,
+      "protein_g": 38,
+      "last_posted": "2026-07-22"
+    },
+    "BBQ Pork + Slaw": {
+      "category": "dinner",
+      "calories": 620,
+      "protein_g": 45,
+      "last_posted": "2026-07-17"
+    },
+    "Buffalo Chicken Casserole": {
+      "category": "dinner",
+      "calories": 510,
+      "protein_g": 45,
+      "last_posted": "2026-07-17"
+    },
+    "Beef Stir Fry with Cauliflower Rice": {
+      "category": "dinner",
+      "calories": 480,
+      "protein_g": 42,
+      "last_posted": "2026-07-17"
+    },
+    "Lemon Pepper Chicken with Asparagus": {
+      "category": "dinner",
+      "calories": 460,
+      "protein_g": 42,
+      "last_posted": "2026-07-27"
+    },
+    "Black Bean + Chicken Enchilada Bake": {
+      "category": "dinner",
+      "calories": 540,
+      "protein_g": 42,
+      "last_posted": "2026-07-17"
+    },
+    "Mongolian Beef Bowl": {
+      "category": "dinner",
+      "calories": 560,
+      "protein_g": 40,
+      "last_posted": "2026-07-22"
+    },
+    "Tuscan Garlic Chicken": {
+      "category": "dinner",
+      "calories": 540,
+      "protein_g": 42,
+      "last_posted": "2026-07-15"
+    },
+    "Pork Tenderloin + Roasted Veg": {
+      "category": "dinner",
+      "calories": 510,
+      "protein_g": 42,
+      "last_posted": "2026-07-22"
+    },
+    "Frozen Pineapple Yogurt Bites": {
+      "category": "snack",
+      "calories": 180,
+      "protein_g": 12,
+      "last_posted": "2026-06-28"
+    },
+    "Protein Energy Bites": {
+      "category": "snack",
+      "calories": 220,
+      "protein_g": 14,
+      "last_posted": "2026-06-28"
+    },
+    "Chocolate Banana Protein Shake": {
+      "category": "snack",
+      "calories": 390,
+      "protein_g": 30,
+      "last_posted": "2026-06-27"
+    },
+    "Cottage Cheese Whip with Berries": {
+      "category": "snack",
+      "calories": 220,
+      "protein_g": 22,
+      "last_posted": "2026-06-27"
+    },
+    "Hard-Boiled Eggs + Hummus": {
+      "category": "snack",
+      "calories": 240,
+      "protein_g": 16,
+      "last_posted": "2026-06-28"
+    },
+    "Vanilla Berry Protein Smoothie": {
+      "category": "snack",
+      "calories": 320,
+      "protein_g": 32,
+      "last_posted": "2026-06-27"
+    },
+    "Greek Yogurt Layered Parfait": {
+      "category": "snack",
+      "calories": 280,
+      "protein_g": 22,
+      "last_posted": "2026-06-28"
+    },
+    "Tuna Cucumber Bites": {
+      "category": "snack",
+      "calories": 180,
+      "protein_g": 18,
+      "last_posted": "2026-06-27"
+    },
+    "PB Banana Protein Wrap": {
+      "category": "snack",
+      "calories": 380,
+      "protein_g": 24,
+      "last_posted": "2026-06-28"
+    },
+    "Beef Jerky + Cheese Stick Plate": {
+      "category": "snack",
+      "calories": 290,
+      "protein_g": 28,
+      "last_posted": "2026-06-27"
+    },
+    "Protein Iced Coffee": {
+      "category": "snack",
+      "calories": 180,
+      "protein_g": 25,
+      "last_posted": "2026-06-28"
+    },
+    "Apple + Almond Butter Protein Plate": {
+      "category": "snack",
+      "calories": 310,
+      "protein_g": 18,
+      "last_posted": "2026-06-27"
+    },
+    "No-Bake Protein Brownie Bites": {
+      "category": "snack",
+      "calories": 110,
+      "protein_g": 8,
+      "last_posted": "2026-06-28"
+    },
+    "Edamame + Sea Salt": {
+      "category": "snack",
+      "calories": 200,
+      "protein_g": 18,
+      "last_posted": "2026-06-28"
+    },
+    "Pumpkin Spice Greek Yogurt": {
+      "category": "snack",
+      "calories": 240,
+      "protein_g": 22,
+      "last_posted": "2026-06-21"
+    },
+    "Chicken + Cheese Roll-Ups": {
+      "category": "snack",
+      "calories": 250,
+      "protein_g": 28,
+      "last_posted": "2026-06-27"
+    },
+    "Chocolate Protein Mug Cake": {
+      "category": "snack",
+      "calories": 250,
+      "protein_g": 28,
+      "last_posted": "2026-06-27"
+    },
+    "Spicy Roasted Chickpeas": {
+      "category": "snack",
+      "calories": 180,
+      "protein_g": 10,
+      "last_posted": "2026-06-21"
+    },
+    "Cinnamon Roll Protein Pudding": {
+      "category": "snack",
+      "calories": 280,
+      "protein_g": 26,
+      "last_posted": "2026-06-27"
+    },
+    "Strawberry Protein Pops": {
+      "category": "snack",
+      "calories": 130,
+      "protein_g": 20,
+      "last_posted": "2026-06-21"
+    },
+    "Caprese Skewers": {
+      "category": "snack",
+      "calories": 200,
+      "protein_g": 12,
+      "last_posted": "2026-06-27"
+    },
+    "PB Banana Protein Sushi": {
+      "category": "snack",
+      "calories": 320,
+      "protein_g": 22,
+      "last_posted": "2026-06-28"
+    },
+    "Smoked Salmon Cucumber Bites": {
+      "category": "snack",
+      "calories": 180,
+      "protein_g": 16,
+      "last_posted": "2026-06-21"
+    },
+    "Cottage Cheese + Pineapple Bowl": {
+      "category": "snack",
+      "calories": 240,
+      "protein_g": 24,
+      "last_posted": "2026-06-28"
+    }
+  }
+}
