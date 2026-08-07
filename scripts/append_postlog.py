@@ -18,6 +18,11 @@ Auth: Google service account. The script looks for credentials in this order:
   2. env GOOGLE_SA_KEY_JSON (raw JSON string)
   3. file secrets/sa-key.json in the repo root                     <- fallback
 
+Every source accepts EITHER raw JSON or base64-encoded JSON; the format is
+sniffed, not assumed. Prefer the env vars: this repo is public, so any key
+written to secrets/ is world-readable the moment it is committed. secrets/ is
+gitignored for that reason — keep it that way.
+
 Behavior:
   - Skips rows already present in the sheet (same date + account + slot),
     so a manual re-run of the routine cannot create duplicate rows.
@@ -47,16 +52,38 @@ WARN_ROW = 1100
 SCOPES = ["https://www.googleapis.com/auth/spreadsheets"]
 
 
+def _parse_key(blob, source):
+    """Accept either raw service-account JSON or a base64 encoding of it.
+
+    The two forms are indistinguishable by filename, and mixing them up
+    silently broke this script on 2026-08-07: the committed key file held
+    base64 while the file branch assumed raw JSON, so every run died on
+    JSONDecodeError before reaching the sheet. Sniff instead of assuming.
+    """
+    if isinstance(blob, bytes):
+        blob = blob.decode("utf-8", "replace")
+    blob = blob.strip()
+    if blob.startswith("{"):
+        return json.loads(blob)
+    try:
+        return json.loads(base64.b64decode(blob, validate=True))
+    except Exception as exc:
+        sys.exit(
+            f"SHEETS-ERROR: {source} is neither valid JSON nor valid "
+            f"base64-encoded JSON ({exc})"
+        )
+
+
 def load_credentials():
     b64 = os.environ.get("GOOGLE_SA_KEY_B64")
     raw = os.environ.get("GOOGLE_SA_KEY_JSON")
     if b64:
-        info = json.loads(base64.b64decode(b64))
+        info = _parse_key(b64, "GOOGLE_SA_KEY_B64")
     elif raw:
-        info = json.loads(raw)
+        info = _parse_key(raw, "GOOGLE_SA_KEY_JSON")
     elif os.path.exists("secrets/sa-key.json"):
         with open("secrets/sa-key.json") as fh:
-            info = json.load(fh)
+            info = _parse_key(fh.read(), "secrets/sa-key.json")
     else:
         sys.exit(
             "SHEETS-ERROR: no service account key found "

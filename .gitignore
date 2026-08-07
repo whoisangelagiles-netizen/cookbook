@@ -1,0 +1,18 @@
+# Credentials — this repo is PUBLIC. Never commit keys.
+# Pass service-account credentials via the GOOGLE_SA_KEY_B64 env var instead.
+secrets/
+*-sa-key.json
+sa-key.json
+service-account*.json
+*.pem
+.env
+.env.*
+
+# Routine temp files
+postlog_rows.json
+
+# Python
+__pycache__/
+*.py[cod]
+.venv/
+venv/

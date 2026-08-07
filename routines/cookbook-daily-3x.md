@@ -52,9 +52,9 @@ Call `blotato_list_accounts` with platform="tiktok". Build handle→id map. Know
 Skip @angelagiles29/41416 if present in the account list.
 
 **STEP 2.5 — Credit preflight**
-Call `blotato_get_credits`. Each visual costs ~6 credits (6 slides); a full 28-post day needs ~168. If the remaining balance is below what the planned run needs, log the shortfall prominently, process as many rows as credits allow, and note the truncation in the summary line. Do NOT abort before doing any work — a partial run beats none. Surface the remaining balance in the STEP 5 summary so top-ups can be timed before hitting zero.
+Call `blotato_get_credits`. **A 6-slide visual costs 84 credits (14 per slide), not 6.** Measured 2026-08-07 against this exact template: balance went 7,005 → 6,921 for a single visual. A full 28-post day therefore needs ~2,352 credits, not 168. If the remaining balance is below what the planned run needs, log the shortfall prominently, process as many rows as credits allow, and note the truncation in the summary line. Do NOT abort before doing any work — a partial run beats none. Surface the remaining balance in the STEP 5 summary so top-ups can be timed before hitting zero.
 
-**Hard floor — never start a visual you cannot finish.** If remaining credits < 6, generate NOTHING: skip STEP 3 and STEP 4 entirely, go straight to STEP 5, and log `insufficient-credits` with the balance. A partially-rendered visual returns fewer than 6 `imageUrls`, and posting that array ships a broken carousel — the 1-slide failure that reached production on 2026-07-20. Only begin a row when at least 6 credits remain, and re-check the balance between rows as it drains.
+**Hard floor — never start a visual you cannot finish.** If remaining credits < 84, generate NOTHING: skip STEP 3 and STEP 4 entirely, go straight to STEP 5, and log `insufficient-credits` with the balance. A partially-rendered visual returns fewer than 6 `imageUrls`, and posting that array ships a broken carousel — the 1-slide failure that reached production on 2026-07-20. Only begin a row when at least 84 credits remain, and re-check the balance between rows as it drains.
 
 **STEP 3 — Assign recipes**
 For each slot in [Breakfast, Lunch, Dinner]:
@@ -166,7 +166,21 @@ git push origin main
 - `get_visual_status` parameter is `id`.
 - Commit state changes to git at end of every run.
 
-**CREDIT BUDGET (as of 2026-07-27):** User on Blotato Creator plan monthly. 8×3 + 2×2 = 28 posts/day × 6 slides = 168 credits/day → ~5,040/mo vs 5,000/mo cap. User tops up per month rather than upgrading to annual. If `insufficient-credits` hits, log affected slot and continue; do NOT retry.
+**CREDIT BUDGET (measured 2026-08-07 — supersedes the 2026-07-27 estimate):** User on Blotato Creator plan monthly, ~5,000 credits/mo cap.
+
+A 6-slide visual costs **84 credits**, verified by direct measurement (7,005 → 6,921 for one render). The earlier "6 credits per visual / 168 per day" figure was an unvalidated assumption and was wrong by 14×.
+
+At the current 28-post cadence (8×3 + 2×2):
+
+| | credits | notes |
+|---|---|---|
+| One visual (6 slides) | 84 | 14 per slide |
+| Full day, 28 posts | 2,352 | |
+| Monthly cap | ~5,000 | **≈2.1 days of full-cadence running** |
+
+**The specced cadence is not affordable on this plan.** At $6 per 1,000 credits a full day costs ~$14, or ~$420/mo against a plan granting ~$30/mo of credits. Expect `insufficient-credits` to truncate most runs until either the cadence is reduced or the plan is changed. This is the likeliest explanation for Breakfast silently disappearing after June.
+
+If `insufficient-credits` hits, log the affected slot and continue; do NOT retry.
 
 ## Step: log scheduled posts to the operations tracker
 
