@@ -167,3 +167,25 @@ git push origin main
 - Commit state changes to git at end of every run.
 
 **CREDIT BUDGET (as of 2026-07-27):** User on Blotato Creator plan monthly. 8×3 + 2×2 = 28 posts/day × 6 slides = 168 credits/day → ~5,040/mo vs 5,000/mo cap. User tops up per month rather than upgrading to annual. If `insufficient-credits` hits, log affected slot and continue; do NOT retry.
+
+## Step: log scheduled posts to the operations tracker
+
+After all Blotato scheduling for this run is complete, write every
+successfully scheduled post to `postlog_rows.json` in the repo root as a JSON
+array of 5-element rows: [date "YYYY-MM-DD", recipe name, slot
+(Breakfast/Lunch/Dinner), account handle with @, scheduled time "HH:MM" ET].
+Only include posts that were actually scheduled; skipped slots and
+insufficient-credits failures are excluded.
+
+Then run:
+
+    pip install gspread google-auth --quiet
+    python scripts/append_postlog.py postlog_rows.json
+
+If the script exits non-zero, append a line to state/automation-log.md:
+    [timestamp] SHEETS-ERROR: <the script's error output>
+and continue the run normally. A Sheets failure must never block posting or
+the state commit. Do not retry the script within the same run.
+
+Delete postlog_rows.json before the git commit step (it is a temp file, not
+state).
