@@ -1,0 +1,52 @@
+{
+  "$comment": [
+    "Pre-approved tools for the cookbook-daily-3x automation.",
+    "Scheduled Routine runs are headless: nobody is present to answer a",
+    "permission prompt, so an un-allowlisted call blocks forever with no",
+    "error and no output. The 2026-08-07 and 2026-08-08 04:03 ET runs both",
+    "died that way. Anything the daily job needs must be listed here.",
+    "Deliberately NOT allowlisted: rm, curl, wget, sudo, chmod, and force",
+    "pushes. Those should still stop and ask."
+  ],
+  "permissions": {
+    "allow": [
+      "Bash(git fetch:*)",
+      "Bash(git status:*)",
+      "Bash(git log:*)",
+      "Bash(git show:*)",
+      "Bash(git diff:*)",
+      "Bash(git branch:*)",
+      "Bash(git checkout:*)",
+      "Bash(git switch:*)",
+      "Bash(git add:*)",
+      "Bash(git commit:*)",
+      "Bash(git push origin:*)",
+      "Bash(git pull origin:*)",
+      "Bash(git merge-base:*)",
+      "Bash(git ls-files:*)",
+      "Bash(git rev-parse:*)",
+      "Bash(python3:*)",
+      "Bash(python:*)",
+      "Bash(pip install:*)",
+      "Bash(date:*)",
+      "Bash(TZ=*)",
+      "Bash(sleep:*)",
+      "Bash(echo:*)",
+      "Bash(wc:*)",
+      "Read",
+      "Write",
+      "Edit",
+      "Glob",
+      "Grep",
+      "mcp__Blotato__blotato_list_accounts",
+      "mcp__Blotato__blotato_get_credits",
+      "mcp__Blotato__blotato_create_visual",
+      "mcp__Blotato__blotato_get_visual_status",
+      "mcp__Blotato__blotato_create_post",
+      "mcp__Blotato__blotato_list_posts",
+      "mcp__Blotato__blotato_list_schedules",
+      "mcp__Blotato__blotato_get_schedule",
+      "mcp__Blotato__blotato_get_post_status"
+    ]
+  }
+}
