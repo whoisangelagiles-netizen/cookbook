@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-07-27T20:07:00+00:00",
+  "last_updated": "2026-08-08T10:00:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -18,13 +18,13 @@
       "category": "breakfast",
       "calories": 350,
       "protein_g": 20,
-      "last_posted": "2026-06-26"
+      "last_posted": "2026-08-08"
     },
     "Cinnamon Apple Protein Oats": {
       "category": "breakfast",
       "calories": 410,
       "protein_g": 28,
-      "last_posted": "2026-06-26"
+      "last_posted": "2026-08-08"
     },
     "Power Avocado Toast + Egg": {
       "category": "breakfast",
@@ -36,19 +36,19 @@
       "category": "breakfast",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-06-26"
+      "last_posted": "2026-08-08"
     },
     "Chocolate Protein Overnight Oats": {
       "category": "breakfast",
       "calories": 460,
       "protein_g": 35,
-      "last_posted": "2026-06-26"
+      "last_posted": "2026-08-08"
     },
     "Cottage Cheese Power Bowl": {
       "category": "breakfast",
       "calories": 310,
       "protein_g": 30,
-      "last_posted": "2026-06-26"
+      "last_posted": "2026-08-08"
     },
     "Smoked Salmon Whole-Grain Bagel": {
       "category": "breakfast",
@@ -60,13 +60,13 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-06-26"
+      "last_posted": "2026-08-08"
     },
     "Banana Protein French Toast": {
       "category": "breakfast",
       "calories": 440,
       "protein_g": 30,
-      "last_posted": "2026-06-26"
+      "last_posted": "2026-08-08"
     },
     "Protein Yogurt Bark": {
       "category": "breakfast",
@@ -78,7 +78,7 @@
       "category": "breakfast",
       "calories": 90,
       "protein_g": 9,
-      "last_posted": "2026-06-26"
+      "last_posted": "2026-08-08"
     },
     "Greek Yogurt Smoothie Bowl": {
       "category": "breakfast",
@@ -228,25 +228,25 @@
       "category": "lunch",
       "calories": 520,
       "protein_g": 40,
-      "last_posted": "2026-07-17"
+      "last_posted": "2026-08-08"
     },
     "Quinoa Power Salad": {
       "category": "lunch",
       "calories": 410,
       "protein_g": 22,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Salmon Poke Bowl": {
       "category": "lunch",
       "calories": 540,
       "protein_g": 36,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "BBQ Chicken Stuffed Sweet Potato": {
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-07-17"
+      "last_posted": "2026-08-08"
     },
     "Mexican Chicken Quinoa Bowl": {
       "category": "lunch",
@@ -270,7 +270,7 @@
       "category": "lunch",
       "calories": 410,
       "protein_g": 35,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Spicy Shrimp Burrito Bowl": {
       "category": "lunch",
@@ -288,7 +288,7 @@
       "category": "lunch",
       "calories": 430,
       "protein_g": 35,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Turkey Avocado Club Wrap": {
       "category": "lunch",
@@ -306,7 +306,7 @@
       "category": "lunch",
       "calories": 530,
       "protein_g": 40,
-      "last_posted": "2026-07-17"
+      "last_posted": "2026-08-08"
     },
     "Chickpea + Tuna Lemon Salad": {
       "category": "lunch",
@@ -318,7 +318,7 @@
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Egg Salad Lettuce Wraps": {
       "category": "lunch",
@@ -330,13 +330,13 @@
       "category": "lunch",
       "calories": 450,
       "protein_g": 36,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Ham + Swiss Egg Roll-Ups": {
       "category": "lunch",
       "calories": 380,
       "protein_g": 32,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Southwest Chicken Bowl": {
       "category": "lunch",
@@ -348,7 +348,7 @@
       "category": "dinner",
       "calories": 610,
       "protein_g": 45,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Lemon Herb Chicken Plate": {
       "category": "dinner",
@@ -408,7 +408,7 @@
       "category": "dinner",
       "calories": 530,
       "protein_g": 44,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Korean BBQ Ground Beef Bowl": {
       "category": "dinner",
@@ -432,7 +432,7 @@
       "category": "dinner",
       "calories": 580,
       "protein_g": 40,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Bacon Wrapped Chicken with Broccoli": {
       "category": "dinner",
@@ -444,7 +444,7 @@
       "category": "dinner",
       "calories": 560,
       "protein_g": 42,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Stuffed Bell Peppers": {
       "category": "dinner",
@@ -462,7 +462,7 @@
       "category": "dinner",
       "calories": 530,
       "protein_g": 42,
-      "last_posted": "2026-07-17"
+      "last_posted": "2026-08-08"
     },
     "Shrimp Scampi over Zoodles": {
       "category": "dinner",
@@ -474,19 +474,19 @@
       "category": "dinner",
       "calories": 620,
       "protein_g": 45,
-      "last_posted": "2026-07-17"
+      "last_posted": "2026-08-08"
     },
     "Buffalo Chicken Casserole": {
       "category": "dinner",
       "calories": 510,
       "protein_g": 45,
-      "last_posted": "2026-07-17"
+      "last_posted": "2026-08-08"
     },
     "Beef Stir Fry with Cauliflower Rice": {
       "category": "dinner",
       "calories": 480,
       "protein_g": 42,
-      "last_posted": "2026-07-17"
+      "last_posted": "2026-08-08"
     },
     "Lemon Pepper Chicken with Asparagus": {
       "category": "dinner",
@@ -498,7 +498,7 @@
       "category": "dinner",
       "calories": 540,
       "protein_g": 42,
-      "last_posted": "2026-07-17"
+      "last_posted": "2026-08-08"
     },
     "Mongolian Beef Bowl": {
       "category": "dinner",
@@ -510,7 +510,7 @@
       "category": "dinner",
       "calories": 540,
       "protein_g": 42,
-      "last_posted": "2026-07-15"
+      "last_posted": "2026-08-08"
     },
     "Pork Tenderloin + Roasted Veg": {
       "category": "dinner",
