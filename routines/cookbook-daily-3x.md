@@ -151,8 +151,18 @@ Then commit + push:
 ```
 git add state/recipe-rotation-log.json state/automation-log.md
 git commit -m "daily run {today_iso}: {posts_total} posts scheduled"
-git push origin main
+git push origin HEAD:main
 ```
+
+**Use `HEAD:main`, never `origin main`.** The scheduled session may be checked out on an auto-generated outcome branch (e.g. `claude/gallant-lovelace`) rather than on `main`. `git push origin main` pushes the *local* `main` ref, which on such a branch is stale or absent — so the push silently sends nothing, or fails. `HEAD:main` pushes whatever you actually committed to `main` regardless of the branch name you are sitting on.
+
+Verify the push landed before reporting success:
+```
+git fetch origin main
+git show origin/main:state/automation-log.md | tail -2
+```
+The summary line you just wrote must appear. If it does not, the push did not land — say so plainly.
+
 (If push fails, retry once. If it still fails, log the git error prominently in the summary line — the run's Blotato-side work is done, but the state didn't persist and tomorrow's rotation will be off.)
 
 **ABSOLUTE RULES:**
