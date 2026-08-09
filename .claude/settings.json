@@ -46,7 +46,13 @@
       "mcp__Blotato__blotato_list_posts",
       "mcp__Blotato__blotato_list_schedules",
       "mcp__Blotato__blotato_get_schedule",
-      "mcp__Blotato__blotato_get_post_status"
+      "mcp__Blotato__blotato_get_post_status",
+      "mcp__Claude_Code_Remote__list_triggers",
+      "mcp__Claude_Code_Remote__list_sessions",
+      "mcp__Claude_Code_Remote__list_repos",
+      "mcp__Google_Drive__read_file_content",
+      "mcp__Google_Drive__get_file_metadata",
+      "mcp__Google_Drive__search_files"
     ]
   }
 }
