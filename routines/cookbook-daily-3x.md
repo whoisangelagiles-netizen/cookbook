@@ -1,6 +1,6 @@
 # cookbook-daily-3x — Claude Code Cloud Routine
 
-**Purpose:** Daily production loop for "High Protein House" TikTok automation. 10 accounts, 2-3 posts/day per account (per-account cadence), warmup or launch mode (per-account), draws from a rotating recipe pool. Migrated from Cowork on 2026-07-27.
+**Purpose:** Daily production loop for "High Protein House" TikTok automation. 10 accounts, 1 post/day each at 18:00 ET, 5 slides per post, warmup or launch mode (per-account), draws from the full 110-recipe rotation across all categories. Migrated from Cowork on 2026-07-27.
 
 **Schedule:** Daily at 4 AM America/New_York (recommended). No end date.
 
@@ -19,16 +19,19 @@
 
 You are the ongoing daily production loop for "High Protein House" TikTok automation, running in Claude Code Cloud. NO end date. All state lives in this git repo — read state at the start, mutate in memory during the run, commit updated state at the end.
 
-**PER-ACCOUNT CADENCE (from `state/account-voices.json`):**
-- cadence "3x" (8 accounts): Breakfast 08:00 ET + Lunch 12:00 ET + Dinner 18:00 ET
-- cadence "2x" (currently @coach.macro, @the.lean.cook): Lunch 12:00 ET + Dinner 18:00 ET (skip Breakfast entirely)
-- All times + account_index × 3 min stagger within each slot.
+**CADENCE (changed 2026-08-11 — all accounts are now `1x`):**
+- ONE slot per day: **18:00 ET**. All 10 accounts post once.
+- Time = 18:00 ET + account_index × 3 min stagger (alphabetical by handle → 18:00–18:27).
+- Breakfast and Lunch slots are REMOVED. There is no 08:00 or 12:00 slot. Do not reintroduce them.
+- Posts are **5 slides**, not 6.
+
+Why: measured Blotato cost is ~7 credits/slide. The old 28-post, 6-slide day cost ~1,176 credits (~35,000/month against a ~5,000/month cap — 7× over, which is why runs silently truncated and Breakfast disappeared in June). The new shape is 10 × 35 = ~350 credits/day, ~10,500/month.
 
 **PER-ACCOUNT MODE (from `state/account-voices.json`):**
-- "warmup" (7 accounts): slide 6 macros only, caption no CTA.
-- "launch" (currently @fuel.your.gains, @gymfood.simple, @prep.with.alex): slide 6 adds Gumroad CTA, caption adds "Full cookbook in bio ⬇️".
+- "warmup" (7 accounts): slide 5 macros only, caption no CTA.
+- "launch" (currently @fuel.your.gains, @gymfood.simple, @prep.with.alex): slide 5 adds Gumroad CTA, caption adds "Full cookbook in bio ⬇️".
 
-**★ PAST-SLOT SKIP GUARD:** If a slot's base time is more than 4 hours past current time (America/New_York), SKIP that entire slot for today. Do NOT generate visuals, do NOT schedule posts, do NOT advance recipe rotation for skipped slots. This prevents mid-day manual runs from clustering all 30 posts into one evening window. If a slot is past but within 4 hours, bump to next round hour ≥30 min from now keeping stagger.
+**★ PAST-SLOT SKIP GUARD:** If a slot's base time is more than 4 hours past current time (America/New_York), SKIP that entire slot for today. Do NOT generate visuals, do NOT schedule posts, do NOT advance recipe rotation for skipped slots. This prevents a late manual run from posting at an unintended hour. If a slot is past but within 4 hours, bump to next round hour ≥30 min from now keeping stagger.
 
 **★ TEMPLATE (locked):** Blotato "Image Slideshow with Prominent Text" `/base/v2/images-with-text/0ddb8655-c3da-43da-9f7d-be1915ca7818/v1`. Schema is `image` + `text` per slide.
 
@@ -52,32 +55,30 @@ Call `blotato_list_accounts` with platform="tiktok". Build handle→id map. Know
 Skip @angelagiles29/41416 if present in the account list.
 
 **STEP 2.5 — Credit preflight**
-Call `blotato_get_credits`. **A 6-slide visual costs 84 credits (14 per slide), not 6.** Measured 2026-08-07 against this exact template: balance went 7,005 → 6,921 for a single visual. A full 28-post day therefore needs ~2,352 credits, not 168. If the remaining balance is below what the planned run needs, log the shortfall prominently, process as many rows as credits allow, and note the truncation in the summary line. Do NOT abort before doing any work — a partial run beats none. Surface the remaining balance in the STEP 5 summary so top-ups can be timed before hitting zero.
+Call `blotato_get_credits`. **Billing is PER SLIDE: ~7 credits/slide. A 5-slide post costs ~35 credits.** Verified three times: 6.8, 6.9 and 7.0 credits/slide. A full 10-post day at 5 slides needs ~350 credits. If the remaining balance is below what the planned run needs, log the shortfall prominently, process as many rows as credits allow, and note the truncation in the summary line. Do NOT abort before doing any work — a partial run beats none. Surface the remaining balance in the STEP 5 summary so top-ups can be timed before hitting zero.
 
-**Hard floor — never start a visual you cannot finish.** If remaining credits < 84, generate NOTHING: skip STEP 3 and STEP 4 entirely, go straight to STEP 5, and log `insufficient-credits` with the balance. A partially-rendered visual returns fewer than 6 `imageUrls`, and posting that array ships a broken carousel — the 1-slide failure that reached production on 2026-07-20. Only begin a row when at least 84 credits remain, and re-check the balance between rows as it drains.
+**Hard floor — never start a visual you cannot finish.** If remaining credits < 35, generate NOTHING: skip STEP 3 and STEP 4 entirely, go straight to STEP 5, and log `insufficient-credits` with the balance. A partially-rendered visual returns fewer than 5 `imageUrls`, and posting that array ships a broken carousel — the 1-slide failure that reached production on 2026-07-20. Only begin a row when at least 35 credits remain, and re-check the balance between rows as it drains.
 
 **STEP 3 — Assign recipes**
-For each slot in [Breakfast, Lunch, Dinner]:
-   - Check past-slot skip guard first. If skip, log the reason and move on.
-   - Determine participating accounts:
-     - Breakfast: only cadence == "3x"
-     - Lunch: ALL accounts
-     - Dinner: ALL accounts
-   - Sort recipes in that category by (last_posted asc, name asc). Take first N (N = participating accounts).
-   - For each account in alphabetical order (account_index 0..N-1):
-       `recipe = pool[(account_index + today_day_of_year) % N]`
+There is ONE slot (18:00 ET) and ALL 10 accounts participate.
+
+- Check the past-slot skip guard first. If 18:00 ET is more than 4h past, skip the day entirely: generate nothing, schedule nothing, advance no `last_posted`.
+- **Draw from ALL categories.** Sort the ENTIRE recipe set — breakfast, lunch, dinner and snack together — by (last_posted asc, name asc). This is the full 110-recipe rotation, not dinner-only. The voice templates work for any category, and a wider pool means each recipe resurfaces far less often.
+- Take the first 10 (N = 10 accounts).
+- For each account in alphabetical order (account_index 0..9):
+    `recipe = pool[(account_index + today_day_of_year) % N]`
 
 **STEP 4 — Process each row**
-Order: Breakfast (alpha, 3x-only), Lunch (alpha, all), Dinner (alpha, all). account_index restarts at 0 for each slot.
+Order: alphabetical by handle, account_index 0..9, all in the single 18:00 ET slot.
 
 For each row:
 
-4a) Cook time: Breakfast 8 min, Lunch 10 min, Dinner 12 min.
+4a) Cook time: use the recipe's own category to pick a sensible figure — breakfast 8 min, lunch 10 min, dinner 12 min, snack 5 min. This feeds {TIME} in the hook template.
 
 4b) Build VARIANT_HOOK from account's `hook_template` (substitute {PROTEIN}, {CAL}, {TIME}).
 
 4c) Compute scheduledTime:
-    - Base time (America/New_York today at 08:00 / 12:00 / 18:00) + (account_index × 3 min)
+    - Base time (America/New_York today at 18:00) + (account_index × 3 min)
     - If past current time (but within 4 hours), bump to next round hour ≥30 min from now keeping stagger.
 
 4d) Generate the visual via `blotato_create_visual`:
@@ -86,21 +87,23 @@ For each row:
     - render: true
     - inputs.aspectRatio: "9:16"
     - inputs.slideDuration: 5
-    - inputs.slides: 6 slides, each with `image` (20-400 chars) and `text` (30-200 chars). Food-forward images (food fills the frame — no generic hands-in-kitchen).
+    - inputs.slides: **5 slides** (verified 2026-08-11 — the template accepts 5 and returns exactly 5 `imageUrls`, billing 35 credits). Each slide has `image` (20-400 chars) and `text` (30-200 chars). Food-forward images (food fills the frame — no generic hands-in-kitchen).
 
+    **LOCKED 5-SLIDE LAYOUT (changed 2026-08-11 from 6):**
     - Slide 1 (TITLE + HOOK): image = "Hero close-up of the finished {recipe}, {visual_style_prompt}, vertical 9:16, glistening and beautifully plated" / text = "{RECIPE UPPERCASE} — {VARIANT_HOOK}"
     - Slide 2 (INGREDIENTS): image = "Overhead flat-lay of raw ingredients for {recipe} on a dark wooden board, {visual_style_prompt}, vertical 9:16" / text = "Ingredients: {5-7 items with quantities}"
-    - Slide 3 (STEP 1): image = "Tight close-up of {first prep step for {recipe}}, food fills the frame, {visual_style_prompt}, vertical 9:16" / text = "STEP 1 — {action}"
-    - Slide 4 (STEP 2): image = "Tight close-up of {second prep step}, food fills the frame, {visual_style_prompt}, vertical 9:16" / text = "STEP 2 — {action}"
-    - Slide 5 (STEP 3): image = "Tight close-up of {finishing step}, food is the subject, {visual_style_prompt}, vertical 9:16" / text = "STEP 3 — {action}"
-    - Slide 6 (FINISHED + MACROS — mode-driven):
+    - Slide 3 (STEPS 1-2 — combined): image = "Tight close-up of {first prep step for {recipe}}, food fills the frame, {visual_style_prompt}, vertical 9:16" / text = "STEPS 1-2 — {action one, then action two}"
+    - Slide 4 (FINAL STEPS): image = "Tight close-up of {finishing step}, food is the subject, {visual_style_prompt}, vertical 9:16" / text = "STEP 3 — {finishing action}"
+    - Slide 5 (FINISHED + MACROS — mode-driven, carries the CTA):
         - image: "Final beautifully plated {recipe} as the full background, {visual_style_prompt}, restaurant quality, vertical 9:16"
         - text if mode == "warmup": "{Cal} CAL · {Protein}G PROTEIN — Real food, real macros. High Protein House." (≥30 chars, no CTA)
         - text if mode == "launch": "{Cal} CAL · {Protein}G PROTEIN — Want more? Full Cookbook in Bio ⬇️" (≥30 chars, CTA on)
 
+    The old 6-slide layout split prep across three slides (STEP 1 / STEP 2 / STEP 3). Slides 3 and 4 of that layout are now merged into slide 3. Do not emit 6 slides.
+
 4e) Poll `blotato_get_visual_status` with parameter `id` (NOT `visualId`) every 30 sec, up to 12 attempts (6 min). On timeout or `insufficient-credits`, log the row + skip. If >3 consecutive credit errors, log critical + stop the run.
 
-4f) media URL: `post_mediaUrls = imageUrls` (FULL 6-URL array — never just imageUrls[0]).
+4f) media URL: `post_mediaUrls = imageUrls` (FULL 5-URL array — never just imageUrls[0]).
 
 4g) Build caption (mode-driven):
     - warmup:
@@ -127,7 +130,7 @@ For each row:
 4h) Schedule via `blotato_create_post`:
     - accountId, platform="tiktok"
     - text = caption
-    - mediaUrls = full 6-URL array
+    - mediaUrls = full 5-URL array
     - scheduledTime = ISO 8601 with America/New_York offset
     - privacyLevel = "PUBLIC_TO_EVERYONE"
     - disabledComments = false, disabledDuet = false, disabledStitch = false
@@ -169,26 +172,25 @@ The summary line you just wrote must appear. If it does not, the push did not la
 - Read from `state/` (repo-root-relative), NOT from any Mac path.
 - Past-slot skip guard is active — no clustering.
 - Per-account mode drives slide 6 + caption CTA.
-- Prominent Text template, `image`+`text` schema, 6 slides.
+- Prominent Text template, `image`+`text` schema, 5 slides.
 - mediaUrls = FULL array for carousels.
 - `isAiGenerated=true` always.
 - Schedule (never publish immediately).
 - `get_visual_status` parameter is `id`.
 - Commit state changes to git at end of every run.
 
-**CREDIT BUDGET (measured 2026-08-07 — supersedes the 2026-07-27 estimate):** User on Blotato Creator plan monthly, ~5,000 credits/mo cap.
+**CREDIT BUDGET (measured 2026-08-11 — supersedes all earlier estimates):** Blotato Creator plan, ~5,000 credits/mo cap.
 
-A 6-slide visual costs **84 credits**, verified by direct measurement (7,005 → 6,921 for one render). The earlier "6 credits per visual / 168 per day" figure was an unvalidated assumption and was wrong by 14×.
+Billing is **per slide**, not per post. Measured 7.0 credits/slide (3,498 → 3,463 for a 5-slide render on 2026-08-11), consistent with 6.8 and 6.9 measured across two 28-post days.
 
-At the current 28-post cadence (8×3 + 2×2):
+| | credits |
+|---|---|
+| One slide | ~7 |
+| One 5-slide post | ~35 |
+| Full day, 10 posts | ~350 |
+| 30-day cycle | ~10,500 |
 
-| | credits | notes |
-|---|---|---|
-| One visual (6 slides) | 84 | 14 per slide |
-| Full day, 28 posts | 2,352 | |
-| Monthly cap | ~5,000 | **≈2.1 days of full-cadence running** |
-
-**The specced cadence is not affordable on this plan.** At $6 per 1,000 credits a full day costs ~$14, or ~$420/mo against a plan granting ~$30/mo of credits. Expect `insufficient-credits` to truncate most runs until either the cadence is reduced or the plan is changed. This is the likeliest explanation for Breakfast silently disappearing after June.
+That is ~2× the ~5,000/mo cap, so expect a recurring top-up of roughly 5,500 credits (~$33) per cycle. The earlier "6 credits per post / 168 per day" figure confused the daily SLIDE count (28 × 6 = 168) with the credit cost; the old 6-slide, 28-post day actually cost ~1,176/day (~35,000/month, 7× over cap), which is why runs silently truncated and Breakfast vanished in June.
 
 If `insufficient-credits` hits, log the affected slot and continue; do NOT retry.
 
