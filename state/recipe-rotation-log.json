@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-09T11:00:00+00:00",
+  "last_updated": "2026-08-11T17:40:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -84,13 +84,13 @@
       "category": "breakfast",
       "calories": 380,
       "protein_g": 28,
-      "last_posted": "2026-06-27"
+      "last_posted": "2026-08-11"
     },
     "High-Protein Waffles": {
       "category": "breakfast",
       "calories": 420,
       "protein_g": 32,
-      "last_posted": "2026-06-27"
+      "last_posted": "2026-08-11"
     },
     "Savory Oatmeal with Egg + Avocado": {
       "category": "breakfast",
@@ -300,7 +300,7 @@
       "category": "lunch",
       "calories": 440,
       "protein_g": 38,
-      "last_posted": "2026-07-22"
+      "last_posted": "2026-08-11"
     },
     "Beef Banh Mi Bowl": {
       "category": "lunch",
@@ -312,7 +312,7 @@
       "category": "lunch",
       "calories": 380,
       "protein_g": 30,
-      "last_posted": "2026-07-22"
+      "last_posted": "2026-08-11"
     },
     "Pesto Chicken Pasta Salad": {
       "category": "lunch",
@@ -324,7 +324,7 @@
       "category": "lunch",
       "calories": 360,
       "protein_g": 28,
-      "last_posted": "2026-07-22"
+      "last_posted": "2026-08-11"
     },
     "Korean Tuna Rice Bowl": {
       "category": "lunch",
@@ -378,7 +378,7 @@
       "category": "dinner",
       "calories": 450,
       "protein_g": 40,
-      "last_posted": "2026-07-27"
+      "last_posted": "2026-08-11"
     },
     "Pesto Chicken Pasta": {
       "category": "dinner",
@@ -390,7 +390,7 @@
       "category": "dinner",
       "calories": 510,
       "protein_g": 42,
-      "last_posted": "2026-07-27"
+      "last_posted": "2026-08-11"
     },
     "Sheet Pan Chicken Fajitas": {
       "category": "dinner",
@@ -420,7 +420,7 @@
       "category": "dinner",
       "calories": 560,
       "protein_g": 38,
-      "last_posted": "2026-07-27"
+      "last_posted": "2026-08-11"
     },
     "Mediterranean Cod with Quinoa": {
       "category": "dinner",
@@ -606,7 +606,7 @@
       "category": "snack",
       "calories": 240,
       "protein_g": 22,
-      "last_posted": "2026-06-21"
+      "last_posted": "2026-08-11"
     },
     "Chicken + Cheese Roll-Ups": {
       "category": "snack",
@@ -654,7 +654,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 16,
-      "last_posted": "2026-06-21"
+      "last_posted": "2026-08-11"
     },
     "Cottage Cheese + Pineapple Bowl": {
       "category": "snack",
