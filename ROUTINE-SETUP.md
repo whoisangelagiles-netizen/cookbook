@@ -30,13 +30,39 @@ Likely cause: the UI creation flow writes a permission/approval grant that
 only `name`, `cron_expression`, `enabled`, `model`, `prompt` and `run_once_at`.
 There is no permission field to set, which is why editing could never fix it.
 
-Caveat: one success against five failures, and the Permissions tab was also
-changed during manual creation, so "UI creation" and "correct grant" are not
-fully separated. Treat the rule as strong, not proven.
+### Confirmed 2026-08-12: this is a platform boundary, not a settings mistake
 
-**Corollary: treat a working Routine as read-only infrastructure.** Do not edit
-it through the API to save a copy-paste. The downside (losing the only working
-configuration, with no undo) dwarfs the upside.
+Attempting `update_trigger` on the UI-created Routine returns:
+
+```
+update_trigger: this routine was created via "http_api", not by an agent.
+Agents can only update routines they created (via create_trigger).
+A routine's own session may still disable itself (enabled=false only).
+```
+
+So the two classes are visibly distinct in the stored config:
+
+| | User-created (works) | Agent-created (prompts) |
+|---|---|---|
+| `created_via` | `http_api` | `meta_mcp` |
+| `allowed_tools` | 8 explicit tools, no `preset:default` | `preset:default` + 18 entries |
+| Agent can edit it | **no — refused** | yes |
+
+**An agent cannot edit a user-created Routine at all.** The only mutation
+permitted is a Routine disabling *itself* (`enabled=false`). This is enforced,
+not incidental.
+
+That explains the whole failure history. The five days of attempted fixes were
+never going to work — not because the settings were wrong, but because an
+agent-created Routine appears unable to hold the unattended-connector grant that
+a user-created one gets. Same boundary, seen from the other side.
+
+**Practical consequences:**
+- Create Routines yourself. An agent cannot create a working one.
+- An agent cannot break your Routine by editing it — the API refuses. Testing
+  this is safe.
+- All agent-side changes must go through the spec file in the repo (§2). That is
+  not a stylistic preference; it is the only channel available.
 
 ## 2. Put the real spec in the repo, not in the Routine prompt.
 
