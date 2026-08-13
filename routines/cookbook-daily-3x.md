@@ -193,25 +193,3 @@ Billing is **per slide**, not per post. Measured 7.0 credits/slide (3,498 → 3,
 That is ~2× the ~5,000/mo cap, so expect a recurring top-up of roughly 5,500 credits (~$33) per cycle. The earlier "6 credits per post / 168 per day" figure confused the daily SLIDE count (28 × 6 = 168) with the credit cost; the old 6-slide, 28-post day actually cost ~1,176/day (~35,000/month, 7× over cap), which is why runs silently truncated and Breakfast vanished in June.
 
 If `insufficient-credits` hits, log the affected slot and continue; do NOT retry.
-
-## Step: log scheduled posts to the operations tracker
-
-After all Blotato scheduling for this run is complete, write every
-successfully scheduled post to `postlog_rows.json` in the repo root as a JSON
-array of 5-element rows: [date "YYYY-MM-DD", recipe name, slot
-(Breakfast/Lunch/Dinner), account handle with @, scheduled time "HH:MM" ET].
-Only include posts that were actually scheduled; skipped slots and
-insufficient-credits failures are excluded.
-
-Then run:
-
-    pip install gspread google-auth --quiet
-    python scripts/append_postlog.py postlog_rows.json
-
-If the script exits non-zero, append a line to state/automation-log.md:
-    [timestamp] SHEETS-ERROR: <the script's error output>
-and continue the run normally. A Sheets failure must never block posting or
-the state commit. Do not retry the script within the same run.
-
-Delete postlog_rows.json before the git commit step (it is a temp file, not
-state).
