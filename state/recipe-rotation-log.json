@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-14T08:30:00+00:00",
+  "last_updated": "2026-08-15T08:30:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -12,7 +12,7 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 25,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-15"
     },
     "Berry Almond Chia Parfait": {
       "category": "breakfast",
@@ -108,7 +108,7 @@
       "category": "breakfast",
       "calories": 410,
       "protein_g": 30,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-15"
     },
     "Breakfast Quesadilla": {
       "category": "breakfast",
@@ -120,7 +120,7 @@
       "category": "breakfast",
       "calories": 450,
       "protein_g": 32,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-15"
     },
     "Turkey Sausage + Sweet Potato Hash": {
       "category": "breakfast",
@@ -306,7 +306,7 @@
       "category": "lunch",
       "calories": 530,
       "protein_g": 40,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-15"
     },
     "Chickpea + Tuna Lemon Salad": {
       "category": "lunch",
@@ -474,7 +474,7 @@
       "category": "dinner",
       "calories": 620,
       "protein_g": 45,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-15"
     },
     "Buffalo Chicken Casserole": {
       "category": "dinner",
@@ -486,7 +486,7 @@
       "category": "dinner",
       "calories": 480,
       "protein_g": 42,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-15"
     },
     "Lemon Pepper Chicken with Asparagus": {
       "category": "dinner",
@@ -498,7 +498,7 @@
       "category": "dinner",
       "calories": 540,
       "protein_g": 42,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-15"
     },
     "Mongolian Beef Bowl": {
       "category": "dinner",
@@ -540,7 +540,7 @@
       "category": "snack",
       "calories": 220,
       "protein_g": 22,
-      "last_posted": "2026-06-27"
+      "last_posted": "2026-08-15"
     },
     "Hard-Boiled Eggs + Hummus": {
       "category": "snack",
@@ -552,7 +552,7 @@
       "category": "snack",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-06-27"
+      "last_posted": "2026-08-15"
     },
     "Greek Yogurt Layered Parfait": {
       "category": "snack",
@@ -564,7 +564,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 18,
-      "last_posted": "2026-06-27"
+      "last_posted": "2026-08-15"
     },
     "PB Banana Protein Wrap": {
       "category": "snack",
