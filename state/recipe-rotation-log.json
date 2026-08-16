@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-15T08:30:00+00:00",
+  "last_updated": "2026-08-16T08:20:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -18,7 +18,7 @@
       "category": "breakfast",
       "calories": 350,
       "protein_g": 20,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-16"
     },
     "Cinnamon Apple Protein Oats": {
       "category": "breakfast",
@@ -42,7 +42,7 @@
       "category": "breakfast",
       "calories": 460,
       "protein_g": 35,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-16"
     },
     "Cottage Cheese Power Bowl": {
       "category": "breakfast",
@@ -66,7 +66,7 @@
       "category": "breakfast",
       "calories": 440,
       "protein_g": 30,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-16"
     },
     "Protein Yogurt Bark": {
       "category": "breakfast",
@@ -270,7 +270,7 @@
       "category": "lunch",
       "calories": 410,
       "protein_g": 35,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-16"
     },
     "Spicy Shrimp Burrito Bowl": {
       "category": "lunch",
@@ -348,7 +348,7 @@
       "category": "dinner",
       "calories": 610,
       "protein_g": 45,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-16"
     },
     "Lemon Herb Chicken Plate": {
       "category": "dinner",
@@ -462,7 +462,7 @@
       "category": "dinner",
       "calories": 530,
       "protein_g": 42,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-16"
     },
     "Shrimp Scampi over Zoodles": {
       "category": "dinner",
@@ -480,7 +480,7 @@
       "category": "dinner",
       "calories": 510,
       "protein_g": 45,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-16"
     },
     "Beef Stir Fry with Cauliflower Rice": {
       "category": "dinner",
@@ -522,7 +522,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 12,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-16"
     },
     "Protein Energy Bites": {
       "category": "snack",
@@ -600,7 +600,7 @@
       "category": "snack",
       "calories": 200,
       "protein_g": 18,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-16"
     },
     "Pumpkin Spice Greek Yogurt": {
       "category": "snack",
@@ -660,7 +660,7 @@
       "category": "snack",
       "calories": 240,
       "protein_g": 24,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-16"
     }
   }
 }
