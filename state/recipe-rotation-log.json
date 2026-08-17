@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-16T08:20:00+00:00",
+  "last_updated": "2026-08-17T08:30:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -24,7 +24,7 @@
       "category": "breakfast",
       "calories": 410,
       "protein_g": 28,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-17"
     },
     "Power Avocado Toast + Egg": {
       "category": "breakfast",
@@ -48,7 +48,7 @@
       "category": "breakfast",
       "calories": 310,
       "protein_g": 30,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-17"
     },
     "Smoked Salmon Whole-Grain Bagel": {
       "category": "breakfast",
@@ -78,7 +78,7 @@
       "category": "breakfast",
       "calories": 90,
       "protein_g": 9,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-17"
     },
     "Greek Yogurt Smoothie Bowl": {
       "category": "breakfast",
@@ -288,7 +288,7 @@
       "category": "lunch",
       "calories": 430,
       "protein_g": 35,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-17"
     },
     "Turkey Avocado Club Wrap": {
       "category": "lunch",
@@ -330,13 +330,13 @@
       "category": "lunch",
       "calories": 450,
       "protein_g": 36,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-17"
     },
     "Ham + Swiss Egg Roll-Ups": {
       "category": "lunch",
       "calories": 380,
       "protein_g": 32,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-17"
     },
     "Southwest Chicken Bowl": {
       "category": "lunch",
@@ -432,7 +432,7 @@
       "category": "dinner",
       "calories": 580,
       "protein_g": 40,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-17"
     },
     "Bacon Wrapped Chicken with Broccoli": {
       "category": "dinner",
@@ -546,7 +546,7 @@
       "category": "snack",
       "calories": 240,
       "protein_g": 16,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-17"
     },
     "Vanilla Berry Protein Smoothie": {
       "category": "snack",
@@ -558,7 +558,7 @@
       "category": "snack",
       "calories": 280,
       "protein_g": 22,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-17"
     },
     "Tuna Cucumber Bites": {
       "category": "snack",
@@ -594,7 +594,7 @@
       "category": "snack",
       "calories": 110,
       "protein_g": 8,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-17"
     },
     "Edamame + Sea Salt": {
       "category": "snack",
