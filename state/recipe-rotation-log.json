@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-17T08:30:00+00:00",
+  "last_updated": "2026-08-18T08:15:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -36,7 +36,7 @@
       "category": "breakfast",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-18"
     },
     "Chocolate Protein Overnight Oats": {
       "category": "breakfast",
@@ -60,7 +60,7 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-18"
     },
     "Banana Protein French Toast": {
       "category": "breakfast",
@@ -234,13 +234,13 @@
       "category": "lunch",
       "calories": 410,
       "protein_g": 22,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-18"
     },
     "Salmon Poke Bowl": {
       "category": "lunch",
       "calories": 540,
       "protein_g": 36,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-18"
     },
     "BBQ Chicken Stuffed Sweet Potato": {
       "category": "lunch",
@@ -318,7 +318,7 @@
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-18"
     },
     "Egg Salad Lettuce Wraps": {
       "category": "lunch",
@@ -408,7 +408,7 @@
       "category": "dinner",
       "calories": 530,
       "protein_g": 44,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-18"
     },
     "Korean BBQ Ground Beef Bowl": {
       "category": "dinner",
@@ -444,7 +444,7 @@
       "category": "dinner",
       "calories": 560,
       "protein_g": 42,
-      "last_posted": "2026-08-08"
+      "last_posted": "2026-08-18"
     },
     "Stuffed Bell Peppers": {
       "category": "dinner",
@@ -528,7 +528,7 @@
       "category": "snack",
       "calories": 220,
       "protein_g": 14,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-18"
     },
     "Chocolate Banana Protein Shake": {
       "category": "snack",
@@ -570,7 +570,7 @@
       "category": "snack",
       "calories": 380,
       "protein_g": 24,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-18"
     },
     "Beef Jerky + Cheese Stick Plate": {
       "category": "snack",
@@ -648,7 +648,7 @@
       "category": "snack",
       "calories": 320,
       "protein_g": 22,
-      "last_posted": "2026-06-28"
+      "last_posted": "2026-08-18"
     },
     "Smoked Salmon Cucumber Bites": {
       "category": "snack",
