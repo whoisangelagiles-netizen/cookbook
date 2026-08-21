@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-19T08:20:00+00:00",
+  "last_updated": "2026-08-21T08:16:50+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -372,7 +372,7 @@
       "category": "dinner",
       "calories": 530,
       "protein_g": 42,
-      "last_posted": "2026-08-09"
+      "last_posted": "2026-08-21"
     },
     "Cashew Chicken Stir Fry": {
       "category": "dinner",
@@ -456,7 +456,7 @@
       "category": "dinner",
       "calories": 590,
       "protein_g": 42,
-      "last_posted": "2026-08-09"
+      "last_posted": "2026-08-21"
     },
     "Chicken Tikka Masala (Lightened)": {
       "category": "dinner",
