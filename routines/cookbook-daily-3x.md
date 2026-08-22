@@ -72,12 +72,29 @@ there is time to act before a day is actually lost.
 
 Post at most ONE message per run. If both conditions hold, post the A version.
 
-Before posting, generate a checkout link:
-- `shortfall_30d = 10500 - balance` (10,500 = 30 days at ~350/day)
-- `quantity = clamp(round_up_to_1000(shortfall_30d), 1000, 10000)`
-- Call `blotato_buy_credits` with that quantity. It returns a `checkoutUrl` and
-  **charges nothing** — it is a Stripe Checkout link the account owner must open
-  and complete. Safe to generate unprompted.
+Before posting, size the top-up **around the monthly refresh** — do not buy
+credits the plan is about to grant for free.
+
+**Monthly refresh:** the Creator plan grants ~5,000 credits on about the **7th
+of each month** (observed 2026-08-07: balance jumped 2,005 -> 7,005, exactly
++5,000). Blotato's API does not expose a renewal date — `blotato_get_user`
+returns only plan and status — so this is inferred from one observation. If a
+refresh lands on a different day, correct this line.
+
+Sizing:
+- `days_to_refresh` = days from today to the next 7th
+- `need = days_to_refresh x daily_burn` (daily_burn = participating_accounts x 35)
+- `quantity = clamp(round_up_to_1000(need - balance), 1000, 10000)`
+- If `balance >= need`, the balance already reaches the refresh: do NOT generate
+  a checkout link and do NOT post case B. Only case A still applies.
+
+This matters. On 2026-08-22 the naive "restore 30 days" rule recommended 10,000
+credits when only ~6,000 were needed to reach the Sept 7 refresh — about $24 of
+credits that would have sat idle.
+
+Then call `blotato_buy_credits` with that quantity. It returns a `checkoutUrl`
+and **charges nothing** — a Stripe Checkout link the account owner must open and
+complete. Safe to generate unprompted.
 - The Blotato account is `whoisangelagiles@gmail.com`. Credits are
   non-transferable between accounts, so state the email in the message.
 
@@ -88,10 +105,12 @@ Message format:
 
 Balance: *{balance}* credits
 Today's run needs: *{needed}* ({n} posts x 35)
-Runway: *{floor(balance/350)} day(s)* at current cadence
+Runway: *{floor(balance/daily_burn)} day(s)* at current cadence
+Next refresh: *{refresh_date}* (~5,000 credits, in {days_to_refresh} days)
+Needed to reach refresh: *{need}*
 {if A}: *Today's run cannot complete in full.* {scheduled}/{n} posts went out.
 
-Recommended top-up: *{quantity}* credits (~${quantity * 0.006})
+Recommended top-up: *{quantity}* credits (~${quantity * 0.006}) — sized to reach the refresh, not beyond it
 Checkout: {checkoutUrl}
 
 Account: whoisangelagiles@gmail.com (credits are non-transferable)
@@ -101,6 +120,12 @@ Link charges nothing until completed.
 If Slack is unavailable or the call fails, log `SLACK-ERROR: <reason>` to
 `state/automation-log.md` and continue. **A Slack failure must never block
 posting or the state commit** — same rule the Sheets step had.
+
+**Structural note to include when runway is short:** at 10 posts/day the
+cadence costs ~10,500 credits per 30 days against a ~5,000/month grant — a
+standing gap of ~5,500 credits (~$33) every cycle. Top-ups are not a one-off
+fix; they are a recurring line item until the cadence, slide count or plan
+changes. Say so plainly rather than implying a single purchase resolves it.
 
 Requires the Slack connector on the Routine. If `slack_send_message` is not
 available, log `SLACK-UNAVAILABLE` once and carry on.
