@@ -4,7 +4,7 @@
 
 **Schedule:** Daily at 4 AM America/New_York (recommended). No end date.
 
-**Connectors required:** Blotato only.
+**Connectors required:** Blotato + Slack (Slack is used only for the low-credit alert in STEP 2.6; a Slack failure never blocks posting).
 
 **Repo:** `whoisangelagiles-netizen/cookbook`
 
@@ -58,6 +58,52 @@ Skip @angelagiles29/41416 if present in the account list.
 Call `blotato_get_credits`. **Billing is PER SLIDE: ~7 credits/slide. A 5-slide post costs ~35 credits.** Verified three times: 6.8, 6.9 and 7.0 credits/slide. A full 10-post day at 5 slides needs ~350 credits. If the remaining balance is below what the planned run needs, log the shortfall prominently, process as many rows as credits allow, and note the truncation in the summary line. Do NOT abort before doing any work — a partial run beats none. Surface the remaining balance in the STEP 5 summary so top-ups can be timed before hitting zero.
 
 **Hard floor — never start a visual you cannot finish.** If remaining credits < 35, generate NOTHING: skip STEP 3 and STEP 4 entirely, go straight to STEP 5, and log `insufficient-credits` with the balance. A partially-rendered visual returns fewer than 5 `imageUrls`, and posting that array ships a broken carousel — the 1-slide failure that reached production on 2026-07-20. Only begin a row when at least 35 credits remain, and re-check the balance between rows as it drains.
+
+**STEP 2.6 — Credit alert to Slack (#tech)**
+
+Compute `needed = participating_accounts x 35` (a full day is ~350).
+
+Post to Slack channel `#tech` (ID `C0ARUTE3PPC`) via `slack_send_message` in
+either of these cases, and in no others — do not post on a healthy run:
+
+**A. Cannot complete today (`balance < needed`)** — this is the "ran out" case.
+**B. Fewer than 3 days of runway (`balance < needed x 3`)** — early warning, so
+there is time to act before a day is actually lost.
+
+Post at most ONE message per run. If both conditions hold, post the A version.
+
+Before posting, generate a checkout link:
+- `shortfall_30d = 10500 - balance` (10,500 = 30 days at ~350/day)
+- `quantity = clamp(round_up_to_1000(shortfall_30d), 1000, 10000)`
+- Call `blotato_buy_credits` with that quantity. It returns a `checkoutUrl` and
+  **charges nothing** — it is a Stripe Checkout link the account owner must open
+  and complete. Safe to generate unprompted.
+- The Blotato account is `whoisangelagiles@gmail.com`. Credits are
+  non-transferable between accounts, so state the email in the message.
+
+Message format:
+
+```
+:warning: *High Protein House — Blotato credits low*
+
+Balance: *{balance}* credits
+Today's run needs: *{needed}* ({n} posts x 35)
+Runway: *{floor(balance/350)} day(s)* at current cadence
+{if A}: *Today's run cannot complete in full.* {scheduled}/{n} posts went out.
+
+Recommended top-up: *{quantity}* credits (~${quantity * 0.006})
+Checkout: {checkoutUrl}
+
+Account: whoisangelagiles@gmail.com (credits are non-transferable)
+Link charges nothing until completed.
+```
+
+If Slack is unavailable or the call fails, log `SLACK-ERROR: <reason>` to
+`state/automation-log.md` and continue. **A Slack failure must never block
+posting or the state commit** — same rule the Sheets step had.
+
+Requires the Slack connector on the Routine. If `slack_send_message` is not
+available, log `SLACK-UNAVAILABLE` once and carry on.
 
 **STEP 3 — Assign recipes**
 There is ONE slot (18:00 ET) and ALL 10 accounts participate.
