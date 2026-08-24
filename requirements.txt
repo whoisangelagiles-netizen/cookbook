@@ -1,0 +1,15 @@
+# Dependencies for scripts/append_stats.py (daily TikTok stats -> Ops Tracker).
+#
+# Install with:
+#     pip install -r requirements.txt
+#
+# NOTE on cryptography: google-auth imports cryptography, and some images ship
+# a Debian-packaged cryptography (/usr/lib/python3/dist-packages) whose Rust
+# bindings raise pyo3_runtime.PanicException on import. That is what broke the
+# earlier Sheets integration on 2026-08-12. If you hit it, run:
+#     pip install --upgrade --force-reinstall cryptography
+# The uninstall step may error ("RECORD file not found ... installed by
+# debian") — that is fine; the pulled dependencies resolve the import.
+
+gspread>=6.0
+google-auth>=2.20

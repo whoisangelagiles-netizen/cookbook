@@ -12,6 +12,7 @@
 - `state/recipe-rotation-log.json` (read + write)
 - `state/account-voices.json` (read only)
 - `state/automation-log.md` (append only)
+- Google Sheets: HPH Operations Tracker `GrowthDaily` + `PostLog` tabs, written by `scripts/append_stats.py` in STEP 6 (best-effort)
 
 ---
 
@@ -238,6 +239,31 @@ git show origin/main:state/automation-log.md | tail -2
 The summary line you just wrote must appear. If it does not, the push did not land — say so plainly.
 
 (If push fails, retry once. If it still fails, log the git error prominently in the summary line — the run's Blotato-side work is done, but the state didn't persist and tomorrow's rotation will be off.)
+
+**STEP 6 — Collect TikTok stats (best-effort, runs last)**
+
+After posting and the state commit are complete, run:
+
+```
+python3 scripts/append_stats.py
+```
+
+It scrapes TikTok's public embed endpoints for follower counts, total likes and
+per-post engagement across the 10 accounts, then writes them into the HPH
+Operations Tracker — one row per account per day in `GrowthDaily`, and an upsert
+keyed on TikTok Post ID in `PostLog`. It skips @angelagiles29, dedupes on
+(Date, Account), and freezes a post's "Views (24h)" once a genuine 24-hour
+number has been captured.
+
+**This step is best-effort and its outcome does not affect the run.** The script
+wraps collection, auth and each tab's write separately, logs failures to
+`state/automation-log.md` with a `STATS:` prefix, and always exits 0. A stats
+failure must never change what was posted, whether state was committed, or how
+the run is reported. Do not retry it and do not treat a STATS error as a run
+failure.
+
+Requires `gspread` and `google-auth` (see `requirements.txt`) and the service
+account credentials. If they are unavailable, the script logs and exits cleanly.
 
 **ABSOLUTE RULES:**
 - Read from `state/` (repo-root-relative), NOT from any Mac path.
