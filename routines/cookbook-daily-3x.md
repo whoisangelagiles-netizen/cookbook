@@ -245,8 +245,20 @@ The summary line you just wrote must appear. If it does not, the push did not la
 After posting and the state commit are complete, run:
 
 ```
+pip install --quiet -r requirements.txt 2>&1 | tail -2 || true
+python3 -c "import gspread, google.oauth2.service_account" 2>/dev/null \
+  || pip install --quiet --upgrade --force-reinstall cryptography 2>&1 | tail -2 || true
 python3 scripts/append_stats.py
 ```
+
+**The install lines are required, not optional.** Each scheduled run starts in a
+fresh container: `gspread` and `google-auth` are not preinstalled. Some images
+also ship a Debian-packaged `cryptography` whose Rust bindings raise
+`pyo3_runtime.PanicException` when `google-auth` imports them — the second line
+detects that and repairs it. Its uninstall step may print an error
+("RECORD file not found ... installed by debian"); that is expected and
+harmless. Without these lines the script logs a STATS failure and collects
+nothing.
 
 It scrapes TikTok's public embed endpoints for follower counts, total likes and
 per-post engagement across the 10 accounts, then writes them into the HPH
