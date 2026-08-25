@@ -34,3 +34,24 @@ Append-only log of daily runs. Migrated from Cowork on 2026-07-27.
 - [2026-08-24T17:53:28Z] STATS: GrowthDaily: today's snapshot already present, appended 0 rows
 - [2026-08-24T17:53:28Z] STATS: PostLog: 0 updated, 0 appended, 100 frozen (skipped)
 - [2026-08-25T08:20:00Z] DAILY-1X (Phase 1, scheduled run): 10/10 accounts, single 18:00 ET slot, 5-slide format, 10 posts scheduled 18:00-18:27 ET (category cap applied: 3 breakfast + 3 lunch + 3 dinner + 1 snack, drawn from the full 110-recipe pool sorted by last_posted asc, name asc — 18 recipes tied at 2026-08-09 across breakfast/lunch/dinner would have blown the cap without it; no snacks existed at that tier so the 10th slot came from the next tier, 2026-08-11, snack). 0 errors. Credit preflight: 5023 remaining (top-up from the 2026-08-24 checkout link landed overnight), well above the ~350 floor, so no Slack alert was sent per STEP 2.6 (balance covers both today's need and 3x runway). Recipes: Spicy Shrimp Burrito Bowl (@cleanfuel.kitchen), Thai Chicken Lettuce Cups (@coach.macro), Pumpkin Spice Greek Yogurt (@fuel.your.gains), Cinnamon Roll Protein Bowl (@gymfood.simple), Coconut Mango Chia Parfait (@macro.architect), Golden Protein Pancakes (@postworkout.plate), Honey Garlic Salmon Bowl (@prep.with.alex), Korean BBQ Ground Beef Bowl (@protein.lab.eats), Mongolian Beef Bowl (@the.lean.cook), Southwest Chicken Bowl (@under10.protein). All 10 schedules verified via blotato_list_posts (5 mediaUrls each, correct account, correct time) before this commit. COST NOTE: ~720 credits spent for 10 posts (5023 → 4303), ~72/post — consistent with the elevated per-post rate first observed 2026-08-21, roughly 2x the spec's documented ~35/post (~7 credits/slide); flagging again for review. Launch CTAs on: [@fuel.your.gains, @gymfood.simple, @prep.with.alex]. Credits remaining: 4303.
+- [2026-08-25T08:15:46Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@gymfoodsimple (<urlopen error Tunnel connection failed: 403 Forbidden>)
+- [2026-08-25T08:15:46Z] STATS: no state blob for profile @gymfoodsimple
+- [2026-08-25T08:15:47Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@fuel.your.gains (<urlopen error Tunnel connection failed: 403 Forbidden>)
+- [2026-08-25T08:15:47Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@macro.coaching (<urlopen error Tunnel connection failed: 403 Forbidden>)
+- [2026-08-25T08:15:47Z] STATS: no state blob for profile @fuel.your.gains
+- [2026-08-25T08:15:47Z] STATS: no state blob for profile @macro.coaching
+- [2026-08-25T08:15:47Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@getfuel.kitchen (<urlopen error Tunnel connection failed: 403 Forbidden>)
+- [2026-08-25T08:15:47Z] STATS: no state blob for profile @getfuel.kitchen
+- [2026-08-25T08:15:50Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@postworkout.plate (<urlopen error Tunnel connection failed: 403 Forbidden>)
+- [2026-08-25T08:15:50Z] STATS: no state blob for profile @postworkout.plate
+- [2026-08-25T08:15:50Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@macro.architect (<urlopen error Tunnel connection failed: 403 Forbidden>)
+- [2026-08-25T08:15:50Z] STATS: no state blob for profile @macro.architect
+- [2026-08-25T08:15:50Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@proteinlabseat (<urlopen error Tunnel connection failed: 403 Forbidden>)
+- [2026-08-25T08:15:50Z] STATS: no state blob for profile @proteinlabseat
+- [2026-08-25T08:15:50Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@prep.with.alex (<urlopen error Tunnel connection failed: 403 Forbidden>)
+- [2026-08-25T08:15:50Z] STATS: no state blob for profile @prep.with.alex
+- [2026-08-25T08:15:54Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@under10.protein (<urlopen error Tunnel connection failed: 403 Forbidden>)
+- [2026-08-25T08:15:54Z] STATS: no state blob for profile @under10.protein
+- [2026-08-25T08:15:54Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@theleancook5 (<urlopen error Tunnel connection failed: 403 Forbidden>)
+- [2026-08-25T08:15:54Z] STATS: no state blob for profile @theleancook5
+- [2026-08-25T08:15:54Z] STATS: collected nothing (0 profiles, 0 posts) — skipping all writes
