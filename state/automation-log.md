@@ -55,3 +55,5 @@ Append-only log of daily runs. Migrated from Cowork on 2026-07-27.
 - [2026-08-25T08:15:54Z] STATS: fetch failed after 3 tries: https://www.tiktok.com/embed/@theleancook5 (<urlopen error Tunnel connection failed: 403 Forbidden>)
 - [2026-08-25T08:15:54Z] STATS: no state blob for profile @theleancook5
 - [2026-08-25T08:15:54Z] STATS: collected nothing (0 profiles, 0 posts) — skipping all writes
+- [2026-08-25T08:22:49Z] STATS: GrowthDaily: today's snapshot already present, appended 0 rows
+- [2026-08-25T08:22:49Z] STATS: PostLog: 0 updated, 0 appended, 100 frozen (skipped)
