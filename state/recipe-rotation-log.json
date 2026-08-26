@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-25T08:20:00+00:00",
+  "last_updated": "2026-08-26T08:17:41+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -84,7 +84,7 @@
       "category": "breakfast",
       "calories": 380,
       "protein_g": 28,
-      "last_posted": "2026-08-11"
+      "last_posted": "2026-08-26"
     },
     "High-Protein Waffles": {
       "category": "breakfast",
@@ -126,7 +126,7 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 35,
-      "last_posted": "2026-08-09"
+      "last_posted": "2026-08-26"
     },
     "PB Banana Protein Pancakes": {
       "category": "breakfast",
@@ -174,7 +174,7 @@
       "category": "breakfast",
       "calories": 410,
       "protein_g": 32,
-      "last_posted": "2026-08-09"
+      "last_posted": "2026-08-26"
     },
     "Steel-Cut Oats with Almond + Berry": {
       "category": "breakfast",
@@ -204,19 +204,19 @@
       "category": "lunch",
       "calories": 460,
       "protein_g": 36,
-      "last_posted": "2026-08-09"
+      "last_posted": "2026-08-26"
     },
     "Turkey & Hummus Wrap": {
       "category": "lunch",
       "calories": 450,
       "protein_g": 35,
-      "last_posted": "2026-08-09"
+      "last_posted": "2026-08-26"
     },
     "Tuna Avocado Salad": {
       "category": "lunch",
       "calories": 380,
       "protein_g": 32,
-      "last_posted": "2026-08-09"
+      "last_posted": "2026-08-26"
     },
     "Buffalo Chicken Lettuce Wraps": {
       "category": "lunch",
@@ -396,7 +396,7 @@
       "category": "dinner",
       "calories": 470,
       "protein_g": 40,
-      "last_posted": "2026-08-09"
+      "last_posted": "2026-08-26"
     },
     "Garlic Shrimp + Lemon Rice": {
       "category": "dinner",
@@ -468,7 +468,7 @@
       "category": "dinner",
       "calories": 380,
       "protein_g": 38,
-      "last_posted": "2026-08-09"
+      "last_posted": "2026-08-26"
     },
     "BBQ Pork + Slaw": {
       "category": "dinner",
@@ -516,7 +516,7 @@
       "category": "dinner",
       "calories": 510,
       "protein_g": 42,
-      "last_posted": "2026-08-09"
+      "last_posted": "2026-08-26"
     },
     "Frozen Pineapple Yogurt Bites": {
       "category": "snack",
@@ -654,7 +654,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 16,
-      "last_posted": "2026-08-11"
+      "last_posted": "2026-08-26"
     },
     "Cottage Cheese + Pineapple Bowl": {
       "category": "snack",
