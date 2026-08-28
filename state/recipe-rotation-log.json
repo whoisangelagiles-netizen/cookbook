@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-27T08:20:00+00:00",
+  "last_updated": "2026-08-28T08:22:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -102,7 +102,7 @@
       "category": "breakfast",
       "calories": 420,
       "protein_g": 35,
-      "last_posted": "2026-08-12"
+      "last_posted": "2026-08-28"
     },
     "Tuna Avocado Toast": {
       "category": "breakfast",
@@ -192,13 +192,13 @@
       "category": "lunch",
       "calories": 440,
       "protein_g": 42,
-      "last_posted": "2026-08-12"
+      "last_posted": "2026-08-28"
     },
     "Honey Garlic Chicken Wrap": {
       "category": "lunch",
       "calories": 540,
       "protein_g": 40,
-      "last_posted": "2026-08-12"
+      "last_posted": "2026-08-28"
     },
     "Tropical Power Salad": {
       "category": "lunch",
@@ -324,7 +324,7 @@
       "category": "lunch",
       "calories": 360,
       "protein_g": 28,
-      "last_posted": "2026-08-11"
+      "last_posted": "2026-08-28"
     },
     "Korean Tuna Rice Bowl": {
       "category": "lunch",
@@ -354,13 +354,13 @@
       "category": "dinner",
       "calories": 490,
       "protein_g": 42,
-      "last_posted": "2026-08-13"
+      "last_posted": "2026-08-28"
     },
     "Chimichurri Steak Bites": {
       "category": "dinner",
       "calories": 560,
       "protein_g": 44,
-      "last_posted": "2026-08-12"
+      "last_posted": "2026-08-28"
     },
     "Honey Garlic Salmon Bowl": {
       "category": "dinner",
@@ -492,7 +492,7 @@
       "category": "dinner",
       "calories": 460,
       "protein_g": 42,
-      "last_posted": "2026-08-13"
+      "last_posted": "2026-08-28"
     },
     "Black Bean + Chicken Enchilada Bake": {
       "category": "dinner",
@@ -624,7 +624,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 10,
-      "last_posted": "2026-08-12"
+      "last_posted": "2026-08-28"
     },
     "Cinnamon Roll Protein Pudding": {
       "category": "snack",
@@ -636,7 +636,7 @@
       "category": "snack",
       "calories": 130,
       "protein_g": 20,
-      "last_posted": "2026-08-12"
+      "last_posted": "2026-08-28"
     },
     "Caprese Skewers": {
       "category": "snack",
