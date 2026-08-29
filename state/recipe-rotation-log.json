@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-28T08:22:00+00:00",
+  "last_updated": "2026-08-29T08:15:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -72,7 +72,7 @@
       "category": "breakfast",
       "calories": 180,
       "protein_g": 20,
-      "last_posted": "2026-08-13"
+      "last_posted": "2026-08-29"
     },
     "Egg Muffin Cups": {
       "category": "breakfast",
@@ -96,7 +96,7 @@
       "category": "breakfast",
       "calories": 460,
       "protein_g": 28,
-      "last_posted": "2026-08-13"
+      "last_posted": "2026-08-29"
     },
     "Protein Pancake Tacos": {
       "category": "breakfast",
@@ -162,7 +162,7 @@
       "category": "breakfast",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-08-13"
+      "last_posted": "2026-08-29"
     },
     "Coconut Mango Chia Parfait": {
       "category": "breakfast",
@@ -186,7 +186,7 @@
       "category": "lunch",
       "calories": 480,
       "protein_g": 38,
-      "last_posted": "2026-08-12"
+      "last_posted": "2026-08-29"
     },
     "High Protein Steak Salad": {
       "category": "lunch",
@@ -228,7 +228,7 @@
       "category": "lunch",
       "calories": 520,
       "protein_g": 40,
-      "last_posted": "2026-08-14"
+      "last_posted": "2026-08-29"
     },
     "Quinoa Power Salad": {
       "category": "lunch",
@@ -252,7 +252,7 @@
       "category": "lunch",
       "calories": 480,
       "protein_g": 36,
-      "last_posted": "2026-08-13"
+      "last_posted": "2026-08-29"
     },
     "Thai Chicken Lettuce Cups": {
       "category": "lunch",
@@ -426,7 +426,7 @@
       "category": "dinner",
       "calories": 460,
       "protein_g": 38,
-      "last_posted": "2026-08-13"
+      "last_posted": "2026-08-29"
     },
     "Teriyaki Salmon with Rice": {
       "category": "dinner",
@@ -576,7 +576,7 @@
       "category": "snack",
       "calories": 290,
       "protein_g": 28,
-      "last_posted": "2026-08-13"
+      "last_posted": "2026-08-29"
     },
     "Protein Iced Coffee": {
       "category": "snack",
@@ -612,7 +612,7 @@
       "category": "snack",
       "calories": 250,
       "protein_g": 28,
-      "last_posted": "2026-08-13"
+      "last_posted": "2026-08-29"
     },
     "Chocolate Protein Mug Cake": {
       "category": "snack",
@@ -642,7 +642,7 @@
       "category": "snack",
       "calories": 200,
       "protein_g": 12,
-      "last_posted": "2026-08-13"
+      "last_posted": "2026-08-29"
     },
     "PB Banana Protein Sushi": {
       "category": "snack",
