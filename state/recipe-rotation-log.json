@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-08-31T08:18:01+00:00",
+  "last_updated": "2026-09-01T08:18:36+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -486,7 +486,7 @@
       "category": "dinner",
       "calories": 480,
       "protein_g": 42,
-      "last_posted": "2026-08-15"
+      "last_posted": "2026-09-01"
     },
     "Lemon Pepper Chicken with Asparagus": {
       "category": "dinner",
