@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-02T08:30:00+00:00",
+  "last_updated": "2026-09-03T08:15:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -12,7 +12,7 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 25,
-      "last_posted": "2026-08-15"
+      "last_posted": "2026-09-03"
     },
     "Berry Almond Chia Parfait": {
       "category": "breakfast",
@@ -66,7 +66,7 @@
       "category": "breakfast",
       "calories": 440,
       "protein_g": 30,
-      "last_posted": "2026-08-16"
+      "last_posted": "2026-09-03"
     },
     "Protein Yogurt Bark": {
       "category": "breakfast",
@@ -108,7 +108,7 @@
       "category": "breakfast",
       "calories": 410,
       "protein_g": 30,
-      "last_posted": "2026-08-15"
+      "last_posted": "2026-09-03"
     },
     "Breakfast Quesadilla": {
       "category": "breakfast",
@@ -270,7 +270,7 @@
       "category": "lunch",
       "calories": 410,
       "protein_g": 35,
-      "last_posted": "2026-08-16"
+      "last_posted": "2026-09-03"
     },
     "Spicy Shrimp Burrito Bowl": {
       "category": "lunch",
@@ -288,7 +288,7 @@
       "category": "lunch",
       "calories": 430,
       "protein_g": 35,
-      "last_posted": "2026-08-17"
+      "last_posted": "2026-09-03"
     },
     "Turkey Avocado Club Wrap": {
       "category": "lunch",
@@ -336,7 +336,7 @@
       "category": "lunch",
       "calories": 380,
       "protein_g": 32,
-      "last_posted": "2026-08-17"
+      "last_posted": "2026-09-03"
     },
     "Southwest Chicken Bowl": {
       "category": "lunch",
@@ -348,7 +348,7 @@
       "category": "dinner",
       "calories": 610,
       "protein_g": 45,
-      "last_posted": "2026-08-16"
+      "last_posted": "2026-09-03"
     },
     "Lemon Herb Chicken Plate": {
       "category": "dinner",
@@ -552,7 +552,7 @@
       "category": "snack",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-08-15"
+      "last_posted": "2026-09-03"
     },
     "Greek Yogurt Layered Parfait": {
       "category": "snack",
@@ -600,7 +600,7 @@
       "category": "snack",
       "calories": 200,
       "protein_g": 18,
-      "last_posted": "2026-08-16"
+      "last_posted": "2026-09-03"
     },
     "Pumpkin Spice Greek Yogurt": {
       "category": "snack",
@@ -660,7 +660,7 @@
       "category": "snack",
       "calories": 240,
       "protein_g": 24,
-      "last_posted": "2026-08-16"
+      "last_posted": "2026-09-03"
     }
   }
 }
