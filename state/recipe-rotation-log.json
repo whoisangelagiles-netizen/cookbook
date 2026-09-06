@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-05T08:35:00+00:00",
+  "last_updated": "2026-09-06T08:30:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -36,7 +36,7 @@
       "category": "breakfast",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-08-18"
+      "last_posted": "2026-09-06"
     },
     "Chocolate Protein Overnight Oats": {
       "category": "breakfast",
@@ -60,7 +60,7 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-08-18"
+      "last_posted": "2026-09-06"
     },
     "Banana Protein French Toast": {
       "category": "breakfast",
@@ -144,7 +144,7 @@
       "category": "breakfast",
       "calories": 360,
       "protein_g": 28,
-      "last_posted": "2026-08-19"
+      "last_posted": "2026-09-06"
     },
     "Breakfast Burrito Bowl": {
       "category": "breakfast",
@@ -222,7 +222,7 @@
       "category": "lunch",
       "calories": 360,
       "protein_g": 38,
-      "last_posted": "2026-08-19"
+      "last_posted": "2026-09-06"
     },
     "Asian Beef Bowl": {
       "category": "lunch",
@@ -264,7 +264,7 @@
       "category": "lunch",
       "calories": 480,
       "protein_g": 38,
-      "last_posted": "2026-08-19"
+      "last_posted": "2026-09-06"
     },
     "Greek Tuna Salad Bowl": {
       "category": "lunch",
@@ -510,7 +510,7 @@
       "category": "dinner",
       "calories": 540,
       "protein_g": 42,
-      "last_posted": "2026-08-19"
+      "last_posted": "2026-09-06"
     },
     "Pork Tenderloin + Roasted Veg": {
       "category": "dinner",
@@ -528,7 +528,7 @@
       "category": "snack",
       "calories": 220,
       "protein_g": 14,
-      "last_posted": "2026-08-18"
+      "last_posted": "2026-09-06"
     },
     "Chocolate Banana Protein Shake": {
       "category": "snack",
