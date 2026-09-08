@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-07T08:15:00+00:00",
+  "last_updated": "2026-09-08T08:20:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
       "calories": 520,
       "protein_g": 30,
-      "last_posted": "2026-08-25"
+      "last_posted": "2026-09-08"
     },
     "Sunrise Power Bowl": {
       "category": "breakfast",
@@ -84,7 +84,7 @@
       "category": "breakfast",
       "calories": 380,
       "protein_g": 28,
-      "last_posted": "2026-08-26"
+      "last_posted": "2026-09-08"
     },
     "High-Protein Waffles": {
       "category": "breakfast",
@@ -168,7 +168,7 @@
       "category": "breakfast",
       "calories": 390,
       "protein_g": 22,
-      "last_posted": "2026-08-25"
+      "last_posted": "2026-09-08"
     },
     "Turkey Bacon English Muffin": {
       "category": "breakfast",
@@ -204,7 +204,7 @@
       "category": "lunch",
       "calories": 460,
       "protein_g": 36,
-      "last_posted": "2026-08-26"
+      "last_posted": "2026-09-08"
     },
     "Turkey & Hummus Wrap": {
       "category": "lunch",
@@ -258,7 +258,7 @@
       "category": "lunch",
       "calories": 420,
       "protein_g": 38,
-      "last_posted": "2026-08-25"
+      "last_posted": "2026-09-08"
     },
     "Caprese Chicken Wrap": {
       "category": "lunch",
@@ -276,7 +276,7 @@
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-08-25"
+      "last_posted": "2026-09-08"
     },
     "Chicken Caesar Wrap": {
       "category": "lunch",
@@ -366,7 +366,7 @@
       "category": "dinner",
       "calories": 580,
       "protein_g": 40,
-      "last_posted": "2026-08-25"
+      "last_posted": "2026-09-08"
     },
     "High-Protein Chicken Alfredo": {
       "category": "dinner",
@@ -414,7 +414,7 @@
       "category": "dinner",
       "calories": 540,
       "protein_g": 40,
-      "last_posted": "2026-08-25"
+      "last_posted": "2026-09-08"
     },
     "Cajun Salmon Bowl": {
       "category": "dinner",
@@ -504,7 +504,7 @@
       "category": "dinner",
       "calories": 560,
       "protein_g": 40,
-      "last_posted": "2026-08-25"
+      "last_posted": "2026-09-08"
     },
     "Tuscan Garlic Chicken": {
       "category": "dinner",
@@ -654,7 +654,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 16,
-      "last_posted": "2026-08-26"
+      "last_posted": "2026-09-08"
     },
     "Cottage Cheese + Pineapple Bowl": {
       "category": "snack",
