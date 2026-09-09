@@ -193,7 +193,12 @@ P2) Write `pilot_input.json` in the repo root:
  "slides": [{"image": "...", "text": "..."}, ... exactly 5 ...]}
 ```
 
-P3) Run `python3 scripts/gpt_pilot.py render pilot_input.json`. It reuses cached slides whose media URL still resolves (`state/media-cache.json`, keyed by recipe + account + slide index), generates the rest with OpenAI (1024×1536, no text — the overlay is drawn locally), writes `pilot_manifest.json`, and prints one `GPT-PILOT-RENDER:` line with `cached=`, `generated=`, `cost=` and `needs_upload=[...]`. Exit code ≠ 0, or no `GPT-PILOT-RENDER:` line → FALLBACK.
+P3) Install the overlay dependency, then render:
+```
+python3 -c "import PIL" 2>/dev/null || pip install --quiet pillow 2>&1 | tail -1 || true
+python3 scripts/gpt_pilot.py render pilot_input.json
+```
+**The install line is required.** The routine container does not ship Pillow (verified 2026-09-09); without it the script exits 1 and the row falls back to Blotato every day. It reuses cached slides whose media URL still resolves (`state/media-cache.json`, keyed by recipe + account + slide index), generates the rest with OpenAI (1024×1536, no text — the overlay is drawn locally), writes `pilot_manifest.json`, and prints one `GPT-PILOT-RENDER:` line with `cached=`, `generated=`, `cost=` and `needs_upload=[...]`. Exit code ≠ 0, or no `GPT-PILOT-RENDER:` line → FALLBACK.
 
 The OpenAI key is an API credential on the cloud environment; the egress proxy injects it for api.openai.com. The script sends no key of its own when `OPENAI_API_KEY` is the placeholder value `proxy`. Never print, log or commit any key.
 

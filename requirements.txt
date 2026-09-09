@@ -13,3 +13,6 @@
 
 gspread>=6.0
 google-auth>=2.20
+
+# GPT pilot overlay (scripts/gpt_pilot.py). Not preinstalled in the routine container.
+pillow>=10
