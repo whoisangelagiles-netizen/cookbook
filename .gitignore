@@ -16,3 +16,10 @@ __pycache__/
 *.py[cod]
 .venv/
 venv/
+
+# GPT pilot working files (regenerated every run; media URLs live in state/media-cache.json)
+out/
+pilot_input.json
+pilot_manifest.json
+pilot_uploads.json
+pilot_media.json
