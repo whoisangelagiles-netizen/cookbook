@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-08T08:20:00+00:00",
+  "last_updated": "2026-09-09T08:30:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -90,7 +90,7 @@
       "category": "breakfast",
       "calories": 420,
       "protein_g": 32,
-      "last_posted": "2026-08-27"
+      "last_posted": "2026-09-09"
     },
     "Savory Oatmeal with Egg + Avocado": {
       "category": "breakfast",
@@ -126,7 +126,7 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 35,
-      "last_posted": "2026-08-26"
+      "last_posted": "2026-09-09"
     },
     "PB Banana Protein Pancakes": {
       "category": "breakfast",
@@ -174,7 +174,7 @@
       "category": "breakfast",
       "calories": 410,
       "protein_g": 32,
-      "last_posted": "2026-08-26"
+      "last_posted": "2026-09-09"
     },
     "Steel-Cut Oats with Almond + Berry": {
       "category": "breakfast",
@@ -210,13 +210,13 @@
       "category": "lunch",
       "calories": 450,
       "protein_g": 35,
-      "last_posted": "2026-08-26"
+      "last_posted": "2026-09-09"
     },
     "Tuna Avocado Salad": {
       "category": "lunch",
       "calories": 380,
       "protein_g": 32,
-      "last_posted": "2026-08-26"
+      "last_posted": "2026-09-09"
     },
     "Buffalo Chicken Lettuce Wraps": {
       "category": "lunch",
@@ -312,7 +312,7 @@
       "category": "lunch",
       "calories": 380,
       "protein_g": 30,
-      "last_posted": "2026-08-27"
+      "last_posted": "2026-09-09"
     },
     "Pesto Chicken Pasta Salad": {
       "category": "lunch",
@@ -396,7 +396,7 @@
       "category": "dinner",
       "calories": 470,
       "protein_g": 40,
-      "last_posted": "2026-08-26"
+      "last_posted": "2026-09-09"
     },
     "Garlic Shrimp + Lemon Rice": {
       "category": "dinner",
@@ -468,7 +468,7 @@
       "category": "dinner",
       "calories": 380,
       "protein_g": 38,
-      "last_posted": "2026-08-26"
+      "last_posted": "2026-09-09"
     },
     "BBQ Pork + Slaw": {
       "category": "dinner",
@@ -516,7 +516,7 @@
       "category": "dinner",
       "calories": 510,
       "protein_g": 42,
-      "last_posted": "2026-08-26"
+      "last_posted": "2026-09-09"
     },
     "Frozen Pineapple Yogurt Bites": {
       "category": "snack",
@@ -588,7 +588,7 @@
       "category": "snack",
       "calories": 310,
       "protein_g": 18,
-      "last_posted": "2026-08-27"
+      "last_posted": "2026-09-09"
     },
     "No-Bake Protein Brownie Bites": {
       "category": "snack",
