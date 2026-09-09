@@ -42,6 +42,7 @@
       "mcp__Blotato__blotato_get_credits",
       "mcp__Blotato__blotato_create_visual",
       "mcp__Blotato__blotato_get_visual_status",
+      "mcp__Blotato__blotato_create_presigned_upload_url",
       "mcp__Blotato__blotato_create_post",
       "mcp__Blotato__blotato_list_posts",
       "mcp__Blotato__blotato_list_schedules",

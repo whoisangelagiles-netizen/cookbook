@@ -25,6 +25,7 @@ You are the ongoing daily production loop for "High Protein House" TikTok automa
 - Time = 18:00 ET + account_index × 3 min stagger (alphabetical by handle → 18:00–18:27).
 - Breakfast and Lunch slots are REMOVED. There is no 08:00 or 12:00 slot. Do not reintroduce them.
 - Posts are **5 slides**, not 6.
+- **GPT-PILOT (from 2026-09-10): @postworkout.plate only** gets its 5 slides from OpenAI gpt-image-1-mini + a Pillow text overlay (`scripts/gpt_pilot.py`) and posts them as own media at zero Blotato credits. Every other account is unchanged. See STEP 4-PILOT. If the pilot fails for any reason, that row falls back to normal Blotato generation — the pilot must never cause a missed slot.
 
 Why: measured Blotato cost is ~7 credits/slide. The old 28-post, 6-slide day cost ~1,176 credits (~35,000/month against a ~5,000/month cap — 7× over, which is why runs silently truncated and Breakfast disappeared in June). The new shape is 10 × 35 = ~350 credits/day, ~10,500/month.
 
@@ -56,7 +57,9 @@ Call `blotato_list_accounts` with platform="tiktok". Build handle→id map. Know
 Skip @angelagiles29/41416 if present in the account list.
 
 **STEP 2.5 — Credit preflight**
-Call `blotato_get_credits`. **Billing is PER SLIDE: ~7 credits/slide. A 5-slide post costs ~35 credits.** Verified three times: 6.8, 6.9 and 7.0 credits/slide. A full 10-post day at 5 slides needs ~350 credits. If the remaining balance is below what the planned run needs, log the shortfall prominently, process as many rows as credits allow, and note the truncation in the summary line. Do NOT abort before doing any work — a partial run beats none. Surface the remaining balance in the STEP 5 summary so top-ups can be timed before hitting zero.
+Call `blotato_get_credits`. **Billing is PER SLIDE: ~7 credits/slide. A 5-slide post costs ~35 credits.** Verified three times: 6.8, 6.9 and 7.0 credits/slide. A full 10-post day at 5 slides needs ~350 credits. **While the GPT pilot runs, only 9 rows bill Blotato** (the @postworkout.plate row costs 0 credits unless it falls back), so use `participating = 9` in `needed` and `daily_burn` below, and keep the 35-credit hard floor per row so a fallback can still complete.
+
+**Observed rate check:** the scheduled runs since 2026-08-21 have logged ~13.5–14.7 credits/slide (~70/post, ~700/day), double the 7/slide figure measured on 2026-08-11. Until that is re-verified, compute `needed` and `daily_burn` from the per-post cost logged by the previous run (`Actual cost this run`) when it is higher than 35 — otherwise the runway and top-up sizing will be optimistic. If the remaining balance is below what the planned run needs, log the shortfall prominently, process as many rows as credits allow, and note the truncation in the summary line. Do NOT abort before doing any work — a partial run beats none. Surface the remaining balance in the STEP 5 summary so top-ups can be timed before hitting zero.
 
 **Hard floor — never start a visual you cannot finish.** If remaining credits < 35, generate NOTHING: skip STEP 3 and STEP 4 entirely, go straight to STEP 5, and log `insufficient-credits` with the balance. A partially-rendered visual returns fewer than 5 `imageUrls`, and posting that array ships a broken carousel — the 1-slide failure that reached production on 2026-07-20. Only begin a row when at least 35 credits remain, and re-check the balance between rows as it drains.
 
@@ -136,7 +139,7 @@ There is ONE slot (18:00 ET) and ALL 10 accounts participate.
 
 - Check the past-slot skip guard first. If 18:00 ET is more than 4h past, skip the day entirely: generate nothing, schedule nothing, advance no `last_posted`.
 - **Draw from ALL categories.** Sort the ENTIRE recipe set — breakfast, lunch, dinner and snack together — by (last_posted asc, name asc). This is the full 110-recipe rotation, not dinner-only. The voice templates work for any category, and a wider pool means each recipe resurfaces far less often.
-- Take the first 10 (N = 10 accounts).
+- **Per-category cap of 3.** Walk the sorted list and take recipes in order, but skip a recipe once its category already has 3 in the pool; stop at 10 (N = 10 accounts). Without the cap, an untouched category floods the whole slot (all 10 rows were snacks on 2026-08-11). Log the resulting mix in the summary line.
 - For each account in alphabetical order (account_index 0..9):
     `recipe = pool[(account_index + today_day_of_year) % N]`
 
@@ -177,6 +180,33 @@ For each row:
 
 4f) media URL: `post_mediaUrls = imageUrls` (FULL 5-URL array — never just imageUrls[0]).
 
+**STEP 4-PILOT — @postworkout.plate only (GPT Image mini, replaces 4d–4f for that row)**
+
+Applies ONLY to `@postworkout.plate` (44894). Every other row uses 4d–4f exactly as written. Do the work in this order; on any failure jump to FALLBACK. Never retry the pilot within a run.
+
+P1) Compose the 5 slides exactly as 4d specifies — same `image` prompts (with the account's `visual_style_prompt`) and the same `text` per slide, same locked layout. The pilot changes where the pixels come from, not what the slides say.
+
+P2) Write `pilot_input.json` in the repo root:
+```
+{"date": "{today_iso}", "account": "@postworkout.plate", "recipe": "{recipe}",
+ "visual_style_prompt": "{visual_style_prompt}",
+ "slides": [{"image": "...", "text": "..."}, ... exactly 5 ...]}
+```
+
+P3) Run `python3 scripts/gpt_pilot.py render pilot_input.json`. It reuses cached slides whose media URL still resolves (`state/media-cache.json`, keyed by recipe + account + slide index), generates the rest with OpenAI (1024×1536, no text — the overlay is drawn locally), writes `pilot_manifest.json`, and prints one `GPT-PILOT-RENDER:` line with `cached=`, `generated=`, `cost=` and `needs_upload=[...]`. Exit code ≠ 0, or no `GPT-PILOT-RENDER:` line → FALLBACK.
+
+The OpenAI key is an API credential on the cloud environment; the egress proxy injects it for api.openai.com. The script sends no key of its own when `OPENAI_API_KEY` is the placeholder value `proxy`. Never print, log or commit any key.
+
+P4) For each index in `needs_upload`, call `blotato_create_presigned_upload_url` with `filename = "postworkout_{today_iso}_slide_{i}.png"`. Write `pilot_uploads.json` as a list of `{"slide_index": i, "presignedUrl": ..., "publicUrl": ...}` — an empty list `[]` when `needs_upload` is empty.
+
+P5) Run `python3 scripts/gpt_pilot.py upload pilot_manifest.json pilot_uploads.json`. It PUTs each PNG, verifies every public URL serves an image, records the URLs in `state/media-cache.json`, updates `state/gpt-pilot-spend.json`, and prints `GPT-PILOT-MEDIA: url1 url2 url3 url4 url5`. Exit code ≠ 0 → FALLBACK.
+
+P6) `post_mediaUrls` = the 5 URLs from the `GPT-PILOT-MEDIA:` line, in that order (also in `pilot_media.json`). Continue with 4g (caption) and 4h (`blotato_create_post`) unchanged — `isAiGenerated=true` still applies, mediaUrls is the full 5-URL array. Then 4i as normal.
+
+P7) In the STEP 5 summary notes, tag the row: `[GPT-PILOT] {recipe}: generated={n} cached={k} cost=${x} scheduled {time}` using the numbers from the `GPT-PILOT-RENDER:` line. This is the 7-day spend comparison record — do not omit it.
+
+FALLBACK: log `[GPT-PILOT] FALLBACK: {first GPT-PILOT-ERROR line or exit reason}` in the summary notes, then run 4d–4f for this row with Blotato exactly as for every other account. A fallback is a normal outcome, not a run failure. Do not delete or hand-edit `state/media-cache.json`.
+
 4g) Build caption (mode-driven):
     - warmup:
       ```
@@ -215,7 +245,7 @@ For each row:
 4j) On row failure, log and continue. On >3 consecutive credit/cap errors, log critical + stop.
 
 **STEP 5 — Persist state (git commit + push)**
-Write updated `state/recipe-rotation-log.json` with new `last_posted` values (only for recipes successfully scheduled — leave skipped recipes untouched so they surface first next run). Refresh `last_updated` field.
+`git add state/` also picks up `state/media-cache.json` and `state/gpt-pilot-spend.json` when the pilot ran. Write updated `state/recipe-rotation-log.json` with new `last_posted` values (only for recipes successfully scheduled — leave skipped recipes untouched so they surface first next run). Refresh `last_updated` field.
 
 Append a one-line summary to `state/automation-log.md`:
 ```
@@ -224,7 +254,7 @@ Append a one-line summary to `state/automation-log.md`:
 
 Then commit + push:
 ```
-git add state/recipe-rotation-log.json state/automation-log.md
+git add state/
 git commit -m "daily run {today_iso}: {posts_total} posts scheduled"
 git push origin HEAD:main
 ```
@@ -302,3 +332,5 @@ Billing is **per slide**, not per post. Measured 7.0 credits/slide (3,498 → 3,
 That is ~2× the ~5,000/mo cap, so expect a recurring top-up of roughly 5,500 credits (~$33) per cycle. The earlier "6 credits per post / 168 per day" figure confused the daily SLIDE count (28 × 6 = 168) with the credit cost; the old 6-slide, 28-post day actually cost ~1,176/day (~35,000/month, 7× over cap), which is why runs silently truncated and Breakfast vanished in June.
 
 If `insufficient-credits` hits, log the affected slot and continue; do NOT retry.
+
+**GPT PILOT ECONOMICS (from 2026-09-10):** the @postworkout.plate row costs ~$0.065/day in OpenAI usage (measured 2026-09-09: 5 × gpt-image-1-mini at medium quality = $0.064, 1,584 output tokens per image; `GPT_PILOT_QUALITY=low` would be roughly a third of that; the exact figure comes from the API usage object and is written to `state/gpt-pilot-spend.json`) instead of ~35–70 Blotato credits (~$0.21–0.42). Success criteria after 7 days: zero missed slots attributable to the pilot, spend in that range, and Angela's side-by-side quality call on 3 pilot carousels vs 3 Blotato carousels before expanding to more accounts.
