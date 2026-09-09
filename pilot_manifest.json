@@ -1,0 +1,121 @@
+{
+  "date": "2026-09-09",
+  "account": "@postworkout.plate",
+  "recipe": "Thai Chicken Lettuce Cups",
+  "model": "gpt-image-1-mini",
+  "quality": "medium",
+  "size": "1024x1536",
+  "slides": [
+    {
+      "index": 1,
+      "status": "generated",
+      "path": "/home/user/cookbook/out/gpt-pilot/2026-09-09/postworkout.plate/slide_1.png",
+      "sha256_16": "8a865e4aa11ae612",
+      "cost_usd": 0.012824,
+      "usage": {
+        "input_tokens": 76,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 76
+        },
+        "output_tokens": 1584,
+        "output_tokens_details": {
+          "image_tokens": 1584,
+          "text_tokens": 0
+        },
+        "total_tokens": 1660
+      }
+    },
+    {
+      "index": 2,
+      "status": "generated",
+      "path": "/home/user/cookbook/out/gpt-pilot/2026-09-09/postworkout.plate/slide_2.png",
+      "sha256_16": "582f928b6f8d60b5",
+      "cost_usd": 0.01281,
+      "usage": {
+        "input_tokens": 69,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 69
+        },
+        "output_tokens": 1584,
+        "output_tokens_details": {
+          "image_tokens": 1584,
+          "text_tokens": 0
+        },
+        "total_tokens": 1653
+      }
+    },
+    {
+      "index": 3,
+      "status": "generated",
+      "path": "/home/user/cookbook/out/gpt-pilot/2026-09-09/postworkout.plate/slide_3.png",
+      "sha256_16": "b37b33fca9608d55",
+      "cost_usd": 0.012812,
+      "usage": {
+        "input_tokens": 70,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 70
+        },
+        "output_tokens": 1584,
+        "output_tokens_details": {
+          "image_tokens": 1584,
+          "text_tokens": 0
+        },
+        "total_tokens": 1654
+      }
+    },
+    {
+      "index": 4,
+      "status": "generated",
+      "path": "/home/user/cookbook/out/gpt-pilot/2026-09-09/postworkout.plate/slide_4.png",
+      "sha256_16": "e550556551631c12",
+      "cost_usd": 0.012808,
+      "usage": {
+        "input_tokens": 68,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 68
+        },
+        "output_tokens": 1584,
+        "output_tokens_details": {
+          "image_tokens": 1584,
+          "text_tokens": 0
+        },
+        "total_tokens": 1652
+      }
+    },
+    {
+      "index": 5,
+      "status": "generated",
+      "path": "/home/user/cookbook/out/gpt-pilot/2026-09-09/postworkout.plate/slide_5.png",
+      "sha256_16": "e3a1f2daa047b411",
+      "cost_usd": 0.012802,
+      "usage": {
+        "input_tokens": 65,
+        "input_tokens_details": {
+          "image_tokens": 0,
+          "text_tokens": 65
+        },
+        "output_tokens": 1584,
+        "output_tokens_details": {
+          "image_tokens": 1584,
+          "text_tokens": 0
+        },
+        "total_tokens": 1649
+      }
+    }
+  ],
+  "needs_upload": [
+    1,
+    2,
+    3,
+    4,
+    5
+  ],
+  "total_cost_usd": 0.064056,
+  "cached": 0,
+  "generated": 5,
+  "dead_cache": 0
+}

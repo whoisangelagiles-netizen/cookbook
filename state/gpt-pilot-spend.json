@@ -1,0 +1,14 @@
+{
+  "schema_version": 1,
+  "model": "gpt-image-1-mini",
+  "days": {
+    "2026-09-09": {
+      "images_generated": 5,
+      "cost_usd": 0.064056,
+      "cache_hits": 0,
+      "posts": 0
+    }
+  },
+  "quality": "medium",
+  "last_updated": "2026-09-09T10:53:01+00:00"
+}
