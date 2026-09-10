@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-09T08:30:00+00:00",
+  "last_updated": "2026-09-10T08:30:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -30,7 +30,7 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 24,
-      "last_posted": "2026-08-27"
+      "last_posted": "2026-09-10"
     },
     "Egg White Veggie Scramble": {
       "category": "breakfast",
@@ -102,7 +102,7 @@
       "category": "breakfast",
       "calories": 420,
       "protein_g": 35,
-      "last_posted": "2026-08-28"
+      "last_posted": "2026-09-10"
     },
     "Tuna Avocado Toast": {
       "category": "breakfast",
@@ -132,7 +132,7 @@
       "category": "breakfast",
       "calories": 490,
       "protein_g": 40,
-      "last_posted": "2026-08-27"
+      "last_posted": "2026-09-10"
     },
     "Spinach + Feta Egg Wraps": {
       "category": "breakfast",
@@ -294,13 +294,13 @@
       "category": "lunch",
       "calories": 490,
       "protein_g": 38,
-      "last_posted": "2026-08-27"
+      "last_posted": "2026-09-10"
     },
     "Curry Chicken Salad on Greens": {
       "category": "lunch",
       "calories": 440,
       "protein_g": 38,
-      "last_posted": "2026-08-27"
+      "last_posted": "2026-09-10"
     },
     "Beef Banh Mi Bowl": {
       "category": "lunch",
@@ -324,7 +324,7 @@
       "category": "lunch",
       "calories": 360,
       "protein_g": 28,
-      "last_posted": "2026-08-28"
+      "last_posted": "2026-09-10"
     },
     "Korean Tuna Rice Bowl": {
       "category": "lunch",
@@ -378,7 +378,7 @@
       "category": "dinner",
       "calories": 450,
       "protein_g": 40,
-      "last_posted": "2026-08-27"
+      "last_posted": "2026-09-10"
     },
     "Pesto Chicken Pasta": {
       "category": "dinner",
@@ -390,7 +390,7 @@
       "category": "dinner",
       "calories": 510,
       "protein_g": 42,
-      "last_posted": "2026-08-27"
+      "last_posted": "2026-09-10"
     },
     "Sheet Pan Chicken Fajitas": {
       "category": "dinner",
@@ -420,7 +420,7 @@
       "category": "dinner",
       "calories": 560,
       "protein_g": 38,
-      "last_posted": "2026-08-27"
+      "last_posted": "2026-09-10"
     },
     "Mediterranean Cod with Quinoa": {
       "category": "dinner",
@@ -624,7 +624,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 10,
-      "last_posted": "2026-08-28"
+      "last_posted": "2026-09-10"
     },
     "Cinnamon Roll Protein Pudding": {
       "category": "snack",
