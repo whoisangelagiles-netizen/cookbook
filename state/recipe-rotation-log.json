@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-10T08:30:00+00:00",
+  "last_updated": "2026-09-11T08:20:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -72,7 +72,7 @@
       "category": "breakfast",
       "calories": 180,
       "protein_g": 20,
-      "last_posted": "2026-08-29"
+      "last_posted": "2026-09-11"
     },
     "Egg Muffin Cups": {
       "category": "breakfast",
@@ -192,13 +192,13 @@
       "category": "lunch",
       "calories": 440,
       "protein_g": 42,
-      "last_posted": "2026-08-28"
+      "last_posted": "2026-09-11"
     },
     "Honey Garlic Chicken Wrap": {
       "category": "lunch",
       "calories": 540,
       "protein_g": 40,
-      "last_posted": "2026-08-28"
+      "last_posted": "2026-09-11"
     },
     "Tropical Power Salad": {
       "category": "lunch",
@@ -228,7 +228,7 @@
       "category": "lunch",
       "calories": 520,
       "protein_g": 40,
-      "last_posted": "2026-08-29"
+      "last_posted": "2026-09-11"
     },
     "Quinoa Power Salad": {
       "category": "lunch",
@@ -354,13 +354,13 @@
       "category": "dinner",
       "calories": 490,
       "protein_g": 42,
-      "last_posted": "2026-08-28"
+      "last_posted": "2026-09-11"
     },
     "Chimichurri Steak Bites": {
       "category": "dinner",
       "calories": 560,
       "protein_g": 44,
-      "last_posted": "2026-08-28"
+      "last_posted": "2026-09-11"
     },
     "Honey Garlic Salmon Bowl": {
       "category": "dinner",
@@ -492,7 +492,7 @@
       "category": "dinner",
       "calories": 460,
       "protein_g": 42,
-      "last_posted": "2026-08-28"
+      "last_posted": "2026-09-11"
     },
     "Black Bean + Chicken Enchilada Bake": {
       "category": "dinner",
@@ -576,7 +576,7 @@
       "category": "snack",
       "calories": 290,
       "protein_g": 28,
-      "last_posted": "2026-08-29"
+      "last_posted": "2026-09-11"
     },
     "Protein Iced Coffee": {
       "category": "snack",
@@ -636,13 +636,13 @@
       "category": "snack",
       "calories": 130,
       "protein_g": 20,
-      "last_posted": "2026-08-28"
+      "last_posted": "2026-09-11"
     },
     "Caprese Skewers": {
       "category": "snack",
       "calories": 200,
       "protein_g": 12,
-      "last_posted": "2026-08-29"
+      "last_posted": "2026-09-11"
     },
     "PB Banana Protein Sushi": {
       "category": "snack",

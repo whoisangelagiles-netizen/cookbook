@@ -35,7 +35,42 @@
       "sha256_16": "b6bbb3b0b69d1a47",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Protein Yogurt Bark|@postworkout.plate|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/cca49e79-043c-43d9-888b-c3659b9f6258.png",
+      "created": "2026-09-11",
+      "sha256_16": "b6b022d301e17144",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Protein Yogurt Bark|@postworkout.plate|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/dd26336f-9716-4936-9003-27816613dc38.png",
+      "created": "2026-09-11",
+      "sha256_16": "1d0cb9dc15a65b4e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Protein Yogurt Bark|@postworkout.plate|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/9555458c-dc13-431b-974f-cbf5d74bd1d1.png",
+      "created": "2026-09-11",
+      "sha256_16": "ae2a14fd4ec88dd7",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Protein Yogurt Bark|@postworkout.plate|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/3128f9c0-afc6-43cb-ada9-15a0282ba8aa.png",
+      "created": "2026-09-11",
+      "sha256_16": "b63cb8ccb680c864",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Protein Yogurt Bark|@postworkout.plate|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a8d04820-b9cb-4685-9770-43bcdcd13e44.png",
+      "created": "2026-09-11",
+      "sha256_16": "1511b73f3fcdb7e2",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-10T08:13:31+00:00"
+  "last_updated": "2026-09-11T08:14:25+00:00"
 }
