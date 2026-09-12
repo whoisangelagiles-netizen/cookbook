@@ -70,7 +70,42 @@
       "sha256_16": "1511b73f3fcdb7e2",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@postworkout.plate|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/42f87fcf-92ac-4c1a-ad12-7f4c3d5e1430.png",
+      "created": "2026-09-12",
+      "sha256_16": "154631f6e34e22bc",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@postworkout.plate|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/63463045-9c91-46ca-9336-b048c8c8d9bf.png",
+      "created": "2026-09-12",
+      "sha256_16": "7d8035aacd3bbce7",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@postworkout.plate|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5de4187f-89fe-459f-b4fe-bfe196928e96.png",
+      "created": "2026-09-12",
+      "sha256_16": "acd06dea25510f8e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@postworkout.plate|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f9771678-238d-47e9-92bf-1116ceb4afec.png",
+      "created": "2026-09-12",
+      "sha256_16": "5d9e607dbc88c052",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@postworkout.plate|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/763a2cce-db5c-48ca-b25c-7472c474c987.png",
+      "created": "2026-09-12",
+      "sha256_16": "1a24799978923b94",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-11T08:14:25+00:00"
+  "last_updated": "2026-09-12T08:13:40+00:00"
 }

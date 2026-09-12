@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-11T08:20:00+00:00",
+  "last_updated": "2026-09-12T08:20:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -96,7 +96,7 @@
       "category": "breakfast",
       "calories": 460,
       "protein_g": 28,
-      "last_posted": "2026-08-29"
+      "last_posted": "2026-09-12"
     },
     "Protein Pancake Tacos": {
       "category": "breakfast",
@@ -162,7 +162,7 @@
       "category": "breakfast",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-08-29"
+      "last_posted": "2026-09-12"
     },
     "Coconut Mango Chia Parfait": {
       "category": "breakfast",
@@ -186,7 +186,7 @@
       "category": "lunch",
       "calories": 480,
       "protein_g": 38,
-      "last_posted": "2026-08-29"
+      "last_posted": "2026-09-12"
     },
     "High Protein Steak Salad": {
       "category": "lunch",
@@ -246,13 +246,13 @@
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-08-30"
+      "last_posted": "2026-09-12"
     },
     "Mexican Chicken Quinoa Bowl": {
       "category": "lunch",
       "calories": 480,
       "protein_g": 36,
-      "last_posted": "2026-08-29"
+      "last_posted": "2026-09-12"
     },
     "Thai Chicken Lettuce Cups": {
       "category": "lunch",
@@ -426,7 +426,7 @@
       "category": "dinner",
       "calories": 460,
       "protein_g": 38,
-      "last_posted": "2026-08-29"
+      "last_posted": "2026-09-12"
     },
     "Teriyaki Salmon with Rice": {
       "category": "dinner",
@@ -474,7 +474,7 @@
       "category": "dinner",
       "calories": 620,
       "protein_g": 45,
-      "last_posted": "2026-08-30"
+      "last_posted": "2026-09-12"
     },
     "Buffalo Chicken Casserole": {
       "category": "dinner",
@@ -534,7 +534,7 @@
       "category": "snack",
       "calories": 390,
       "protein_g": 30,
-      "last_posted": "2026-08-30"
+      "last_posted": "2026-09-12"
     },
     "Cottage Cheese Whip with Berries": {
       "category": "snack",
@@ -612,7 +612,7 @@
       "category": "snack",
       "calories": 250,
       "protein_g": 28,
-      "last_posted": "2026-08-29"
+      "last_posted": "2026-09-12"
     },
     "Chocolate Protein Mug Cake": {
       "category": "snack",
@@ -630,7 +630,7 @@
       "category": "snack",
       "calories": 280,
       "protein_g": 26,
-      "last_posted": "2026-08-30"
+      "last_posted": "2026-09-12"
     },
     "Strawberry Protein Pops": {
       "category": "snack",
