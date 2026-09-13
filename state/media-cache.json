@@ -105,7 +105,42 @@
       "sha256_16": "1a24799978923b94",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Smoked Salmon Whole-Grain Bagel|@postworkout.plate|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6e99134b-e563-4d6c-a563-434467607a07.png",
+      "created": "2026-09-13",
+      "sha256_16": "84e0b8b3de00934d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Whole-Grain Bagel|@postworkout.plate|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/75d9402b-8e58-484e-9ec5-2dabf072b225.png",
+      "created": "2026-09-13",
+      "sha256_16": "b1f33da5d442e831",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Whole-Grain Bagel|@postworkout.plate|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/3499849b-626a-485c-afcd-8165f39bc324.png",
+      "created": "2026-09-13",
+      "sha256_16": "3dac61ca54b3d4cb",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Whole-Grain Bagel|@postworkout.plate|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5aafb012-f663-4cb1-ac2c-2965d45f5d29.png",
+      "created": "2026-09-13",
+      "sha256_16": "f1b08689a327dee6",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Whole-Grain Bagel|@postworkout.plate|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7dec324f-aef8-4e5c-9b4a-bf17678fe338.png",
+      "created": "2026-09-13",
+      "sha256_16": "3ead454db47171cc",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-12T08:13:40+00:00"
+  "last_updated": "2026-09-13T08:12:13+00:00"
 }
