@@ -1,62 +1,63 @@
 #!/usr/bin/env python3
 """
-gpt_pilot.py — GPT Image mini pilot: external slide generation for ONE account.
+gpt_pilot.py — external slide generation for High Protein House carousels.
 
-Replaces Blotato AI visual generation for the pilot account (@postworkout.plate)
-with OpenAI Images (gpt-image-1-mini) + Pillow text overlay, then hands the
-finished slides to Blotato as own media (which schedules at zero credit cost).
+Generates 5 slides per post with OpenAI Images (gpt-image-1-mini) + a Pillow
+text overlay, then hands the finished PNGs to Blotato as own media (which
+schedules at zero credit cost). Started 2026-09-10 as a one-account pilot on
+@postworkout.plate; from 2026-09-14 it is the default path for all accounts.
 
 Subcommands
 -----------
-  render <input.json>
-      For each of the 5 slides: reuse a cached, still-resolving media URL when
-      one exists for (recipe, account, slide_index); otherwise generate the
-      background with OpenAI and composite the slide text with Pillow.
-      Writes out/gpt-pilot/<date>/<account>/slide_N.png and a manifest
-      (pilot_manifest.json). Prints one GPT-PILOT-RENDER summary line.
+  render-batch <plan.json>
+      plan.json:
+        {"date": "2026-09-14",
+         "rows": [{"account": "@handle", "recipe": "...",
+                   "visual_style_prompt": "...",
+                   "slides": [{"image": "...", "text": "..."}, x5]}, ...]}
+      For every (row, slide): reuse a cached media URL that still resolves
+      (state/media-cache.json, keyed recipe|account|slide_index); otherwise
+      generate the background with OpenAI and composite the text locally.
+      Backgrounds are fetched concurrently (GPT_PILOT_WORKERS, default 4).
+      Rows are isolated: one row failing does not stop the others.
+      Writes pilot_manifest.json and prints one GPT-ROW line per row plus a
+      final GPT-PILOT-RENDER summary. The manifest's "needs_upload" list
+      names every slide that needs a presigned URL, with a suggested filename.
 
-  upload <pilot_manifest.json> <uploads.json>
+  upload-batch <pilot_manifest.json> <uploads.json>
       uploads.json is written by the routine after calling
-      blotato_create_presigned_upload_url once per slide that needs upload:
-        [{"slide_index": 1, "presignedUrl": "...", "publicUrl": "..."}, ...]
-      PUTs each PNG, verifies the public URL resolves, records it in
-      state/media-cache.json, writes pilot_media.json with the final 5-URL
-      mediaUrls array (cached + freshly uploaded, in slide order) and prints
-      one GPT-PILOT-MEDIA line.
+      blotato_create_presigned_upload_url for each needs_upload entry:
+        [{"account": "@handle", "slide_index": 1,
+          "presignedUrl": "...", "publicUrl": "..."}, ...]
+      PUTs each PNG, verifies the public URL serves an image, records it in
+      the cache, writes pilot_media.json with a 5-URL mediaUrls array per row
+      and prints one GPT-MEDIA line per row plus a GPT-PILOT-UPLOAD summary.
+      A row whose upload fails is marked failed; the others still complete.
+
+  render <input.json> / upload <manifest> <uploads.json>
+      Single-row forms of the above (input.json = one row + "date"). Kept
+      for manual use; uploads.json entries may omit "account".
 
   status
       Print cache size and the spend ledger.
 
-Exit codes: 0 = success. 1 = failure — the routine MUST fall back to normal
-Blotato generation for this post and log the reason. The script never
-schedules posts, never touches the recipe rotation, and never deletes anything.
-
-Input JSON for `render` (the routine composes it from the same content it
-would send to blotato_create_visual):
-{
-  "date": "2026-09-10",
-  "account": "@postworkout.plate",
-  "recipe": "Greek Lamb Bowl",
-  "visual_style_prompt": "soft warm golden hour lighting, ...",
-  "slides": [
-    {"image": "<image prompt, same as the Blotato slide prompt>",
-     "text":  "<slide text, same as the Blotato slide text>"},
-    ... exactly 5 ...
-  ]
-}
-Optional per-slide overrides: "header", "body", "bullets" (list). When absent
-the text is parsed with the same conventions as the locked 5-slide layout
-("HEADER — body", "Ingredients: a, b, c").
+Exit codes: 0 = the manifest / media file was written (check per-row
+"status" — "failed" rows must fall back to Blotato generation).
+1 = nothing usable was produced (bad input, Pillow missing, ...): the routine
+must fall back to Blotato for every row. The script never schedules posts,
+never touches the recipe rotation, and never deletes anything.
 
 Auth: the OpenAI key is attached to the cloud environment as an API credential
 that the egress proxy injects for api.openai.com. When OPENAI_API_KEY is unset
 or holds the placeholder value "proxy", the script sends NO Authorization
-header and lets the proxy add it (verified 2026-09-09). Any other value is sent
-as a Bearer token, for local use. The key is never printed or written anywhere.
+header and lets the proxy add it (verified 2026-09-09; the proxy also overrides
+a client-supplied header). Any other value is sent as a Bearer token, for
+local use. The key is never printed or written anywhere.
 
 Environment knobs (all optional):
   GPT_PILOT_MODEL     default gpt-image-1-mini
   GPT_PILOT_QUALITY   low | medium | high   (default medium)
+  GPT_PILOT_WORKERS   concurrent OpenAI requests (default 4)
   GPT_PILOT_RATES     "text_in,image_in,image_out" USD per 1M tokens, used to
                       turn the API's usage object into a cost figure.
                       Default 2.00,2.50,8.00 — VERIFY at openai.com/api/pricing
@@ -65,14 +66,16 @@ Environment knobs (all optional):
 """
 
 import base64
+import concurrent.futures as futures
 import datetime as dt
 import hashlib
 import io
 import json
 import os
+import re
 import ssl
 import sys
-import textwrap
+import threading
 import time
 import urllib.error
 import urllib.request
@@ -93,13 +96,14 @@ MEDIA_DEFAULT = os.path.join(ROOT, "pilot_media.json")
 
 MODEL = os.environ.get("GPT_PILOT_MODEL", "gpt-image-1-mini")
 QUALITY = os.environ.get("GPT_PILOT_QUALITY", "medium")
+WORKERS = max(1, int(os.environ.get("GPT_PILOT_WORKERS", "4") or 4))
 SIZE = "1024x1536"          # closest OpenAI size to 9:16
 W, H = 1024, 1536
 N_SLIDES = 5
 OPENAI_URL = "https://api.openai.com/v1/images/generations"
 
 # Fallback per-image estimates when the API returns no usage object.
-FALLBACK_COST = {"low": 0.005, "medium": 0.011, "high": 0.04}
+FALLBACK_COST = {"low": 0.005, "medium": 0.013, "high": 0.04}
 
 # TikTok UI safe area, scaled from 1080x1920 to 1024x1536:
 #   top ~150px (status/search), right ~130px (like/comment rail),
@@ -115,8 +119,12 @@ NO_TEXT_SUFFIX = (
 # ----------------------------------------------------------------------------
 # small utils
 # ----------------------------------------------------------------------------
+_print_lock = threading.Lock()
+
+
 def log(msg):
-    print(msg, flush=True)
+    with _print_lock:
+        print(msg, flush=True)
 
 
 def fail(msg):
@@ -145,6 +153,14 @@ def save_json(path, data):
 
 def cache_key(recipe, account, idx):
     return f"{recipe.strip()}|{account.strip().lower()}|{int(idx)}"
+
+
+def norm_account(a):
+    return "@" + (a or "").strip().lstrip("@").lower()
+
+
+def slug(s):
+    return re.sub(r"[^a-z0-9]+", "-", (s or "").lower()).strip("-")[:40] or "x"
 
 
 def http(method, url, data=None, headers=None, timeout=60):
@@ -208,6 +224,7 @@ def openai_headers():
 def generate_background(prompt):
     """Return (PIL.Image RGB 1024x1536, cost_usd, usage_dict). Raises on failure."""
     if os.environ.get("GPT_PILOT_FAKE") == "1":
+        time.sleep(0.2)
         return fake_background(prompt), 0.0, {"fake": True}
 
     payload = json.dumps({
@@ -219,7 +236,7 @@ def generate_background(prompt):
     }).encode()
 
     last = None
-    for attempt in range(1, 4):
+    for attempt in range(1, 5):
         try:
             status, body, _ = http("POST", OPENAI_URL, data=payload,
                                    headers=openai_headers(), timeout=240)
@@ -238,7 +255,7 @@ def generate_background(prompt):
             usage = data.get("usage")
             cost = cost_from_usage(usage)
             if cost is None:
-                cost = FALLBACK_COST.get(QUALITY, 0.011)
+                cost = FALLBACK_COST.get(QUALITY, 0.013)
                 usage = {"estimated": True}
             return img, cost, usage
         # non-200
@@ -248,8 +265,8 @@ def generate_background(prompt):
         except Exception:
             msg = body[:300].decode("utf-8", "replace")
         last = f"HTTP {status} {msg}"
-        if status in (429, 500, 502, 503, 504) and attempt < 3:
-            time.sleep(8 * attempt)
+        if status in (429, 500, 502, 503, 504) and attempt < 4:
+            time.sleep(10 * attempt)   # rate limit / transient: back off
             continue
         break  # 4xx other than 429: do not retry
     raise RuntimeError(f"OpenAI generation failed: {last}")
@@ -273,7 +290,7 @@ def fake_background(prompt):
 
 
 # ----------------------------------------------------------------------------
-# text overlay
+# text overlay (main thread only — PIL font objects are not shared across threads)
 # ----------------------------------------------------------------------------
 _font_cache = {}
 
@@ -427,7 +444,6 @@ def compose(bg, idx, slide, recipe):
         blines = []
         for b in bullets[:8]:
             blines.extend(wrap(draw, "•  " + b, bf, max_w))
-        # shrink if too tall
         if len(blines) > 9:
             bf = font("body", 40)
             blines = []
@@ -477,77 +493,259 @@ def spend_add(date, images=0, cost=0.0, cached=0, posts=0):
 
 
 # ----------------------------------------------------------------------------
-# commands
+# render
 # ----------------------------------------------------------------------------
+def validate_rows(rows):
+    seen = set()
+    for r in rows:
+        for k in ("account", "recipe", "slides"):
+            if k not in r:
+                fail(f"row missing field '{k}': {json.dumps(r)[:120]}")
+        if len(r["slides"]) != N_SLIDES:
+            fail(f"{r['account']}: expected {N_SLIDES} slides, got {len(r['slides'])}")
+        r["account"] = norm_account(r["account"])
+        if r["account"] in seen:
+            fail(f"duplicate account in plan: {r['account']}")
+        seen.add(r["account"])
+
+
+def render_rows(date, rows):
+    """Render every row. Returns the manifest dict (per-row status)."""
+    cache = load_json(CACHE_PATH, {"schema_version": 1, "entries": {}})
+    entries = cache.setdefault("entries", {})
+    cache_dirty = False
+
+    manifest = {
+        "date": date, "model": MODEL, "quality": QUALITY, "size": SIZE,
+        "rows": [], "needs_upload": [],
+        "rows_ok": 0, "rows_failed": 0, "cached": 0, "generated": 0,
+        "dead_cache": 0, "total_cost_usd": 0.0,
+    }
+
+    # Phase 1: decide per slide (cache hit vs generate) — network checks only.
+    tasks = []  # (row_i, slide_i, prompt)
+    row_out = []
+    for ri, row in enumerate(rows):
+        account, recipe = row["account"], row["recipe"]
+        style = row.get("visual_style_prompt", "")
+        r = {"account": account, "recipe": recipe, "status": "ok", "error": None,
+             "slides": [], "needs_upload": [], "cached": 0, "generated": 0,
+             "cost_usd": 0.0}
+        for si, slide in enumerate(row["slides"], start=1):
+            key = cache_key(recipe, account, si)
+            hit = entries.get(key)
+            if hit and url_resolves(hit.get("url", "")):
+                r["slides"].append({"index": si, "status": "cached", "url": hit["url"]})
+                r["cached"] += 1
+                continue
+            if hit:
+                manifest["dead_cache"] += 1
+                entries.pop(key, None)
+                cache_dirty = True
+            r["slides"].append({"index": si, "status": "pending"})
+            tasks.append((ri, si, slide.get("image") or f"{recipe}, {style}"))
+        row_out.append(r)
+        log(f"{account} {recipe}: {r['cached']} cached, {N_SLIDES - r['cached']} to generate")
+
+    # Phase 2: fetch backgrounds concurrently (network-bound).
+    results = {}
+    if tasks:
+        with futures.ThreadPoolExecutor(max_workers=WORKERS) as pool:
+            fut_map = {pool.submit(generate_background, p): (ri, si) for ri, si, p in tasks}
+            for fut in futures.as_completed(fut_map):
+                ri, si = fut_map[fut]
+                try:
+                    results[(ri, si)] = ("ok", fut.result())
+                except Exception as exc:
+                    results[(ri, si)] = ("error", str(exc))
+                    log(f"{rows[ri]['account']} slide {si}: {exc}")
+
+    # Phase 3: composite + save (main thread), per-row isolation.
+    for ri, r in enumerate(row_out):
+        row = rows[ri]
+        out_dir = os.path.join(OUT_ROOT, date, r["account"].lstrip("@"))
+        for s in r["slides"]:
+            if s["status"] != "pending":
+                continue
+            si = s["index"]
+            state, payload = results.get((ri, si), ("error", "no result"))
+            if state != "ok":
+                r["status"], r["error"] = "failed", f"slide {si}: {payload}"
+                break
+            bg, cost, usage = payload
+            try:
+                os.makedirs(out_dir, exist_ok=True)
+                img = compose(bg, si, row["slides"][si - 1], r["recipe"])
+                path = os.path.join(out_dir, f"slide_{si}.png")
+                img.save(path, "PNG", optimize=True)
+            except Exception as exc:
+                r["status"], r["error"] = "failed", f"slide {si}: overlay failed: {exc}"
+                break
+            sha = hashlib.sha256(open(path, "rb").read()).hexdigest()[:16]
+            s.update({"status": "generated", "path": path, "sha256_16": sha,
+                      "cost_usd": round(cost, 6), "usage": usage})
+            r["needs_upload"].append(si)
+            r["generated"] += 1
+            r["cost_usd"] = round(r["cost_usd"] + cost, 6)
+        # Spend is real even for a failed row — count every generated image.
+        manifest["generated"] += r["generated"]
+        manifest["total_cost_usd"] = round(manifest["total_cost_usd"] + r["cost_usd"], 6)
+        if r["status"] == "ok":
+            manifest["rows_ok"] += 1
+            manifest["cached"] += r["cached"]
+            for si in r["needs_upload"]:
+                manifest["needs_upload"].append({
+                    "account": r["account"], "recipe": r["recipe"], "slide_index": si,
+                    "filename": f"{slug(r['account'])}_{date}_slide_{si}.png",
+                })
+        else:
+            manifest["rows_failed"] += 1
+        manifest["rows"].append(r)
+        log(f"GPT-ROW: {r['account']} {r['recipe']} status={r['status']} "
+            f"cached={r['cached']} generated={r['generated']} cost=${r['cost_usd']:.4f} "
+            f"needs_upload={r['needs_upload']}" + (f" error={r['error']}" if r["error"] else ""))
+
+    if cache_dirty:
+        save_json(CACHE_PATH, cache)
+    if manifest["generated"] or manifest["cached"]:
+        spend_add(date, images=manifest["generated"], cost=manifest["total_cost_usd"],
+                  cached=manifest["cached"])
+    return manifest
+
+
+def cmd_render_batch(argv):
+    if len(argv) != 1:
+        fail("usage: gpt_pilot.py render-batch <plan.json>")
+    plan = load_json(argv[0], None)
+    if plan is None or "date" not in plan or not isinstance(plan.get("rows"), list) or not plan["rows"]:
+        fail("plan.json needs 'date' and a non-empty 'rows' list")
+    validate_rows(plan["rows"])
+    manifest = render_rows(plan["date"], plan["rows"])
+    manifest["batch"] = True
+    save_json(MANIFEST_DEFAULT, manifest)
+    log(f"GPT-PILOT-RENDER: rows_ok={manifest['rows_ok']} rows_failed={manifest['rows_failed']} "
+        f"cached={manifest['cached']} generated={manifest['generated']} "
+        f"cost=${manifest['total_cost_usd']:.4f} needs_upload={len(manifest['needs_upload'])} "
+        f"manifest={MANIFEST_DEFAULT}")
+    if manifest["rows_ok"] == 0:
+        sys.exit(1)
+
+
 def cmd_render(argv):
     if len(argv) != 1:
         fail("usage: gpt_pilot.py render <input.json>")
     spec = load_json(argv[0], None)
-    if spec is None:
-        fail(f"input not found: {argv[0]}")
-    for k in ("date", "account", "recipe", "slides"):
-        if k not in spec:
-            fail(f"input missing field '{k}'")
-    slides = spec["slides"]
-    if len(slides) != N_SLIDES:
-        fail(f"expected {N_SLIDES} slides, got {len(slides)}")
-    date, account, recipe = spec["date"], spec["account"], spec["recipe"]
-    style = spec.get("visual_style_prompt", "")
+    if spec is None or "date" not in spec:
+        fail("input.json needs 'date', 'account', 'recipe', 'slides'")
+    row = {k: spec[k] for k in ("account", "recipe", "slides", "visual_style_prompt") if k in spec}
+    validate_rows([row])
+    manifest = render_rows(spec["date"], [row])
+    manifest["batch"] = False
+    save_json(MANIFEST_DEFAULT, manifest)
+    r = manifest["rows"][0]
+    if r["status"] != "ok":
+        fail(r["error"])
+    log(f"GPT-PILOT-RENDER: {r['account']} {r['recipe']} cached={r['cached']} "
+        f"generated={r['generated']} cost=${r['cost_usd']:.4f} "
+        f"needs_upload={r['needs_upload']} manifest={MANIFEST_DEFAULT}")
 
+
+# ----------------------------------------------------------------------------
+# upload
+# ----------------------------------------------------------------------------
+def upload_rows(manifest, uploads):
+    by_key = {}
+    single = len(manifest["rows"]) == 1
+    for u in uploads:
+        try:
+            acct = norm_account(u.get("account") or (manifest["rows"][0]["account"] if single else ""))
+            by_key[(acct, int(u["slide_index"]))] = u
+        except Exception:
+            fail(f"bad uploads entry: {json.dumps(u)[:200]}")
+
+    date = manifest["date"]
     cache = load_json(CACHE_PATH, {"schema_version": 1, "entries": {}})
     entries = cache.setdefault("entries", {})
-    out_dir = os.path.join(OUT_ROOT, date, account.lstrip("@"))
-    os.makedirs(out_dir, exist_ok=True)
+    out = {"date": date, "rows": [], "rows_ok": 0, "rows_failed": 0, "uploaded": 0,
+           "total_cost_usd": manifest.get("total_cost_usd", 0.0)}
 
-    manifest = {
-        "date": date, "account": account, "recipe": recipe,
-        "model": MODEL, "quality": QUALITY, "size": SIZE,
-        "slides": [], "needs_upload": [], "total_cost_usd": 0.0,
-        "cached": 0, "generated": 0, "dead_cache": 0,
-    }
-
-    for i, slide in enumerate(slides, start=1):
-        key = cache_key(recipe, account, i)
-        hit = entries.get(key)
-        if hit and url_resolves(hit.get("url", "")):
-            manifest["slides"].append({"index": i, "status": "cached", "url": hit["url"]})
-            manifest["cached"] += 1
-            log(f"slide {i}: cache hit")
+    for r in manifest["rows"]:
+        res = {"account": r["account"], "recipe": r["recipe"], "status": r["status"],
+               "error": r.get("error"), "mediaUrls": None, "uploaded": 0,
+               "cached": r.get("cached", 0), "generated": r.get("generated", 0),
+               "cost_usd": r.get("cost_usd", 0.0)}
+        if r["status"] != "ok":
+            out["rows"].append(res)
+            out["rows_failed"] += 1
             continue
-        if hit:
-            manifest["dead_cache"] += 1
-            log(f"slide {i}: cached URL no longer resolves — regenerating")
-            entries.pop(key, None)
+        media = [None] * N_SLIDES
+        err = None
+        for s in r["slides"]:
+            i = s["index"]
+            if s["status"] == "cached":
+                media[i - 1] = s["url"]
+                continue
+            u = by_key.get((r["account"], i))
+            if not u or not u.get("presignedUrl") or not u.get("publicUrl"):
+                err = f"slide {i}: no presigned/public URL in uploads.json"
+                break
+            path = s.get("path")
+            if not path or not os.path.exists(path):
+                err = f"slide {i}: file missing: {path}"
+                break
+            data = open(path, "rb").read()
+            try:
+                status, body, _ = http("PUT", u["presignedUrl"], data=data,
+                                       headers={"Content-Type": "image/png"}, timeout=120)
+            except Exception as exc:
+                err = f"slide {i}: upload request failed: {exc}"
+                break
+            if status not in (200, 201, 204):
+                err = f"slide {i}: upload returned HTTP {status} {body[:120]!r}"
+                break
+            if not url_resolves(u["publicUrl"]):
+                err = f"slide {i}: public URL does not resolve after upload"
+                break
+            media[i - 1] = u["publicUrl"]
+            entries[cache_key(r["recipe"], r["account"], i)] = {
+                "url": u["publicUrl"], "created": date,
+                "sha256_16": s.get("sha256_16"), "model": manifest.get("model"),
+                "quality": manifest.get("quality"),
+            }
+            res["uploaded"] += 1
+        if err is None and any(m is None for m in media):
+            err = "mediaUrls incomplete"
+        if err:
+            res["status"], res["error"] = "failed", err
+            out["rows_failed"] += 1
+            log(f"GPT-ROW: {r['account']} {r['recipe']} status=failed error={err}")
+        else:
+            res["mediaUrls"] = media
+            out["rows_ok"] += 1
+            out["uploaded"] += res["uploaded"]
+            log(f"GPT-MEDIA: {r['account']} " + " ".join(media))
+        out["rows"].append(res)
 
-        prompt = slide.get("image") or f"{recipe}, {style}"
-        try:
-            bg, cost, usage = generate_background(prompt)
-        except Exception as exc:
-            fail(f"slide {i}: {exc}")
-        try:
-            img = compose(bg, i, slide, recipe)
-        except Exception as exc:
-            fail(f"slide {i}: overlay failed: {exc}")
-        path = os.path.join(out_dir, f"slide_{i}.png")
-        img.save(path, "PNG", optimize=True)
-        sha = hashlib.sha256(open(path, "rb").read()).hexdigest()[:16]
-        manifest["slides"].append({
-            "index": i, "status": "generated", "path": path, "sha256_16": sha,
-            "cost_usd": round(cost, 6), "usage": usage,
-        })
-        manifest["needs_upload"].append(i)
-        manifest["generated"] += 1
-        manifest["total_cost_usd"] = round(manifest["total_cost_usd"] + cost, 6)
-        log(f"slide {i}: generated (${cost:.4f})")
+    cache["last_updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    save_json(CACHE_PATH, cache)  # partial progress is still valid cache
+    if out["rows_ok"]:
+        spend_add(date, posts=out["rows_ok"])
+    return out
 
-    if manifest["dead_cache"]:
-        save_json(CACHE_PATH, cache)
-    spend_add(date, images=manifest["generated"], cost=manifest["total_cost_usd"],
-              cached=manifest["cached"])
-    save_json(MANIFEST_DEFAULT, manifest)
-    log(f"GPT-PILOT-RENDER: {account} {recipe} cached={manifest['cached']} "
-        f"generated={manifest['generated']} cost=${manifest['total_cost_usd']:.4f} "
-        f"needs_upload={manifest['needs_upload']} manifest={MANIFEST_DEFAULT}")
+
+def cmd_upload_batch(argv):
+    if len(argv) != 2:
+        fail("usage: gpt_pilot.py upload-batch <pilot_manifest.json> <uploads.json>")
+    manifest = load_json(argv[0], None)
+    uploads = load_json(argv[1], None)
+    if manifest is None or uploads is None:
+        fail("manifest or uploads file not found")
+    out = upload_rows(manifest, uploads)
+    save_json(MEDIA_DEFAULT, out)
+    log(f"GPT-PILOT-UPLOAD: rows_ok={out['rows_ok']} rows_failed={out['rows_failed']} "
+        f"uploaded={out['uploaded']} cost=${out['total_cost_usd']:.4f} media={MEDIA_DEFAULT}")
+    if out["rows_ok"] == 0:
+        sys.exit(1)
 
 
 def cmd_upload(argv):
@@ -557,62 +755,17 @@ def cmd_upload(argv):
     uploads = load_json(argv[1], None)
     if manifest is None or uploads is None:
         fail("manifest or uploads file not found")
-    by_idx = {}
-    for u in uploads:
-        try:
-            by_idx[int(u["slide_index"])] = u
-        except Exception:
-            fail(f"bad uploads entry: {u!r}")
-
-    date, account, recipe = manifest["date"], manifest["account"], manifest["recipe"]
-    cache = load_json(CACHE_PATH, {"schema_version": 1, "entries": {}})
-    entries = cache.setdefault("entries", {})
-    media = [None] * N_SLIDES
-    uploaded = 0
-
-    for s in manifest["slides"]:
-        i = s["index"]
-        if s["status"] == "cached":
-            media[i - 1] = s["url"]
-            continue
-        u = by_idx.get(i)
-        if not u or not u.get("presignedUrl") or not u.get("publicUrl"):
-            fail(f"slide {i} needs upload but uploads.json has no presigned/public URL for it")
-        path = s["path"]
-        if not os.path.exists(path):
-            fail(f"slide {i}: file missing: {path}")
-        data = open(path, "rb").read()
-        try:
-            status, body, _ = http("PUT", u["presignedUrl"], data=data,
-                                   headers={"Content-Type": "image/png"}, timeout=120)
-        except Exception as exc:
-            fail(f"slide {i}: upload request failed: {exc}")
-        if status not in (200, 201, 204):
-            fail(f"slide {i}: upload returned HTTP {status} {body[:200]!r}")
-        if not url_resolves(u["publicUrl"]):
-            fail(f"slide {i}: public URL does not resolve after upload")
-        media[i - 1] = u["publicUrl"]
-        entries[cache_key(recipe, account, i)] = {
-            "url": u["publicUrl"], "created": date,
-            "sha256_16": s.get("sha256_16"), "model": manifest.get("model"),
-            "quality": manifest.get("quality"),
-        }
-        uploaded += 1
-        log(f"slide {i}: uploaded + verified")
-
-    if any(m is None for m in media):
-        fail("mediaUrls incomplete — not all 5 slides resolved")
-    cache["last_updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
-    save_json(CACHE_PATH, cache)
-    spend_add(date, posts=1)
-    result = {"date": date, "account": account, "recipe": recipe,
-              "mediaUrls": media, "uploaded": uploaded,
-              "cost_usd": manifest.get("total_cost_usd", 0.0)}
+    out = upload_rows(manifest, uploads)
+    r = out["rows"][0]
+    result = {"date": out["date"], "account": r["account"], "recipe": r["recipe"],
+              "mediaUrls": r["mediaUrls"], "uploaded": r["uploaded"],
+              "cost_usd": r["cost_usd"], "rows": out["rows"]}
     save_json(MEDIA_DEFAULT, result)
-    log("GPT-PILOT-MEDIA: " + " ".join(media))
-    log(f"GPT-PILOT-UPLOAD: {account} {recipe} uploaded={uploaded} "
-        f"cached={manifest.get('cached', 0)} cost=${result['cost_usd']:.4f} "
-        f"media={MEDIA_DEFAULT}")
+    if r["status"] != "ok":
+        fail(r["error"])
+    log("GPT-PILOT-MEDIA: " + " ".join(r["mediaUrls"]))
+    log(f"GPT-PILOT-UPLOAD: {r['account']} {r['recipe']} uploaded={r['uploaded']} "
+        f"cached={r['cached']} cost=${r['cost_usd']:.4f} media={MEDIA_DEFAULT}")
 
 
 def cmd_status(argv):
@@ -626,10 +779,17 @@ def cmd_status(argv):
     log(f"total spend: ${total:.4f} ({ledger.get('model', MODEL)}, {ledger.get('quality', QUALITY)})")
 
 
+COMMANDS = {
+    "render-batch": cmd_render_batch, "upload-batch": cmd_upload_batch,
+    "render": cmd_render, "upload": cmd_upload, "status": cmd_status,
+}
+
+
 def main():
-    if len(sys.argv) < 2 or sys.argv[1] not in ("render", "upload", "status"):
-        fail("usage: gpt_pilot.py render <input.json> | upload <manifest> <uploads> | status")
-    {"render": cmd_render, "upload": cmd_upload, "status": cmd_status}[sys.argv[1]](sys.argv[2:])
+    if len(sys.argv) < 2 or sys.argv[1] not in COMMANDS:
+        fail("usage: gpt_pilot.py render-batch <plan> | upload-batch <manifest> <uploads> | "
+             "render <input> | upload <manifest> <uploads> | status")
+    COMMANDS[sys.argv[1]](sys.argv[2:])
 
 
 if __name__ == "__main__":

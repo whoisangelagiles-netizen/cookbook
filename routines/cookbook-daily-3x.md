@@ -25,9 +25,9 @@ You are the ongoing daily production loop for "High Protein House" TikTok automa
 - Time = 18:00 ET + account_index × 3 min stagger (alphabetical by handle → 18:00–18:27).
 - Breakfast and Lunch slots are REMOVED. There is no 08:00 or 12:00 slot. Do not reintroduce them.
 - Posts are **5 slides**, not 6.
-- **GPT-PILOT (from 2026-09-10): @postworkout.plate only** gets its 5 slides from OpenAI gpt-image-1-mini + a Pillow text overlay (`scripts/gpt_pilot.py`) and posts them as own media at zero Blotato credits. Every other account is unchanged. See STEP 4-PILOT. If the pilot fails for any reason, that row falls back to normal Blotato generation — the pilot must never cause a missed slot.
+- **GENERATION (from 2026-09-14): ALL accounts** get their 5 slides from OpenAI gpt-image-1-mini + a Pillow text overlay (`scripts/gpt_pilot.py`, batch mode) and post them as own media at **zero Blotato credits**. Blotato `blotato_create_visual` is the **fallback only**, used for rows the script marks failed. The @postworkout.plate pilot (2026-09-10 → 09-13) ran 4/4 days with no fallbacks at $0.064/post, versus ~70 Blotato credits (~$0.42) per post. Rows are isolated: one failing row falls back on its own; the rest stay on GPT.
 
-Why: measured Blotato cost is ~7 credits/slide. The old 28-post, 6-slide day cost ~1,176 credits (~35,000/month against a ~5,000/month cap — 7× over, which is why runs silently truncated and Breakfast disappeared in June). The new shape is 10 × 35 = ~350 credits/day, ~10,500/month.
+Why: Blotato bills per slide, and by late August the observed rate was ~14 credits/slide (~700 credits/day for 10 posts, ~21,000/month against a ~5,000/month grant). The old 28-post, 6-slide day was worse still (~35,000/month, which is why runs silently truncated and Breakfast disappeared in June). GPT generation removes that cost for every row that does not fall back — see the COST MODEL at the end.
 
 **PER-ACCOUNT MODE (from `state/account-voices.json`):**
 - "warmup" (7 accounts): slide 5 macros only, caption no CTA.
@@ -56,83 +56,39 @@ Call `blotato_list_accounts` with platform="tiktok". Build handle→id map. Know
 - @under10.protein → under10.protein (45077)
 Skip @angelagiles29/41416 if present in the account list.
 
-**STEP 2.5 — Credit preflight**
-Call `blotato_get_credits`. **Billing is PER SLIDE: ~7 credits/slide. A 5-slide post costs ~35 credits.** Verified three times: 6.8, 6.9 and 7.0 credits/slide. A full 10-post day at 5 slides needs ~350 credits. **While the GPT pilot runs, only 9 rows bill Blotato** (the @postworkout.plate row costs 0 credits unless it falls back), so use `participating = 9` in `needed` and `daily_burn` below, and keep the 35-credit hard floor per row so a fallback can still complete.
+**STEP 2.5 — Credit preflight (Blotato credits are for fallbacks only)**
+Call `blotato_get_credits` and record the balance. The GPT path consumes **no** Blotato credits. Credits are spent only when a row falls back to `blotato_create_visual`, and the observed rate since 2026-08-21 is **~14 credits/slide, ~70 per 5-slide post** (the 7/slide figure from 2026-08-11 no longer holds — three consecutive runs logged 675, 690 and 735 credits for 10 posts).
 
-**Observed rate check:** the scheduled runs since 2026-08-21 have logged ~13.5–14.7 credits/slide (~70/post, ~700/day), double the 7/slide figure measured on 2026-08-11. Until that is re-verified, compute `needed` and `daily_burn` from the per-post cost logged by the previous run (`Actual cost this run`) when it is higher than 35 — otherwise the runway and top-up sizing will be optimistic. If the remaining balance is below what the planned run needs, log the shortfall prominently, process as many rows as credits allow, and note the truncation in the summary line. Do NOT abort before doing any work — a partial run beats none. Surface the remaining balance in the STEP 5 summary so top-ups can be timed before hitting zero.
-
-**Hard floor — never start a visual you cannot finish.** If remaining credits < 35, generate NOTHING: skip STEP 3 and STEP 4 entirely, go straight to STEP 5, and log `insufficient-credits` with the balance. A partially-rendered visual returns fewer than 5 `imageUrls`, and posting that array ships a broken carousel — the 1-slide failure that reached production on 2026-07-20. Only begin a row when at least 35 credits remain, and re-check the balance between rows as it drains.
+**Hard floor for fallbacks — never start a visual you cannot finish.** Begin a fallback row only when at least 70 credits remain, and re-check the balance before each further fallback row. A partially-rendered visual returns fewer than 5 `imageUrls`, and posting that array ships a broken carousel (2026-07-20). If a fallback row cannot be afforded, log `insufficient-credits` for that row with the balance and move on — do NOT retry, and do NOT let it stop the GPT rows.
 
 **STEP 2.6 — Credit alert to Slack (#tech)**
 
-Compute `needed = participating_accounts x 35` (a full day is ~350).
+Post to Slack channel `#tech` (ID `C0ARUTE3PPC`) via `slack_send_message` in either of these cases, and in no others — at most ONE message per run, never on a healthy run:
 
-Post to Slack channel `#tech` (ID `C0ARUTE3PPC`) via `slack_send_message` in
-either of these cases, and in no others — do not post on a healthy run:
+**A. A slot was actually missed for lack of credits** — a row fell back to Blotato AND could not be completed because the balance was below the floor.
+**B. Reserve is thin: `balance < 350`** — fewer than ~5 fallback posts in hand. This is an early warning, not an emergency: the GPT path keeps posting regardless.
 
-**A. Cannot complete today (`balance < needed`)** — this is the "ran out" case.
-**B. Fewer than 3 days of runway (`balance < needed x 3`)** — early warning, so
-there is time to act before a day is actually lost.
-
-Post at most ONE message per run. If both conditions hold, post the A version.
-
-Before posting, size the top-up **around the monthly refresh** — do not buy
-credits the plan is about to grant for free.
-
-**Monthly refresh:** the Creator plan grants ~5,000 credits on about the **7th
-of each month** (observed 2026-08-07: balance jumped 2,005 -> 7,005, exactly
-+5,000). Blotato's API does not expose a renewal date — `blotato_get_user`
-returns only plan and status — so this is inferred from one observation. If a
-refresh lands on a different day, correct this line.
-
-Sizing:
-- `days_to_refresh` = days from today to the next 7th
-- `need = days_to_refresh x daily_burn` (daily_burn = participating_accounts x 35)
-- `quantity = clamp(round_up_to_1000(need - balance), 1000, 10000)`
-- If `balance >= need`, the balance already reaches the refresh: do NOT generate
-  a checkout link and do NOT post case B. Only case A still applies.
-
-This matters. On 2026-08-22 the naive "restore 30 days" rule recommended 10,000
-credits when only ~6,000 were needed to reach the Sept 7 refresh — about $24 of
-credits that would have sat idle.
-
-Then call `blotato_buy_credits` with that quantity. It returns a `checkoutUrl`
-and **charges nothing** — a Stripe Checkout link the account owner must open and
-complete. Safe to generate unprompted.
-- The Blotato account is `whoisangelagiles@gmail.com`. Credits are
-  non-transferable between accounts, so state the email in the message.
+Top-up sizing is simple now: the Creator plan's ~5,000 monthly grant (lands about the 7th; observed 2026-08-07 and 2026-09-07) covers ~70 fallback posts a month, far more than the pilot ever needed. Recommend the **1,000-credit minimum purchase** (~$6) as a reserve and call `blotato_buy_credits` with quantity 1000 for a `checkoutUrl`. It charges nothing until completed. The account is `whoisangelagiles@gmail.com` (credits are non-transferable — say so in the message).
 
 Message format:
 
 ```
 :warning: *High Protein House — Blotato credits low*
 
-Balance: *{balance}* credits
-Today's run needs: *{needed}* ({n} posts x 35)
-Runway: *{floor(balance/daily_burn)} day(s)* at current cadence
-Next refresh: *{refresh_date}* (~5,000 credits, in {days_to_refresh} days)
-Needed to reach refresh: *{need}*
-{if A}: *Today's run cannot complete in full.* {scheduled}/{n} posts went out.
+Balance: *{balance}* credits (fallback reserve — GPT generation needs none)
+Fallback cost: ~70 credits per post
+{if A}: *A slot was missed today:* {handle(s)} — fallback needed but only {balance} credits were left.
+{if B}: Reserve covers ~{floor(balance/70)} fallback post(s).
+Next refresh: ~{refresh_date} (+5,000)
 
-Recommended top-up: *{quantity}* credits (~${quantity * 0.006}) — sized to reach the refresh, not beyond it
+Suggested top-up: *1,000* credits (~$6) — a reserve, not a recurring need
 Checkout: {checkoutUrl}
 
 Account: whoisangelagiles@gmail.com (credits are non-transferable)
 Link charges nothing until completed.
 ```
 
-If Slack is unavailable or the call fails, log `SLACK-ERROR: <reason>` to
-`state/automation-log.md` and continue. **A Slack failure must never block
-posting or the state commit** — same rule the Sheets step had.
-
-**Structural note to include when runway is short:** at 10 posts/day the
-cadence costs ~10,500 credits per 30 days against a ~5,000/month grant — a
-standing gap of ~5,500 credits (~$33) every cycle. Top-ups are not a one-off
-fix; they are a recurring line item until the cadence, slide count or plan
-changes. Say so plainly rather than implying a single purchase resolves it.
-
-Requires the Slack connector on the Routine. If `slack_send_message` is not
-available, log `SLACK-UNAVAILABLE` once and carry on.
+If Slack is unavailable or the call fails, log `SLACK-ERROR: <reason>` (or `SLACK-UNAVAILABLE` if the tool is missing) to `state/automation-log.md` and continue. **A Slack failure must never block posting or the state commit.**
 
 **STEP 3 — Assign recipes**
 There is ONE slot (18:00 ET) and ALL 10 accounts participate.
@@ -143,10 +99,10 @@ There is ONE slot (18:00 ET) and ALL 10 accounts participate.
 - For each account in alphabetical order (account_index 0..9):
     `recipe = pool[(account_index + today_day_of_year) % N]`
 
-**STEP 4 — Process each row**
+**STEP 4 — Build every row, generate all slides in one batch, then schedule**
 Order: alphabetical by handle, account_index 0..9, all in the single 18:00 ET slot.
 
-For each row:
+**4a–4d run for every row first (no API calls yet).** Then 4e generates all rows at once. Then 4g–4i schedule row by row.
 
 4a) Cook time: use the recipe's own category to pick a sensible figure — breakfast 8 min, lunch 10 min, dinner 12 min, snack 5 min. This feeds {TIME} in the hook template.
 
@@ -156,13 +112,7 @@ For each row:
     - Base time (America/New_York today at 18:00) + (account_index × 3 min)
     - If past current time (but within 4 hours), bump to next round hour ≥30 min from now keeping stagger.
 
-4d) Generate the visual via `blotato_create_visual`:
-    - templateId: `/base/v2/images-with-text/0ddb8655-c3da-43da-9f7d-be1915ca7818/v1`
-    - title: `{recipe_cleaned}_{today_iso}_{handle_cleaned}`
-    - render: true
-    - inputs.aspectRatio: "9:16"
-    - inputs.slideDuration: 5
-    - inputs.slides: **5 slides** (verified 2026-08-11 — the template accepts 5 and returns exactly 5 `imageUrls`, billing 35 credits). Each slide has `image` (20-400 chars) and `text` (30-200 chars). Food-forward images (food fills the frame — no generic hands-in-kitchen).
+4d) Compose the 5 slides — `image` prompt (20-400 chars) + `text` (30-200 chars) per slide, food-forward (food fills the frame — no generic hands-in-kitchen). The same content feeds the GPT path and, if needed, the Blotato fallback.
 
     **LOCKED 5-SLIDE LAYOUT (changed 2026-08-11 from 6):**
     - Slide 1 (TITLE + HOOK): image = "Hero close-up of the finished {recipe}, {visual_style_prompt}, vertical 9:16, glistening and beautifully plated" / text = "{RECIPE UPPERCASE} — {VARIANT_HOOK}"
@@ -174,43 +124,52 @@ For each row:
         - text if mode == "warmup": "{Cal} CAL · {Protein}G PROTEIN — Real food, real macros. High Protein House." (≥30 chars, no CTA)
         - text if mode == "launch": "{Cal} CAL · {Protein}G PROTEIN — Want more? Full Cookbook in Bio ⬇️" (≥30 chars, CTA on)
 
-    The old 6-slide layout split prep across three slides (STEP 1 / STEP 2 / STEP 3). Slides 3 and 4 of that layout are now merged into slide 3. Do not emit 6 slides.
+    The old 6-slide layout split prep across three slides. Do not emit 6 slides. The overlay script draws `text` itself, so the image prompts must describe food only; it appends its own "no text, no people" instruction.
 
-4e) Poll `blotato_get_visual_status` with parameter `id` (NOT `visualId`) every 30 sec, up to 12 attempts (6 min). On timeout or `insufficient-credits`, log the row + skip. If >3 consecutive credit errors, log critical + stop the run.
+**4e) GPT generation — ALL rows in one batch (default path, zero Blotato credits)**
 
-4f) media URL: `post_mediaUrls = imageUrls` (FULL 5-URL array — never just imageUrls[0]).
-
-**STEP 4-PILOT — @postworkout.plate only (GPT Image mini, replaces 4d–4f for that row)**
-
-Applies ONLY to `@postworkout.plate` (44894). Every other row uses 4d–4f exactly as written. Do the work in this order; on any failure jump to FALLBACK. Never retry the pilot within a run.
-
-P1) Compose the 5 slides exactly as 4d specifies — same `image` prompts (with the account's `visual_style_prompt`) and the same `text` per slide, same locked layout. The pilot changes where the pixels come from, not what the slides say.
-
-P2) Write `pilot_input.json` in the repo root:
+e1) Write `pilot_plan.json` in the repo root with every participating row:
 ```
-{"date": "{today_iso}", "account": "@postworkout.plate", "recipe": "{recipe}",
- "visual_style_prompt": "{visual_style_prompt}",
- "slides": [{"image": "...", "text": "..."}, ... exactly 5 ...]}
+{"date": "{today_iso}",
+ "rows": [{"account": "@handle", "recipe": "{recipe}",
+           "visual_style_prompt": "{visual_style_prompt}",
+           "slides": [{"image": "...", "text": "..."}, ... exactly 5 ...]},
+          ... one per row ...]}
 ```
 
-P3) Install the overlay dependency, then render:
+e2) Install the overlay dependency, then render everything:
 ```
 python3 -c "import PIL" 2>/dev/null || pip install --quiet pillow 2>&1 | tail -1 || true
-python3 scripts/gpt_pilot.py render pilot_input.json
+python3 scripts/gpt_pilot.py render-batch pilot_plan.json
 ```
-**The install line is required.** The routine container does not ship Pillow (verified 2026-09-09); without it the script exits 1 and the row falls back to Blotato every day. It reuses cached slides whose media URL still resolves (`state/media-cache.json`, keyed by recipe + account + slide index), generates the rest with OpenAI (1024×1536, no text — the overlay is drawn locally), writes `pilot_manifest.json`, and prints one `GPT-PILOT-RENDER:` line with `cached=`, `generated=`, `cost=` and `needs_upload=[...]`. Exit code ≠ 0, or no `GPT-PILOT-RENDER:` line → FALLBACK.
+**The install line is required** — the routine container does not ship Pillow. The script reuses cached slides whose media URL still resolves (`state/media-cache.json`, keyed recipe + account + slide index), generates the rest with OpenAI (4 concurrent requests, 1024×1536, no text — the overlay is drawn locally), and prints one `GPT-ROW:` line per row plus a final `GPT-PILOT-RENDER:` summary. It writes `pilot_manifest.json`. Expect roughly 3–6 minutes for 50 fresh images.
 
 The OpenAI key is an API credential on the cloud environment; the egress proxy injects it for api.openai.com. The script sends no key of its own when `OPENAI_API_KEY` is the placeholder value `proxy`. Never print, log or commit any key.
 
-P4) For each index in `needs_upload`, call `blotato_create_presigned_upload_url` with `filename = "postworkout_{today_iso}_slide_{i}.png"`. Write `pilot_uploads.json` as a list of `{"slide_index": i, "presignedUrl": ..., "publicUrl": ...}` — an empty list `[]` when `needs_upload` is empty.
+e3) Read `pilot_manifest.json`. Every row with `"status": "failed"` goes on the **fallback list** with its `error`. For each entry in the manifest's `needs_upload` list, call `blotato_create_presigned_upload_url` with that entry's `filename` and collect `{"account": entry.account, "slide_index": entry.slide_index, "presignedUrl": ..., "publicUrl": ...}`. Write them all to `pilot_uploads.json` (an empty list `[]` if nothing needs uploading). This is up to 50 calls on a cache-cold day; make them all before moving on.
 
-P5) Run `python3 scripts/gpt_pilot.py upload pilot_manifest.json pilot_uploads.json`. It PUTs each PNG, verifies every public URL serves an image, records the URLs in `state/media-cache.json`, updates `state/gpt-pilot-spend.json`, and prints `GPT-PILOT-MEDIA: url1 url2 url3 url4 url5`. Exit code ≠ 0 → FALLBACK.
+e4) Run `python3 scripts/gpt_pilot.py upload-batch pilot_manifest.json pilot_uploads.json`. It PUTs each PNG, verifies every public URL serves an image, records URLs in `state/media-cache.json`, updates `state/gpt-pilot-spend.json`, prints one `GPT-MEDIA: @handle url1 … url5` line per successful row and a `GPT-PILOT-UPLOAD:` summary, and writes `pilot_media.json`.
 
-P6) `post_mediaUrls` = the 5 URLs from the `GPT-PILOT-MEDIA:` line, in that order (also in `pilot_media.json`). Continue with 4g (caption) and 4h (`blotato_create_post`) unchanged — `isAiGenerated=true` still applies, mediaUrls is the full 5-URL array. Then 4i as normal.
+e5) Read `pilot_media.json`. For each row with `"status": "ok"`, `post_mediaUrls` = its `mediaUrls` (5 URLs, in slide order). Rows with `"status": "failed"` join the fallback list.
 
-P7) In the STEP 5 summary notes, tag the row: `[GPT-PILOT] {recipe}: generated={n} cached={k} cost=${x} scheduled {time}` using the numbers from the `GPT-PILOT-RENDER:` line. This is the 7-day spend comparison record — do not omit it.
+**If either script exits 1, hangs past 15 minutes, or its output file is missing, every row not yet resolved goes on the fallback list.** Do not retry the GPT path within a run. Do not delete or hand-edit `state/media-cache.json`.
 
-FALLBACK: log `[GPT-PILOT] FALLBACK: {first GPT-PILOT-ERROR line or exit reason}` in the summary notes, then run 4d–4f for this row with Blotato exactly as for every other account. A fallback is a normal outcome, not a run failure. Do not delete or hand-edit `state/media-cache.json`.
+**4f) FALLBACK rows only — Blotato AI generation (costs ~70 credits per row)**
+
+For each row on the fallback list, and only those, subject to the STEP 2.5 floor:
+
+f1) Generate via `blotato_create_visual`:
+    - templateId: `/base/v2/images-with-text/0ddb8655-c3da-43da-9f7d-be1915ca7818/v1` (locked)
+    - title: `{recipe_cleaned}_{today_iso}_{handle_cleaned}`
+    - render: true
+    - inputs.aspectRatio: "9:16", inputs.slideDuration: 5
+    - inputs.slides: the same 5 `image` + `text` slides from 4d (the template accepts 5 and returns exactly 5 `imageUrls`).
+
+f2) Poll `blotato_get_visual_status` with parameter `id` (NOT `visualId`) every 30 sec, up to 12 attempts (6 min). On timeout or `insufficient-credits`, log the row + skip. If >3 consecutive credit errors, stop starting fallback rows (GPT rows are unaffected).
+
+f3) `post_mediaUrls = imageUrls` (FULL 5-URL array — never just imageUrls[0]).
+
+f4) Log `[GPT] FALLBACK @handle: {reason from the manifest/media file}` in the summary notes for every fallback row, whether or not the fallback itself succeeded.
 
 4g) Build caption (mode-driven):
     - warmup:
@@ -237,7 +196,7 @@ FALLBACK: log `[GPT-PILOT] FALLBACK: {first GPT-PILOT-ERROR line or exit reason}
 4h) Schedule via `blotato_create_post`:
     - accountId, platform="tiktok"
     - text = caption
-    - mediaUrls = full 5-URL array
+    - mediaUrls = full 5-URL array (from 4e for GPT rows, from 4f for fallback rows)
     - scheduledTime = ISO 8601 with America/New_York offset
     - privacyLevel = "PUBLIC_TO_EVERYONE"
     - disabledComments = false, disabledDuet = false, disabledStitch = false
@@ -252,7 +211,7 @@ FALLBACK: log `[GPT-PILOT] FALLBACK: {first GPT-PILOT-ERROR line or exit reason}
 **STEP 5 — Persist state (git commit + push)**
 `git add state/` also picks up `state/media-cache.json` and `state/gpt-pilot-spend.json` when the pilot ran. Write updated `state/recipe-rotation-log.json` with new `last_posted` values (only for recipes successfully scheduled — leave skipped recipes untouched so they surface first next run). Refresh `last_updated` field.
 
-Append a one-line summary to `state/automation-log.md`:
+Append a one-line summary to `state/automation-log.md`. The notes MUST include the batch tag `[GPT] rows_ok={n} rows_failed={m} generated={g} cached={c} cost=${x}` copied from the `GPT-PILOT-RENDER:`/`GPT-PILOT-UPLOAD:` lines, plus one `[GPT] FALLBACK @handle: reason` per fallback row — this is the spend and reliability record:
 ```
 - [{timestamp}] DAILY-3X (mixed cadence + mode): {connected}/{expected} accounts, cadences [{3x_count}×3x + {2x_count}×2x], slots-fired [{slots_fired}], slots-skipped-past [{slots_skipped}], {visuals} visuals, {posts_b}B + {posts_l}L + {posts_d}D scheduled ({posts_total} total). {errors} errors. Launch CTAs on: [handles]. Credits remaining: {credits_remaining}. {notes}
 ```
@@ -315,27 +274,28 @@ account credentials. If they are unavailable, the script logs and exits cleanly.
 **ABSOLUTE RULES:**
 - Read from `state/` (repo-root-relative), NOT from any Mac path.
 - Past-slot skip guard is active — no clustering.
-- Per-account mode drives slide 6 + caption CTA.
-- Prominent Text template, `image`+`text` schema, 5 slides.
+- Per-account mode drives slide 5 + caption CTA.
+- 5 slides. GPT generation (`scripts/gpt_pilot.py`) by default; the Blotato Prominent Text template (`image`+`text` schema) only for fallback rows.
 - mediaUrls = FULL array for carousels.
 - `isAiGenerated=true` always.
 - Schedule (never publish immediately).
 - `get_visual_status` parameter is `id`.
 - Commit state changes to git at end of every run.
 
-**CREDIT BUDGET (measured 2026-08-11 — supersedes all earlier estimates):** Blotato Creator plan, ~5,000 credits/mo cap.
+**COST MODEL (from 2026-09-14 — GPT generation for all accounts):**
 
-Billing is **per slide**, not per post. Measured 7.0 credits/slide (3,498 → 3,463 for a 5-slide render on 2026-08-11), consistent with 6.8 and 6.9 measured across two 28-post days.
+| | per post | per day (10) | per 30 days |
+|---|---|---|---|
+| OpenAI gpt-image-1-mini, medium quality (measured 2026-09-09 → 09-13: 1,584 output tokens per image, $0.0128/image) | ~$0.064 | ~$0.64 | ~$19 |
+| Blotato — GPT rows | 0 credits | 0 | 0 |
+| Blotato — fallback row (observed ~14 credits/slide since 2026-08-21) | ~70 credits (~$0.42) | — | — |
 
-| | credits |
-|---|---|
-| One slide | ~7 |
-| One 5-slide post | ~35 |
-| Full day, 10 posts | ~350 |
-| 30-day cycle | ~10,500 |
+Cache hits reduce OpenAI spend only when the same (recipe, account) pair recurs, which the rotation does roughly every 110 days — so budget the full figure. `GPT_PILOT_QUALITY=low` would cut OpenAI cost to roughly a third (408 tokens/image) at visibly lower detail; Angela chose medium after the pilot.
 
-That is ~2× the ~5,000/mo cap, so expect a recurring top-up of roughly 5,500 credits (~$33) per cycle. The earlier "6 credits per post / 168 per day" figure confused the daily SLIDE count (28 × 6 = 168) with the credit cost; the old 6-slide, 28-post day actually cost ~1,176/day (~35,000/month, 7× over cap), which is why runs silently truncated and Breakfast vanished in June.
+**OpenAI account settings must allow this:** the monthly spend limit needs to be at least ~$30 and the prepaid balance kept above ~$20, or generation starts failing with a billing error and every row falls back to Blotato at ~70 credits each — which the ~5,000 monthly grant covers for only ~7 days. Check `state/gpt-pilot-spend.json` when spend looks off.
 
-If `insufficient-credits` hits, log the affected slot and continue; do NOT retry.
+Blotato's Creator plan grant (~5,000/month, lands ~7th) now funds fallbacks only. At ~70 per fallback post that is ~70 posts a month of headroom, so top-ups should be rare; STEP 2.6 asks for a 1,000-credit reserve when the balance drops below 350.
 
-**GPT PILOT ECONOMICS (from 2026-09-10):** the @postworkout.plate row costs ~$0.065/day in OpenAI usage (measured 2026-09-09: 5 × gpt-image-1-mini at medium quality = $0.064, 1,584 output tokens per image; `GPT_PILOT_QUALITY=low` would be roughly a third of that; the exact figure comes from the API usage object and is written to `state/gpt-pilot-spend.json`) instead of ~35–70 Blotato credits (~$0.21–0.42). Success criteria after 7 days: zero missed slots attributable to the pilot, spend in that range, and Angela's side-by-side quality call on 3 pilot carousels vs 3 Blotato carousels before expanding to more accounts.
+History: the old 28-post, 6-slide Blotato day cost ~1,176 credits (~35,000/month, 7× the cap) and silently truncated runs; the 2026-08-11 cut to 10 × 5 slides brought it to a measured ~350/day, which had drifted to ~700/day (~14/slide) by late August. The GPT pilot on @postworkout.plate (2026-09-10 → 09-13) then ran 4/4 days with no fallbacks at $0.064/post, which is why generation moved to GPT for every account.
+
+If `insufficient-credits` hits a fallback row, log it and continue; do NOT retry.
