@@ -1,0 +1,165 @@
+{
+  "date": "2026-09-14",
+  "model": "gpt-image-1-mini",
+  "quality": "medium",
+  "size": "1024x1536",
+  "rows": [
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "status": "ok",
+      "error": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/prep.with.alex/slide_1.png",
+          "sha256_16": "d2a05d9480f6ae5b",
+          "cost_usd": 0.01286,
+          "usage": {
+            "input_tokens": 94,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 94
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1678
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/prep.with.alex/slide_2.png",
+          "sha256_16": "cfa75d1f9024b803",
+          "cost_usd": 0.012854,
+          "usage": {
+            "input_tokens": 91,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 91
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1675
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/prep.with.alex/slide_3.png",
+          "sha256_16": "6925ba8225427adf",
+          "cost_usd": 0.012826,
+          "usage": {
+            "input_tokens": 77,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 77
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1661
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/prep.with.alex/slide_4.png",
+          "sha256_16": "f43904bc6399ff4b",
+          "cost_usd": 0.01282,
+          "usage": {
+            "input_tokens": 74,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 74
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1658
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/prep.with.alex/slide_5.png",
+          "sha256_16": "09e606a2cab0c743",
+          "cost_usd": 0.012828,
+          "usage": {
+            "input_tokens": 78,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 78
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1662
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.064188
+    }
+  ],
+  "needs_upload": [
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "slide_index": 1,
+      "filename": "prep-with-alex_2026-09-14_slide_1.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "slide_index": 2,
+      "filename": "prep-with-alex_2026-09-14_slide_2.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "slide_index": 3,
+      "filename": "prep-with-alex_2026-09-14_slide_3.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "slide_index": 4,
+      "filename": "prep-with-alex_2026-09-14_slide_4.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "slide_index": 5,
+      "filename": "prep-with-alex_2026-09-14_slide_5.png"
+    }
+  ],
+  "rows_ok": 1,
+  "rows_failed": 0,
+  "cached": 0,
+  "generated": 5,
+  "dead_cache": 0,
+  "total_cost_usd": 0.064188,
+  "batch": true
+}
