@@ -1,0 +1,757 @@
+{
+  "date": "2026-09-14",
+  "model": "gpt-image-1-mini",
+  "quality": "medium",
+  "size": "1024x1536",
+  "rows": [
+    {
+      "account": "@macro.architect",
+      "recipe": "Buffalo Chicken Casserole",
+      "status": "ok",
+      "error": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/macro.architect/slide_1.png",
+          "sha256_16": "4e0ae960156042d0",
+          "cost_usd": 0.012848,
+          "usage": {
+            "input_tokens": 88,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 88
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1672
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/macro.architect/slide_2.png",
+          "sha256_16": "4a9737a15dacd4fc",
+          "cost_usd": 0.012854,
+          "usage": {
+            "input_tokens": 91,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 91
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1675
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/macro.architect/slide_3.png",
+          "sha256_16": "ae3b49a7b1b896c3",
+          "cost_usd": 0.012834,
+          "usage": {
+            "input_tokens": 81,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 81
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1665
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/macro.architect/slide_4.png",
+          "sha256_16": "42218043481a28af",
+          "cost_usd": 0.01283,
+          "usage": {
+            "input_tokens": 79,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 79
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1663
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/macro.architect/slide_5.png",
+          "sha256_16": "83cd9c1ce94cdec8",
+          "cost_usd": 0.012824,
+          "usage": {
+            "input_tokens": 76,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 76
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1660
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.06419
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "status": "ok",
+      "error": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/prep.with.alex/slide_1.png",
+          "sha256_16": "cd5f38651f3b2240",
+          "cost_usd": 0.01286,
+          "usage": {
+            "input_tokens": 94,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 94
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1678
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/prep.with.alex/slide_2.png",
+          "sha256_16": "95dc6e853dfa63fe",
+          "cost_usd": 0.012854,
+          "usage": {
+            "input_tokens": 91,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 91
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1675
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/prep.with.alex/slide_3.png",
+          "sha256_16": "4f269c1496012a29",
+          "cost_usd": 0.012826,
+          "usage": {
+            "input_tokens": 77,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 77
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1661
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/prep.with.alex/slide_4.png",
+          "sha256_16": "68b7aeb7643e296c",
+          "cost_usd": 0.01282,
+          "usage": {
+            "input_tokens": 74,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 74
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1658
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/prep.with.alex/slide_5.png",
+          "sha256_16": "d0daba5715ed0bc0",
+          "cost_usd": 0.012828,
+          "usage": {
+            "input_tokens": 78,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 78
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1662
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.064188
+    },
+    {
+      "account": "@protein.lab.eats",
+      "recipe": "Banana Protein French Toast",
+      "status": "ok",
+      "error": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/protein.lab.eats/slide_1.png",
+          "sha256_16": "153d0354daae7907",
+          "cost_usd": 0.012834,
+          "usage": {
+            "input_tokens": 81,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 81
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1665
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/protein.lab.eats/slide_2.png",
+          "sha256_16": "36b4747e3a2ce966",
+          "cost_usd": 0.01286,
+          "usage": {
+            "input_tokens": 94,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 94
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1678
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/protein.lab.eats/slide_3.png",
+          "sha256_16": "999e45439b0d21c4",
+          "cost_usd": 0.01283,
+          "usage": {
+            "input_tokens": 79,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 79
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1663
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/protein.lab.eats/slide_4.png",
+          "sha256_16": "b4ef2d7f1a5bf17f",
+          "cost_usd": 0.012836,
+          "usage": {
+            "input_tokens": 82,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 82
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1666
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/protein.lab.eats/slide_5.png",
+          "sha256_16": "0f1ceeb229209bb0",
+          "cost_usd": 0.012818,
+          "usage": {
+            "input_tokens": 73,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 73
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1657
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.064178
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "Cottage Cheese + Pineapple Bowl",
+      "status": "ok",
+      "error": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/the.lean.cook/slide_1.png",
+          "sha256_16": "a90a9739e02888ff",
+          "cost_usd": 0.012846,
+          "usage": {
+            "input_tokens": 87,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 87
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1671
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/the.lean.cook/slide_2.png",
+          "sha256_16": "483dd50f2396f560",
+          "cost_usd": 0.012858,
+          "usage": {
+            "input_tokens": 93,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 93
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1677
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/the.lean.cook/slide_3.png",
+          "sha256_16": "d449bbf60be2609b",
+          "cost_usd": 0.012826,
+          "usage": {
+            "input_tokens": 77,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 77
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1661
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/the.lean.cook/slide_4.png",
+          "sha256_16": "775c2e480e281b16",
+          "cost_usd": 0.012828,
+          "usage": {
+            "input_tokens": 78,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 78
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1662
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/the.lean.cook/slide_5.png",
+          "sha256_16": "f2d1a485db663150",
+          "cost_usd": 0.012818,
+          "usage": {
+            "input_tokens": 73,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 73
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1657
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.064176
+    },
+    {
+      "account": "@under10.protein",
+      "recipe": "Edamame + Sea Salt",
+      "status": "ok",
+      "error": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/under10.protein/slide_1.png",
+          "sha256_16": "b130cba7f9e3f273",
+          "cost_usd": 0.012848,
+          "usage": {
+            "input_tokens": 88,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 88
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1672
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/under10.protein/slide_2.png",
+          "sha256_16": "07696447e251dd3b",
+          "cost_usd": 0.012856,
+          "usage": {
+            "input_tokens": 92,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 92
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1676
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/under10.protein/slide_3.png",
+          "sha256_16": "38d40fc7c0929353",
+          "cost_usd": 0.01283,
+          "usage": {
+            "input_tokens": 79,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 79
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1663
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/under10.protein/slide_4.png",
+          "sha256_16": "77fb813d30c3a00c",
+          "cost_usd": 0.012834,
+          "usage": {
+            "input_tokens": 81,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 81
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1665
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-14/under10.protein/slide_5.png",
+          "sha256_16": "a256992656a97e13",
+          "cost_usd": 0.012824,
+          "usage": {
+            "input_tokens": 76,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 76
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1660
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.064192
+    }
+  ],
+  "needs_upload": [
+    {
+      "account": "@macro.architect",
+      "recipe": "Buffalo Chicken Casserole",
+      "slide_index": 1,
+      "filename": "macro-architect_2026-09-14_slide_1.png"
+    },
+    {
+      "account": "@macro.architect",
+      "recipe": "Buffalo Chicken Casserole",
+      "slide_index": 2,
+      "filename": "macro-architect_2026-09-14_slide_2.png"
+    },
+    {
+      "account": "@macro.architect",
+      "recipe": "Buffalo Chicken Casserole",
+      "slide_index": 3,
+      "filename": "macro-architect_2026-09-14_slide_3.png"
+    },
+    {
+      "account": "@macro.architect",
+      "recipe": "Buffalo Chicken Casserole",
+      "slide_index": 4,
+      "filename": "macro-architect_2026-09-14_slide_4.png"
+    },
+    {
+      "account": "@macro.architect",
+      "recipe": "Buffalo Chicken Casserole",
+      "slide_index": 5,
+      "filename": "macro-architect_2026-09-14_slide_5.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "slide_index": 1,
+      "filename": "prep-with-alex_2026-09-14_slide_1.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "slide_index": 2,
+      "filename": "prep-with-alex_2026-09-14_slide_2.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "slide_index": 3,
+      "filename": "prep-with-alex_2026-09-14_slide_3.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "slide_index": 4,
+      "filename": "prep-with-alex_2026-09-14_slide_4.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Strawberry Cheesecake Overnight Oats",
+      "slide_index": 5,
+      "filename": "prep-with-alex_2026-09-14_slide_5.png"
+    },
+    {
+      "account": "@protein.lab.eats",
+      "recipe": "Banana Protein French Toast",
+      "slide_index": 1,
+      "filename": "protein-lab-eats_2026-09-14_slide_1.png"
+    },
+    {
+      "account": "@protein.lab.eats",
+      "recipe": "Banana Protein French Toast",
+      "slide_index": 2,
+      "filename": "protein-lab-eats_2026-09-14_slide_2.png"
+    },
+    {
+      "account": "@protein.lab.eats",
+      "recipe": "Banana Protein French Toast",
+      "slide_index": 3,
+      "filename": "protein-lab-eats_2026-09-14_slide_3.png"
+    },
+    {
+      "account": "@protein.lab.eats",
+      "recipe": "Banana Protein French Toast",
+      "slide_index": 4,
+      "filename": "protein-lab-eats_2026-09-14_slide_4.png"
+    },
+    {
+      "account": "@protein.lab.eats",
+      "recipe": "Banana Protein French Toast",
+      "slide_index": 5,
+      "filename": "protein-lab-eats_2026-09-14_slide_5.png"
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "Cottage Cheese + Pineapple Bowl",
+      "slide_index": 1,
+      "filename": "the-lean-cook_2026-09-14_slide_1.png"
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "Cottage Cheese + Pineapple Bowl",
+      "slide_index": 2,
+      "filename": "the-lean-cook_2026-09-14_slide_2.png"
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "Cottage Cheese + Pineapple Bowl",
+      "slide_index": 3,
+      "filename": "the-lean-cook_2026-09-14_slide_3.png"
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "Cottage Cheese + Pineapple Bowl",
+      "slide_index": 4,
+      "filename": "the-lean-cook_2026-09-14_slide_4.png"
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "Cottage Cheese + Pineapple Bowl",
+      "slide_index": 5,
+      "filename": "the-lean-cook_2026-09-14_slide_5.png"
+    },
+    {
+      "account": "@under10.protein",
+      "recipe": "Edamame + Sea Salt",
+      "slide_index": 1,
+      "filename": "under10-protein_2026-09-14_slide_1.png"
+    },
+    {
+      "account": "@under10.protein",
+      "recipe": "Edamame + Sea Salt",
+      "slide_index": 2,
+      "filename": "under10-protein_2026-09-14_slide_2.png"
+    },
+    {
+      "account": "@under10.protein",
+      "recipe": "Edamame + Sea Salt",
+      "slide_index": 3,
+      "filename": "under10-protein_2026-09-14_slide_3.png"
+    },
+    {
+      "account": "@under10.protein",
+      "recipe": "Edamame + Sea Salt",
+      "slide_index": 4,
+      "filename": "under10-protein_2026-09-14_slide_4.png"
+    },
+    {
+      "account": "@under10.protein",
+      "recipe": "Edamame + Sea Salt",
+      "slide_index": 5,
+      "filename": "under10-protein_2026-09-14_slide_5.png"
+    }
+  ],
+  "rows_ok": 5,
+  "rows_failed": 0,
+  "cached": 0,
+  "generated": 25,
+  "dead_cache": 0,
+  "total_cost_usd": 0.320924,
+  "batch": true
+}
