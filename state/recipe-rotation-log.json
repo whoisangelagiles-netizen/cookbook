@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-13T08:20:00+00:00",
+  "last_updated": "2026-09-14T08:35:00+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -270,7 +270,7 @@
       "category": "lunch",
       "calories": 410,
       "protein_g": 35,
-      "last_posted": "2026-09-03"
+      "last_posted": "2026-09-14"
     },
     "Spicy Shrimp Burrito Bowl": {
       "category": "lunch",
@@ -288,7 +288,7 @@
       "category": "lunch",
       "calories": 430,
       "protein_g": 35,
-      "last_posted": "2026-09-03"
+      "last_posted": "2026-09-14"
     },
     "Turkey Avocado Club Wrap": {
       "category": "lunch",
@@ -336,7 +336,7 @@
       "category": "lunch",
       "calories": 380,
       "protein_g": 32,
-      "last_posted": "2026-09-03"
+      "last_posted": "2026-09-14"
     },
     "Southwest Chicken Bowl": {
       "category": "lunch",
@@ -462,7 +462,7 @@
       "category": "dinner",
       "calories": 530,
       "protein_g": 42,
-      "last_posted": "2026-09-02"
+      "last_posted": "2026-09-14"
     },
     "Shrimp Scampi over Zoodles": {
       "category": "dinner",
@@ -498,7 +498,7 @@
       "category": "dinner",
       "calories": 540,
       "protein_g": 42,
-      "last_posted": "2026-09-02"
+      "last_posted": "2026-09-14"
     },
     "Mongolian Beef Bowl": {
       "category": "dinner",

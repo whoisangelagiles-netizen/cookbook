@@ -140,7 +140,42 @@
       "sha256_16": "3ead454db47171cc",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Chicken Tikka Masala (Lightened)|@postworkout.plate|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2c0a7a8c-f28d-4e26-86be-3519b4377998.png",
+      "created": "2026-09-14",
+      "sha256_16": "3cdc5d18a03b9306",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken Tikka Masala (Lightened)|@postworkout.plate|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b7c41753-38e3-4d72-a235-6d82d4bf320a.png",
+      "created": "2026-09-14",
+      "sha256_16": "f2f3bb8837bfffd4",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken Tikka Masala (Lightened)|@postworkout.plate|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ddef42f6-c1bb-4525-ae25-ea69db1a9c4b.png",
+      "created": "2026-09-14",
+      "sha256_16": "4740e3ed88e07bcf",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken Tikka Masala (Lightened)|@postworkout.plate|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/13f6eaf0-996f-449d-b8a6-c44ad6d81a5b.png",
+      "created": "2026-09-14",
+      "sha256_16": "aa90c8e4869d8369",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken Tikka Masala (Lightened)|@postworkout.plate|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/08e69954-222d-4401-a8db-718ae28958b5.png",
+      "created": "2026-09-14",
+      "sha256_16": "c0ebe79591aff2d3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-13T08:12:13+00:00"
+  "last_updated": "2026-09-14T08:19:25+00:00"
 }
