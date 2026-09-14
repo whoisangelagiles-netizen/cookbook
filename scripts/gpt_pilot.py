@@ -38,6 +38,10 @@ Subcommands
       Single-row forms of the above (input.json = one row + "date"). Kept
       for manual use; uploads.json entries may omit "account".
 
+  recompose <plan.json>
+      Re-draw the text overlays from the saved backgrounds (out/.../bg_N.png)
+      without calling OpenAI — for fixing overlay issues after a render.
+
   status
       Print cache size and the spend ledger.
 
@@ -328,9 +332,95 @@ def font(kind, size):
     return f
 
 
+_glyph_cache = {}
+_fallback_cache = {}
+FALLBACK_FONTS = ["/usr/share/fonts/truetype/dejavu/DejaVuSans-Bold.ttf",
+                  "/usr/share/fonts/truetype/liberation/LiberationSans-Bold.ttf"]
+
+
+def fallback_font(size):
+    """Symbol fallback (arrows etc.) — DejaVu covers far more of Unicode."""
+    if size in _fallback_cache:
+        return _fallback_cache[size]
+    f = None
+    for path in FALLBACK_FONTS:
+        if os.path.exists(path):
+            try:
+                f = ImageFont.truetype(path, size)
+                break
+            except Exception:
+                continue
+    _fallback_cache[size] = f
+    return f
+
+
+def has_glyph(f, ch):
+    """True if the font renders ch as something other than .notdef.
+
+    Pillow cannot report glyph coverage directly, so compare the rendered
+    bitmap against a private-use codepoint that no font covers.
+    """
+    key = (id(f), ch)
+    if key in _glyph_cache:
+        return _glyph_cache[key]
+    if ch.isascii() and ch.isprintable():
+        _glyph_cache[key] = True
+        return True
+
+    def mask(c):
+        im = Image.new("L", (160, 120), 0)
+        ImageDraw.Draw(im).text((10, 10), c, font=f, fill=255)
+        return im.tobytes()
+    try:
+        ok = mask(ch) != mask("\ue000")
+    except Exception:
+        ok = False
+    _glyph_cache[key] = ok
+    return ok
+
+
+def clean_text(s):
+    """Drop invisible emoji modifiers; the fonts have no colour emoji anyway."""
+    return "".join(ch for ch in s if ch not in ("\ufe0f", "\u200d", "\ufe0e"))
+
+
+def runs(s, f):
+    """Split s into (text, font) runs: main font, symbol fallback, or dropped."""
+    s = clean_text(s)
+    fb = fallback_font(getattr(f, "size", 40))
+    out, cur, cur_f = [], "", None
+    for ch in s:
+        if has_glyph(f, ch):
+            use = f
+        elif fb is not None and has_glyph(fb, ch):
+            use = fb
+        else:
+            continue  # unrenderable (e.g. emoji): drop silently
+        if use is cur_f:
+            cur += ch
+        else:
+            if cur:
+                out.append((cur, cur_f))
+            cur, cur_f = ch, use
+    if cur:
+        out.append((cur, cur_f))
+    return out
+
+
 def text_w(draw, s, f):
-    l, t, r, b = draw.textbbox((0, 0), s, font=f)
-    return r - l
+    total = 0
+    for txt, ff in runs(s, f):
+        l, t, r, b = draw.textbbox((0, 0), txt, font=ff)
+        total += r - l
+    return total
+
+
+def draw_str(draw, x, y, s, f, fill, stroke):
+    for txt, ff in runs(s, f):
+        draw.text((x, y), txt, font=ff, fill=fill, stroke_width=stroke,
+                  stroke_fill=(0, 0, 0))
+        l, t, r, b = draw.textbbox((0, 0), txt, font=ff)
+        x += r - l
 
 
 def line_h(f):
@@ -404,8 +494,7 @@ def draw_panel(img, box, radius=36, alpha=150):
 def draw_text_lines(draw, lines, f, x, y, fill=(255, 255, 255), stroke=3):
     lh = line_h(f)
     for ln in lines:
-        draw.text((x, y), ln, font=f, fill=fill, stroke_width=stroke,
-                  stroke_fill=(0, 0, 0))
+        draw_str(draw, x, y, ln, f, fill, stroke)
         y += lh
     return y
 
@@ -575,6 +664,7 @@ def render_rows(date, rows):
             bg, cost, usage = payload
             try:
                 os.makedirs(out_dir, exist_ok=True)
+                bg.save(os.path.join(out_dir, f"bg_{si}.png"), "PNG")  # kept for recompose
                 img = compose(bg, si, row["slides"][si - 1], r["recipe"])
                 path = os.path.join(out_dir, f"slide_{si}.png")
                 img.save(path, "PNG", optimize=True)
@@ -768,6 +858,45 @@ def cmd_upload(argv):
         f"cached={r['cached']} cost=${r['cost_usd']:.4f} media={MEDIA_DEFAULT}")
 
 
+def cmd_recompose(argv):
+    """Re-draw overlays from saved backgrounds (out/.../bg_N.png), no OpenAI.
+
+    Use after an overlay fix. Rewrites slide_N.png for every slide whose
+    background exists and refreshes sha256_16 in pilot_manifest.json when
+    present. Never touches the cache or the spend ledger.
+    """
+    if len(argv) != 1:
+        fail("usage: gpt_pilot.py recompose <plan.json>")
+    plan = load_json(argv[0], None)
+    if plan is None or "date" not in plan:
+        fail("plan.json needs 'date' and 'rows' (or a single-row input with 'date')")
+    rows = plan.get("rows") or [plan]
+    validate_rows(rows)
+    manifest = load_json(MANIFEST_DEFAULT, None)
+    done = 0
+    for row in rows:
+        out_dir = os.path.join(OUT_ROOT, plan["date"], row["account"].lstrip("@"))
+        for si, slide in enumerate(row["slides"], start=1):
+            bg_path = os.path.join(out_dir, f"bg_{si}.png")
+            if not os.path.exists(bg_path):
+                continue
+            img = compose(Image.open(bg_path).convert("RGB"), si, slide, row["recipe"])
+            path = os.path.join(out_dir, f"slide_{si}.png")
+            img.save(path, "PNG", optimize=True)
+            sha = hashlib.sha256(open(path, "rb").read()).hexdigest()[:16]
+            if manifest:
+                for mr in manifest.get("rows", []):
+                    if norm_account(mr.get("account")) == row["account"]:
+                        for ms in mr.get("slides", []):
+                            if ms.get("index") == si and ms.get("path"):
+                                ms["sha256_16"] = sha
+            done += 1
+            log(f"{row['account']} slide {si}: recomposed")
+    if manifest:
+        save_json(MANIFEST_DEFAULT, manifest)
+    log(f"GPT-PILOT-RECOMPOSE: slides={done}")
+
+
 def cmd_status(argv):
     cache = load_json(CACHE_PATH, {"entries": {}})
     ledger = load_json(SPEND_PATH, {"days": {}})
@@ -781,7 +910,8 @@ def cmd_status(argv):
 
 COMMANDS = {
     "render-batch": cmd_render_batch, "upload-batch": cmd_upload_batch,
-    "render": cmd_render, "upload": cmd_upload, "status": cmd_status,
+    "render": cmd_render, "upload": cmd_upload, "recompose": cmd_recompose,
+    "status": cmd_status,
 }
 
 
