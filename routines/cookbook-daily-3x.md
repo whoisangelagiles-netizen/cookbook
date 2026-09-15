@@ -61,34 +61,7 @@ Call `blotato_get_credits` and record the balance. The GPT path consumes **no** 
 
 **Hard floor for fallbacks — never start a visual you cannot finish.** Begin a fallback row only when at least 70 credits remain, and re-check the balance before each further fallback row. A partially-rendered visual returns fewer than 5 `imageUrls`, and posting that array ships a broken carousel (2026-07-20). If a fallback row cannot be afforded, log `insufficient-credits` for that row with the balance and move on — do NOT retry, and do NOT let it stop the GPT rows.
 
-**STEP 2.6 — Credit alert to Slack (#tech)**
-
-Post to Slack channel `#tech` (ID `C0ARUTE3PPC`) via `slack_send_message` in either of these cases, and in no others — at most ONE message per run, never on a healthy run:
-
-**A. A slot was actually missed for lack of credits** — a row fell back to Blotato AND could not be completed because the balance was below the floor.
-**B. Reserve is thin: `balance < 350`** — fewer than ~5 fallback posts in hand. This is an early warning, not an emergency: the GPT path keeps posting regardless.
-
-Top-up sizing is simple now: the Creator plan's ~5,000 monthly grant (lands about the 7th; observed 2026-08-07 and 2026-09-07) covers ~70 fallback posts a month, far more than the pilot ever needed. Recommend the **1,000-credit minimum purchase** (~$6) as a reserve and call `blotato_buy_credits` with quantity 1000 for a `checkoutUrl`. It charges nothing until completed. The account is `whoisangelagiles@gmail.com` (credits are non-transferable — say so in the message).
-
-Message format:
-
-```
-:warning: *High Protein House — Blotato credits low*
-
-Balance: *{balance}* credits (fallback reserve — GPT generation needs none)
-Fallback cost: ~70 credits per post
-{if A}: *A slot was missed today:* {handle(s)} — fallback needed but only {balance} credits were left.
-{if B}: Reserve covers ~{floor(balance/70)} fallback post(s).
-Next refresh: ~{refresh_date} (+5,000)
-
-Suggested top-up: *1,000* credits (~$6) — a reserve, not a recurring need
-Checkout: {checkoutUrl}
-
-Account: whoisangelagiles@gmail.com (credits are non-transferable)
-Link charges nothing until completed.
-```
-
-If Slack is unavailable or the call fails, log `SLACK-ERROR: <reason>` (or `SLACK-UNAVAILABLE` if the tool is missing) to `state/automation-log.md` and continue. **A Slack failure must never block posting or the state commit.**
+**STEP 2.6 — (removed 2026-09-15)** The Blotato low-credit Slack alert and `blotato_buy_credits` checkout links are gone. Blotato credits only matter for fallback rows now, and the health of the run is reported by STEP 4.9 instead. Do not post about Blotato credits and do not generate checkout links.
 
 **STEP 3 — Assign recipes**
 There is ONE slot (18:00 ET) and ALL 10 accounts participate.
@@ -208,10 +181,41 @@ f4) Log `[GPT] FALLBACK @handle: {reason from the manifest/media file}` in the s
 
 4j) On row failure, log and continue. On >3 consecutive credit/cap errors, log critical + stop.
 
+**STEP 4.9 — Generation-health & OpenAI budget alert (Slack #tech)**
+
+Runs after every row has been handled (4e–4j), before STEP 5. This replaces the old Blotato credit alert.
+
+k1) Run:
+```
+python3 scripts/gpt_pilot.py budget-check --date {today_iso} --missed {comma-separated handles whose slot was NOT filled by either path, or omit the flag}
+```
+It reads `state/gpt-pilot-spend.json` and today's `pilot_manifest.json` / `pilot_media.json`, prints exactly one `GPT-ALERT:` line and writes `pilot_alert.json`. It always exits 0.
+
+k2) If the line is `GPT-ALERT: none`, post nothing. Otherwise read `pilot_alert.json` and post ONE message to Slack `#tech` (ID `C0ARUTE3PPC`) via `slack_send_message`. Triggers (`reasons`):
+- `billing` — OpenAI refused generation today with a billing/quota/auth error (`billing_failures`). Those rows fell back to Blotato at ~70 credits each; the fix is on the OpenAI side.
+- `budget` — month-to-date spend is at or past `warn_pct` of `budget_usd`, or the projection for the month exceeds the budget. Budget comes from the environment variable `OPENAI_MONTHLY_BUDGET_USD` (default 30) — keep it equal to the monthly limit set in OpenAI billing.
+- `missed` — a slot was not filled by either path (GPT failed AND the Blotato fallback could not run).
+
+Message format (fill from `pilot_alert.json`; omit lines whose trigger is absent):
+
+```
+:warning: *High Protein House — image generation ({reasons})*
+
+OpenAI spend this month: *${mtd_usd}* of *${budget_usd}* ({mtd_pct}%), {days_left} days left — projected *${projected_month_usd}*
+Today: {today_posts} posts, {today_images} images, ${today_cost_usd}
+
+{if billing}: *OpenAI refused generation for {n} row(s):* {account}: {error} — these fell back to Blotato (~70 credits each).
+{if missed}: *Missed slot(s) today:* {missed handles} — neither OpenAI nor the Blotato fallback could produce them.
+
+Action: platform.openai.com → Settings → Billing — add prepaid credit and/or raise the monthly limit (then update OPENAI_MONTHLY_BUDGET_USD on the Routine environment to match). Fallbacks cost ~70 Blotato credits each; balance now {blotato_balance}.
+```
+
+k3) If Slack is unavailable or the call fails, log `SLACK-ERROR: <reason>` (or `SLACK-UNAVAILABLE`) to `state/automation-log.md` and continue. **The alert must never block the state commit.** Post at most one message per run and never on a healthy run.
+
 **STEP 5 — Persist state (git commit + push)**
 `git add state/` also picks up `state/media-cache.json` and `state/gpt-pilot-spend.json` when the pilot ran. Write updated `state/recipe-rotation-log.json` with new `last_posted` values (only for recipes successfully scheduled — leave skipped recipes untouched so they surface first next run). Refresh `last_updated` field.
 
-Append a one-line summary to `state/automation-log.md`. The notes MUST include the batch tag `[GPT] rows_ok={n} rows_failed={m} generated={g} cached={c} cost=${x}` copied from the `GPT-PILOT-RENDER:`/`GPT-PILOT-UPLOAD:` lines, plus one `[GPT] FALLBACK @handle: reason` per fallback row — this is the spend and reliability record:
+Append a one-line summary to `state/automation-log.md`. The notes MUST include the batch tag `[GPT] rows_ok={n} rows_failed={m} generated={g} cached={c} cost=${x}` copied from the `GPT-PILOT-RENDER:`/`GPT-PILOT-UPLOAD:` lines, plus one `[GPT] FALLBACK @handle: reason` per fallback row, and the `GPT-ALERT:` line from STEP 4.9 — this is the spend and reliability record:
 ```
 - [{timestamp}] DAILY-3X (mixed cadence + mode): {connected}/{expected} accounts, cadences [{3x_count}×3x + {2x_count}×2x], slots-fired [{slots_fired}], slots-skipped-past [{slots_skipped}], {visuals} visuals, {posts_b}B + {posts_l}L + {posts_d}D scheduled ({posts_total} total). {errors} errors. Launch CTAs on: [handles]. Credits remaining: {credits_remaining}. {notes}
 ```
@@ -292,9 +296,9 @@ account credentials. If they are unavailable, the script logs and exits cleanly.
 
 Cache hits reduce OpenAI spend only when the same (recipe, account) pair recurs, which the rotation does roughly every 110 days — so budget the full figure. `GPT_PILOT_QUALITY=low` would cut OpenAI cost to roughly a third (408 tokens/image) at visibly lower detail; Angela chose medium after the pilot.
 
-**OpenAI account settings must allow this:** the monthly spend limit needs to be at least ~$30 and the prepaid balance kept above ~$20, or generation starts failing with a billing error and every row falls back to Blotato at ~70 credits each — which the ~5,000 monthly grant covers for only ~7 days. Check `state/gpt-pilot-spend.json` when spend looks off.
+**OpenAI account settings must allow this:** the monthly spend limit needs to be at least ~$30 and the prepaid balance kept above ~$20, or generation starts failing with a billing error and every row falls back to Blotato at ~70 credits each — which the ~5,000 monthly grant covers for only ~7 days. Set `OPENAI_MONTHLY_BUDGET_USD` on the Routine environment to the same figure as the OpenAI limit so STEP 4.9 warns at 80% and on an over-budget projection. `state/gpt-pilot-spend.json` is the running ledger.
 
-Blotato's Creator plan grant (~5,000/month, lands ~7th) now funds fallbacks only. At ~70 per fallback post that is ~70 posts a month of headroom, so top-ups should be rare; STEP 2.6 asks for a 1,000-credit reserve when the balance drops below 350.
+Blotato's Creator plan grant (~5,000/month, lands ~7th) now funds fallbacks only. At ~70 per fallback post that is ~70 posts a month of headroom, so top-ups should be rare. There is no Blotato credit alert any more; STEP 4.9 reports OpenAI billing refusals, budget drift and missed slots instead, and the fallback balance is shown in that message.
 
 History: the old 28-post, 6-slide Blotato day cost ~1,176 credits (~35,000/month, 7× the cap) and silently truncated runs; the 2026-08-11 cut to 10 × 5 slides brought it to a measured ~350/day, which had drifted to ~700/day (~14/slide) by late August. The GPT pilot on @postworkout.plate (2026-09-10 → 09-13) then ran 4/4 days with no fallbacks at $0.064/post, which is why generation moved to GPT for every account.
 
