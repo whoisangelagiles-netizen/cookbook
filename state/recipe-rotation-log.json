@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-14",
+  "last_updated": "2026-09-15T08:23:06+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -12,13 +12,13 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 25,
-      "last_posted": "2026-09-03"
+      "last_posted": "2026-09-15"
     },
     "Berry Almond Chia Parfait": {
       "category": "breakfast",
       "calories": 350,
       "protein_g": 20,
-      "last_posted": "2026-09-04"
+      "last_posted": "2026-09-15"
     },
     "Cinnamon Apple Protein Oats": {
       "category": "breakfast",
@@ -108,7 +108,7 @@
       "category": "breakfast",
       "calories": 410,
       "protein_g": 30,
-      "last_posted": "2026-09-03"
+      "last_posted": "2026-09-15"
     },
     "Breakfast Quesadilla": {
       "category": "breakfast",
@@ -234,7 +234,7 @@
       "category": "lunch",
       "calories": 410,
       "protein_g": 22,
-      "last_posted": "2026-09-04"
+      "last_posted": "2026-09-15"
     },
     "Salmon Poke Bowl": {
       "category": "lunch",
@@ -318,7 +318,7 @@
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-09-04"
+      "last_posted": "2026-09-15"
     },
     "Egg Salad Lettuce Wraps": {
       "category": "lunch",
@@ -330,7 +330,7 @@
       "category": "lunch",
       "calories": 450,
       "protein_g": 36,
-      "last_posted": "2026-09-04"
+      "last_posted": "2026-09-15"
     },
     "Ham + Swiss Egg Roll-Ups": {
       "category": "lunch",
@@ -348,7 +348,7 @@
       "category": "dinner",
       "calories": 610,
       "protein_g": 45,
-      "last_posted": "2026-09-03"
+      "last_posted": "2026-09-15"
     },
     "Lemon Herb Chicken Plate": {
       "category": "dinner",
@@ -522,7 +522,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 12,
-      "last_posted": "2026-09-04"
+      "last_posted": "2026-09-15"
     },
     "Protein Energy Bites": {
       "category": "snack",
@@ -552,13 +552,13 @@
       "category": "snack",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-09-03"
+      "last_posted": "2026-09-15"
     },
     "Greek Yogurt Layered Parfait": {
       "category": "snack",
       "calories": 280,
       "protein_g": 22,
-      "last_posted": "2026-09-04"
+      "last_posted": "2026-09-15"
     },
     "Tuna Cucumber Bites": {
       "category": "snack",
