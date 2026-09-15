@@ -42,6 +42,13 @@ Subcommands
       Re-draw the text overlays from the saved backgrounds (out/.../bg_N.png)
       without calling OpenAI — for fixing overlay issues after a render.
 
+  budget-check [--date YYYY-MM-DD] [--missed @a,@b]
+      Decide whether the run needs a Slack alert: an OpenAI billing/quota/auth
+      refusal today, month-to-date spend near or projected past
+      OPENAI_MONTHLY_BUDGET_USD (default 30; warn at OPENAI_BUDGET_WARN_PCT,
+      default 80), or a missed slot. Prints one GPT-ALERT line and writes
+      pilot_alert.json. Always exits 0.
+
   status
       Print cache size and the spend ledger.
 
@@ -67,6 +74,7 @@ Environment knobs (all optional):
                       Default 2.00,2.50,8.00 — VERIFY at openai.com/api/pricing
                       and override here if it differs.
   GPT_PILOT_FAKE=1    skip OpenAI, paint a gradient background (offline tests)
+  OPENAI_MONTHLY_BUDGET_USD / OPENAI_BUDGET_WARN_PCT  — see budget-check
 """
 
 import base64
@@ -217,6 +225,28 @@ def cost_from_usage(usage):
 # ----------------------------------------------------------------------------
 # OpenAI generation
 # ----------------------------------------------------------------------------
+class GenError(RuntimeError):
+    """OpenAI generation failure with a coarse kind for alerting:
+    billing (quota/prepaid exhausted, hard limit), auth (key rejected),
+    rate_limit (429 that never cleared), other."""
+
+    def __init__(self, msg, kind="other"):
+        super().__init__(msg)
+        self.kind = kind
+
+
+def classify_error(status, msg):
+    m = (msg or "").lower()
+    if status in (401, 403) or "invalid_api_key" in m or "incorrect api key" in m:
+        return "auth"
+    if status == 402 or "insufficient_quota" in m or "billing" in m or "quota" in m \
+            or "hard limit" in m or "exceeded your current" in m:
+        return "billing"
+    if status == 429:
+        return "rate_limit"
+    return "other"
+
+
 def openai_headers():
     key = os.environ.get("OPENAI_API_KEY", "").strip()
     hdrs = {"Content-Type": "application/json"}
@@ -239,13 +269,13 @@ def generate_background(prompt):
         "n": 1,
     }).encode()
 
-    last = None
+    last, kind = None, "other"
     for attempt in range(1, 5):
         try:
             status, body, _ = http("POST", OPENAI_URL, data=payload,
                                    headers=openai_headers(), timeout=240)
         except Exception as exc:  # network / timeout
-            last = f"request failed: {exc}"
+            last, kind = f"request failed: {exc}", "other"
             time.sleep(5 * attempt)
             continue
         if status == 200:
@@ -269,11 +299,14 @@ def generate_background(prompt):
         except Exception:
             msg = body[:300].decode("utf-8", "replace")
         last = f"HTTP {status} {msg}"
+        kind = classify_error(status, msg)
+        if kind == "billing":
+            break  # no amount of retrying fixes an exhausted balance
         if status in (429, 500, 502, 503, 504) and attempt < 4:
             time.sleep(10 * attempt)   # rate limit / transient: back off
             continue
         break  # 4xx other than 429: do not retry
-    raise RuntimeError(f"OpenAI generation failed: {last}")
+    raise GenError(f"OpenAI generation failed: {last}", kind)
 
 
 def fake_background(prompt):
@@ -618,8 +651,8 @@ def render_rows(date, rows):
         account, recipe = row["account"], row["recipe"]
         style = row.get("visual_style_prompt", "")
         r = {"account": account, "recipe": recipe, "status": "ok", "error": None,
-             "slides": [], "needs_upload": [], "cached": 0, "generated": 0,
-             "cost_usd": 0.0}
+             "error_kind": None, "slides": [], "needs_upload": [], "cached": 0,
+             "generated": 0, "cost_usd": 0.0}
         for si, slide in enumerate(row["slides"], start=1):
             key = cache_key(recipe, account, si)
             hit = entries.get(key)
@@ -646,7 +679,7 @@ def render_rows(date, rows):
                 try:
                     results[(ri, si)] = ("ok", fut.result())
                 except Exception as exc:
-                    results[(ri, si)] = ("error", str(exc))
+                    results[(ri, si)] = ("error", (str(exc), getattr(exc, "kind", "other")))
                     log(f"{rows[ri]['account']} slide {si}: {exc}")
 
     # Phase 3: composite + save (main thread), per-row isolation.
@@ -657,9 +690,10 @@ def render_rows(date, rows):
             if s["status"] != "pending":
                 continue
             si = s["index"]
-            state, payload = results.get((ri, si), ("error", "no result"))
+            state, payload = results.get((ri, si), ("error", ("no result", "other")))
             if state != "ok":
-                r["status"], r["error"] = "failed", f"slide {si}: {payload}"
+                msg, kind = payload
+                r["status"], r["error"], r["error_kind"] = "failed", f"slide {si}: {msg}", kind
                 break
             bg, cost, usage = payload
             try:
@@ -897,6 +931,92 @@ def cmd_recompose(argv):
     log(f"GPT-PILOT-RECOMPOSE: slides={done}")
 
 
+ALERT_PATH = os.path.join(ROOT, "pilot_alert.json")
+
+
+def cmd_budget_check(argv):
+    """Decide whether today's run needs a Slack alert. Always exits 0.
+
+    Reads the spend ledger, today's manifest/media files (if present) and an
+    optional list of missed accounts. Prints exactly one line:
+      GPT-ALERT: none
+      GPT-ALERT: <reasons>   (details in pilot_alert.json)
+    Triggers:
+      billing    — a row failed with an OpenAI billing/quota/auth error
+      budget     — month-to-date spend >= OPENAI_BUDGET_WARN_PCT % of
+                   OPENAI_MONTHLY_BUDGET_USD, or the linear projection for
+                   the month exceeds the budget
+      missed     — --missed lists accounts whose slot was not filled by
+                   either path
+    """
+    date = None
+    missed = []
+    i = 0
+    while i < len(argv):
+        if argv[i] == "--date" and i + 1 < len(argv):
+            date = argv[i + 1]; i += 2
+        elif argv[i] == "--missed" and i + 1 < len(argv):
+            missed = [norm_account(a) for a in argv[i + 1].split(",") if a.strip()]; i += 2
+        else:
+            fail("usage: gpt_pilot.py budget-check [--date YYYY-MM-DD] [--missed @a,@b]")
+    if not date:
+        date = dt.datetime.now(dt.timezone.utc).date().isoformat()
+    budget = float(os.environ.get("OPENAI_MONTHLY_BUDGET_USD", "30") or 30)
+    warn_pct = float(os.environ.get("OPENAI_BUDGET_WARN_PCT", "80") or 80)
+
+    ledger = load_json(SPEND_PATH, {"days": {}})
+    month = date[:7]
+    days = {d: v for d, v in ledger.get("days", {}).items() if d.startswith(month)}
+    mtd = round(sum(v.get("cost_usd", 0.0) for v in days.values()), 4)
+    today = days.get(date, {})
+    y, m = int(date[:4]), int(date[5:7])
+    days_in_month = (dt.date(y + (m == 12), (m % 12) + 1, 1) - dt.date(y, m, 1)).days
+    day_no = int(date[8:10])
+    # Project from the last 3 active days so a cadence change (e.g. 1 → 10
+    # accounts) shows up immediately instead of being averaged away.
+    recent = [days[d].get("cost_usd", 0.0) for d in sorted(days)[-3:]]
+    daily_avg = (sum(recent) / len(recent)) if recent else 0.0
+    projected = round(mtd + daily_avg * (days_in_month - day_no), 2)
+    pct = round(100.0 * mtd / budget, 1) if budget > 0 else 0.0
+
+    manifest = load_json(MANIFEST_DEFAULT, None) or {}
+    media = load_json(MEDIA_DEFAULT, None) or {}
+    failed = []
+    for src in (manifest.get("rows", []), media.get("rows", [])):
+        for r in src:
+            if r.get("status") == "failed" and r.get("account") not in [f["account"] for f in failed]:
+                failed.append({"account": r.get("account"), "recipe": r.get("recipe"),
+                               "error": r.get("error"), "kind": r.get("error_kind") or "other"})
+    billing = [f for f in failed if f["kind"] in ("billing", "auth")]
+
+    reasons = []
+    if billing:
+        reasons.append("billing")
+    if budget > 0 and (pct >= warn_pct or projected > budget):
+        reasons.append("budget")
+    if missed:
+        reasons.append("missed")
+
+    alert = {
+        "date": date, "alert": bool(reasons), "reasons": reasons,
+        "budget_usd": budget, "warn_pct": warn_pct,
+        "month": month, "mtd_usd": mtd, "mtd_pct": pct,
+        "projected_month_usd": projected, "days_left": days_in_month - day_no,
+        "today_images": today.get("images_generated", 0),
+        "today_cost_usd": today.get("cost_usd", 0.0),
+        "today_posts": today.get("posts", 0),
+        "billing_failures": billing, "other_failures": [f for f in failed if f not in billing],
+        "missed": missed, "model": ledger.get("model", MODEL), "quality": ledger.get("quality", QUALITY),
+    }
+    save_json(ALERT_PATH, alert)
+    if reasons:
+        log(f"GPT-ALERT: {','.join(reasons)} mtd=${mtd:.2f}/{budget:.0f} ({pct}%) "
+            f"projected=${projected:.2f} billing_failures={len(billing)} missed={len(missed)} "
+            f"details={ALERT_PATH}")
+    else:
+        log(f"GPT-ALERT: none mtd=${mtd:.2f}/{budget:.0f} ({pct}%) projected=${projected:.2f}")
+
+
 def cmd_status(argv):
     cache = load_json(CACHE_PATH, {"entries": {}})
     ledger = load_json(SPEND_PATH, {"days": {}})
@@ -911,7 +1031,7 @@ def cmd_status(argv):
 COMMANDS = {
     "render-batch": cmd_render_batch, "upload-batch": cmd_upload_batch,
     "render": cmd_render, "upload": cmd_upload, "recompose": cmd_recompose,
-    "status": cmd_status,
+    "budget-check": cmd_budget_check, "status": cmd_status,
 }
 
 
