@@ -36,6 +36,11 @@ Why: Blotato bills per slide, and by late August the observed rate was ~14 credi
 
 **★ PAST-SLOT SKIP GUARD:** If a slot's base time is more than 4 hours past current time (America/New_York), SKIP that entire slot for today. Do NOT generate visuals, do NOT schedule posts, do NOT advance recipe rotation for skipped slots. This prevents a late manual run from posting at an unintended hour. If a slot is past but within 4 hours, bump to next round hour ≥30 min from now keeping stagger.
 
+**★ EXPERIMENTS (from 2026-09-17 — reach, not more selling; both logged per post):**
+- **Music A/B.** `state/account-voices.json` → `auto_add_music` per account (true for @coach.macro, @fuel.your.gains, @macro.architect, @protein.lab.eats, @the.lean.cook; false for the other five). Pass it as `autoAddMusic` on `blotato_create_post`. Do not change the groups mid-test.
+- **Hook A/B on slide 1.** The slide 1 header is now a HOOK, with the recipe name as the smaller second line. Style is chosen per firing: `hook_style = "A" if (day_of_year + slot_index) % 2 == 0 else "B"` (slot_index 0/1/2 = 08:00/12:00/18:00), so every account sees both styles every day. See 4b′.
+- **Log every post** to `state/experiments-log.jsonl` (one JSON object per line, appended in 4i): `{"date","slot","account","recipe","music":true/false,"hook_style":"A"/"B","hook":"<slide-1 hook text>","scheduled":"HH:MM ET"}`. `slot` must be exactly `Breakfast` (08:00), `Lunch` (12:00) or `Dinner` (18:00) — the read-out (`python3 scripts/experiment_report.py`) joins on it. Never rewrite or delete lines.
+
 **★ TEMPLATE (locked):** Blotato "Image Slideshow with Prominent Text" `/base/v2/images-with-text/0ddb8655-c3da-43da-9f7d-be1915ca7818/v1`. Schema is `image` + `text` per slide.
 
 ---
@@ -81,7 +86,12 @@ Order: alphabetical by handle, account_index 0..9, all in the single 18:00 ET sl
 
 4a) Cook time: use the recipe's own category to pick a sensible figure — breakfast 8 min, lunch 10 min, dinner 12 min, snack 5 min. This feeds {TIME} in the hook template.
 
-4b) Build VARIANT_HOOK from account's `hook_template` (substitute {PROTEIN}, {CAL}, {TIME}).
+4b) Build VARIANT_HOOK from account's `hook_template` (substitute {PROTEIN}, {CAL}, {TIME}). This still opens the caption and is the post title.
+
+4b′) Build SLIDE1_HOOK for this firing's `hook_style` — this is the swipe reason, ALL CAPS, **22–48 characters**, no emoji, no hashtags, never a link or a CTA:
+    - **Style A — numbers-first promise.** Lead with the payoff and the friction removed. Patterns: `{PROTEIN}G PROTEIN IN {TIME} MINUTES` · `{PROTEIN}G PROTEIN, ONE PAN, {TIME} MIN` · `{CAL} CALORIES. {PROTEIN}G PROTEIN. DONE IN {TIME}.` Pick the one that is true for the recipe (one-pan only if it is one pan).
+    - **Style B — indulgent comparison.** Name what it tastes or looks like, then the protein. Patterns: `TASTES LIKE {indulgent dish}. {PROTEIN}G PROTEIN.` · `LOOKS LIKE DESSERT. {PROTEIN}G PROTEIN.` · `{TAKEOUT/COMFORT REFERENCE}, {PROTEIN}G PROTEIN.` The comparison must fit the recipe (cheesecake oats → dessert; teriyaki salmon → takeout; casserole → comfort food). Never claim a health outcome.
+    - Examples: A `38G PROTEIN IN 10 MINUTES` / B `TASTES LIKE TAKEOUT. 38G PROTEIN.` for Thai Chicken Lettuce Cups; A `32G PROTEIN, PREPPED IN 5 MIN` / B `LOOKS LIKE CHEESECAKE. 32G PROTEIN.` for Strawberry Cheesecake Overnight Oats.
 
 4c) Compute scheduledTime:
     - Base time (America/New_York today at the chosen slot: 08:00, 12:00 or 18:00) + (account_index × 3 min)
@@ -90,7 +100,7 @@ Order: alphabetical by handle, account_index 0..9, all in the single 18:00 ET sl
 4d) Compose the 5 slides — `image` prompt (20-400 chars) + `text` (30-200 chars) per slide, food-forward (food fills the frame — no generic hands-in-kitchen). The same content feeds the GPT path and, if needed, the Blotato fallback.
 
     **LOCKED 5-SLIDE LAYOUT (changed 2026-08-11 from 6):**
-    - Slide 1 (TITLE + HOOK): image = "Hero close-up of the finished {recipe}, {visual_style_prompt}, vertical 9:16, glistening and beautifully plated" / text = "{RECIPE UPPERCASE} — {VARIANT_HOOK}"
+    - Slide 1 (HOOK + TITLE — changed 2026-09-17): image = "Hero close-up of the finished {recipe}, {visual_style_prompt}, vertical 9:16, glistening and beautifully plated" / text = "{SLIDE1_HOOK} — {Recipe Name In Title Case}". The overlay draws the part before " — " large and the recipe name smaller beneath it, so the hook must come first.
     - Slide 2 (INGREDIENTS): image = "Overhead flat-lay of raw ingredients for {recipe} on a dark wooden board, {visual_style_prompt}, vertical 9:16" / text = "Ingredients: {5-7 items with quantities}"
     - Slide 3 (STEPS 1-2 — combined): image = "Tight close-up of {first prep step for {recipe}}, food fills the frame, {visual_style_prompt}, vertical 9:16" / text = "STEPS 1-2 — {action one, then action two}"
     - Slide 4 (FINAL STEPS): image = "Tight close-up of {finishing step}, food is the subject, {visual_style_prompt}, vertical 9:16" / text = "STEP 3 — {finishing action}"
@@ -177,9 +187,10 @@ f4) Log `[GPT] FALLBACK @handle: {reason from the manifest/media file}` in the s
     - disabledComments = false, disabledDuet = false, disabledStitch = false
     - isBrandedContent = false, isYourBrand = true
     - isAiGenerated = true (REQUIRED — TikTok AI disclosure)
+    - autoAddMusic = the account's `auto_add_music` from `state/account-voices.json` (music A/B — pass it explicitly as true or false on every post)
     - title = first 80 chars of VARIANT_HOOK
 
-4i) On success, update the recipe's `last_posted` = today ISO in the in-memory rotation-log dict.
+4i) On success, update the recipe's `last_posted` = today ISO in the in-memory rotation-log dict, and append one line to `state/experiments-log.jsonl`: `{"date": "{today_iso}", "slot": "{slot_label}", "account": "@handle", "recipe": "{recipe}", "music": {auto_add_music}, "hook_style": "{hook_style}", "hook": "{SLIDE1_HOOK}", "scheduled": "{HH:MM} ET"}`.
 
 4j) On row failure, log and continue. On >3 consecutive credit/cap errors, log critical + stop.
 
@@ -219,7 +230,7 @@ k3) If Slack is unavailable or the call fails, log `SLACK-ERROR: <reason>` (or `
 
 Append a one-line summary to `state/automation-log.md`. The notes MUST include the batch tag `[GPT] rows_ok={n} rows_failed={m} generated={g} cached={c} cost=${x}` copied from the `GPT-PILOT-RENDER:`/`GPT-PILOT-UPLOAD:` lines, plus one `[GPT] FALLBACK @handle: reason` per fallback row, and the `GPT-ALERT:` line from STEP 4.9 — this is the spend and reliability record:
 ```
-- [{timestamp}] DAILY-3X slot {slot_label} {slot_time} ET: {connected}/{expected} accounts, {posts_total}/10 posts scheduled {first}-{last} ET, {errors} errors, {skipped} skipped. Recipes: [...]. Launch CTAs on: [handles]. [GPT] rows_ok={n} rows_failed={m} generated={g} cached={c} cost=${x}. GPT-ALERT: {...}. {notes}
+- [{timestamp}] DAILY-3X slot {slot_label} {slot_time} ET: {connected}/{expected} accounts, {posts_total}/10 posts scheduled {first}-{last} ET, {errors} errors, {skipped} skipped. Recipes: [...]. hook_style={A|B}, music on {n}/10. Launch CTAs on: [handles]. [GPT] rows_ok={n} rows_failed={m} generated={g} cached={c} cost=${x}. GPT-ALERT: {...}. {notes}
 ```
 
 Then commit + push:
