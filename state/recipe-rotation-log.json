@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-15T08:23:06+00:00",
+  "last_updated": "2026-09-16T08:30:19+00:00",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -24,7 +24,7 @@
       "category": "breakfast",
       "calories": 410,
       "protein_g": 28,
-      "last_posted": "2026-09-05"
+      "last_posted": "2026-09-16"
     },
     "Power Avocado Toast + Egg": {
       "category": "breakfast",
@@ -240,7 +240,7 @@
       "category": "lunch",
       "calories": 540,
       "protein_g": 36,
-      "last_posted": "2026-09-05"
+      "last_posted": "2026-09-16"
     },
     "BBQ Chicken Stuffed Sweet Potato": {
       "category": "lunch",
@@ -432,7 +432,7 @@
       "category": "dinner",
       "calories": 580,
       "protein_g": 40,
-      "last_posted": "2026-09-04"
+      "last_posted": "2026-09-16"
     },
     "Bacon Wrapped Chicken with Broccoli": {
       "category": "dinner",
@@ -444,7 +444,7 @@
       "category": "dinner",
       "calories": 560,
       "protein_g": 42,
-      "last_posted": "2026-09-05"
+      "last_posted": "2026-09-16"
     },
     "Stuffed Bell Peppers": {
       "category": "dinner",
@@ -594,7 +594,7 @@
       "category": "snack",
       "calories": 110,
       "protein_g": 8,
-      "last_posted": "2026-09-05"
+      "last_posted": "2026-09-16"
     },
     "Edamame + Sea Salt": {
       "category": "snack",
