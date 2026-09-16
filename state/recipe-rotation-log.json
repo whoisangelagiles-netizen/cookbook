@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-16T08:30:19+00:00",
+  "last_updated": "2026-09-16",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -42,13 +42,13 @@
       "category": "breakfast",
       "calories": 460,
       "protein_g": 35,
-      "last_posted": "2026-09-04"
+      "last_posted": "2026-09-16"
     },
     "Cottage Cheese Power Bowl": {
       "category": "breakfast",
       "calories": 310,
       "protein_g": 30,
-      "last_posted": "2026-09-05"
+      "last_posted": "2026-09-16"
     },
     "Smoked Salmon Whole-Grain Bagel": {
       "category": "breakfast",
@@ -438,7 +438,7 @@
       "category": "dinner",
       "calories": 510,
       "protein_g": 50,
-      "last_posted": "2026-09-05"
+      "last_posted": "2026-09-16"
     },
     "Thai Peanut Chicken": {
       "category": "dinner",
@@ -546,7 +546,7 @@
       "category": "snack",
       "calories": 240,
       "protein_g": 16,
-      "last_posted": "2026-09-04"
+      "last_posted": "2026-09-16"
     },
     "Vanilla Berry Protein Smoothie": {
       "category": "snack",
@@ -648,7 +648,7 @@
       "category": "snack",
       "calories": 320,
       "protein_g": 22,
-      "last_posted": "2026-09-05"
+      "last_posted": "2026-09-16"
     },
     "Smoked Salmon Cucumber Bites": {
       "category": "snack",

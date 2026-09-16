@@ -875,7 +875,182 @@
       "sha256_16": "edad7049efcf722d",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Chocolate Protein Overnight Oats|@coach.macro|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5ca54166-f650-40c2-8c54-09e6071f867d.png",
+      "created": "2026-09-16",
+      "sha256_16": "5e8c00f578b75107",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Overnight Oats|@coach.macro|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/cb0fb92d-13f3-4a39-912e-ef8cfbfc1945.png",
+      "created": "2026-09-16",
+      "sha256_16": "0e28e88daeb05d59",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Overnight Oats|@coach.macro|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/921868b7-1f7e-4c17-ad91-5abf7bad65a9.png",
+      "created": "2026-09-16",
+      "sha256_16": "ecf41935bb298571",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Overnight Oats|@coach.macro|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a95f62f3-8a3e-464b-94ef-cf21b75a77f3.png",
+      "created": "2026-09-16",
+      "sha256_16": "15af0f427be5fd1d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Overnight Oats|@coach.macro|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7bcdad28-c627-4e6c-bb6a-eae8db13ad1e.png",
+      "created": "2026-09-16",
+      "sha256_16": "1f98064d107af284",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Hard-Boiled Eggs + Hummus|@fuel.your.gains|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/63a8bebb-4f53-4c78-88ed-7bdec78c2d8e.png",
+      "created": "2026-09-16",
+      "sha256_16": "dbe5dee2bc069ff5",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Hard-Boiled Eggs + Hummus|@fuel.your.gains|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/19a95eab-4e27-4825-a323-d04bd600f48e.png",
+      "created": "2026-09-16",
+      "sha256_16": "e393e40ac23a3319",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Hard-Boiled Eggs + Hummus|@fuel.your.gains|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/32bc69b2-b28b-405e-a4f6-206e27b315ac.png",
+      "created": "2026-09-16",
+      "sha256_16": "712722fefe27e26e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Hard-Boiled Eggs + Hummus|@fuel.your.gains|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/bacca9cb-ff91-47ed-b4f6-c907df4b5c4c.png",
+      "created": "2026-09-16",
+      "sha256_16": "13bf23a4717a5d54",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Hard-Boiled Eggs + Hummus|@fuel.your.gains|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/66e779e8-49c3-4a05-8eb8-f124b54db34a.png",
+      "created": "2026-09-16",
+      "sha256_16": "d60cf71a53e5c047",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Bacon Wrapped Chicken with Broccoli|@macro.architect|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/bd3db497-44f5-45d2-bd99-5321ed095087.png",
+      "created": "2026-09-16",
+      "sha256_16": "13a8bb73856a85b9",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Bacon Wrapped Chicken with Broccoli|@macro.architect|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/1f8ae963-eb4a-4ad7-a366-c64113e1ec1f.png",
+      "created": "2026-09-16",
+      "sha256_16": "5b7758cb2f6c37f2",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Bacon Wrapped Chicken with Broccoli|@macro.architect|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2603b9d4-fb3f-4708-b77d-0e0c61e976df.png",
+      "created": "2026-09-16",
+      "sha256_16": "a6268f7fe5c91c2f",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Bacon Wrapped Chicken with Broccoli|@macro.architect|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2594806e-dbb6-49ac-9e53-c8a8309c201d.png",
+      "created": "2026-09-16",
+      "sha256_16": "174c3a8ef31526e3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Bacon Wrapped Chicken with Broccoli|@macro.architect|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/4dda6eea-5432-4dd1-99c4-370b6da926cb.png",
+      "created": "2026-09-16",
+      "sha256_16": "67691d5e73efd38f",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@prep.with.alex|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/28ca528c-c254-4caf-8cf8-920011fef9c4.png",
+      "created": "2026-09-16",
+      "sha256_16": "0ef301806e3993f6",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@prep.with.alex|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2d6fea05-a26c-49a8-8077-abf83b162162.png",
+      "created": "2026-09-16",
+      "sha256_16": "ad82d71dcc2d33a0",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@prep.with.alex|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/489adea4-863b-42c5-ac80-dd61f1889eca.png",
+      "created": "2026-09-16",
+      "sha256_16": "4a4d581a924f2472",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@prep.with.alex|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b6313c68-280d-40ac-b938-1f0a3746014d.png",
+      "created": "2026-09-16",
+      "sha256_16": "77f91e7e816e6092",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@prep.with.alex|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/57177fa9-5e9a-4361-a356-6d1595049005.png",
+      "created": "2026-09-16",
+      "sha256_16": "a8f76f19ba6867f7",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Sushi|@the.lean.cook|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/9cde63ac-2e3b-491e-966b-5e6495405d83.png",
+      "created": "2026-09-16",
+      "sha256_16": "90f3e4f7546142e9",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Sushi|@the.lean.cook|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d0061396-f9b5-4ebc-aaf2-c881d12fcbb7.png",
+      "created": "2026-09-16",
+      "sha256_16": "6007b94024dd31bf",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Sushi|@the.lean.cook|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/e8b29255-4661-40c6-8a24-35748d2dee38.png",
+      "created": "2026-09-16",
+      "sha256_16": "673908e447b2a5f1",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Sushi|@the.lean.cook|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/e5adda53-9bc9-40e7-8051-92f49d9e6daf.png",
+      "created": "2026-09-16",
+      "sha256_16": "63500d1a6e934504",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Sushi|@the.lean.cook|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/dfeda472-8ecc-48d2-a0d8-aac1bd1c533e.png",
+      "created": "2026-09-16",
+      "sha256_16": "4958be2c96824ba3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-16T08:26:36+00:00"
+  "last_updated": "2026-09-16T08:46:20+00:00"
 }
