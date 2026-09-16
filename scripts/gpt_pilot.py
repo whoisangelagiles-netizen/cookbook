@@ -69,6 +69,8 @@ Environment knobs (all optional):
   GPT_PILOT_MODEL     default gpt-image-1-mini
   GPT_PILOT_QUALITY   low | medium | high   (default medium)
   GPT_PILOT_WORKERS   concurrent OpenAI requests (default 4)
+  GPT_PILOT_RPM       images per minute to pace requests at (default 5 — the
+                      org limit observed on 2026-09-16; 50 images ≈ 10-11 min)
   GPT_PILOT_RATES     "text_in,image_in,image_out" USD per 1M tokens, used to
                       turn the API's usage object into a cost figure.
                       Default 2.00,2.50,8.00 — VERIFY at openai.com/api/pricing
@@ -109,6 +111,10 @@ MEDIA_DEFAULT = os.path.join(ROOT, "pilot_media.json")
 MODEL = os.environ.get("GPT_PILOT_MODEL", "gpt-image-1-mini")
 QUALITY = os.environ.get("GPT_PILOT_QUALITY", "medium")
 WORKERS = max(1, int(os.environ.get("GPT_PILOT_WORKERS", "4") or 4))
+# OpenAI enforces an images-per-minute limit per organization (5/min was hit
+# on 2026-09-16 and cost 5 slots). Requests are paced to this rate; raise it
+# via GPT_PILOT_RPM only after OpenAI raises the org limit.
+RPM = max(0.5, float(os.environ.get("GPT_PILOT_RPM", "5") or 5))
 SIZE = "1024x1536"          # closest OpenAI size to 9:16
 W, H = 1024, 1536
 N_SLIDES = 5
@@ -225,6 +231,26 @@ def cost_from_usage(usage):
 # ----------------------------------------------------------------------------
 # OpenAI generation
 # ----------------------------------------------------------------------------
+class RateLimiter:
+    """Spaces request starts at least 60/RPM seconds apart across threads."""
+
+    def __init__(self, per_minute):
+        self.interval = 60.0 / per_minute
+        self.lock = threading.Lock()
+        self.next_at = 0.0
+
+    def acquire(self):
+        with self.lock:
+            now = time.monotonic()
+            wait = self.next_at - now
+            self.next_at = max(now, self.next_at) + self.interval
+        if wait > 0:
+            time.sleep(wait)
+
+
+_limiter = RateLimiter(RPM)
+
+
 class GenError(RuntimeError):
     """OpenAI generation failure with a coarse kind for alerting:
     billing (quota/prepaid exhausted, hard limit), auth (key rejected),
@@ -270,10 +296,11 @@ def generate_background(prompt):
     }).encode()
 
     last, kind = None, "other"
-    for attempt in range(1, 5):
+    for attempt in range(1, 6):
+        _limiter.acquire()
         try:
-            status, body, _ = http("POST", OPENAI_URL, data=payload,
-                                   headers=openai_headers(), timeout=240)
+            status, body, hdrs = http("POST", OPENAI_URL, data=payload,
+                                      headers=openai_headers(), timeout=240)
         except Exception as exc:  # network / timeout
             last, kind = f"request failed: {exc}", "other"
             time.sleep(5 * attempt)
@@ -302,8 +329,14 @@ def generate_background(prompt):
         kind = classify_error(status, msg)
         if kind == "billing":
             break  # no amount of retrying fixes an exhausted balance
-        if status in (429, 500, 502, 503, 504) and attempt < 4:
-            time.sleep(10 * attempt)   # rate limit / transient: back off
+        if status in (429, 500, 502, 503, 504) and attempt < 5:
+            # Honour Retry-After when present; otherwise back off hard enough
+            # to clear a per-minute window (20s, 40s, 60s, 80s).
+            try:
+                ra = float(hdrs.get("Retry-After") or hdrs.get("retry-after") or 0)
+            except Exception:
+                ra = 0.0
+            time.sleep(max(ra, 20.0 * attempt))
             continue
         break  # 4xx other than 429: do not retry
     raise GenError(f"OpenAI generation failed: {last}", kind)
@@ -681,6 +714,23 @@ def render_rows(date, rows):
                 except Exception as exc:
                     results[(ri, si)] = ("error", (str(exc), getattr(exc, "kind", "other")))
                     log(f"{rows[ri]['account']} slide {si}: {exc}")
+
+    # Phase 2b: anything that still failed on rate limiting gets ONE more
+    # pass, sequentially, after the window has cleared. Cheap insurance —
+    # on 2026-09-16 five rows were lost to a 5-images/min limit.
+    retry = [(ri, si, p) for ri, si, p in tasks
+             if results.get((ri, si), ("error", ("", "other")))[0] == "error"
+             and results[(ri, si)][1][1] == "rate_limit"]
+    if retry:
+        log(f"rate-limited slides: {len(retry)} — waiting 60s, then retrying one at a time")
+        time.sleep(60)
+        for ri, si, p in retry:
+            try:
+                results[(ri, si)] = ("ok", generate_background(p))
+                log(f"{rows[ri]['account']} slide {si}: recovered on second pass")
+            except Exception as exc:
+                results[(ri, si)] = ("error", (str(exc), getattr(exc, "kind", "other")))
+                log(f"{rows[ri]['account']} slide {si}: still failing — {exc}")
 
     # Phase 3: composite + save (main thread), per-row isolation.
     for ri, r in enumerate(row_out):

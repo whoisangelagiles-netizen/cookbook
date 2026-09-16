@@ -115,7 +115,7 @@ e2) Install the overlay dependency, then render everything:
 python3 -c "import PIL" 2>/dev/null || pip install --quiet pillow 2>&1 | tail -1 || true
 python3 scripts/gpt_pilot.py render-batch pilot_plan.json
 ```
-**The install line is required** — the routine container does not ship Pillow. The script reuses cached slides whose media URL still resolves (`state/media-cache.json`, keyed recipe + account + slide index), generates the rest with OpenAI (4 concurrent requests, 1024×1536, no text — the overlay is drawn locally), and prints one `GPT-ROW:` line per row plus a final `GPT-PILOT-RENDER:` summary. It writes `pilot_manifest.json`. Expect roughly 3–6 minutes for 50 fresh images.
+**The install line is required** — the routine container does not ship Pillow. The script reuses cached slides whose media URL still resolves (`state/media-cache.json`, keyed recipe + account + slide index), generates the rest with OpenAI (4 concurrent requests, 1024×1536, no text — the overlay is drawn locally), and prints one `GPT-ROW:` line per row plus a final `GPT-PILOT-RENDER:` summary. It writes `pilot_manifest.json`. **Expect 10–12 minutes for 50 fresh images**: OpenAI caps the organization at ~5 images/minute (hit on 2026-09-16, which cost 5 slots before pacing was added), so the script paces requests to `GPT_PILOT_RPM` (default 5) and retries rate-limited slides once after the window clears. Do not treat the wait as a hang before 15 minutes.
 
 The OpenAI key is an API credential on the cloud environment; the egress proxy injects it for api.openai.com. The script sends no key of its own when `OPENAI_API_KEY` is the placeholder value `proxy`. Never print, log or commit any key.
 
