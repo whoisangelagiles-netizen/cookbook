@@ -8,3 +8,13 @@
 {"date": "2026-09-16", "slot": "Breakfast", "account": "@protein.lab.eats", "recipe": "Egg White Veggie Scramble", "music": true, "hook_style": "B", "hook": "TASTES LIKE DINER BRUNCH. 32G PROTEIN.", "scheduled": "10:21 ET"}
 {"date": "2026-09-16", "slot": "Breakfast", "account": "@the.lean.cook", "recipe": "Protein Energy Bites", "music": true, "hook_style": "B", "hook": "TASTES LIKE COOKIE DOUGH. 14G PROTEIN.", "scheduled": "10:24 ET"}
 {"date": "2026-09-16", "slot": "Breakfast", "account": "@under10.protein", "recipe": "Tuscan Garlic Chicken", "music": false, "hook_style": "B", "hook": "TASTES LIKE TUSCAN TAKEOUT. 42G PROTEIN.", "scheduled": "10:27 ET"}
+{"date": "2026-09-16", "slot": "Lunch", "account": "@cleanfuel.kitchen", "recipe": "Turkey Bacon Breakfast Burrito", "music": false, "hook_style": "A", "hook": "38G PROTEIN IN 8 MINUTES", "scheduled": "15:00 ET"}
+{"date": "2026-09-16", "slot": "Lunch", "account": "@coach.macro", "recipe": "Breakfast Burrito Bowl", "music": true, "hook_style": "A", "hook": "470 CALORIES. 38G PROTEIN. DONE IN 8.", "scheduled": "15:03 ET"}
+{"date": "2026-09-16", "slot": "Lunch", "account": "@fuel.your.gains", "recipe": "Breakfast Quesadilla", "music": true, "hook_style": "A", "hook": "36G PROTEIN IN 8 MINUTES", "scheduled": "15:06 ET"}
+{"date": "2026-09-16", "slot": "Lunch", "account": "@gymfood.simple", "recipe": "Garlic Shrimp + Lemon Rice", "music": false, "hook_style": "A", "hook": "36G PROTEIN, ONE PAN, 12 MIN", "scheduled": "15:09 ET"}
+{"date": "2026-09-16", "slot": "Lunch", "account": "@macro.architect", "recipe": "Greek Lamb Bowl", "music": true, "hook_style": "A", "hook": "590 CALORIES. 42G PROTEIN. DONE IN 12.", "scheduled": "15:12 ET"}
+{"date": "2026-09-16", "slot": "Lunch", "account": "@postworkout.plate", "recipe": "High-Protein Chicken Alfredo", "music": false, "hook_style": "A", "hook": "42G PROTEIN IN 12 MINUTES", "scheduled": "15:15 ET"}
+{"date": "2026-09-16", "slot": "Lunch", "account": "@prep.with.alex", "recipe": "Protein Iced Coffee", "music": false, "hook_style": "A", "hook": "25G PROTEIN IN 5 MINUTES", "scheduled": "15:18 ET"}
+{"date": "2026-09-16", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Pumpkin Spice Greek Yogurt", "music": true, "hook_style": "A", "hook": "22G PROTEIN IN 5 MINUTES", "scheduled": "15:21 ET"}
+{"date": "2026-09-16", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "Southwest Chicken Bowl", "music": true, "hook_style": "A", "hook": "510 CALORIES. 38G PROTEIN. DONE IN 10.", "scheduled": "15:24 ET"}
+{"date": "2026-09-16", "slot": "Lunch", "account": "@under10.protein", "recipe": "Smoked Salmon Cucumber Bites", "music": false, "hook_style": "A", "hook": "16G PROTEIN IN 5 MINUTES", "scheduled": "15:27 ET"}
