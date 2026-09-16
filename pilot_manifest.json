@@ -1,0 +1,762 @@
+{
+  "date": "2026-09-16",
+  "model": "gpt-image-1-mini",
+  "quality": "medium",
+  "size": "1024x1536",
+  "rows": [
+    {
+      "account": "@coach.macro",
+      "recipe": "Chocolate Protein Overnight Oats",
+      "status": "ok",
+      "error": null,
+      "error_kind": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/coach.macro/slide_1.png",
+          "sha256_16": "5e8c00f578b75107",
+          "cost_usd": 0.01287,
+          "usage": {
+            "input_tokens": 99,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 99
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1683
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/coach.macro/slide_2.png",
+          "sha256_16": "0e28e88daeb05d59",
+          "cost_usd": 0.012892,
+          "usage": {
+            "input_tokens": 110,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 110
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1694
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/coach.macro/slide_3.png",
+          "sha256_16": "ecf41935bb298571",
+          "cost_usd": 0.01286,
+          "usage": {
+            "input_tokens": 94,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 94
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1678
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/coach.macro/slide_4.png",
+          "sha256_16": "15af0f427be5fd1d",
+          "cost_usd": 0.012864,
+          "usage": {
+            "input_tokens": 96,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 96
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1680
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/coach.macro/slide_5.png",
+          "sha256_16": "1f98064d107af284",
+          "cost_usd": 0.012842,
+          "usage": {
+            "input_tokens": 85,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 85
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1669
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.064328
+    },
+    {
+      "account": "@fuel.your.gains",
+      "recipe": "Hard-Boiled Eggs + Hummus",
+      "status": "ok",
+      "error": null,
+      "error_kind": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/fuel.your.gains/slide_1.png",
+          "sha256_16": "dbe5dee2bc069ff5",
+          "cost_usd": 0.012856,
+          "usage": {
+            "input_tokens": 92,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 92
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1676
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/fuel.your.gains/slide_2.png",
+          "sha256_16": "e393e40ac23a3319",
+          "cost_usd": 0.012882,
+          "usage": {
+            "input_tokens": 105,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 105
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1689
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/fuel.your.gains/slide_3.png",
+          "sha256_16": "712722fefe27e26e",
+          "cost_usd": 0.01285,
+          "usage": {
+            "input_tokens": 89,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 89
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1673
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/fuel.your.gains/slide_4.png",
+          "sha256_16": "13bf23a4717a5d54",
+          "cost_usd": 0.012844,
+          "usage": {
+            "input_tokens": 86,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 86
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1670
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/fuel.your.gains/slide_5.png",
+          "sha256_16": "d60cf71a53e5c047",
+          "cost_usd": 0.012834,
+          "usage": {
+            "input_tokens": 81,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 81
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1665
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.064266
+    },
+    {
+      "account": "@macro.architect",
+      "recipe": "Bacon Wrapped Chicken with Broccoli",
+      "status": "ok",
+      "error": null,
+      "error_kind": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/macro.architect/slide_1.png",
+          "sha256_16": "13a8bb73856a85b9",
+          "cost_usd": 0.012866,
+          "usage": {
+            "input_tokens": 97,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 97
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1681
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/macro.architect/slide_2.png",
+          "sha256_16": "5b7758cb2f6c37f2",
+          "cost_usd": 0.012886,
+          "usage": {
+            "input_tokens": 107,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 107
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1691
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/macro.architect/slide_3.png",
+          "sha256_16": "a6268f7fe5c91c2f",
+          "cost_usd": 0.012856,
+          "usage": {
+            "input_tokens": 92,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 92
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1676
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/macro.architect/slide_4.png",
+          "sha256_16": "174c3a8ef31526e3",
+          "cost_usd": 0.012854,
+          "usage": {
+            "input_tokens": 91,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 91
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1675
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/macro.architect/slide_5.png",
+          "sha256_16": "67691d5e73efd38f",
+          "cost_usd": 0.012842,
+          "usage": {
+            "input_tokens": 85,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 85
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1669
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.064304
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Cottage Cheese Power Bowl",
+      "status": "ok",
+      "error": null,
+      "error_kind": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/prep.with.alex/slide_1.png",
+          "sha256_16": "0ef301806e3993f6",
+          "cost_usd": 0.01287,
+          "usage": {
+            "input_tokens": 99,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 99
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1683
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/prep.with.alex/slide_2.png",
+          "sha256_16": "ad82d71dcc2d33a0",
+          "cost_usd": 0.012884,
+          "usage": {
+            "input_tokens": 106,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 106
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1690
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/prep.with.alex/slide_3.png",
+          "sha256_16": "4a4d581a924f2472",
+          "cost_usd": 0.012858,
+          "usage": {
+            "input_tokens": 93,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 93
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1677
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/prep.with.alex/slide_4.png",
+          "sha256_16": "77f91e7e816e6092",
+          "cost_usd": 0.012862,
+          "usage": {
+            "input_tokens": 95,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 95
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1679
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/prep.with.alex/slide_5.png",
+          "sha256_16": "a8f76f19ba6867f7",
+          "cost_usd": 0.012852,
+          "usage": {
+            "input_tokens": 90,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 90
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1674
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.064326
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "PB Banana Protein Sushi",
+      "status": "ok",
+      "error": null,
+      "error_kind": null,
+      "slides": [
+        {
+          "index": 1,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/the.lean.cook/slide_1.png",
+          "sha256_16": "90f3e4f7546142e9",
+          "cost_usd": 0.01287,
+          "usage": {
+            "input_tokens": 99,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 99
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1683
+          }
+        },
+        {
+          "index": 2,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/the.lean.cook/slide_2.png",
+          "sha256_16": "6007b94024dd31bf",
+          "cost_usd": 0.012876,
+          "usage": {
+            "input_tokens": 102,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 102
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1686
+          }
+        },
+        {
+          "index": 3,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/the.lean.cook/slide_3.png",
+          "sha256_16": "673908e447b2a5f1",
+          "cost_usd": 0.012842,
+          "usage": {
+            "input_tokens": 85,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 85
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1669
+          }
+        },
+        {
+          "index": 4,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/the.lean.cook/slide_4.png",
+          "sha256_16": "63500d1a6e934504",
+          "cost_usd": 0.012844,
+          "usage": {
+            "input_tokens": 86,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 86
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1670
+          }
+        },
+        {
+          "index": 5,
+          "status": "generated",
+          "path": "/home/user/cookbook/out/gpt-pilot/2026-09-16/the.lean.cook/slide_5.png",
+          "sha256_16": "4958be2c96824ba3",
+          "cost_usd": 0.01283,
+          "usage": {
+            "input_tokens": 79,
+            "input_tokens_details": {
+              "image_tokens": 0,
+              "text_tokens": 79
+            },
+            "output_tokens": 1584,
+            "output_tokens_details": {
+              "image_tokens": 1584,
+              "text_tokens": 0
+            },
+            "total_tokens": 1663
+          }
+        }
+      ],
+      "needs_upload": [
+        1,
+        2,
+        3,
+        4,
+        5
+      ],
+      "cached": 0,
+      "generated": 5,
+      "cost_usd": 0.064262
+    }
+  ],
+  "needs_upload": [
+    {
+      "account": "@coach.macro",
+      "recipe": "Chocolate Protein Overnight Oats",
+      "slide_index": 1,
+      "filename": "coach-macro_2026-09-16_slide_1.png"
+    },
+    {
+      "account": "@coach.macro",
+      "recipe": "Chocolate Protein Overnight Oats",
+      "slide_index": 2,
+      "filename": "coach-macro_2026-09-16_slide_2.png"
+    },
+    {
+      "account": "@coach.macro",
+      "recipe": "Chocolate Protein Overnight Oats",
+      "slide_index": 3,
+      "filename": "coach-macro_2026-09-16_slide_3.png"
+    },
+    {
+      "account": "@coach.macro",
+      "recipe": "Chocolate Protein Overnight Oats",
+      "slide_index": 4,
+      "filename": "coach-macro_2026-09-16_slide_4.png"
+    },
+    {
+      "account": "@coach.macro",
+      "recipe": "Chocolate Protein Overnight Oats",
+      "slide_index": 5,
+      "filename": "coach-macro_2026-09-16_slide_5.png"
+    },
+    {
+      "account": "@fuel.your.gains",
+      "recipe": "Hard-Boiled Eggs + Hummus",
+      "slide_index": 1,
+      "filename": "fuel-your-gains_2026-09-16_slide_1.png"
+    },
+    {
+      "account": "@fuel.your.gains",
+      "recipe": "Hard-Boiled Eggs + Hummus",
+      "slide_index": 2,
+      "filename": "fuel-your-gains_2026-09-16_slide_2.png"
+    },
+    {
+      "account": "@fuel.your.gains",
+      "recipe": "Hard-Boiled Eggs + Hummus",
+      "slide_index": 3,
+      "filename": "fuel-your-gains_2026-09-16_slide_3.png"
+    },
+    {
+      "account": "@fuel.your.gains",
+      "recipe": "Hard-Boiled Eggs + Hummus",
+      "slide_index": 4,
+      "filename": "fuel-your-gains_2026-09-16_slide_4.png"
+    },
+    {
+      "account": "@fuel.your.gains",
+      "recipe": "Hard-Boiled Eggs + Hummus",
+      "slide_index": 5,
+      "filename": "fuel-your-gains_2026-09-16_slide_5.png"
+    },
+    {
+      "account": "@macro.architect",
+      "recipe": "Bacon Wrapped Chicken with Broccoli",
+      "slide_index": 1,
+      "filename": "macro-architect_2026-09-16_slide_1.png"
+    },
+    {
+      "account": "@macro.architect",
+      "recipe": "Bacon Wrapped Chicken with Broccoli",
+      "slide_index": 2,
+      "filename": "macro-architect_2026-09-16_slide_2.png"
+    },
+    {
+      "account": "@macro.architect",
+      "recipe": "Bacon Wrapped Chicken with Broccoli",
+      "slide_index": 3,
+      "filename": "macro-architect_2026-09-16_slide_3.png"
+    },
+    {
+      "account": "@macro.architect",
+      "recipe": "Bacon Wrapped Chicken with Broccoli",
+      "slide_index": 4,
+      "filename": "macro-architect_2026-09-16_slide_4.png"
+    },
+    {
+      "account": "@macro.architect",
+      "recipe": "Bacon Wrapped Chicken with Broccoli",
+      "slide_index": 5,
+      "filename": "macro-architect_2026-09-16_slide_5.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Cottage Cheese Power Bowl",
+      "slide_index": 1,
+      "filename": "prep-with-alex_2026-09-16_slide_1.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Cottage Cheese Power Bowl",
+      "slide_index": 2,
+      "filename": "prep-with-alex_2026-09-16_slide_2.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Cottage Cheese Power Bowl",
+      "slide_index": 3,
+      "filename": "prep-with-alex_2026-09-16_slide_3.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Cottage Cheese Power Bowl",
+      "slide_index": 4,
+      "filename": "prep-with-alex_2026-09-16_slide_4.png"
+    },
+    {
+      "account": "@prep.with.alex",
+      "recipe": "Cottage Cheese Power Bowl",
+      "slide_index": 5,
+      "filename": "prep-with-alex_2026-09-16_slide_5.png"
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "PB Banana Protein Sushi",
+      "slide_index": 1,
+      "filename": "the-lean-cook_2026-09-16_slide_1.png"
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "PB Banana Protein Sushi",
+      "slide_index": 2,
+      "filename": "the-lean-cook_2026-09-16_slide_2.png"
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "PB Banana Protein Sushi",
+      "slide_index": 3,
+      "filename": "the-lean-cook_2026-09-16_slide_3.png"
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "PB Banana Protein Sushi",
+      "slide_index": 4,
+      "filename": "the-lean-cook_2026-09-16_slide_4.png"
+    },
+    {
+      "account": "@the.lean.cook",
+      "recipe": "PB Banana Protein Sushi",
+      "slide_index": 5,
+      "filename": "the-lean-cook_2026-09-16_slide_5.png"
+    }
+  ],
+  "rows_ok": 5,
+  "rows_failed": 0,
+  "cached": 0,
+  "generated": 25,
+  "dead_cache": 0,
+  "total_cost_usd": 0.321486,
+  "batch": true
+}
