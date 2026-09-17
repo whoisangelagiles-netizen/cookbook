@@ -133,11 +133,15 @@ The OpenAI key is an API credential on the cloud environment; the egress proxy i
 
 e3) Read `pilot_manifest.json`. Every row with `"status": "failed"` goes on the **fallback list** with its `error`. For each entry in the manifest's `needs_upload` list, call `blotato_create_presigned_upload_url` with that entry's `filename` and collect `{"account": entry.account, "slide_index": entry.slide_index, "presignedUrl": ..., "publicUrl": ...}`. Write them all to `pilot_uploads.json` (an empty list `[]` if nothing needs uploading). This is up to 50 calls on a cache-cold day; make them all before moving on.
 
-e4) Run `python3 scripts/gpt_pilot.py upload-batch pilot_manifest.json pilot_uploads.json`. It PUTs each PNG, verifies every public URL serves an image, records URLs in `state/media-cache.json`, updates `state/gpt-pilot-spend.json`, prints one `GPT-MEDIA: @handle url1 … url5` line per successful row and a `GPT-PILOT-UPLOAD:` summary, and writes `pilot_media.json`.
+e4) Run `python3 scripts/gpt_pilot.py upload-batch pilot_manifest.json pilot_uploads.json`. It PUTs each PNG, verifies every public URL serves an image, records URLs in `state/media-cache.json`, prints one `GPT-MEDIA: @handle url1 … url5` line per completed row and a `GPT-PILOT-UPLOAD:` summary, and writes `pilot_media.json`.
 
-e5) Read `pilot_media.json`. For each row with `"status": "ok"`, `post_mediaUrls` = its `mediaUrls` (5 URLs, in slide order). Rows with `"status": "failed"` join the fallback list.
+**Copy presigned URLs exactly.** The token after `?token=` is ~300 characters; on 2026-09-16 and 2026-09-17 a single mistyped character produced `InvalidJWT` and, under the old no-retry rule, cost a slot. The script now checks each token locally before uploading and never fails a row for an upload problem — it marks the row `retry` instead.
 
-**If either script exits 1, hangs past 15 minutes, or its output file is missing, every row not yet resolved goes on the fallback list.** Do not retry the GPT path within a run. Do not delete or hand-edit `state/media-cache.json`.
+e4′) **Upload retry pass (required whenever `rows_retry > 0`).** Read `pilot_media.json`. For every entry in its top-level `needs_upload` list (account + slide_index + filename), call `blotato_create_presigned_upload_url` again with that filename, write ONLY those entries to `pilot_uploads.json`, and run the same `upload-batch` command again. Slides that already uploaded are remembered in the manifest and are not re-sent. Do this at most twice. A row still `retry` after that joins the fallback list.
+
+e5) Read `pilot_media.json`. For each row with `"status": "ok"`, `post_mediaUrls` = its `mediaUrls` (5 URLs, in slide order). Rows with `"status": "failed"` (render failed) or still `"retry"` after e4′ join the fallback list.
+
+**If either script exits 1, hangs past 15 minutes, or its output file is missing, every row not yet resolved goes on the fallback list.** Do not re-run render-batch within a run (it would spend again); the upload retry pass in e4′ is the one retry that is always allowed because it costs nothing. Do not delete or hand-edit `state/media-cache.json`.
 
 **4f) FALLBACK rows only — Blotato AI generation (costs ~70 credits per row)**
 

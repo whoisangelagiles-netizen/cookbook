@@ -32,7 +32,11 @@ Subcommands
       PUTs each PNG, verifies the public URL serves an image, records it in
       the cache, writes pilot_media.json with a 5-URL mediaUrls array per row
       and prints one GPT-MEDIA line per row plus a GPT-PILOT-UPLOAD summary.
-      A row whose upload fails is marked failed; the others still complete.
+      A slide whose upload fails (mangled presigned token, HTTP error) does
+      NOT fail the row: the row is marked "retry", its slide indices are
+      listed under needs_upload (in pilot_media.json and the manifest), and
+      the slides that did upload are remembered — request fresh presigned
+      URLs for just those slides and run upload-batch again.
 
   render <input.json> / upload <manifest> <uploads.json>
       Single-row forms of the above (input.json = one row + "date"). Kept
@@ -161,7 +165,9 @@ def load_json(path, default):
 
 
 def save_json(path, data):
-    os.makedirs(os.path.dirname(path), exist_ok=True)
+    parent = os.path.dirname(path)
+    if parent:
+        os.makedirs(parent, exist_ok=True)
     tmp = path + ".tmp"
     with open(tmp, "w") as fh:
         json.dump(data, fh, indent=2, ensure_ascii=False)
@@ -827,7 +833,43 @@ def cmd_render(argv):
 # ----------------------------------------------------------------------------
 # upload
 # ----------------------------------------------------------------------------
-def upload_rows(manifest, uploads):
+def token_looks_valid(presigned, public):
+    """Cheap local check that a presigned URL was copied intact.
+
+    The token is a JWT whose payload names the object path; if the payload
+    segment fails to decode, or names a different object than publicUrl,
+    the URL was mangled in transcription and the PUT is guaranteed to fail.
+    A corrupted signature segment cannot be detected locally — that case is
+    caught by the server (InvalidJWT) and handled by the retry pass.
+    """
+    try:
+        token = presigned.split("token=", 1)[1].split("&", 1)[0]
+        parts = token.split(".")
+        if len(parts) != 3 or not all(parts):
+            return False, "token does not have three segments"
+        pad = parts[1] + "=" * (-len(parts[1]) % 4)
+        payload = json.loads(base64.urlsafe_b64decode(pad))
+        obj = payload.get("url", "")
+        key = public.split("/object/public/", 1)[-1]
+        if obj and key and obj != key:
+            return False, f"token is for {obj}, not {key}"
+        return True, ""
+    except Exception as exc:
+        return False, f"token payload unreadable ({exc.__class__.__name__})"
+
+
+def upload_rows(manifest, uploads, manifest_path=None):
+    """Upload every pending slide. Slides that succeed are recorded in the
+    manifest as "uploaded" (and persisted when manifest_path is given), so a
+    second pass with fresh presigned URLs only needs the slides that failed.
+
+    Row status after this call:
+      ok      — all 5 media URLs resolved
+      retry   — one or more slides need a fresh presigned URL (listed in
+                the row's needs_upload); nothing is lost, run upload-batch
+                again with new URLs for just those slides
+      failed  — the render already failed (status carried over)
+    """
     by_key = {}
     single = len(manifest["rows"]) == 1
     for u in uploads:
@@ -840,70 +882,95 @@ def upload_rows(manifest, uploads):
     date = manifest["date"]
     cache = load_json(CACHE_PATH, {"schema_version": 1, "entries": {}})
     entries = cache.setdefault("entries", {})
-    out = {"date": date, "rows": [], "rows_ok": 0, "rows_failed": 0, "uploaded": 0,
+    out = {"date": date, "rows": [], "rows_ok": 0, "rows_retry": 0, "rows_failed": 0,
+           "uploaded": 0, "needs_upload": [],
            "total_cost_usd": manifest.get("total_cost_usd", 0.0)}
 
     for r in manifest["rows"]:
         res = {"account": r["account"], "recipe": r["recipe"], "status": r["status"],
                "error": r.get("error"), "mediaUrls": None, "uploaded": 0,
                "cached": r.get("cached", 0), "generated": r.get("generated", 0),
-               "cost_usd": r.get("cost_usd", 0.0)}
-        if r["status"] != "ok":
+               "cost_usd": r.get("cost_usd", 0.0), "needs_upload": []}
+        if r["status"] not in ("ok", "retry"):
             out["rows"].append(res)
             out["rows_failed"] += 1
             continue
         media = [None] * N_SLIDES
-        err = None
+        problems = []
         for s in r["slides"]:
             i = s["index"]
-            if s["status"] == "cached":
+            if s["status"] in ("cached", "uploaded") and s.get("url"):
                 media[i - 1] = s["url"]
                 continue
             u = by_key.get((r["account"], i))
-            if not u or not u.get("presignedUrl") or not u.get("publicUrl"):
-                err = f"slide {i}: no presigned/public URL in uploads.json"
-                break
             path = s.get("path")
+            if not u or not u.get("presignedUrl") or not u.get("publicUrl"):
+                problems.append(f"slide {i}: no presigned/public URL in uploads.json")
+                continue
             if not path or not os.path.exists(path):
-                err = f"slide {i}: file missing: {path}"
-                break
+                problems.append(f"slide {i}: file missing: {path}")
+                continue
+            ok, why = token_looks_valid(u["presignedUrl"], u["publicUrl"])
+            if not ok:
+                problems.append(f"slide {i}: presigned URL copied wrong ({why})")
+                continue
             data = open(path, "rb").read()
             try:
                 status, body, _ = http("PUT", u["presignedUrl"], data=data,
                                        headers={"Content-Type": "image/png"}, timeout=120)
             except Exception as exc:
-                err = f"slide {i}: upload request failed: {exc}"
-                break
+                problems.append(f"slide {i}: upload request failed: {exc}")
+                continue
             if status not in (200, 201, 204):
-                err = f"slide {i}: upload returned HTTP {status} {body[:120]!r}"
-                break
+                problems.append(f"slide {i}: upload returned HTTP {status} {body[:120]!r}")
+                continue
             if not url_resolves(u["publicUrl"]):
-                err = f"slide {i}: public URL does not resolve after upload"
-                break
+                problems.append(f"slide {i}: public URL does not resolve after upload")
+                continue
             media[i - 1] = u["publicUrl"]
+            s["status"], s["url"] = "uploaded", u["publicUrl"]
             entries[cache_key(r["recipe"], r["account"], i)] = {
                 "url": u["publicUrl"], "created": date,
                 "sha256_16": s.get("sha256_16"), "model": manifest.get("model"),
                 "quality": manifest.get("quality"),
             }
             res["uploaded"] += 1
-        if err is None and any(m is None for m in media):
-            err = "mediaUrls incomplete"
-        if err:
-            res["status"], res["error"] = "failed", err
-            out["rows_failed"] += 1
-            log(f"GPT-ROW: {r['account']} {r['recipe']} status=failed error={err}")
+
+        missing = [s["index"] for s, m in zip(r["slides"], media) if m is None]
+        if missing:
+            r["status"], res["status"] = "retry", "retry"
+            r["needs_upload"] = missing
+            res["needs_upload"] = missing
+            res["error"] = "; ".join(problems) or f"slides {missing} not uploaded"
+            r["error"] = res["error"]
+            out["rows_retry"] += 1
+            for i in missing:
+                out["needs_upload"].append({
+                    "account": r["account"], "recipe": r["recipe"], "slide_index": i,
+                    "filename": f"{slug(r['account'])}_{date}_slide_{i}_r.png",
+                })
+            log(f"GPT-RETRY: {r['account']} {r['recipe']} slides {missing} need fresh presigned "
+                f"URLs — {res['error']}")
         else:
+            r["status"], res["status"], r["error"] = "ok", "ok", None
+            r["needs_upload"] = []
             res["mediaUrls"] = media
             out["rows_ok"] += 1
-            out["uploaded"] += res["uploaded"]
             log(f"GPT-MEDIA: {r['account']} " + " ".join(media))
+        out["uploaded"] += res["uploaded"]
         out["rows"].append(res)
 
     cache["last_updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
     save_json(CACHE_PATH, cache)  # partial progress is still valid cache
-    if out["rows_ok"]:
-        spend_add(date, posts=out["rows_ok"])
+    if manifest_path:
+        manifest["needs_upload"] = out["needs_upload"]
+        save_json(manifest_path, manifest)  # so a second pass skips what is done
+    newly_ok = out["rows_ok"] - manifest.get("_posts_counted", 0)
+    if newly_ok > 0:
+        spend_add(date, posts=newly_ok)
+        manifest["_posts_counted"] = out["rows_ok"]
+        if manifest_path:
+            save_json(manifest_path, manifest)
     return out
 
 
@@ -914,11 +981,12 @@ def cmd_upload_batch(argv):
     uploads = load_json(argv[1], None)
     if manifest is None or uploads is None:
         fail("manifest or uploads file not found")
-    out = upload_rows(manifest, uploads)
+    out = upload_rows(manifest, uploads, manifest_path=argv[0])
     save_json(MEDIA_DEFAULT, out)
-    log(f"GPT-PILOT-UPLOAD: rows_ok={out['rows_ok']} rows_failed={out['rows_failed']} "
-        f"uploaded={out['uploaded']} cost=${out['total_cost_usd']:.4f} media={MEDIA_DEFAULT}")
-    if out["rows_ok"] == 0:
+    log(f"GPT-PILOT-UPLOAD: rows_ok={out['rows_ok']} rows_retry={out['rows_retry']} "
+        f"rows_failed={out['rows_failed']} uploaded={out['uploaded']} "
+        f"needs_upload={len(out['needs_upload'])} cost=${out['total_cost_usd']:.4f} media={MEDIA_DEFAULT}")
+    if out["rows_ok"] == 0 and out["rows_retry"] == 0:
         sys.exit(1)
 
 
@@ -929,7 +997,7 @@ def cmd_upload(argv):
     uploads = load_json(argv[1], None)
     if manifest is None or uploads is None:
         fail("manifest or uploads file not found")
-    out = upload_rows(manifest, uploads)
+    out = upload_rows(manifest, uploads, manifest_path=argv[0])
     r = out["rows"][0]
     result = {"date": out["date"], "account": r["account"], "recipe": r["recipe"],
               "mediaUrls": r["mediaUrls"], "uploaded": r["uploaded"],
