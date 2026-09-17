@@ -37,3 +37,13 @@
 {"date": "2026-09-17", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Turkey Bacon English Muffin", "music": true, "hook_style": "B", "hook": "TASTES LIKE A DINER BREAKFAST. 32G PROTEIN.", "scheduled": "12:21 ET"}
 {"date": "2026-09-17", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "Spicy Roasted Chickpeas", "music": true, "hook_style": "B", "hook": "TASTES LIKE SPICY BAR SNACKS. 10G PROTEIN.", "scheduled": "12:24 ET"}
 {"date": "2026-09-17", "slot": "Lunch", "account": "@under10.protein", "recipe": "Greek Yogurt Smoothie Bowl", "music": false, "hook_style": "B", "hook": "LOOKS LIKE DESSERT. 28G PROTEIN.", "scheduled": "12:27 ET"}
+{"date": "2026-09-17", "slot": "Dinner", "account": "@cleanfuel.kitchen", "recipe": "Beef and Broccoli Stir Fry", "music": false, "hook_style": "A", "hook": "42G PROTEIN, ONE PAN, 12 MIN", "scheduled": "18:00 ET"}
+{"date": "2026-09-17", "slot": "Dinner", "account": "@coach.macro", "recipe": "Cajun Salmon Bowl", "music": true, "hook_style": "A", "hook": "38G PROTEIN IN 12 MINUTES", "scheduled": "18:03 ET"}
+{"date": "2026-09-17", "slot": "Dinner", "account": "@fuel.your.gains", "recipe": "Cashew Chicken Stir Fry", "music": true, "hook_style": "A", "hook": "40G PROTEIN, ONE PAN, 12 MIN", "scheduled": "18:06 ET"}
+{"date": "2026-09-17", "slot": "Dinner", "account": "@gymfood.simple", "recipe": "Curry Chicken Salad on Greens", "music": false, "hook_style": "A", "hook": "38G PROTEIN IN 10 MINUTES", "scheduled": "18:09 ET"}
+{"date": "2026-09-17", "slot": "Dinner", "account": "@macro.architect", "recipe": "Egg Salad Lettuce Wraps", "music": true, "hook_style": "A", "hook": "28G PROTEIN IN 10 MINUTES", "scheduled": "18:12 ET"}
+{"date": "2026-09-17", "slot": "Dinner", "account": "@postworkout.plate", "recipe": "PB Banana Protein Pancakes", "music": false, "hook_style": "A", "hook": "490 CALORIES. 40G PROTEIN. DONE IN 8.", "scheduled": "18:15 ET"}
+{"date": "2026-09-17", "slot": "Dinner", "account": "@prep.with.alex", "recipe": "Turkey Avocado Club Wrap", "music": false, "hook_style": "A", "hook": "490 CALORIES. 38G PROTEIN. DONE IN 10.", "scheduled": "18:18 ET"}
+{"date": "2026-09-17", "slot": "Dinner", "account": "@protein.lab.eats", "recipe": "Beef Jerky + Cheese Stick Plate", "music": true, "hook_style": "A", "hook": "28G PROTEIN IN 5 MINUTES", "scheduled": "18:21 ET"}
+{"date": "2026-09-17", "slot": "Dinner", "account": "@the.lean.cook", "recipe": "High-Protein Waffles", "music": true, "hook_style": "A", "hook": "32G PROTEIN IN 8 MINUTES", "scheduled": "18:24 ET"}
+{"date": "2026-09-17", "slot": "Dinner", "account": "@under10.protein", "recipe": "Turkey Sausage + Sweet Potato Hash", "music": false, "hook_style": "A", "hook": "35G PROTEIN, ONE PAN, 8 MIN", "scheduled": "18:27 ET"}
