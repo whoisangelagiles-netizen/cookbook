@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-17",
+  "last_updated": "2026-09-18",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -30,7 +30,7 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 24,
-      "last_posted": "2026-09-10"
+      "last_posted": "2026-09-18"
     },
     "Egg White Veggie Scramble": {
       "category": "breakfast",
@@ -72,7 +72,7 @@
       "category": "breakfast",
       "calories": 180,
       "protein_g": 20,
-      "last_posted": "2026-09-11"
+      "last_posted": "2026-09-18"
     },
     "Egg Muffin Cups": {
       "category": "breakfast",
@@ -102,7 +102,7 @@
       "category": "breakfast",
       "calories": 420,
       "protein_g": 35,
-      "last_posted": "2026-09-10"
+      "last_posted": "2026-09-18"
     },
     "Tuna Avocado Toast": {
       "category": "breakfast",
@@ -192,13 +192,13 @@
       "category": "lunch",
       "calories": 440,
       "protein_g": 42,
-      "last_posted": "2026-09-11"
+      "last_posted": "2026-09-18"
     },
     "Honey Garlic Chicken Wrap": {
       "category": "lunch",
       "calories": 540,
       "protein_g": 40,
-      "last_posted": "2026-09-11"
+      "last_posted": "2026-09-18"
     },
     "Tropical Power Salad": {
       "category": "lunch",
@@ -228,7 +228,7 @@
       "category": "lunch",
       "calories": 520,
       "protein_g": 40,
-      "last_posted": "2026-09-11"
+      "last_posted": "2026-09-18"
     },
     "Quinoa Power Salad": {
       "category": "lunch",
@@ -354,13 +354,13 @@
       "category": "dinner",
       "calories": 490,
       "protein_g": 42,
-      "last_posted": "2026-09-11"
+      "last_posted": "2026-09-18"
     },
     "Chimichurri Steak Bites": {
       "category": "dinner",
       "calories": 560,
       "protein_g": 44,
-      "last_posted": "2026-09-11"
+      "last_posted": "2026-09-18"
     },
     "Honey Garlic Salmon Bowl": {
       "category": "dinner",
@@ -492,7 +492,7 @@
       "category": "dinner",
       "calories": 460,
       "protein_g": 42,
-      "last_posted": "2026-09-11"
+      "last_posted": "2026-09-18"
     },
     "Black Bean + Chicken Enchilada Bake": {
       "category": "dinner",
@@ -642,7 +642,7 @@
       "category": "snack",
       "calories": 200,
       "protein_g": 12,
-      "last_posted": "2026-09-11"
+      "last_posted": "2026-09-18"
     },
     "PB Banana Protein Sushi": {
       "category": "snack",
