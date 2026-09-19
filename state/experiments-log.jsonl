@@ -97,3 +97,13 @@
 {"date": "2026-09-19", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Strawberry Cheesecake Overnight Oats", "music": true, "hook_style": "B", "hook": "LOOKS LIKE CHEESECAKE. 32G PROTEIN.", "scheduled": "12:21 ET"}
 {"date": "2026-09-19", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "Berry Almond Chia Parfait", "music": true, "hook_style": "B", "hook": "TASTES LIKE BERRY DESSERT. 20G PROTEIN.", "scheduled": "12:24 ET"}
 {"date": "2026-09-19", "slot": "Lunch", "account": "@under10.protein", "recipe": "Frozen Pineapple Yogurt Bites", "music": false, "hook_style": "B", "hook": "TASTES LIKE FROZEN YOGURT. 12G PROTEIN.", "scheduled": "12:27 ET"}
+{"date": "2026-09-19", "slot": "Dinner", "account": "@cleanfuel.kitchen", "recipe": "Buffalo Chicken Lettuce Wraps", "music": false, "hook_style": "A", "hook": "38G PROTEIN IN 10 MINUTES", "scheduled": "18:00 ET"}
+{"date": "2026-09-19", "slot": "Dinner", "account": "@coach.macro", "recipe": "Caprese Chicken Wrap", "music": true, "hook_style": "A", "hook": "480 CALORIES. 38G PROTEIN. DONE IN 10.", "scheduled": "18:03 ET"}
+{"date": "2026-09-19", "slot": "Dinner", "account": "@fuel.your.gains", "recipe": "Chicken Caesar Wrap", "music": true, "hook_style": "A", "hook": "40G PROTEIN IN 10 MINUTES", "scheduled": "18:06 ET"}
+{"date": "2026-09-19", "slot": "Dinner", "account": "@gymfood.simple", "recipe": "Garlic Shrimp + Lemon Rice", "music": false, "hook_style": "A", "hook": "36G PROTEIN IN 12 MINUTES", "scheduled": "18:09 ET"}
+{"date": "2026-09-19", "slot": "Dinner", "account": "@macro.architect", "recipe": "Greek Lamb Bowl", "music": true, "hook_style": "A", "hook": "590 CALORIES. 42G PROTEIN. DONE IN 12.", "scheduled": "18:12 ET"}
+{"date": "2026-09-19", "slot": "Dinner", "account": "@postworkout.plate", "recipe": "Hard-Boiled Eggs + Hummus", "music": false, "hook_style": "A", "hook": "16G PROTEIN IN 5 MINUTES", "scheduled": "18:15 ET"}
+{"date": "2026-09-19", "slot": "Dinner", "account": "@prep.with.alex", "recipe": "Tuna Avocado Toast", "music": false, "hook_style": "A", "hook": "30G PROTEIN IN 8 MINUTES", "scheduled": "18:18 ET"}
+{"date": "2026-09-19", "slot": "Dinner", "account": "@protein.lab.eats", "recipe": "Almond Butter Apple Cottage Cheese Bowl", "music": true, "hook_style": "A", "hook": "28G PROTEIN IN 8 MINUTES", "scheduled": "18:21 ET"}
+{"date": "2026-09-19", "slot": "Dinner", "account": "@the.lean.cook", "recipe": "Bacon Wrapped Chicken with Broccoli", "music": true, "hook_style": "A", "hook": "50G PROTEIN IN 12 MINUTES", "scheduled": "18:24 ET"}
+{"date": "2026-09-19", "slot": "Dinner", "account": "@under10.protein", "recipe": "Breakfast Burrito Bowl", "music": false, "hook_style": "A", "hook": "38G PROTEIN IN 8 MINUTES", "scheduled": "18:27 ET"}
