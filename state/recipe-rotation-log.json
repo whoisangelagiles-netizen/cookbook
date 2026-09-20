@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-19",
+  "last_updated": "2026-09-20",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -24,7 +24,7 @@
       "category": "breakfast",
       "calories": 410,
       "protein_g": 28,
-      "last_posted": "2026-09-16"
+      "last_posted": "2026-09-20"
     },
     "Power Avocado Toast + Egg": {
       "category": "breakfast",
@@ -42,7 +42,7 @@
       "category": "breakfast",
       "calories": 460,
       "protein_g": 35,
-      "last_posted": "2026-09-16"
+      "last_posted": "2026-09-20"
     },
     "Cottage Cheese Power Bowl": {
       "category": "breakfast",
@@ -114,7 +114,7 @@
       "category": "breakfast",
       "calories": 480,
       "protein_g": 36,
-      "last_posted": "2026-09-16"
+      "last_posted": "2026-09-20"
     },
     "Strawberry Cheesecake Overnight Oats": {
       "category": "breakfast",
@@ -240,7 +240,7 @@
       "category": "lunch",
       "calories": 540,
       "protein_g": 36,
-      "last_posted": "2026-09-16"
+      "last_posted": "2026-09-20"
     },
     "BBQ Chicken Stuffed Sweet Potato": {
       "category": "lunch",
@@ -342,7 +342,7 @@
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-09-16"
+      "last_posted": "2026-09-20"
     },
     "Garlic Butter Steak + Potatoes": {
       "category": "dinner",
@@ -372,7 +372,7 @@
       "category": "dinner",
       "calories": 530,
       "protein_g": 42,
-      "last_posted": "2026-09-16"
+      "last_posted": "2026-09-20"
     },
     "Cashew Chicken Stir Fry": {
       "category": "dinner",
@@ -432,7 +432,7 @@
       "category": "dinner",
       "calories": 580,
       "protein_g": 40,
-      "last_posted": "2026-09-16"
+      "last_posted": "2026-09-20"
     },
     "Bacon Wrapped Chicken with Broccoli": {
       "category": "dinner",
@@ -570,7 +570,7 @@
       "category": "snack",
       "calories": 380,
       "protein_g": 24,
-      "last_posted": "2026-09-16"
+      "last_posted": "2026-09-20"
     },
     "Beef Jerky + Cheese Stick Plate": {
       "category": "snack",
@@ -594,7 +594,7 @@
       "category": "snack",
       "calories": 110,
       "protein_g": 8,
-      "last_posted": "2026-09-16"
+      "last_posted": "2026-09-20"
     },
     "Edamame + Sea Salt": {
       "category": "snack",
@@ -648,7 +648,7 @@
       "category": "snack",
       "calories": 320,
       "protein_g": 22,
-      "last_posted": "2026-09-16"
+      "last_posted": "2026-09-20"
     },
     "Smoked Salmon Cucumber Bites": {
       "category": "snack",
