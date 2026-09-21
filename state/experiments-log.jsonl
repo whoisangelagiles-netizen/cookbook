@@ -147,3 +147,13 @@
 {"date": "2026-09-21", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Sheet Pan Chicken Fajitas", "music": true, "hook_style": "B", "hook": "TASTES LIKE TAKEOUT FAJITAS. 40G PROTEIN.", "scheduled": "12:21 ET"}
 {"date": "2026-09-21", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "Shrimp Scampi over Zoodles", "music": true, "hook_style": "B", "hook": "TASTES LIKE ITALIAN TAKEOUT. 38G PROTEIN.", "scheduled": "12:24 ET"}
 {"date": "2026-09-21", "slot": "Lunch", "account": "@under10.protein", "recipe": "Tropical Power Salad", "music": false, "hook_style": "B", "hook": "TASTES LIKE A BEACH VACATION. 36G PROTEIN.", "scheduled": "12:27 ET"}
+{"date": "2026-09-21", "slot": "Dinner", "account": "@cleanfuel.kitchen", "recipe": "Chimichurri Steak Bites", "music": false, "hook_style": "A", "hook": "44G PROTEIN, ONE PAN, 12 MIN", "scheduled": "18:00 ET"}
+{"date": "2026-09-21", "slot": "Dinner", "account": "@coach.macro", "recipe": "Chocolate Banana Protein Shake", "music": true, "hook_style": "A", "hook": "30G PROTEIN IN 5 MINUTES", "scheduled": "18:03 ET"}
+{"date": "2026-09-21", "slot": "Dinner", "account": "@fuel.your.gains", "recipe": "Chocolate Protein Mug Cake", "music": true, "hook_style": "A", "hook": "250 CALORIES. 28G PROTEIN. DONE IN 5.", "scheduled": "18:06 ET"}
+{"date": "2026-09-21", "slot": "Dinner", "account": "@gymfood.simple", "recipe": "Power Avocado Toast + Egg", "music": false, "hook_style": "A", "hook": "24G PROTEIN IN 8 MINUTES", "scheduled": "18:09 ET"}
+{"date": "2026-09-21", "slot": "Dinner", "account": "@macro.architect", "recipe": "Turkey Avocado Club Wrap", "music": true, "hook_style": "A", "hook": "38G PROTEIN IN 10 MINUTES", "scheduled": "18:12 ET"}
+{"date": "2026-09-21", "slot": "Dinner", "account": "@postworkout.plate", "recipe": "Asian Beef Bowl", "music": false, "hook_style": "A", "hook": "40G PROTEIN, ONE PAN, 10 MIN", "scheduled": "18:15 ET"}
+{"date": "2026-09-21", "slot": "Dinner", "account": "@prep.with.alex", "recipe": "BBQ Chicken Stuffed Sweet Potato", "music": false, "hook_style": "A", "hook": "510 CALORIES. 38G PROTEIN. DONE IN 10.", "scheduled": "18:18 ET"}
+{"date": "2026-09-21", "slot": "Dinner", "account": "@protein.lab.eats", "recipe": "BBQ Pork + Slaw", "music": true, "hook_style": "A", "hook": "45G PROTEIN IN 12 MINUTES", "scheduled": "18:21 ET"}
+{"date": "2026-09-21", "slot": "Dinner", "account": "@the.lean.cook", "recipe": "Beef Stir Fry with Cauliflower Rice", "music": true, "hook_style": "A", "hook": "42G PROTEIN, ONE PAN, 12 MIN", "scheduled": "18:24 ET"}
+{"date": "2026-09-21", "slot": "Dinner", "account": "@under10.protein", "recipe": "Chicken + Cheese Roll-Ups", "music": false, "hook_style": "A", "hook": "28G PROTEIN IN 5 MINUTES", "scheduled": "18:27 ET"}
