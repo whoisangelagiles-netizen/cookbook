@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-20",
+  "last_updated": "2026-09-21",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
       "calories": 520,
       "protein_g": 30,
-      "last_posted": "2026-09-17"
+      "last_posted": "2026-09-21"
     },
     "Sunrise Power Bowl": {
       "category": "breakfast",
@@ -84,13 +84,13 @@
       "category": "breakfast",
       "calories": 380,
       "protein_g": 28,
-      "last_posted": "2026-09-17"
+      "last_posted": "2026-09-21"
     },
     "High-Protein Waffles": {
       "category": "breakfast",
       "calories": 420,
       "protein_g": 32,
-      "last_posted": "2026-09-17"
+      "last_posted": "2026-09-21"
     },
     "Savory Oatmeal with Egg + Avocado": {
       "category": "breakfast",
@@ -258,7 +258,7 @@
       "category": "lunch",
       "calories": 420,
       "protein_g": 38,
-      "last_posted": "2026-09-17"
+      "last_posted": "2026-09-21"
     },
     "Caprese Chicken Wrap": {
       "category": "lunch",
@@ -276,7 +276,7 @@
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-09-17"
+      "last_posted": "2026-09-21"
     },
     "Chicken Caesar Wrap": {
       "category": "lunch",
@@ -324,7 +324,7 @@
       "category": "lunch",
       "calories": 360,
       "protein_g": 28,
-      "last_posted": "2026-09-17"
+      "last_posted": "2026-09-21"
     },
     "Korean Tuna Rice Bowl": {
       "category": "lunch",
@@ -366,7 +366,7 @@
       "category": "dinner",
       "calories": 580,
       "protein_g": 40,
-      "last_posted": "2026-09-17"
+      "last_posted": "2026-09-21"
     },
     "High-Protein Chicken Alfredo": {
       "category": "dinner",
@@ -414,7 +414,7 @@
       "category": "dinner",
       "calories": 540,
       "protein_g": 40,
-      "last_posted": "2026-09-17"
+      "last_posted": "2026-09-21"
     },
     "Cajun Salmon Bowl": {
       "category": "dinner",
@@ -504,7 +504,7 @@
       "category": "dinner",
       "calories": 560,
       "protein_g": 40,
-      "last_posted": "2026-09-17"
+      "last_posted": "2026-09-21"
     },
     "Tuscan Garlic Chicken": {
       "category": "dinner",
@@ -624,7 +624,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 10,
-      "last_posted": "2026-09-17"
+      "last_posted": "2026-09-21"
     },
     "Cinnamon Roll Protein Pudding": {
       "category": "snack",
