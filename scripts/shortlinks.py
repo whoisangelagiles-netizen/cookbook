@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 """
-shortlinks.py — per-account short links for the High Protein House bio link,
-so we can see how many people actually tap through to the product.
+shortlinks.py — per-account short links (Dub) for the High Protein House bio
+link, so we can see how many people actually tap through to the product.
 
 Why: TikTok reports profile views but not bio-link taps, and Gumroad reports
 sales but not clicks. The gap between "saw the post" and "bought" is invisible
@@ -11,51 +11,57 @@ attributes sales per account.
 
 Subcommands
 -----------
-  create [--dry-run]
+  create [--dry-run] [--domain dub.sh] [--prefix hph]
       For each account in state/account-voices.json, ensure a short link
       exists pointing at that account's bio_link. Idempotent: an account
       that already has a link in state/shortlinks.json is left alone.
-      Prints a table of handle -> short link for the bio update.
+      Tries a readable slug first (hph-macro-architect) and falls back to a
+      Dub-generated one if that slug is taken. Prints handle -> short link.
 
   clicks [--days N] [--dry-run]
-      Fetch click counts for every known link (default: last 30 days,
-      per-day breakdown) and write them to state/shortlink-clicks.json.
-      Prints a per-account summary.
+      Fetch click counts for every known link (default: last 30 days, with a
+      per-day series) into state/shortlink-clicks.json, and print a summary.
 
   list
       Print what we have on file. No network.
 
-Auth: a Bitly API token attached to the cloud environment as an API credential
-for api-ssl.bitly.com, injected by the egress proxy exactly like the OpenAI
-key (see routines/cookbook-daily-3x.md). When BITLY_TOKEN is unset or holds
-the placeholder value "proxy", no Authorization header is sent and the proxy
-adds it. Any other value is sent as a Bearer token, for local use. The token
-is never printed or written anywhere.
+Auth: a Dub API key attached to the cloud environment as an API credential for
+api.dub.co, injected by the egress proxy exactly like the OpenAI key (see
+routines/cookbook-daily-3x.md). When DUB_TOKEN is unset or holds the
+placeholder value "proxy", no Authorization header is sent and the proxy adds
+it. Any other value is sent as a Bearer token, for local use. Optional
+DUB_WORKSPACE_ID is appended as workspaceId when set. The key is never printed
+or written anywhere.
 
-Never exits non-zero on a network/API failure during `clicks` — click data is
-reporting, and must never interfere with posting.
+`clicks` never exits non-zero: click data is reporting, and must never
+interfere with posting.
 
-API shapes used (Bitly v4 — verify against the live response on first run):
-  POST /v4/shorten                      {long_url, group_guid?}  -> {id, link}
-  GET  /v4/groups                       -> {groups: [{guid, name}]}
-  GET  /v4/bitlinks/{id}/clicks/summary?unit=day&units=N -> {total_clicks}
-  GET  /v4/bitlinks/{id}/clicks?unit=day&units=N         -> {link_clicks: [...]}
+API shapes (Dub v1 — the response parsers below tolerate several shapes
+because these have moved between versions; verify on the first real run):
+  POST /links      {url, domain?, key?}  -> {id, domain, key, shortLink, ...}
+  GET  /links?domain=&search=            -> [ {...link}, ... ]
+  GET  /analytics?event=clicks&groupBy=count&linkId=&interval=30d
+                                         -> {clicks: N}
+  GET  /analytics?event=clicks&groupBy=timeseries&linkId=&interval=30d
+                                         -> [ {start, clicks}, ... ]
 """
 
 import argparse
 import datetime as dt
 import json
 import os
+import re
 import ssl
 import sys
 import urllib.error
+import urllib.parse
 import urllib.request
 
 ROOT = os.path.abspath(os.path.join(os.path.dirname(__file__), ".."))
 VOICES = os.path.join(ROOT, "state", "account-voices.json")
 LINKS = os.path.join(ROOT, "state", "shortlinks.json")
 CLICKS = os.path.join(ROOT, "state", "shortlink-clicks.json")
-API = "https://api-ssl.bitly.com"
+API = "https://api.dub.co"
 SKIP = {"@angelagiles29"}
 
 
@@ -83,16 +89,24 @@ def save_json(path, data):
 
 
 def headers():
-    tok = os.environ.get("BITLY_TOKEN", "").strip()
+    tok = os.environ.get("DUB_TOKEN", "").strip()
     h = {"Content-Type": "application/json"}
     if tok and tok.lower() not in ("proxy", "placeholder", "injected"):
         h["Authorization"] = f"Bearer {tok}"
     return h
 
 
+def with_workspace(path):
+    ws = os.environ.get("DUB_WORKSPACE_ID", "").strip()
+    if not ws:
+        return path
+    sep = "&" if "?" in path else "?"
+    return f"{path}{sep}workspaceId={urllib.parse.quote(ws)}"
+
+
 def call(method, path, payload=None, timeout=60):
     """Returns (status, parsed_json_or_text). Never raises."""
-    url = path if path.startswith("http") else API + path
+    url = with_workspace(path if path.startswith("http") else API + path)
     data = json.dumps(payload).encode() if payload is not None else None
     req = urllib.request.Request(url, data=data, method=method)
     for k, v in headers().items():
@@ -100,8 +114,7 @@ def call(method, path, payload=None, timeout=60):
     try:
         with urllib.request.urlopen(req, timeout=timeout,
                                     context=ssl.create_default_context()) as r:
-            body = r.read()
-            status = r.status
+            body, status = r.read(), r.status
     except urllib.error.HTTPError as exc:
         body = exc.read() if hasattr(exc, "read") else b""
         status = exc.code
@@ -111,6 +124,24 @@ def call(method, path, payload=None, timeout=60):
         return status, json.loads(body)
     except Exception:
         return status, {"raw": body[:300].decode("utf-8", "replace")}
+
+
+def explain(status, body):
+    if status == 401:
+        return ("401 unauthorized — no Dub API key reached the API. Attach one as an "
+                "API credential for api.dub.co on the routine environment.")
+    if status == 403:
+        return ("403 forbidden — the key is valid but lacks scope for this call, or "
+                "the workspace is wrong (set DUB_WORKSPACE_ID).")
+    if status == 429:
+        return "429 rate limited — wait a minute and re-run; created links are kept."
+    if status == 0:
+        return f"network error: {body.get('error')}"
+    msg = ""
+    if isinstance(body, dict):
+        err = body.get("error")
+        msg = err.get("message") if isinstance(err, dict) else (err or body.get("message") or "")
+    return f"HTTP {status} {msg or json.dumps(body)[:200]}"
 
 
 def accounts():
@@ -125,146 +156,182 @@ def accounts():
     return out
 
 
-def explain(status, body):
-    if status == 401:
-        return ("401 UNAUTHORIZED — no Bitly token reached the API. Attach one as "
-                "an API credential for api-ssl.bitly.com on the routine environment.")
-    if status == 403:
-        return ("403 FORBIDDEN — the token is valid but the plan or scope does not "
-                "allow this call (Bitly restricts API access on some free plans).")
-    if status == 0:
-        return f"network error: {body.get('error')}"
-    return f"HTTP {status} {json.dumps(body)[:300]}"
+def slug_for(handle, prefix):
+    base = re.sub(r"[^a-z0-9]+", "-", handle.lstrip("@").lower()).strip("-")
+    return f"{prefix}-{base}" if prefix else base
+
+
+def short_of(body):
+    """Pull the short URL out of a create/list response, whatever it is called."""
+    if not isinstance(body, dict):
+        return None
+    for k in ("shortLink", "short_link", "shortUrl", "url_short"):
+        if body.get(k):
+            return body[k]
+    if body.get("domain") and body.get("key"):
+        return f"https://{body['domain']}/{body['key']}"
+    return None
 
 
 # ---------------------------------------------------------------------------
 def cmd_create(args):
-    store = load_json(LINKS, {"schema_version": 1, "provider": "bitly", "links": {}})
+    store = load_json(LINKS, {"schema_version": 1, "provider": "dub", "links": {}})
     links = store.setdefault("links", {})
+    store["provider"] = "dub"
     rows = accounts()
     if not rows:
         log("no accounts with a bio_link in state/account-voices.json")
         return 1
 
-    group = None
-    if not args.dry_run:
-        status, body = call("GET", "/v4/groups")
-        if status != 200:
-            log("could not read Bitly groups: " + explain(status, body))
-            return 1
-        groups = body.get("groups") or []
-        if groups:
-            group = groups[0].get("guid")
-            log(f"using Bitly group {groups[0].get('name')} ({group})")
-
     made = skipped = failed = 0
     for handle, long_url in rows:
-        have = links.get(handle)
-        if have and have.get("link"):
+        if links.get(handle, {}).get("link"):
             skipped += 1
             continue
+        want = slug_for(handle, args.prefix)
         if args.dry_run:
-            log(f"would create: {handle:20s} -> {long_url}")
+            log(f"would create: {handle:20s} {args.domain}/{want}  ->  {long_url}")
             made += 1
             continue
-        payload = {"long_url": long_url}
-        if group:
-            payload["group_guid"] = group
-        status, body = call("POST", "/v4/shorten", payload)
-        if status not in (200, 201) or not body.get("link"):
+
+        entry = None
+        for key in (want, None):  # preferred slug, then let Dub pick one
+            payload = {"url": long_url}
+            if args.domain:
+                payload["domain"] = args.domain
+            if key:
+                payload["key"] = key
+            status, body = call("POST", "/links", payload)
+            link = short_of(body)
+            if status in (200, 201) and link:
+                entry = {"link": link, "id": body.get("id"),
+                         "domain": body.get("domain") or args.domain,
+                         "key": body.get("key") or key,
+                         "long_url": long_url, "created": dt.date.today().isoformat()}
+                break
+            if key and status in (409, 422, 400):
+                log(f"  {handle}: slug '{key}' unavailable, letting Dub choose")
+                continue
             log(f"FAILED {handle}: " + explain(status, body))
+            if status in (401, 403):
+                # every account would fail the same way — stop rather than
+                # printing the same credential error ten times
+                log("stopping: fix the credential and re-run (links already "
+                    "created are kept and will be skipped)")
+                failed += 1
+                store["last_updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+                save_json(LINKS, store)
+                log(f"\ncreated={made} already-had={skipped} failed={failed}")
+                return 1
+            break
+
+        if entry:
+            links[handle] = entry
+            made += 1
+            log(f"created {handle:20s} {entry['link']}")
+            save_json(LINKS, store)  # persist as we go; a 429 mid-run loses nothing
+        else:
             failed += 1
-            continue
-        links[handle] = {
-            "link": body["link"],
-            "id": body.get("id") or body["link"].replace("https://", ""),
-            "long_url": long_url,
-            "created": dt.date.today().isoformat(),
-        }
-        made += 1
-        log(f"created {handle:20s} {body['link']}")
 
     if not args.dry_run:
         store["last_updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
         save_json(LINKS, store)
     log(f"\ncreated={made} already-had={skipped} failed={failed}")
-    if made or skipped:
+    if links and not args.dry_run:
         log("\nBio links to set on TikTok (Website field):")
         for handle, _ in rows:
-            entry = links.get(handle)
-            if entry:
-                log(f"  {handle:20s} {entry['link']}")
+            e = links.get(handle)
+            if e:
+                log(f"  {handle:20s} {e['link']}")
     return 1 if failed and not made else 0
 
 
+def parse_clicks(body):
+    """Return (total, {day: clicks}) from whichever analytics shape came back."""
+    total, series = 0, {}
+    if isinstance(body, dict):
+        for k in ("clicks", "count", "total"):
+            if isinstance(body.get(k), (int, float)):
+                total = int(body[k])
+                break
+    elif isinstance(body, list):
+        for pt in body:
+            if not isinstance(pt, dict):
+                continue
+            n = pt.get("clicks", pt.get("count", 0)) or 0
+            total += int(n)
+            day = str(pt.get("start") or pt.get("date") or "")[:10]
+            if day:
+                series[day] = series.get(day, 0) + int(n)
+    return total, series
+
+
 def cmd_clicks(args):
-    store = load_json(LINKS, {"links": {}})
-    links = store.get("links", {})
+    links = load_json(LINKS, {"links": {}}).get("links", {})
     if not links:
         log("no links on file yet — run: python3 scripts/shortlinks.py create")
         return 0
 
-    out = load_json(CLICKS, {"schema_version": 1, "accounts": {}})
+    out = load_json(CLICKS, {"schema_version": 1, "provider": "dub", "accounts": {}})
     per = out.setdefault("accounts", {})
+    interval = f"{args.days}d"
     ok = bad = 0
     for handle, entry in sorted(links.items()):
-        bid = entry.get("id")
-        if not bid:
-            continue
+        lid = entry.get("id")
+        q = f"linkId={urllib.parse.quote(str(lid))}" if lid else \
+            f"domain={urllib.parse.quote(entry.get('domain',''))}&key={urllib.parse.quote(entry.get('key',''))}"
         if args.dry_run:
-            log(f"would fetch clicks for {handle} ({bid})")
+            log(f"would fetch clicks for {handle} ({lid or entry.get('key')})")
             continue
-        status, body = call("GET", f"/v4/bitlinks/{bid}/clicks/summary"
-                                   f"?unit=day&units={args.days}")
+
+        status, body = call("GET", f"/analytics?event=clicks&groupBy=count&{q}&interval={interval}")
         if status != 200:
             log(f"{handle}: " + explain(status, body))
             bad += 1
             continue
-        total = body.get("total_clicks", 0)
-        s2, daily = call("GET", f"/v4/bitlinks/{bid}/clicks?unit=day&units={args.days}")
-        series = {}
-        if s2 == 200:
-            for pt in daily.get("link_clicks", []) or []:
-                day = (pt.get("date") or "")[:10]
-                if day:
-                    series[day] = pt.get("clicks", 0)
-        per[handle] = {"link": entry.get("link"), "id": bid,
+        total, _ = parse_clicks(body)
+        s2, ts = call("GET", f"/analytics?event=clicks&groupBy=timeseries&{q}&interval={interval}")
+        series = parse_clicks(ts)[1] if s2 == 200 else {}
+        per[handle] = {"link": entry.get("link"), "id": lid,
                        f"clicks_{args.days}d": total, "daily": series,
                        "fetched": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
         ok += 1
-        log(f"{handle:20s} {entry.get('link'):28s} {total:5d} clicks / {args.days}d")
+        log(f"{handle:20s} {str(entry.get('link')):30s} {total:5d} clicks / {args.days}d")
 
     if not args.dry_run and ok:
         out["last_updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
         save_json(CLICKS, out)
         total = sum(v.get(f"clicks_{args.days}d", 0) for v in per.values())
         log(f"\ntotal across accounts: {total} clicks in {args.days} days "
-            f"({ok} links read, {bad} failed) -> {CLICKS}")
+            f"({ok} read, {bad} failed) -> {CLICKS}")
     return 0
 
 
 def cmd_list(args):
-    store = load_json(LINKS, {"links": {}})
-    links = store.get("links", {})
+    links = load_json(LINKS, {"links": {}}).get("links", {})
     if not links:
         log("no links on file")
         return 0
     for handle, e in sorted(links.items()):
-        log(f"{handle:20s} {e.get('link'):30s} -> {e.get('long_url')}")
+        log(f"{handle:20s} {str(e.get('link')):30s} -> {e.get('long_url')}")
     clicks = load_json(CLICKS, {}).get("accounts", {})
     if clicks:
         log("")
         for handle, c in sorted(clicks.items()):
-            key = next((k for k in c if k.startswith("clicks_")), None)
+            key = next((k for k in c if k.startswith("clicks_")), "")
             log(f"{handle:20s} {c.get(key, 0)} clicks ({key})")
     return 0
 
 
 def main():
-    ap = argparse.ArgumentParser(description=__doc__.split("\n")[1])
+    ap = argparse.ArgumentParser(description="per-account Dub short links")
     sub = ap.add_subparsers(dest="cmd", required=True)
-    c = sub.add_parser("create"); c.add_argument("--dry-run", action="store_true")
-    k = sub.add_parser("clicks"); k.add_argument("--days", type=int, default=30)
+    c = sub.add_parser("create")
+    c.add_argument("--dry-run", action="store_true")
+    c.add_argument("--domain", default="dub.sh", help="short domain (default dub.sh)")
+    c.add_argument("--prefix", default="hph", help="slug prefix, '' to disable")
+    k = sub.add_parser("clicks")
+    k.add_argument("--days", type=int, default=30)
     k.add_argument("--dry-run", action="store_true")
     sub.add_parser("list")
     args = ap.parse_args()
