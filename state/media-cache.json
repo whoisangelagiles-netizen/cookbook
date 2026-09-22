@@ -7147,7 +7147,322 @@
       "sha256_16": "cbd707e83827caf7",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Strawberry Protein Pops|@cleanfuel.kitchen|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f18b13f2-ee89-44f2-a2df-a7a6de14ce8e.png",
+      "created": "2026-09-22",
+      "sha256_16": "41444621f5acc5ec",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Strawberry Protein Pops|@cleanfuel.kitchen|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/62f7cf7e-8606-4aec-a312-c92c03b273cb.png",
+      "created": "2026-09-22",
+      "sha256_16": "92469b4c2f6e7799",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Strawberry Protein Pops|@cleanfuel.kitchen|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ae74cdaf-c6a5-40db-8af4-a72e940df6b8.png",
+      "created": "2026-09-22",
+      "sha256_16": "428290dc0a2d2fe3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Strawberry Protein Pops|@cleanfuel.kitchen|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a719dc8c-ee83-4c49-a388-82b96f116b5b.png",
+      "created": "2026-09-22",
+      "sha256_16": "2de241f442f8786e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Strawberry Protein Pops|@cleanfuel.kitchen|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/428034b5-b4ce-46bf-8d90-08140d61a40b.png",
+      "created": "2026-09-22",
+      "sha256_16": "91b5d74e00fb2b94",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Stuffed Bell Peppers|@coach.macro|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5b9e6d79-aec3-4298-859c-985a31eec128.png",
+      "created": "2026-09-22",
+      "sha256_16": "07ad996c914eb671",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Stuffed Bell Peppers|@coach.macro|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ec91545e-5d29-4ef0-9e4f-06d43b8e3f13.png",
+      "created": "2026-09-22",
+      "sha256_16": "702fe1c6ca4baafd",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Stuffed Bell Peppers|@coach.macro|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/626a169b-ee66-477c-8121-5a483dd48e46.png",
+      "created": "2026-09-22",
+      "sha256_16": "7f3afcea7771cd67",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Stuffed Bell Peppers|@coach.macro|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/04c43c98-2de4-41e8-9a20-9890fae97820.png",
+      "created": "2026-09-22",
+      "sha256_16": "9bc8d01ec7cbf674",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Stuffed Bell Peppers|@coach.macro|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/0e557622-1686-49d7-846a-7f065fbd82e2.png",
+      "created": "2026-09-22",
+      "sha256_16": "153650291ca7f5e1",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Bacon Wrapped Chicken with Broccoli|@fuel.your.gains|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/4264a1d7-0279-4011-8013-e8adb3b004e1.png",
+      "created": "2026-09-22",
+      "sha256_16": "f1fe8c78d1abc240",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Bacon Wrapped Chicken with Broccoli|@fuel.your.gains|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/41af6b59-a601-4c71-9903-aa921c2c441d.png",
+      "created": "2026-09-22",
+      "sha256_16": "36723bccec079a88",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Bacon Wrapped Chicken with Broccoli|@fuel.your.gains|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/be5ee6a9-1be2-4ac6-959b-f9b44eab5e92.png",
+      "created": "2026-09-22",
+      "sha256_16": "c347656d555041ad",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Bacon Wrapped Chicken with Broccoli|@fuel.your.gains|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/041e630b-526c-4b9d-8917-ea33ed55656f.png",
+      "created": "2026-09-22",
+      "sha256_16": "d36afe91f9743be7",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Bacon Wrapped Chicken with Broccoli|@fuel.your.gains|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ee441f82-0ba3-4daa-a23d-3211f82c3427.png",
+      "created": "2026-09-22",
+      "sha256_16": "e998adefd19d0fa3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Buffalo Chicken Lettuce Wraps|@gymfood.simple|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5a2d3ba2-c57c-4984-8e6b-6d7463e04c0e.png",
+      "created": "2026-09-22",
+      "sha256_16": "796b4e2c61f62989",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Buffalo Chicken Lettuce Wraps|@gymfood.simple|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d7b2f050-0659-40fb-acc9-f6676a179b24.png",
+      "created": "2026-09-22",
+      "sha256_16": "971426e155b75fba",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Buffalo Chicken Lettuce Wraps|@gymfood.simple|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d182c8bf-d397-410e-8358-532e2ca6b909.png",
+      "created": "2026-09-22",
+      "sha256_16": "6141908733f403a0",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Buffalo Chicken Lettuce Wraps|@gymfood.simple|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/3748a448-4db7-4579-98bc-0928e9972e8c.png",
+      "created": "2026-09-22",
+      "sha256_16": "e390645858a70d66",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Buffalo Chicken Lettuce Wraps|@gymfood.simple|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ee7450e9-5a69-455c-b86e-6d41a400d7f7.png",
+      "created": "2026-09-22",
+      "sha256_16": "37d12edae65046af",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Mediterranean Chicken Bowl|@macro.architect|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/3afb7ef6-d2f6-4096-b702-2b5f894b1e0a.png",
+      "created": "2026-09-22",
+      "sha256_16": "a209c95ef04a9b3b",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Mediterranean Chicken Bowl|@macro.architect|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/e67fccef-0dbf-4375-9b85-960be64a6e36.png",
+      "created": "2026-09-22",
+      "sha256_16": "3b077ab8eaae56a0",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Mediterranean Chicken Bowl|@macro.architect|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ee1a9447-e9fb-471a-965a-0f2209ea2e78.png",
+      "created": "2026-09-22",
+      "sha256_16": "656ba05b16213d28",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Mediterranean Chicken Bowl|@macro.architect|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a803cfd6-9415-47ef-9ffd-be26bd57e783.png",
+      "created": "2026-09-22",
+      "sha256_16": "80462654295e2c74",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Mediterranean Chicken Bowl|@macro.architect|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f601f1ba-7613-4a54-a9d2-545f27ed28dc.png",
+      "created": "2026-09-22",
+      "sha256_16": "369fbb7e3cb4bb12",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Pesto Chicken Pasta|@prep.with.alex|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ed52414e-6ed6-402f-a242-9b8be04360c8.png",
+      "created": "2026-09-22",
+      "sha256_16": "ebf2f27b13cfb6db",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Pesto Chicken Pasta|@prep.with.alex|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/720ac9df-b718-41de-9865-e257d8f5610d.png",
+      "created": "2026-09-22",
+      "sha256_16": "cb0e039f464f2805",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Pesto Chicken Pasta|@prep.with.alex|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/81ef66ce-685d-4cb5-b429-5f86495d4a97.png",
+      "created": "2026-09-22",
+      "sha256_16": "260ea364593ce6ab",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Pesto Chicken Pasta|@prep.with.alex|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7887dad9-204e-4a59-819c-05b1a0809ebb.png",
+      "created": "2026-09-22",
+      "sha256_16": "c38480980095731a",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Pesto Chicken Pasta|@prep.with.alex|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2262b32e-6eb6-4dee-a8bc-53308bc9d968.png",
+      "created": "2026-09-22",
+      "sha256_16": "f27d5ca2b6cc9b19",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Savory Oatmeal with Egg + Avocado|@protein.lab.eats|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5b5c4f37-f40b-4e99-95a5-2ed0bdf441d8.png",
+      "created": "2026-09-22",
+      "sha256_16": "c2797ae1a488583b",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Savory Oatmeal with Egg + Avocado|@protein.lab.eats|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/fde43e6d-ade9-404d-b913-1b9533cc8eb3.png",
+      "created": "2026-09-22",
+      "sha256_16": "e2582471c16c3203",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Savory Oatmeal with Egg + Avocado|@protein.lab.eats|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/87203798-2b2a-4fef-8683-30357101b5cc.png",
+      "created": "2026-09-22",
+      "sha256_16": "c3bbaf990345729c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Savory Oatmeal with Egg + Avocado|@protein.lab.eats|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/1ef6f8fe-ac44-4be4-90ef-081dfa6cf279.png",
+      "created": "2026-09-22",
+      "sha256_16": "f10f65b014b14ab1",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Savory Oatmeal with Egg + Avocado|@protein.lab.eats|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/dd56657a-e1fd-41c1-8942-f96f5c46bb18.png",
+      "created": "2026-09-22",
+      "sha256_16": "fc25e04008b09b22",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Egg Roll-Ups|@the.lean.cook|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/49475406-a642-4130-9ffd-c7f537271236.png",
+      "created": "2026-09-22",
+      "sha256_16": "c1ac2ed6448947ba",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Egg Roll-Ups|@the.lean.cook|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/514b8dde-fa3a-4c75-90f9-847116ad28b8.png",
+      "created": "2026-09-22",
+      "sha256_16": "4595165048e7fdcc",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Egg Roll-Ups|@the.lean.cook|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/c839385b-3df5-43a6-a2c9-f6286ff548e9.png",
+      "created": "2026-09-22",
+      "sha256_16": "230752c81c3dd01f",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Egg Roll-Ups|@the.lean.cook|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/0d21ada5-89a4-4c98-b05c-a0b1f668f88f.png",
+      "created": "2026-09-22",
+      "sha256_16": "24d7a163dfd5fb7e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Egg Roll-Ups|@the.lean.cook|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/aa4ff9ab-a0f0-49da-9293-faebe3e487d7.png",
+      "created": "2026-09-22",
+      "sha256_16": "5b28c6f097d35ddf",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Whole-Grain Bagel|@under10.protein|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/0c5a8101-b26a-4335-b65a-9b8a8fd1c288.png",
+      "created": "2026-09-22",
+      "sha256_16": "0a5cb43eab8d84c3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Whole-Grain Bagel|@under10.protein|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/46714044-7973-478b-b3a8-00fad72341d7.png",
+      "created": "2026-09-22",
+      "sha256_16": "e2f2281fbaeb92b1",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Whole-Grain Bagel|@under10.protein|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/30479d78-4b1a-4529-b0f3-be015bf366c0.png",
+      "created": "2026-09-22",
+      "sha256_16": "08e72c77149bd0a3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Whole-Grain Bagel|@under10.protein|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ab3cf3b8-b961-4c3e-b791-695668030ff0.png",
+      "created": "2026-09-22",
+      "sha256_16": "66a16801e8ce38c9",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Whole-Grain Bagel|@under10.protein|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/600015d9-4bde-4cee-9f6c-19b5b2b538a4.png",
+      "created": "2026-09-22",
+      "sha256_16": "a56e6480c689eaa8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-22T08:23:17+00:00"
+  "last_updated": "2026-09-22T12:24:21+00:00"
 }
