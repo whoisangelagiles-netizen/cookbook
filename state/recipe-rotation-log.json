@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-21",
+  "last_updated": "2026-09-22",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -72,7 +72,7 @@
       "category": "breakfast",
       "calories": 180,
       "protein_g": 20,
-      "last_posted": "2026-09-18"
+      "last_posted": "2026-09-22"
     },
     "Egg Muffin Cups": {
       "category": "breakfast",
@@ -102,7 +102,7 @@
       "category": "breakfast",
       "calories": 420,
       "protein_g": 35,
-      "last_posted": "2026-09-18"
+      "last_posted": "2026-09-22"
     },
     "Tuna Avocado Toast": {
       "category": "breakfast",
@@ -192,13 +192,13 @@
       "category": "lunch",
       "calories": 440,
       "protein_g": 42,
-      "last_posted": "2026-09-18"
+      "last_posted": "2026-09-22"
     },
     "Honey Garlic Chicken Wrap": {
       "category": "lunch",
       "calories": 540,
       "protein_g": 40,
-      "last_posted": "2026-09-18"
+      "last_posted": "2026-09-22"
     },
     "Tropical Power Salad": {
       "category": "lunch",
@@ -306,7 +306,7 @@
       "category": "lunch",
       "calories": 530,
       "protein_g": 40,
-      "last_posted": "2026-09-18"
+      "last_posted": "2026-09-22"
     },
     "Chickpea + Tuna Lemon Salad": {
       "category": "lunch",
@@ -354,7 +354,7 @@
       "category": "dinner",
       "calories": 490,
       "protein_g": 42,
-      "last_posted": "2026-09-18"
+      "last_posted": "2026-09-22"
     },
     "Chimichurri Steak Bites": {
       "category": "dinner",
@@ -426,7 +426,7 @@
       "category": "dinner",
       "calories": 460,
       "protein_g": 38,
-      "last_posted": "2026-09-18"
+      "last_posted": "2026-09-22"
     },
     "Teriyaki Salmon with Rice": {
       "category": "dinner",
@@ -492,7 +492,7 @@
       "category": "dinner",
       "calories": 460,
       "protein_g": 42,
-      "last_posted": "2026-09-18"
+      "last_posted": "2026-09-22"
     },
     "Black Bean + Chicken Enchilada Bake": {
       "category": "dinner",
@@ -540,7 +540,7 @@
       "category": "snack",
       "calories": 220,
       "protein_g": 22,
-      "last_posted": "2026-09-18"
+      "last_posted": "2026-09-22"
     },
     "Hard-Boiled Eggs + Hummus": {
       "category": "snack",
@@ -630,7 +630,7 @@
       "category": "snack",
       "calories": 280,
       "protein_g": 26,
-      "last_posted": "2026-09-18"
+      "last_posted": "2026-09-22"
     },
     "Strawberry Protein Pops": {
       "category": "snack",
