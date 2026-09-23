@@ -292,6 +292,30 @@ failure.
 Requires `gspread` and `google-auth` (see `requirements.txt`) and the service
 account credentials. If they are unavailable, the script logs and exits cleanly.
 
+**STEP 6.5 — Collect bio-link clicks (best-effort, runs once a day)**
+
+Only on the **Dinner (18:00 ET) firing** — the totals are lifetime counters, so
+reading them once a day is what makes the daily delta meaningful. Run:
+
+```
+python3 scripts/shortlinks.py clicks
+```
+
+It reads lifetime click totals for the ten per-account Dub short links in a
+single `GET /links` call, appends today's delta to the per-day series in
+`state/shortlink-clicks.json`, and prints one line per account. Commit that file
+with the rest of `state/` in STEP 5 (a `git add state/` already covers it).
+
+This closes the funnel: views and followers come from STEP 6, clicks from here,
+and sales from Gumroad. Add a short tag to the summary notes:
+`[CLICKS] total={n} today` from the script's last line.
+
+**Best-effort, exactly like STEP 6.** The script always exits 0, needs the
+api.dub.co credential on the environment, and must never change what was posted
+or whether state was committed. Do not retry it. If the links are missing from
+`state/shortlinks.json` it prints a note and exits cleanly — create them with
+`python3 scripts/shortlinks.py create`.
+
 **ABSOLUTE RULES:**
 - Read from `state/` (repo-root-relative), NOT from any Mac path.
 - Past-slot skip guard is active — no clustering.

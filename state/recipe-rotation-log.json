@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-22",
+  "last_updated": "2026-09-23",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -12,13 +12,13 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 25,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Berry Almond Chia Parfait": {
       "category": "breakfast",
       "calories": 350,
       "protein_g": 20,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Cinnamon Apple Protein Oats": {
       "category": "breakfast",
@@ -66,7 +66,7 @@
       "category": "breakfast",
       "calories": 440,
       "protein_g": 30,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Protein Yogurt Bark": {
       "category": "breakfast",
@@ -108,7 +108,7 @@
       "category": "breakfast",
       "calories": 410,
       "protein_g": 30,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Breakfast Quesadilla": {
       "category": "breakfast",
@@ -120,7 +120,7 @@
       "category": "breakfast",
       "calories": 450,
       "protein_g": 32,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Turkey Sausage + Sweet Potato Hash": {
       "category": "breakfast",
@@ -150,7 +150,7 @@
       "category": "breakfast",
       "calories": 470,
       "protein_g": 38,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Cinnamon Roll Protein Bowl": {
       "category": "breakfast",
@@ -270,7 +270,7 @@
       "category": "lunch",
       "calories": 410,
       "protein_g": 35,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Spicy Shrimp Burrito Bowl": {
       "category": "lunch",
@@ -288,7 +288,7 @@
       "category": "lunch",
       "calories": 430,
       "protein_g": 35,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Turkey Avocado Club Wrap": {
       "category": "lunch",
@@ -318,7 +318,7 @@
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Egg Salad Lettuce Wraps": {
       "category": "lunch",
@@ -330,13 +330,13 @@
       "category": "lunch",
       "calories": 450,
       "protein_g": 36,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Ham + Swiss Egg Roll-Ups": {
       "category": "lunch",
       "calories": 380,
       "protein_g": 32,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Southwest Chicken Bowl": {
       "category": "lunch",
@@ -348,7 +348,7 @@
       "category": "dinner",
       "calories": 610,
       "protein_g": 45,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Lemon Herb Chicken Plate": {
       "category": "dinner",
@@ -390,7 +390,7 @@
       "category": "dinner",
       "calories": 510,
       "protein_g": 42,
-      "last_posted": "2026-09-20"
+      "last_posted": "2026-09-23"
     },
     "Sheet Pan Chicken Fajitas": {
       "category": "dinner",
@@ -402,7 +402,7 @@
       "category": "dinner",
       "calories": 440,
       "protein_g": 36,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Turkey Meatballs Marinara": {
       "category": "dinner",
@@ -456,7 +456,7 @@
       "category": "dinner",
       "calories": 590,
       "protein_g": 42,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Chicken Tikka Masala (Lightened)": {
       "category": "dinner",
@@ -522,7 +522,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 12,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Protein Energy Bites": {
       "category": "snack",
@@ -546,25 +546,25 @@
       "category": "snack",
       "calories": 240,
       "protein_g": 16,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Vanilla Berry Protein Smoothie": {
       "category": "snack",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Greek Yogurt Layered Parfait": {
       "category": "snack",
       "calories": 280,
       "protein_g": 22,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "Tuna Cucumber Bites": {
       "category": "snack",
       "calories": 180,
       "protein_g": 18,
-      "last_posted": "2026-09-19"
+      "last_posted": "2026-09-23"
     },
     "PB Banana Protein Wrap": {
       "category": "snack",
