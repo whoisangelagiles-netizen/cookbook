@@ -198,7 +198,7 @@ def explain(status, body):
         if isinstance(body, dict) and body.get("_quota_zero"):
             return ("429 rate limited: X-Ratelimit-Limit is 0 for this endpoint, so the "
                     "plan behind this key does not include the analytics API. Pacing "
-                    "cannot fix a quota of zero — the plan has to change.")
+                    "cannot fix a quota of zero; the plan has to change.")
         return "429 rate limited — wait a minute and re-run; created links are kept."
     if status == 0:
         return f"network error: {body.get('error')}"
