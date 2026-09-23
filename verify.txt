@@ -1,0 +1,34 @@
+Dub link destination verification
+Source: GET https://api.dub.co/links?pageSize=100 (HTTP 200)
+Date: 2026-09-23
+
+key                     | url                                                       | clicks
+------------------------+-----------------------------------------------------------+-------
+hph-coach-macro         | https://proteinpalace.gumroad.com/l/highprotein?ref=hph01  | 3
+hph-the-lean-cook       | https://proteinpalace.gumroad.com/l/highprotein?ref=hph02  | 2
+hph-protein-lab-eats    | https://proteinpalace.gumroad.com/l/highprotein?ref=hph03  | 2
+hph-fuel-your-gains     | https://proteinpalace.gumroad.com/l/highprotein?ref=hph04  | 2
+hph-gymfood-simple      | https://proteinpalace.gumroad.com/l/highprotein?ref=hph05  | 2
+hph-prep-with-alex      | https://proteinpalace.gumroad.com/l/highprotein?ref=hph06  | 4
+hph-postworkout-plate   | https://proteinpalace.gumroad.com/l/highprotein?ref=hph07  | 4
+hph-under10-protein     | https://proteinpalace.gumroad.com/l/highprotein?ref=hph08  | 5
+hph-cleanfuel-kitchen   | https://proteinpalace.gumroad.com/l/highprotein?ref=hph09  | 7
+hph-macro-architect     | https://proteinpalace.gumroad.com/l/highprotein?ref=hph10  | 3
+
+Total links returned: 10
+All 10 urls contain /l/highprotein: YES
+ref values hph01-hph10, all distinct: YES
+Links still containing "scyffd": NONE
+
+Live redirect test
+curl -sS -o /dev/null -w "redirect test: %{http_code} -> %{redirect_url}" https://dub.sh/hph-coach-macro
+Result: redirect test: 403 -> (empty)
+
+Interpretation: 403 with no Location header. This is the expected block on our
+cloud egress IP after heavy API use today, not evidence that the short link is
+broken. The test is inconclusive; it was run once and not retried.
+
+Caveat on scope: the API response is Dub's stored configuration for each link.
+It confirms what Dub says the destinations are. It is not an end-to-end proof
+that a real browser lands on the Gumroad page, since the one live redirect
+check was blocked.
