@@ -18,12 +18,10 @@ Subcommands
       Tries a readable slug first (hph-macro-architect) and falls back to a
       Dub-generated one if that slug is taken. Prints handle -> short link.
 
-  clicks [--days N] [--dry-run] [--no-series]
-      Fetch click counts for every known link (default: last 30 days, with a
-      per-day series) into state/shortlink-clicks.json, and print a summary.
-      Calls are paced (DUB_MIN_GAP_SECONDS, default 1.5) and retry on 429,
-      because Dub rate-limits the free tier. --no-series halves the number of
-      calls by skipping the per-day breakdown.
+  clicks [--dry-run]
+      Read lifetime click totals for every link in ONE GET /links call and
+      append today's delta to a per-day series in state/shortlink-clicks.json.
+      One call rather than twenty, because Dub rate-limits this plan hard.
 
   list
       Print what we have on file. No network.
@@ -39,14 +37,15 @@ or written anywhere.
 `clicks` never exits non-zero: click data is reporting, and must never
 interfere with posting.
 
-API shapes (Dub v1 — the response parsers below tolerate several shapes
-because these have moved between versions; verify on the first real run):
-  POST /links      {url, domain?, key?}  -> {id, domain, key, shortLink, ...}
-  GET  /links?domain=&search=            -> [ {...link}, ... ]
-  GET  /analytics?event=clicks&groupBy=count&linkId=&interval=30d
-                                         -> {clicks: N}
-  GET  /analytics?event=clicks&groupBy=timeseries&linkId=&interval=30d
-                                         -> [ {start, clicks}, ... ]
+API shapes (verified against the live API on 2026-09-23):
+  POST /links       {url, domain?, key?} -> {id, domain, key, shortLink, ...}
+  GET  /links?pageSize=&page=            -> [ {...link, clicks, leads, sales,
+                                              lastClicked}, ... ]
+  GET  /links/info?domain=&key=          -> one link, same fields
+  GET  /analytics?...                    -> 429 rate_limit_exceeded on this
+      plan, persistently, even after 30s backoff. Not used: /links already
+      carries the click totals, and the per-day series is derived from daily
+      snapshots of those totals.
 """
 
 import argparse
@@ -311,70 +310,83 @@ def cmd_create(args):
     return 1 if failed and not made else 0
 
 
-def parse_clicks(body):
-    """Return (total, {day: clicks}) from whichever analytics shape came back."""
-    total, series = 0, {}
-    if isinstance(body, dict):
-        for k in ("clicks", "count", "total"):
-            if isinstance(body.get(k), (int, float)):
-                total = int(body[k])
-                break
-    elif isinstance(body, list):
-        for pt in body:
-            if not isinstance(pt, dict):
-                continue
-            n = pt.get("clicks", pt.get("count", 0)) or 0
-            total += int(n)
-            day = str(pt.get("start") or pt.get("date") or "")[:10]
-            if day:
-                series[day] = series.get(day, 0) + int(n)
-    return total, series
+def fetch_all_links(page_size=100):
+    """Every link in the workspace, in as few calls as possible.
+
+    GET /links returns `clicks` (lifetime total) per link, so one call covers
+    all ten accounts. The /analytics endpoint would give a per-day breakdown
+    directly, but it answers 429 rate_limit_exceeded on this plan even after
+    long waits (probed 2026-09-23), so the per-day series is derived from
+    daily snapshots of these totals instead — the same trick GrowthDaily uses
+    for follower counts.
+    """
+    out, page = [], 1
+    while True:
+        status, body = call("GET", f"/links?pageSize={page_size}&page={page}")
+        if status != 200:
+            return status, body, out
+        batch = body if isinstance(body, list) else (body.get("links") or body.get("data") or [])
+        out.extend(x for x in batch if isinstance(x, dict))
+        if len(batch) < page_size or page >= 10:
+            return status, body, out
+        page += 1
 
 
 def cmd_clicks(args):
-    links = load_json(LINKS, {"links": {}}).get("links", {})
+    store = load_json(LINKS, {"links": {}})
+    links = store.get("links", {})
     if not links:
         log("no links on file yet — run: python3 scripts/shortlinks.py create")
         return 0
 
-    out = load_json(CLICKS, {"schema_version": 1, "provider": "dub", "accounts": {}})
+    if args.dry_run:
+        log(f"would read totals for {len(links)} link(s) in one GET /links call")
+        return 0
+
+    status, body, remote = fetch_all_links()
+    if status != 200:
+        log("could not read links: " + explain(status, body))
+        return 0  # reporting only — never disturb posting
+    by_id = {x.get("id"): x for x in remote if x.get("id")}
+    by_key = {(x.get("domain"), x.get("key")): x for x in remote if x.get("key")}
+
+    out = load_json(CLICKS, {"schema_version": 2, "provider": "dub", "accounts": {}})
     per = out.setdefault("accounts", {})
-    interval = f"{args.days}d"
-    ok = bad = 0
+    today = dt.date.today().isoformat()
+    seen = missing = 0
+    total_today = 0
+
     for handle, entry in sorted(links.items()):
-        lid = entry.get("id")
-        q = f"linkId={urllib.parse.quote(str(lid))}" if lid else \
-            f"domain={urllib.parse.quote(entry.get('domain',''))}&key={urllib.parse.quote(entry.get('key',''))}"
-        if args.dry_run:
-            log(f"would fetch clicks for {handle} ({lid or entry.get('key')})")
+        remote_link = by_id.get(entry.get("id")) or by_key.get((entry.get("domain"), entry.get("key")))
+        if not remote_link:
+            log(f"{handle}: link not found in the workspace listing")
+            missing += 1
             continue
+        total = int(remote_link.get("clicks") or 0)
+        rec = per.setdefault(handle, {"link": entry.get("link"), "id": entry.get("id"),
+                                      "clicks_total": 0, "daily": {}})
+        prev = rec.get("clicks_total", 0)
+        # First sight of a link records the total but no delta — we cannot know
+        # which day those clicks happened on.
+        if rec.get("daily") or prev:
+            rec.setdefault("daily", {})[today] = max(0, total - prev)
+        rec["clicks_total"] = total
+        rec["link"] = entry.get("link")
+        rec["id"] = entry.get("id")
+        rec["leads"] = int(remote_link.get("leads") or 0)
+        rec["sales"] = int(remote_link.get("sales") or 0)
+        rec["last_clicked"] = remote_link.get("lastClicked")
+        rec["fetched"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+        seen += 1
+        total_today += rec.get("daily", {}).get(today, 0)
+        delta = rec.get("daily", {}).get(today)
+        shown = f"+{delta}" if delta is not None else "  -"
+        log(f"{handle:20s} {str(entry.get('link')):34s} {total:5d} total {shown:>5s} today")
 
-        status, body = call("GET", f"/analytics?event=clicks&groupBy=count&{q}&interval={interval}")
-        if status != 200:
-            log(f"{handle}: " + explain(status, body))
-            bad += 1
-            continue
-        total, _ = parse_clicks(body)
-        series = {}
-        if not args.no_series:
-            s2, ts = call("GET",
-                          f"/analytics?event=clicks&groupBy=timeseries&{q}&interval={interval}")
-            if s2 == 200:
-                series = parse_clicks(ts)[1]
-            else:
-                log(f"  {handle}: per-day series unavailable ({explain(s2, ts)})")
-        per[handle] = {"link": entry.get("link"), "id": lid,
-                       f"clicks_{args.days}d": total, "daily": series,
-                       "fetched": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
-        ok += 1
-        log(f"{handle:20s} {str(entry.get('link')):30s} {total:5d} clicks / {args.days}d")
-
-    if not args.dry_run and ok:
-        out["last_updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
-        save_json(CLICKS, out)
-        total = sum(v.get(f"clicks_{args.days}d", 0) for v in per.values())
-        log(f"\ntotal across accounts: {total} clicks in {args.days} days "
-            f"({ok} read, {bad} failed) -> {CLICKS}")
+    out["last_updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+    save_json(CLICKS, out)
+    log(f"\n{seen} link(s) read, {missing} missing. "
+        f"Clicks today across accounts: {total_today}. -> {CLICKS}")
     return 0
 
 
@@ -389,8 +401,10 @@ def cmd_list(args):
     if clicks:
         log("")
         for handle, c in sorted(clicks.items()):
-            key = next((k for k in c if k.startswith("clicks_")), "")
-            log(f"{handle:20s} {c.get(key, 0)} clicks ({key})")
+            daily = c.get("daily") or {}
+            recent = sorted(daily.items())[-1] if daily else None
+            tail = f", {recent[1]} on {recent[0]}" if recent else ""
+            log(f"{handle:20s} {c.get('clicks_total', 0)} clicks total{tail}")
     return 0
 
 
@@ -402,10 +416,7 @@ def main():
     c.add_argument("--domain", default="dub.sh", help="short domain (default dub.sh)")
     c.add_argument("--prefix", default="hph", help="slug prefix, '' to disable")
     k = sub.add_parser("clicks")
-    k.add_argument("--days", type=int, default=30)
     k.add_argument("--dry-run", action="store_true")
-    k.add_argument("--no-series", action="store_true",
-                   help="skip the per-day breakdown (half the API calls)")
     sub.add_parser("list")
     args = ap.parse_args()
     fn = {"create": cmd_create, "clicks": cmd_clicks, "list": cmd_list}[args.cmd]
