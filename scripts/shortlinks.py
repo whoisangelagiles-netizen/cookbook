@@ -72,7 +72,30 @@ SKIP = {"@angelagiles29"}
 # whole read.
 MIN_GAP = float(os.environ.get("DUB_MIN_GAP_SECONDS", "1.5") or 1.5)
 MAX_TRIES = 4
+MAX_BACKOFF = 60.0
 _last_call = [0.0]
+
+
+def retry_after_seconds(hdrs, floor):
+    """How long to wait after a 429/5xx, in seconds.
+
+    RFC 7231 says Retry-After carries delta-seconds, but Dub sends an epoch
+    timestamp in milliseconds - often one that is already in the past. Taking
+    that at face value asks time.sleep() for roughly 57,000 years, which
+    raises OverflowError and loses the whole read. Treat an epoch-sized value
+    as an absolute time, and clamp the result so a bad header cannot park the
+    run.
+    """
+    raw = hdrs.get("Retry-After") or hdrs.get("retry-after") or 0
+    try:
+        wait = float(raw)
+    except (TypeError, ValueError):
+        wait = 0.0
+    if wait > 1e11:      # epoch milliseconds
+        wait = wait / 1000.0 - time.time()
+    elif wait > 1e9:     # epoch seconds
+        wait = wait - time.time()
+    return min(max(wait, floor), MAX_BACKOFF)
 
 
 def log(msg):
@@ -145,11 +168,17 @@ def call(method, path, payload=None, timeout=60):
             return 0, {"error": f"{exc.__class__.__name__}: {exc}"}
         _last_call[0] = time.monotonic()
         if status in (429, 500, 502, 503, 504) and attempt < MAX_TRIES:
-            try:
-                wait = float(hdrs.get("Retry-After") or hdrs.get("retry-after") or 0)
-            except Exception:
-                wait = 0.0
-            time.sleep(max(wait, 5.0 * attempt))
+            limit = str(hdrs.get("X-Ratelimit-Limit",
+                                 hdrs.get("x-ratelimit-limit", ""))).strip()
+            if status == 429 and limit == "0":
+                # A limit of 0 is not an exhausted quota, it is no quota at
+                # all: this endpoint is not enabled for the key's plan. No
+                # amount of pacing or waiting changes that, so do not burn
+                # retries on it.
+                return status, {"error": {"code": "rate_limit_exceeded",
+                                          "message": "endpoint quota is 0 for this plan"},
+                                "_quota_zero": True}
+            time.sleep(retry_after_seconds(hdrs, 5.0 * attempt))
             continue
         try:
             return status, json.loads(body)
@@ -166,6 +195,10 @@ def explain(status, body):
         return ("403 forbidden — the key is valid but lacks scope for this call, or "
                 "the workspace is wrong (set DUB_WORKSPACE_ID).")
     if status == 429:
+        if isinstance(body, dict) and body.get("_quota_zero"):
+            return ("429 rate limited: X-Ratelimit-Limit is 0 for this endpoint, so the "
+                    "plan behind this key does not include the analytics API. Pacing "
+                    "cannot fix a quota of zero — the plan has to change.")
         return "429 rate limited — wait a minute and re-run; created links are kept."
     if status == 0:
         return f"network error: {body.get('error')}"
