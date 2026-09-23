@@ -1,0 +1,195 @@
+Dub API analytics probe
+Date: 2026-09-23 (UTC)
+Auth: none sent by client; egress proxy injects the api.dub.co credential.
+Workspace observed: ws_1M36K6S3843QMFVY6X3XGTM25
+
+================================================================================
+STEP 1
+Command:
+  curl -sS -w "\nHTTP %{http_code}\n" "https://api.dub.co/links?pageSize=2"
+HTTP 200
+Body:
+[{"id":"link_1M36KHW013115Y9X7ETXX4PAT","domain":"dub.sh","key":"hph-under10-protein","url":"https://proteinpalace.gumroad.com/l/scyffd?ref=hph08","shortLink":"https://dub.sh/hph-under10-protein","archived":false,"expiresAt":null,"expiredUrl":null,"disabledAt":null,"password":null,"trackConversion":false,"proxy":false,"title":null,"description":null,"image":null,"video":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_term":null,"utm_content":null,"rewrite":false,"linkRetentionCleanupDisabledAt":null,"doIndex":false,"ios":null,"android":null,"geo":null,"testVariants":null,"testStartedAt":null,"testCompletedAt":null,"userId":"user_1M36KAS3KACKE0NJ82YNEF2T0","projectId":"ws_1M36K6S3843QMFVY6X3XGTM25","folderId":null,"externalId":null,"tenantId":null,"publicStats":false,"clicks":1,"leads":0,"conversions":0,"sales":0,"saleAmount":0,"lastClicked":"2026-09-23T07:50:59.000Z","createdAt":"2026-09-23T07:44:15.875Z","updatedAt":"2026-09-23T07:44:15.875Z","comments":null,"programId":null,"partnerId":null,"tags":[],"identifier":null,"tagId":null,"webhookIds":[],"qrCode":"https://api.dub.co/qr?url=https://dub.sh/hph-under10-protein?qr=1","workspaceId":"ws_1M36K6S3843QMFVY6X3XGTM25"},{"id":"link_1M36KHVFX9DJQMRD4KX0CNYES","domain":"dub.sh","key":"hph-the-lean-cook","url":"https://proteinpalace.gumroad.com/l/scyffd?ref=hph02","shortLink":"https://dub.sh/hph-the-lean-cook","archived":false,"expiresAt":null,"expiredUrl":null,"disabledAt":null,"password":null,"trackConversion":false,"proxy":false,"title":null,"description":null,"image":null,"video":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_term":null,"utm_content":null,"rewrite":false,"linkRetentionCleanupDisabledAt":null,"doIndex":false,"ios":null,"android":null,"geo":null,"testVariants":null,"testStartedAt":null,"testCompletedAt":null,"userId":"user_1M36KAS3KACKE0NJ82YNEF2T0","projectId":"ws_1M36K6S3843QMFVY6X3XGTM25","folderId":null,"externalId":null,"tenantId":null,"publicStats":false,"clicks":1,"leads":0,"conversions":0,"sales":0,"saleAmount":0,"lastClicked":"2026-09-23T07:51:05.000Z","createdAt":"2026-09-23T07:44:15.358Z","updatedAt":"2026-09-23T07:44:15.358Z","comments":null,"programId":null,"partnerId":null,"tags":[],"identifier":null,"tagId":null,"webhookIds":[],"qrCode":"https://api.dub.co/qr?url=https://dub.sh/hph-the-lean-cook?qr=1","workspaceId":"ws_1M36K6S3843QMFVY6X3XGTM25"}]
+
+Link id selected for step 11: link_1M36KHW013115Y9X7ETXX4PAT
+
+================================================================================
+STEP 2
+Command:
+  sleep 4
+(no output)
+
+================================================================================
+STEP 3
+Command:
+  curl -sS -w "\nHTTP %{http_code}\n" "https://api.dub.co/links/info?domain=dub.sh&key=hph-coach-macro"
+HTTP 200
+Body:
+{"id":"link_1M36KHQT9Q42V1CXPEH1QSQER","domain":"dub.sh","key":"hph-coach-macro","url":"https://proteinpalace.gumroad.com/l/scyffd?ref=hph01","shortLink":"https://dub.sh/hph-coach-macro","archived":false,"expiresAt":null,"expiredUrl":null,"disabledAt":null,"password":null,"trackConversion":false,"proxy":false,"title":null,"description":null,"image":null,"video":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_term":null,"utm_content":null,"rewrite":false,"linkRetentionCleanupDisabledAt":null,"doIndex":false,"ios":null,"android":null,"geo":null,"testVariants":null,"testStartedAt":null,"testCompletedAt":null,"userId":"user_1M36KAS3KACKE0NJ82YNEF2T0","projectId":"ws_1M36K6S3843QMFVY6X3XGTM25","folderId":null,"externalId":null,"tenantId":null,"publicStats":false,"clicks":1,"leads":0,"conversions":0,"sales":0,"saleAmount":0,"lastClicked":"2026-09-23T07:49:52.000Z","createdAt":"2026-09-23T07:44:11.594Z","updatedAt":"2026-09-23T07:44:11.594Z","comments":null,"programId":null,"partnerId":null,"tags":[],"identifier":null,"tagId":null,"webhookIds":[],"qrCode":"https://api.dub.co/qr?url=https://dub.sh/hph-coach-macro?qr=1","workspaceId":"ws_1M36K6S3843QMFVY6X3XGTM25"}
+
+================================================================================
+STEP 4
+Command:
+  sleep 4
+(no output)
+
+================================================================================
+STEP 5
+Command:
+  curl -sS -w "\nHTTP %{http_code}\n" "https://api.dub.co/analytics?event=clicks&groupBy=count&interval=7d"
+HTTP 429
+Body:
+{"error":{"code":"rate_limit_exceeded","message":"Too many requests.","doc_url":"https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+
+Retry after 30s wait (same command):
+HTTP 429
+Body:
+{"error":{"code":"rate_limit_exceeded","message":"Too many requests.","doc_url":"https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+
+================================================================================
+STEP 6
+Command:
+  sleep 4
+(no output)
+
+================================================================================
+STEP 7
+Command:
+  curl -sS -w "\nHTTP %{http_code}\n" "https://api.dub.co/analytics?event=clicks&groupBy=count&domain=dub.sh&key=hph-coach-macro&interval=7d"
+HTTP 429
+Body:
+{"error":{"code":"rate_limit_exceeded","message":"Too many requests.","doc_url":"https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+
+Retry after 30s wait (same command):
+HTTP 429
+Body:
+{"error":{"code":"rate_limit_exceeded","message":"Too many requests.","doc_url":"https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+
+================================================================================
+STEP 8
+Command:
+  sleep 4
+(no output)
+
+================================================================================
+STEP 9
+Command:
+  curl -sS -w "\nHTTP %{http_code}\n" "https://api.dub.co/analytics?event=clicks&groupBy=timeseries&interval=7d"
+HTTP 429
+Body:
+{"error":{"code":"rate_limit_exceeded","message":"Too many requests.","doc_url":"https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+
+Retry after 30s wait (same command):
+HTTP 429
+Body:
+{"error":{"code":"rate_limit_exceeded","message":"Too many requests.","doc_url":"https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+
+Note: this call was issued as the FIRST request after a full 120-second idle
+backoff and still returned 429 immediately.
+
+================================================================================
+STEP 10
+Command:
+  sleep 4
+(no output)
+
+================================================================================
+STEP 11
+Command:
+  curl -sS -w "\nHTTP %{http_code}\n" "https://api.dub.co/analytics?event=clicks&groupBy=count&linkId=link_1M36KHW013115Y9X7ETXX4PAT&interval=7d"
+HTTP 429
+Body:
+{"error":{"code":"rate_limit_exceeded","message":"Too many requests.","doc_url":"https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+
+Retry after 30s wait, with response headers captured:
+  curl -sS -D - -w "\nHTTP %{http_code}\n" "https://api.dub.co/analytics?event=clicks&groupBy=count&linkId=link_1M36KHW013115Y9X7ETXX4PAT&interval=7d"
+HTTP 429
+Headers:
+HTTP/1.1 429 Too Many Requests
+Connection: close
+Transfer-Encoding: chunked
+Cache-Control: public, max-age=0, must-revalidate
+Content-Type: application/json
+Date: Wed, 23 Sep 2026 07:58:17 GMT
+Referrer-Policy: no-referrer-when-downgrade
+Retry-After: 1790150298000
+Server: Vercel
+Strict-Transport-Security: max-age=63072000
+Vary: rsc, next-router-state-tree, next-router-prefetch, next-router-segment-prefetch
+X-Dns-Prefetch-Control: on
+X-Frame-Options: DENY
+X-Matched-Path: /api/analytics
+X-Ratelimit-Limit: 0
+X-Ratelimit-Remaining: 0
+X-Ratelimit-Reset: 1790150298000
+X-Vercel-Cache: BYPASS
+X-Vercel-Id: iad1::iad1::6s8kn-1790150297552-827a8aac8ea5
+Body:
+{"error":{"code":"rate_limit_exceeded","message":"Too many requests.","doc_url":"https://dub.co/docs/api-reference/errors#rate-limit_exceeded"}}
+
+================================================================================
+ADDITIONAL DIAGNOSTIC (not in the original 11 steps)
+================================================================================
+
+Control test, run immediately after a 120-second idle backoff and immediately
+BEFORE a fresh /analytics call:
+
+  curl -sS -w "\nHTTP %{http_code}\n" "https://api.dub.co/links?pageSize=1"
+HTTP 200
+Body:
+[{"id":"link_1M36KHW013115Y9X7ETXX4PAT","domain":"dub.sh","key":"hph-under10-protein","url":"https://proteinpalace.gumroad.com/l/scyffd?ref=hph08","shortLink":"https://dub.sh/hph-under10-protein","archived":false,"expiresAt":null,"expiredUrl":null,"disabledAt":null,"password":null,"trackConversion":false,"proxy":false,"title":null,"description":null,"image":null,"video":null,"utm_source":null,"utm_medium":null,"utm_campaign":null,"utm_term":null,"utm_content":null,"rewrite":false,"linkRetentionCleanupDisabledAt":null,"doIndex":false,"ios":null,"android":null,"geo":null,"testVariants":null,"testStartedAt":null,"testCompletedAt":null,"userId":"user_1M36KAS3KACKE0NJ82YNEF2T0","projectId":"ws_1M36K6S3843QMFVY6X3XGTM25","folderId":null,"externalId":null,"tenantId":null,"publicStats":false,"clicks":1,"leads":0,"conversions":0,"sales":0,"saleAmount":0,"lastClicked":"2026-09-23T07:50:59.000Z","createdAt":"2026-09-23T07:44:15.875Z","updatedAt":"2026-09-23T07:44:15.875Z","comments":null,"programId":null,"partnerId":null,"tags":[],"identifier":null,"tagId":null,"webhookIds":[],"qrCode":"https://api.dub.co/qr?url=https://dub.sh/hph-under10-protein?qr=1","workspaceId":"ws_1M36K6S3843QMFVY6X3XGTM25"}]
+
+================================================================================
+FINDINGS
+================================================================================
+
+1. Authentication is NOT the problem. The proxy-injected credential works:
+   /links and /links/info both return 200 with full workspace data.
+
+2. Request SHAPE could not be validated, because every /analytics call was
+   rejected before any parameter validation ran. All four shapes returned an
+   identical 429:
+     - groupBy=count, no link filter
+     - groupBy=count + domain & key
+     - groupBy=timeseries, no link filter
+     - groupBy=count + linkId
+
+3. The 429 is NOT a transient rate limit. The response headers say:
+       X-Ratelimit-Limit: 0
+       X-Ratelimit-Remaining: 0
+       X-Ratelimit-Reset:  1790150298000   (epoch ms)
+       Date:               Wed, 23 Sep 2026 07:58:17 GMT  (= 1790150297 s)
+   The reset timestamp is roughly ONE SECOND after the request. So the window
+   resets every second and the allowance in that window is zero. The quota is
+   not exhausted; it is provisioned at zero.
+
+4. The limit is endpoint-scoped, not account-wide. In the control test above,
+   /links returned 200 at the same moment /analytics returned 429. A shared
+   token bucket would have throttled both.
+
+5. A 120-second idle backoff did not help. The first /analytics request after
+   that full idle window returned 429 immediately.
+
+CONCLUSION
+
+   Backing off and retrying will never succeed. X-Ratelimit-Limit: 0 means the
+   /analytics endpoint is gated off for this workspace, and Dub is reporting
+   that gate using a rate_limit_exceeded error rather than a
+   plan/permission error. On Dub, the Analytics API is a paid-plan feature;
+   this workspace (ws_1M36K6S3843QMFVY6X3XGTM25) appears to be on a tier that
+   provisions zero analytics API calls.
+
+   The fix is a plan or entitlement change on the Dub account, NOT a change to
+   the request shape, the parameters, or the retry strategy.
+
+   Caveat: this is an inference from X-Ratelimit-Limit: 0 plus the
+   endpoint-scoped behaviour. It has not been confirmed against Dub's billing
+   settings or support. Confirm the workspace's plan and its Analytics API
+   entitlement before concluding the integration code is wrong.
+
+   Interim workaround: the per-link aggregate counters are already present in
+   the /links and /links/info responses (clicks, leads, conversions, sales,
+   saleAmount, lastClicked). Those cover total-clicks reporting without the
+   analytics endpoint. What they do NOT provide is any time-bucketed or
+   dimensional breakdown (timeseries, country, referrer, device), which is the
+   part that genuinely requires /analytics.
