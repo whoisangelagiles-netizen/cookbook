@@ -23,6 +23,11 @@ Subcommands
       append today's delta to a per-day series in state/shortlink-clicks.json.
       One call rather than twenty, because Dub rate-limits this plan hard.
 
+  repoint --to <url> [--dry-run]
+      Change where every link points without touching a single TikTok bio,
+      keeping each account's own ?ref=hphNN query. This is the payoff of
+      having a short-link layer at all.
+
   list
       Print what we have on file. No network.
 
@@ -391,6 +396,59 @@ def cmd_clicks(args):
     return 0
 
 
+def cmd_repoint(args):
+    """Point every stored link at a new destination URL, keeping the slug.
+
+    The whole reason for a short link is that the destination can change
+    without anyone touching ten TikTok bios. Use this when the Gumroad slug
+    changes, or to drop a redirect hop.
+
+    --to accepts the new base URL; each account's own ?ref=hphNN query is
+    carried over from its current destination so Gumroad attribution per
+    account survives.
+    """
+    store = load_json(LINKS, {"links": {}})
+    links = store.get("links", {})
+    if not links:
+        log("no links on file")
+        return 1
+    base = args.to.split("?", 1)[0]
+    changed = failed = same = 0
+    for handle, entry in sorted(links.items()):
+        old = entry.get("long_url", "")
+        query = old.split("?", 1)[1] if "?" in old else ""
+        new = f"{base}?{query}" if query else base
+        if new == old:
+            same += 1
+            continue
+        if args.dry_run:
+            log(f"would repoint {handle:20s} {old}  ->  {new}")
+            changed += 1
+            continue
+        lid = entry.get("id")
+        if not lid:
+            log(f"{handle}: no link id on file, skipping")
+            failed += 1
+            continue
+        status, body = call("PATCH", f"/links/{urllib.parse.quote(str(lid))}", {"url": new})
+        if status not in (200, 201):
+            log(f"FAILED {handle}: " + explain(status, body))
+            failed += 1
+            if status in (401, 403):
+                return 1
+            continue
+        entry["long_url"] = new
+        entry["repointed"] = dt.date.today().isoformat()
+        changed += 1
+        log(f"repointed {handle:20s} -> {new}")
+        save_json(LINKS, store)
+    if not args.dry_run:
+        store["last_updated"] = dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")
+        save_json(LINKS, store)
+    log(f"\nrepointed={changed} unchanged={same} failed={failed}")
+    return 1 if failed and not changed else 0
+
+
 def cmd_list(args):
     links = load_json(LINKS, {"links": {}}).get("links", {})
     if not links:
@@ -418,9 +476,14 @@ def main():
     c.add_argument("--prefix", default="hph", help="slug prefix, '' to disable")
     k = sub.add_parser("clicks")
     k.add_argument("--dry-run", action="store_true")
+    r = sub.add_parser("repoint")
+    r.add_argument("--to", required=True,
+                   help="new destination base URL; each link keeps its own ?ref= query")
+    r.add_argument("--dry-run", action="store_true")
     sub.add_parser("list")
     args = ap.parse_args()
-    fn = {"create": cmd_create, "clicks": cmd_clicks, "list": cmd_list}[args.cmd]
+    fn = {"create": cmd_create, "clicks": cmd_clicks, "repoint": cmd_repoint,
+          "list": cmd_list}[args.cmd]
     try:
         sys.exit(fn(args) or 0)
     except Exception as exc:
