@@ -18,9 +18,12 @@ Subcommands
       Tries a readable slug first (hph-macro-architect) and falls back to a
       Dub-generated one if that slug is taken. Prints handle -> short link.
 
-  clicks [--days N] [--dry-run]
+  clicks [--days N] [--dry-run] [--no-series]
       Fetch click counts for every known link (default: last 30 days, with a
       per-day series) into state/shortlink-clicks.json, and print a summary.
+      Calls are paced (DUB_MIN_GAP_SECONDS, default 1.5) and retry on 429,
+      because Dub rate-limits the free tier. --no-series halves the number of
+      calls by skipping the per-day breakdown.
 
   list
       Print what we have on file. No network.
@@ -48,6 +51,7 @@ because these have moved between versions; verify on the first real run):
 
 import argparse
 import datetime as dt
+import time
 import json
 import os
 import re
@@ -63,6 +67,12 @@ LINKS = os.path.join(ROOT, "state", "shortlinks.json")
 CLICKS = os.path.join(ROOT, "state", "shortlink-clicks.json")
 API = "https://api.dub.co"
 SKIP = {"@angelagiles29"}
+# Dub rate-limits the free tier; 20 analytics calls back-to-back tripped a 429
+# on 2026-09-23. Space calls out and honour Retry-After rather than losing the
+# whole read.
+MIN_GAP = float(os.environ.get("DUB_MIN_GAP_SECONDS", "1.5") or 1.5)
+MAX_TRIES = 4
+_last_call = [0.0]
 
 
 def log(msg):
@@ -105,25 +115,47 @@ def with_workspace(path):
 
 
 def call(method, path, payload=None, timeout=60):
-    """Returns (status, parsed_json_or_text). Never raises."""
+    """Returns (status, parsed_json_or_text). Never raises.
+
+    Paces requests at MIN_GAP apart and retries a 429 (or a 5xx) up to
+    MAX_TRIES, honouring Retry-After when the server sends one.
+    """
     url = with_workspace(path if path.startswith("http") else API + path)
     data = json.dumps(payload).encode() if payload is not None else None
-    req = urllib.request.Request(url, data=data, method=method)
-    for k, v in headers().items():
-        req.add_header(k, v)
-    try:
-        with urllib.request.urlopen(req, timeout=timeout,
-                                    context=ssl.create_default_context()) as r:
-            body, status = r.read(), r.status
-    except urllib.error.HTTPError as exc:
-        body = exc.read() if hasattr(exc, "read") else b""
-        status = exc.code
-    except Exception as exc:
-        return 0, {"error": f"{exc.__class__.__name__}: {exc}"}
-    try:
-        return status, json.loads(body)
-    except Exception:
-        return status, {"raw": body[:300].decode("utf-8", "replace")}
+    for attempt in range(1, MAX_TRIES + 1):
+        gap = MIN_GAP - (time.monotonic() - _last_call[0])
+        if gap > 0:
+            time.sleep(gap)
+        req = urllib.request.Request(url, data=data, method=method)
+        for k, v in headers().items():
+            req.add_header(k, v)
+        hdrs = {}
+        try:
+            with urllib.request.urlopen(req, timeout=timeout,
+                                        context=ssl.create_default_context()) as r:
+                body, status, hdrs = r.read(), r.status, dict(r.headers)
+        except urllib.error.HTTPError as exc:
+            body = exc.read() if hasattr(exc, "read") else b""
+            status, hdrs = exc.code, dict(exc.headers or {})
+        except Exception as exc:
+            _last_call[0] = time.monotonic()
+            if attempt < MAX_TRIES:
+                time.sleep(3 * attempt)
+                continue
+            return 0, {"error": f"{exc.__class__.__name__}: {exc}"}
+        _last_call[0] = time.monotonic()
+        if status in (429, 500, 502, 503, 504) and attempt < MAX_TRIES:
+            try:
+                wait = float(hdrs.get("Retry-After") or hdrs.get("retry-after") or 0)
+            except Exception:
+                wait = 0.0
+            time.sleep(max(wait, 5.0 * attempt))
+            continue
+        try:
+            return status, json.loads(body)
+        except Exception:
+            return status, {"raw": body[:300].decode("utf-8", "replace")}
+    return 429, {"error": "rate limited after retries"}
 
 
 def explain(status, body):
@@ -290,8 +322,14 @@ def cmd_clicks(args):
             bad += 1
             continue
         total, _ = parse_clicks(body)
-        s2, ts = call("GET", f"/analytics?event=clicks&groupBy=timeseries&{q}&interval={interval}")
-        series = parse_clicks(ts)[1] if s2 == 200 else {}
+        series = {}
+        if not args.no_series:
+            s2, ts = call("GET",
+                          f"/analytics?event=clicks&groupBy=timeseries&{q}&interval={interval}")
+            if s2 == 200:
+                series = parse_clicks(ts)[1]
+            else:
+                log(f"  {handle}: per-day series unavailable ({explain(s2, ts)})")
         per[handle] = {"link": entry.get("link"), "id": lid,
                        f"clicks_{args.days}d": total, "daily": series,
                        "fetched": dt.datetime.now(dt.timezone.utc).isoformat(timespec="seconds")}
@@ -333,6 +371,8 @@ def main():
     k = sub.add_parser("clicks")
     k.add_argument("--days", type=int, default=30)
     k.add_argument("--dry-run", action="store_true")
+    k.add_argument("--no-series", action="store_true",
+                   help="skip the per-day breakdown (half the API calls)")
     sub.add_parser("list")
     args = ap.parse_args()
     fn = {"create": cmd_create, "clicks": cmd_clicks, "list": cmd_list}[args.cmd]
