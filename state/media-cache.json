@@ -9387,7 +9387,357 @@
       "sha256_16": "f2fc4f82fc83814f",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Greek Yogurt Smoothie Bowl|@cleanfuel.kitchen|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/68076b89-655e-4615-9c0b-2aea2e42ea70.png",
+      "created": "2026-09-24",
+      "sha256_16": "4dc1534c30cd4e61",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Greek Yogurt Smoothie Bowl|@cleanfuel.kitchen|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5baaee66-1b57-405f-9b49-6fa480121fbd.png",
+      "created": "2026-09-24",
+      "sha256_16": "a89210449b2a6157",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Greek Yogurt Smoothie Bowl|@cleanfuel.kitchen|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/bfcf681c-214c-49a3-b6fb-14d20b85a5cc.png",
+      "created": "2026-09-24",
+      "sha256_16": "55794414701494d1",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Greek Yogurt Smoothie Bowl|@cleanfuel.kitchen|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a88a4285-94bf-480a-937d-2b937fcbba63.png",
+      "created": "2026-09-24",
+      "sha256_16": "9829525ef5d7d72c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Greek Yogurt Smoothie Bowl|@cleanfuel.kitchen|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/116e36b4-94c8-42aa-9696-f2afbcb26a97.png",
+      "created": "2026-09-24",
+      "sha256_16": "da39ec40d838fd13",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Cucumber Bites|@coach.macro|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/cff9adb5-7906-4828-8ca8-3b8000f1f22e.png",
+      "created": "2026-09-24",
+      "sha256_16": "e3b2687120985911",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Cucumber Bites|@coach.macro|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/0f8f246b-3244-433a-abe6-b2c60d91780e.png",
+      "created": "2026-09-24",
+      "sha256_16": "829d70f350c2d9d5",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Cucumber Bites|@coach.macro|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/66d5c882-d874-4ba0-97e5-a3e9abb51d63.png",
+      "created": "2026-09-24",
+      "sha256_16": "146eaaa87fb98e22",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Cucumber Bites|@coach.macro|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/30e627eb-ddef-4e4e-9b7d-7d46de8436fa.png",
+      "created": "2026-09-24",
+      "sha256_16": "05f77eb4c1d8b6b4",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Smoked Salmon Cucumber Bites|@coach.macro|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/37fdc90c-f75e-4972-b8f9-b0e55515e47f.png",
+      "created": "2026-09-24",
+      "sha256_16": "2037916e8fe08053",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Chicken Stuffed Sweet Potato|@fuel.your.gains|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/bf1d993f-6c29-45dd-bfd8-744f43359286.png",
+      "created": "2026-09-24",
+      "sha256_16": "61744f4628d62f57",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Chicken Stuffed Sweet Potato|@fuel.your.gains|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/997f072a-ea54-460c-a89f-96d3f081981a.png",
+      "created": "2026-09-24",
+      "sha256_16": "672a2203e53aa7fe",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Chicken Stuffed Sweet Potato|@fuel.your.gains|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ad84aa16-0b45-43b8-93bd-9e7035fd1c68.png",
+      "created": "2026-09-24",
+      "sha256_16": "1c4505384dbee2d0",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Chicken Stuffed Sweet Potato|@fuel.your.gains|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/40007211-502f-4c78-ba0b-870a04f4a6e9.png",
+      "created": "2026-09-24",
+      "sha256_16": "f3a9635c9583e6e0",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Chicken Stuffed Sweet Potato|@fuel.your.gains|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/e93d1e8b-0a53-436d-9668-1c57b348cc00.png",
+      "created": "2026-09-24",
+      "sha256_16": "29567c7c0251b49a",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Pork + Slaw|@gymfood.simple|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/fa30f10d-8981-4f40-b471-9295689b742f.png",
+      "created": "2026-09-24",
+      "sha256_16": "8cfc29bb1003129c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Pork + Slaw|@gymfood.simple|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d91788bd-408d-49d0-a325-095afce5d964.png",
+      "created": "2026-09-24",
+      "sha256_16": "ab53ce3bba8e28e2",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Pork + Slaw|@gymfood.simple|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/184d9437-bcdf-4443-ad0c-18ff3441fc92.png",
+      "created": "2026-09-24",
+      "sha256_16": "4655d79719b41130",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Pork + Slaw|@gymfood.simple|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/cbc4a630-f6b2-404b-a2ab-bd1b9d974b68.png",
+      "created": "2026-09-24",
+      "sha256_16": "3574413468247fa2",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Pork + Slaw|@gymfood.simple|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/79d425c3-ac63-4455-a985-7210295875ba.png",
+      "created": "2026-09-24",
+      "sha256_16": "31592a54291a7705",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Beef Stir Fry with Cauliflower Rice|@macro.architect|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/23727c6f-1717-4b22-939c-069308d19d2a.png",
+      "created": "2026-09-24",
+      "sha256_16": "55607037a8ad1987",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Beef Stir Fry with Cauliflower Rice|@macro.architect|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/80ec31bb-aa7a-4755-bcfb-07f34540cdfd.png",
+      "created": "2026-09-24",
+      "sha256_16": "93aeb8ff963f0f83",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Beef Stir Fry with Cauliflower Rice|@macro.architect|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2786db80-e99c-4af6-98a4-12fde7109d9b.png",
+      "created": "2026-09-24",
+      "sha256_16": "9441cb76104a8e14",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Beef Stir Fry with Cauliflower Rice|@macro.architect|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6ac18acf-3fce-43cd-a743-ec114bf90c01.png",
+      "created": "2026-09-24",
+      "sha256_16": "e05965b7a5f6e8cb",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Beef Stir Fry with Cauliflower Rice|@macro.architect|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/53caf249-d59d-4bf8-8a6a-265f6548768b.png",
+      "created": "2026-09-24",
+      "sha256_16": "5c2ec0d58ea72ea8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Caprese Skewers|@postworkout.plate|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/12c1ce82-0270-4e5a-8550-e8890978ab1c.png",
+      "created": "2026-09-24",
+      "sha256_16": "ea5cc431344bb559",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Caprese Skewers|@postworkout.plate|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/1df77aef-559f-4c8e-98c1-a5fe85fc172a.png",
+      "created": "2026-09-24",
+      "sha256_16": "8d4311094bf9251e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Caprese Skewers|@postworkout.plate|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a18aed86-390b-48f5-8c55-f00d7b2ae8ca.png",
+      "created": "2026-09-24",
+      "sha256_16": "0e1a58deb2b473da",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Caprese Skewers|@postworkout.plate|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b85fd253-158d-4e77-a648-4fa504f2fe84.png",
+      "created": "2026-09-24",
+      "sha256_16": "6763a3770afe748c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Caprese Skewers|@postworkout.plate|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f290751b-aeec-4996-89df-b943e7bcee7f.png",
+      "created": "2026-09-24",
+      "sha256_16": "08974eef729cadd5",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@prep.with.alex|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6e60e5f0-92c5-4935-8432-113f6d039cba.png",
+      "created": "2026-09-24",
+      "sha256_16": "d2a73f04a7117d90",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@prep.with.alex|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2c074450-81f2-462d-b651-4dc598f1fa09.png",
+      "created": "2026-09-24",
+      "sha256_16": "f5d4b27562502535",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@prep.with.alex|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a93da7e7-75cb-4949-9a46-398b7a32aa61.png",
+      "created": "2026-09-24",
+      "sha256_16": "4b144347991cdbf1",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@prep.with.alex|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6bcda4f8-6bbd-45a6-9635-d459889a4970.png",
+      "created": "2026-09-24",
+      "sha256_16": "fd8bf44a7351bafe",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@prep.with.alex|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a915a90d-33be-4371-9007-7d89974df21a.png",
+      "created": "2026-09-24",
+      "sha256_16": "e6b5deead30598a8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chimichurri Steak Bites|@protein.lab.eats|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d8d7b84d-65db-478e-b144-75894f0f21c1.png",
+      "created": "2026-09-24",
+      "sha256_16": "b6f28806ffa46c96",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chimichurri Steak Bites|@protein.lab.eats|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/76fe44ec-9fb8-40e8-a62f-17442f2b9178.png",
+      "created": "2026-09-24",
+      "sha256_16": "8d5d97d7c05f7319",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chimichurri Steak Bites|@protein.lab.eats|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/77f6caae-3011-49f1-9caf-2913e0c26d0a.png",
+      "created": "2026-09-24",
+      "sha256_16": "4ebbff86af690dbb",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chimichurri Steak Bites|@protein.lab.eats|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/1ddde5ad-caac-42ca-a8f7-883dca679794.png",
+      "created": "2026-09-24",
+      "sha256_16": "5b0a5b7d7d83674b",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chimichurri Steak Bites|@protein.lab.eats|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/0093e581-35d1-46be-8701-41ee00be17a2.png",
+      "created": "2026-09-24",
+      "sha256_16": "1098a3e52c916aa8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Egg Salad Lettuce Wraps|@the.lean.cook|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/415c14e9-2502-4409-957f-a2f4e464f46d.png",
+      "created": "2026-09-24",
+      "sha256_16": "93f34eb150b30f9e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Egg Salad Lettuce Wraps|@the.lean.cook|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/4d686519-66d1-4ec4-9d80-39fb35043cb1.png",
+      "created": "2026-09-24",
+      "sha256_16": "96aff0ed735045be",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Egg Salad Lettuce Wraps|@the.lean.cook|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2eb3b1ec-229e-4523-9427-3a3a973a1d7b.png",
+      "created": "2026-09-24",
+      "sha256_16": "0afe33234306293d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Egg Salad Lettuce Wraps|@the.lean.cook|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5f10e24e-6d8b-4b99-acb4-adfab7f331b2.png",
+      "created": "2026-09-24",
+      "sha256_16": "e8d3327f01196744",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Egg Salad Lettuce Wraps|@the.lean.cook|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b4980259-39e1-4cb5-b3c5-bca33ed6ad6a.png",
+      "created": "2026-09-24",
+      "sha256_16": "4aff756351a46eb5",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Golden Protein Pancakes|@under10.protein|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/802c886e-7361-407f-8db5-0fb7e4fe4e52.png",
+      "created": "2026-09-24",
+      "sha256_16": "035a5b5f4789fc02",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Golden Protein Pancakes|@under10.protein|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/fd171aff-6f54-4ec5-b513-46397c38baa9.png",
+      "created": "2026-09-24",
+      "sha256_16": "7cc34934753d5760",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Golden Protein Pancakes|@under10.protein|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7426f661-78e1-40c7-a6ad-49e4dd137003.png",
+      "created": "2026-09-24",
+      "sha256_16": "7b734a8baeec8963",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Golden Protein Pancakes|@under10.protein|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f0245b6b-3090-4010-91a3-5d77a939a150.png",
+      "created": "2026-09-24",
+      "sha256_16": "01706a6d34639ddd",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Golden Protein Pancakes|@under10.protein|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2c44361f-2ba7-4425-b603-6067446cc948.png",
+      "created": "2026-09-24",
+      "sha256_16": "768d11602cf74af6",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-24T12:22:11+00:00"
+  "last_updated": "2026-09-24T18:23:45+00:00"
 }
