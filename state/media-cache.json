@@ -8792,7 +8792,287 @@
       "sha256_16": "01954883ef043d99",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Salmon Poke Bowl|@cleanfuel.kitchen|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/270ea435-9ddc-4bba-90d0-0038cfd0a41d.png",
+      "created": "2026-09-24",
+      "sha256_16": "360a046bb19bc749",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Salmon Poke Bowl|@cleanfuel.kitchen|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d85da6c0-a19c-4294-851f-edb4b591a263.png",
+      "created": "2026-09-24",
+      "sha256_16": "7c10a902f57eadfb",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Salmon Poke Bowl|@cleanfuel.kitchen|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/84c47274-01c5-4c4d-824c-94adea3ed454.png",
+      "created": "2026-09-24",
+      "sha256_16": "40679270e3cb1aae",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Salmon Poke Bowl|@cleanfuel.kitchen|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5617dfcc-94e9-4cdb-8368-02f6f43cb9da.png",
+      "created": "2026-09-24",
+      "sha256_16": "3ab028d7ba123b47",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Salmon Poke Bowl|@cleanfuel.kitchen|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ed8ba3ed-485d-4ed3-bb00-3e04106bee9b.png",
+      "created": "2026-09-24",
+      "sha256_16": "5945efa5113f9c57",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Southwest Chicken Bowl|@coach.macro|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/db6429fd-af92-4b2d-9df2-56c16a52b386.png",
+      "created": "2026-09-24",
+      "sha256_16": "f571b714a5580086",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Southwest Chicken Bowl|@coach.macro|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b3b2ea92-26a0-4c6e-be96-9378efd3e6e9.png",
+      "created": "2026-09-24",
+      "sha256_16": "6b362466c2991c8b",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Southwest Chicken Bowl|@coach.macro|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/cd8573bb-4234-45fb-814b-bd647674c156.png",
+      "created": "2026-09-24",
+      "sha256_16": "9d14da5786247bc4",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Southwest Chicken Bowl|@coach.macro|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6de852b2-e47c-4395-b0a6-c488434c42bd.png",
+      "created": "2026-09-24",
+      "sha256_16": "d20b4df84ae27d1c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Southwest Chicken Bowl|@coach.macro|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b746aaae-c012-443f-a4da-bbe19a3d2d2c.png",
+      "created": "2026-09-24",
+      "sha256_16": "ce8fdfec7288e158",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Teriyaki Salmon with Rice|@fuel.your.gains|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d025f7fd-01db-4980-9309-3dfa6afce051.png",
+      "created": "2026-09-24",
+      "sha256_16": "e22f323440c1ea45",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Teriyaki Salmon with Rice|@fuel.your.gains|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/8420f6c3-acba-4090-ab66-dda5fa2210ad.png",
+      "created": "2026-09-24",
+      "sha256_16": "2a4df09fcbfe9533",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Teriyaki Salmon with Rice|@fuel.your.gains|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/52cf379d-a9da-4896-9e96-7fe64e39aac1.png",
+      "created": "2026-09-24",
+      "sha256_16": "ff00bcc26ee103ee",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Teriyaki Salmon with Rice|@fuel.your.gains|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/1fe2ac6a-a6c2-4237-8bcb-f99d9497726a.png",
+      "created": "2026-09-24",
+      "sha256_16": "91d70f0a7b5477e4",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Teriyaki Salmon with Rice|@fuel.your.gains|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/3b588cde-5dc7-454d-95b7-d78302b3f48e.png",
+      "created": "2026-09-24",
+      "sha256_16": "817571ac2edb4a9d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Roll Protein Bowl|@gymfood.simple|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/34dd6cd8-a01e-44b8-a559-2fd3e00dea5b.png",
+      "created": "2026-09-24",
+      "sha256_16": "aa83deb32fc36bbe",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Roll Protein Bowl|@gymfood.simple|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ea84fdbb-896e-4f60-b24c-d7bdceebef88.png",
+      "created": "2026-09-24",
+      "sha256_16": "907afd3df0a8ae4f",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Roll Protein Bowl|@gymfood.simple|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/c406306a-e103-41e0-a6f1-359d97e629cf.png",
+      "created": "2026-09-24",
+      "sha256_16": "7ec8e21d50917095",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Roll Protein Bowl|@gymfood.simple|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/54b74e39-28b4-4578-b38c-d61ca5406233.png",
+      "created": "2026-09-24",
+      "sha256_16": "e4bd333c3a0d66e5",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Roll Protein Bowl|@gymfood.simple|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/fe152b3c-4365-4d0e-8d86-21899245a9ba.png",
+      "created": "2026-09-24",
+      "sha256_16": "00599d27db7e0054",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Coconut Mango Chia Parfait|@macro.architect|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/340933f3-31a1-410c-9895-5219a439a4e4.png",
+      "created": "2026-09-24",
+      "sha256_16": "964be8b35bef18e8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Coconut Mango Chia Parfait|@macro.architect|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2769c258-1925-44bb-8f11-79d3e43ce92d.png",
+      "created": "2026-09-24",
+      "sha256_16": "cc35801a8813f909",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Coconut Mango Chia Parfait|@macro.architect|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5c1b34a6-5b00-4044-a3ae-b7627bc6fa13.png",
+      "created": "2026-09-24",
+      "sha256_16": "7800e9a3ac1a84ef",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Coconut Mango Chia Parfait|@macro.architect|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f6c72580-b572-4c7a-8385-c5c0fac072b9.png",
+      "created": "2026-09-24",
+      "sha256_16": "2bce367ee616f978",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Coconut Mango Chia Parfait|@macro.architect|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/c6dea319-b4ed-4fcc-944a-4aacf3238031.png",
+      "created": "2026-09-24",
+      "sha256_16": "a8c9b7a959b1185e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@postworkout.plate|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/67285d0a-eb3b-47fe-a5e7-be58d9a7a3f0.png",
+      "created": "2026-09-24",
+      "sha256_16": "589886b54d175919",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@postworkout.plate|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b654c2c8-af45-4d88-91a8-e79ca1426cbe.png",
+      "created": "2026-09-24",
+      "sha256_16": "d37fe02dbc6774f5",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@postworkout.plate|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d14033e2-f497-49bb-a822-c6a834a14f3c.png",
+      "created": "2026-09-24",
+      "sha256_16": "257d19147ed9d3fd",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@postworkout.plate|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/3fbcee7f-f5ae-446f-8cba-99fcf546d972.png",
+      "created": "2026-09-24",
+      "sha256_16": "6ca1936569d77864",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@postworkout.plate|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7cde8acb-022b-4f7b-a4ec-316fc46ff210.png",
+      "created": "2026-09-24",
+      "sha256_16": "01be9b4252fc2d5d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "High-Protein Chicken Alfredo|@prep.with.alex|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/23c464ae-00f0-4f42-a62d-06cf17fac332.png",
+      "created": "2026-09-24",
+      "sha256_16": "bb35eaf94e37d878",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "High-Protein Chicken Alfredo|@prep.with.alex|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/09cb6957-c1e8-4ee7-9a11-d012fac45bff.png",
+      "created": "2026-09-24",
+      "sha256_16": "17f927c047552dbe",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "High-Protein Chicken Alfredo|@prep.with.alex|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5da4e002-72b4-437f-bfba-0fdac522a8d5.png",
+      "created": "2026-09-24",
+      "sha256_16": "e1cfc45d089a56e3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "High-Protein Chicken Alfredo|@prep.with.alex|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/fdfecfa0-db73-47ba-879b-ba5689116835.png",
+      "created": "2026-09-24",
+      "sha256_16": "02fdb1b180af88c8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "High-Protein Chicken Alfredo|@prep.with.alex|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6ad4cc85-8975-49e0-8c38-393d19a24b61.png",
+      "created": "2026-09-24",
+      "sha256_16": "f72280f14b82951b",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Wrap|@under10.protein|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/634aeb60-ed74-4599-9386-0b7b01e15b0e.png",
+      "created": "2026-09-24",
+      "sha256_16": "1452e8bf80c333c4",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Wrap|@under10.protein|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/e28f4e3c-d009-4f7c-a60d-96639f0a1f2c.png",
+      "created": "2026-09-24",
+      "sha256_16": "5321cd8133c8db27",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Wrap|@under10.protein|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a5dea1d3-098f-4817-ab64-880af769f195.png",
+      "created": "2026-09-24",
+      "sha256_16": "6cc42090a98006f3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Wrap|@under10.protein|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f1c85fb6-1b97-4e7b-92e0-4ccc0f9d3593.png",
+      "created": "2026-09-24",
+      "sha256_16": "24ff217b2b3536cb",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Wrap|@under10.protein|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f11ab18a-ec01-4b01-ae04-8e93fa4862a3.png",
+      "created": "2026-09-24",
+      "sha256_16": "d8805f4249f75b2d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-23T18:24:08+00:00"
+  "last_updated": "2026-09-24T08:22:29+00:00"
 }
