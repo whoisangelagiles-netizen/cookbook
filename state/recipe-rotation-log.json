@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-24",
+  "last_updated": "2026-09-25",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -30,7 +30,7 @@
       "category": "breakfast",
       "calories": 510,
       "protein_g": 24,
-      "last_posted": "2026-09-21"
+      "last_posted": "2026-09-25"
     },
     "Egg White Veggie Scramble": {
       "category": "breakfast",
@@ -90,7 +90,7 @@
       "category": "breakfast",
       "calories": 420,
       "protein_g": 32,
-      "last_posted": "2026-09-21"
+      "last_posted": "2026-09-25"
     },
     "Savory Oatmeal with Egg + Avocado": {
       "category": "breakfast",
@@ -132,7 +132,7 @@
       "category": "breakfast",
       "calories": 490,
       "protein_g": 40,
-      "last_posted": "2026-09-21"
+      "last_posted": "2026-09-25"
     },
     "Spinach + Feta Egg Wraps": {
       "category": "breakfast",
@@ -276,7 +276,7 @@
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-09-21"
+      "last_posted": "2026-09-25"
     },
     "Chicken Caesar Wrap": {
       "category": "lunch",
@@ -366,7 +366,7 @@
       "category": "dinner",
       "calories": 580,
       "protein_g": 40,
-      "last_posted": "2026-09-21"
+      "last_posted": "2026-09-25"
     },
     "High-Protein Chicken Alfredo": {
       "category": "dinner",
@@ -414,7 +414,7 @@
       "category": "dinner",
       "calories": 540,
       "protein_g": 40,
-      "last_posted": "2026-09-21"
+      "last_posted": "2026-09-25"
     },
     "Cajun Salmon Bowl": {
       "category": "dinner",
@@ -504,7 +504,7 @@
       "category": "dinner",
       "calories": 560,
       "protein_g": 40,
-      "last_posted": "2026-09-21"
+      "last_posted": "2026-09-25"
     },
     "Tuscan Garlic Chicken": {
       "category": "dinner",
@@ -534,7 +534,7 @@
       "category": "snack",
       "calories": 390,
       "protein_g": 30,
-      "last_posted": "2026-09-21"
+      "last_posted": "2026-09-25"
     },
     "Cottage Cheese Whip with Berries": {
       "category": "snack",
@@ -618,13 +618,13 @@
       "category": "snack",
       "calories": 250,
       "protein_g": 28,
-      "last_posted": "2026-09-21"
+      "last_posted": "2026-09-25"
     },
     "Spicy Roasted Chickpeas": {
       "category": "snack",
       "calories": 180,
       "protein_g": 10,
-      "last_posted": "2026-09-21"
+      "last_posted": "2026-09-25"
     },
     "Cinnamon Roll Protein Pudding": {
       "category": "snack",

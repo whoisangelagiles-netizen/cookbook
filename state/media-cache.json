@@ -9737,7 +9737,287 @@
       "sha256_16": "768d11602cf74af6",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Spicy Roasted Chickpeas|@cleanfuel.kitchen|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/51ed1194-235e-4349-a903-d27e16bf804b.png",
+      "created": "2026-09-25",
+      "sha256_16": "263e4ca2c598b6d1",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Roasted Chickpeas|@cleanfuel.kitchen|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6a022991-9f9d-4e7b-8bff-ea90035d4d54.png",
+      "created": "2026-09-25",
+      "sha256_16": "7306b67cb92cf8de",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Roasted Chickpeas|@cleanfuel.kitchen|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2f0350fb-5376-4893-824e-2e1a8411dadf.png",
+      "created": "2026-09-25",
+      "sha256_16": "22c19715ccaa1eeb",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Roasted Chickpeas|@cleanfuel.kitchen|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b7b3a122-b442-468a-a763-5d7a6e4943e7.png",
+      "created": "2026-09-25",
+      "sha256_16": "88a8e4d7d8d66289",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Roasted Chickpeas|@cleanfuel.kitchen|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5ffcf629-8f61-4e57-a1c2-cc5e841cd4bc.png",
+      "created": "2026-09-25",
+      "sha256_16": "0e7e05bc0b0ec5e9",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Shrimp Burrito Bowl|@coach.macro|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6b2d909e-c6d3-4d0e-aef7-4782ac306655.png",
+      "created": "2026-09-25",
+      "sha256_16": "811c06809c184ab8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Shrimp Burrito Bowl|@coach.macro|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/02fff73b-5cad-4573-af96-e2de5e59bdaa.png",
+      "created": "2026-09-25",
+      "sha256_16": "c4a7d0b77b9e4e76",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Shrimp Burrito Bowl|@coach.macro|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7567a3e1-3033-4867-b516-ee3e60dcf7e7.png",
+      "created": "2026-09-25",
+      "sha256_16": "d95c9d6effe10530",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Shrimp Burrito Bowl|@coach.macro|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a67b5f8a-7235-4050-9704-70d0463f73ab.png",
+      "created": "2026-09-25",
+      "sha256_16": "91379b62d309c72d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Shrimp Burrito Bowl|@coach.macro|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d7880f44-9fd8-428f-af4e-15c161fa028d.png",
+      "created": "2026-09-25",
+      "sha256_16": "c9d788a013372fc2",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Mug Cake|@gymfood.simple|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/24b38355-3e50-45aa-ac25-8a9006f68138.png",
+      "created": "2026-09-25",
+      "sha256_16": "f22c58f5584d81de",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Mug Cake|@gymfood.simple|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6851f0c1-3a29-4c67-82e3-b42b49783004.png",
+      "created": "2026-09-25",
+      "sha256_16": "01ba957c8ea3895c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Mug Cake|@gymfood.simple|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ae03c8f9-5cf4-4b57-9132-58a070c58977.png",
+      "created": "2026-09-25",
+      "sha256_16": "abc07fb1ec9b788e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Mug Cake|@gymfood.simple|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2bfaf328-6f66-4aff-99ce-14f6606e39f7.png",
+      "created": "2026-09-25",
+      "sha256_16": "19d6fe186aab1b75",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Mug Cake|@gymfood.simple|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6422e72e-7892-4fe1-a383-79cd2aff3b55.png",
+      "created": "2026-09-25",
+      "sha256_16": "7af41e0b764eba7e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "High-Protein Waffles|@macro.architect|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/969097fa-ac99-460d-9060-3ef5e8657ba0.png",
+      "created": "2026-09-25",
+      "sha256_16": "a6b97a9301e28199",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "High-Protein Waffles|@macro.architect|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/c8f063c6-c351-450e-9054-62d2ab4edf11.png",
+      "created": "2026-09-25",
+      "sha256_16": "031e16954013a05f",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "High-Protein Waffles|@macro.architect|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/27f4df71-f36c-467d-9f63-7e4aa5f49003.png",
+      "created": "2026-09-25",
+      "sha256_16": "b0fe1ea51cb27f06",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "High-Protein Waffles|@macro.architect|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/e0cf2bf5-9b84-4abf-859d-3ad8ab997e12.png",
+      "created": "2026-09-25",
+      "sha256_16": "2aea64d1b9aa3ca5",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "High-Protein Waffles|@macro.architect|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b574cb65-7a60-431c-a67a-7b37027faae9.png",
+      "created": "2026-09-25",
+      "sha256_16": "f416824f3ea7b965",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Honey Garlic Salmon Bowl|@postworkout.plate|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/0e9a9168-7cc0-4db6-94d3-e192ab5a6d92.png",
+      "created": "2026-09-25",
+      "sha256_16": "5aec6b82247d5e45",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Honey Garlic Salmon Bowl|@postworkout.plate|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/0d2efbe5-cd1c-4865-94bc-ee64d6a0e43e.png",
+      "created": "2026-09-25",
+      "sha256_16": "92a9b2accc90f6b8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Honey Garlic Salmon Bowl|@postworkout.plate|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/8bfb765c-a298-4d0e-9e5b-39deb16ebba9.png",
+      "created": "2026-09-25",
+      "sha256_16": "67ebf2a27ea1547d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Honey Garlic Salmon Bowl|@postworkout.plate|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a87ab175-88a1-47b8-af3a-6fb544bf1346.png",
+      "created": "2026-09-25",
+      "sha256_16": "17a69ea7d64fb4f0",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Honey Garlic Salmon Bowl|@postworkout.plate|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/e15781b7-a604-4728-8273-bc28610f9ac1.png",
+      "created": "2026-09-25",
+      "sha256_16": "0dee4b36db6e7293",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Korean BBQ Ground Beef Bowl|@prep.with.alex|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6eae1896-de5d-48cf-9ec6-3f6d3000b0da.png",
+      "created": "2026-09-25",
+      "sha256_16": "a6aef5e0d620ed36",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Korean BBQ Ground Beef Bowl|@prep.with.alex|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ff06ca7e-eb20-4c33-9406-304f133804b0.png",
+      "created": "2026-09-25",
+      "sha256_16": "c03fc17d5460d593",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Korean BBQ Ground Beef Bowl|@prep.with.alex|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/04b5bc08-6917-4337-a9ad-02551bf246af.png",
+      "created": "2026-09-25",
+      "sha256_16": "3a61400460856f13",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Korean BBQ Ground Beef Bowl|@prep.with.alex|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/85d41417-8e47-4de1-8a43-ca1d0d5e6952.png",
+      "created": "2026-09-25",
+      "sha256_16": "93813420421ec68d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Korean BBQ Ground Beef Bowl|@prep.with.alex|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/50f1cc99-0220-46d9-b20e-2a25325c5781.png",
+      "created": "2026-09-25",
+      "sha256_16": "998f43e14c1d7c6c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Mongolian Beef Bowl|@protein.lab.eats|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d736d82a-2c0b-4ab9-b960-d95556a5605d.png",
+      "created": "2026-09-25",
+      "sha256_16": "850ead3998b13acf",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Mongolian Beef Bowl|@protein.lab.eats|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/06a812d2-29e6-421a-8b8b-bd1de0b32cf3.png",
+      "created": "2026-09-25",
+      "sha256_16": "308e2c2928a62e93",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Mongolian Beef Bowl|@protein.lab.eats|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/89a7aa78-500e-4441-8fd2-ac644c124306.png",
+      "created": "2026-09-25",
+      "sha256_16": "67ffdd50f2b89004",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Mongolian Beef Bowl|@protein.lab.eats|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b3431c34-35f9-4ae6-9c38-04c3087e0297.png",
+      "created": "2026-09-25",
+      "sha256_16": "e323865a688b24cf",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Mongolian Beef Bowl|@protein.lab.eats|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/83b4f668-b881-4685-8bf1-48e44c674e92.png",
+      "created": "2026-09-25",
+      "sha256_16": "e519d5b080230bdd",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Pancakes|@the.lean.cook|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/268ed814-2d8d-4f0f-93ec-6def8027bdf0.png",
+      "created": "2026-09-25",
+      "sha256_16": "3aef3ae750255bcc",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Pancakes|@the.lean.cook|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/34fb3edf-249e-462d-8cfe-736e61d85e26.png",
+      "created": "2026-09-25",
+      "sha256_16": "ad2801b2f4ab4d02",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Pancakes|@the.lean.cook|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ea63739a-fbed-497d-896a-33d753dfbf57.png",
+      "created": "2026-09-25",
+      "sha256_16": "ca4eb20cbe681c53",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Pancakes|@the.lean.cook|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/9a9fb36e-1893-44ee-b079-fb83934872c0.png",
+      "created": "2026-09-25",
+      "sha256_16": "b6cb8fa97eefedec",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Pancakes|@the.lean.cook|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6dd4f788-ceed-4071-9a5d-5ea4e3515815.png",
+      "created": "2026-09-25",
+      "sha256_16": "fc0d24c7dc56aa33",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-24T18:23:45+00:00"
+  "last_updated": "2026-09-25T08:22:20+00:00"
 }
