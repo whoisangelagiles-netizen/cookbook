@@ -257,3 +257,13 @@
 {"date": "2026-09-25", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Turkey Bacon English Muffin", "music": true, "hook_style": "B", "hook": "FAST-FOOD BREAKFAST, 32G PROTEIN.", "scheduled": "12:21 ET"}
 {"date": "2026-09-25", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "Turkey Sausage + Sweet Potato Hash", "music": true, "hook_style": "B", "hook": "COMFORT FOOD BRUNCH, 35G PROTEIN.", "scheduled": "12:24 ET"}
 {"date": "2026-09-25", "slot": "Lunch", "account": "@under10.protein", "recipe": "Almond Butter Apple Cottage Cheese Bowl", "music": false, "hook_style": "B", "hook": "TASTES LIKE DESSERT. 28G PROTEIN.", "scheduled": "12:27 ET"}
+{"date": "2026-09-25", "slot": "Dinner", "account": "@cleanfuel.kitchen", "recipe": "Turkey & Hummus Wrap", "music": false, "hook_style": "A", "hook": "35G PROTEIN IN 10 MINUTES", "scheduled": "18:00 ET"}
+{"date": "2026-09-25", "slot": "Dinner", "account": "@coach.macro", "recipe": "Turkey Avocado Club Wrap", "music": true, "hook_style": "A", "hook": "38G PROTEIN IN 10 MINUTES", "scheduled": "18:03 ET"}
+{"date": "2026-09-25", "slot": "Dinner", "account": "@fuel.your.gains", "recipe": "Bacon Wrapped Chicken with Broccoli", "music": true, "hook_style": "A", "hook": "50G PROTEIN, ONE PAN, 12 MIN", "scheduled": "18:06 ET"}
+{"date": "2026-09-25", "slot": "Dinner", "account": "@gymfood.simple", "recipe": "Beef Banh Mi Bowl", "music": false, "hook_style": "A", "hook": "40G PROTEIN IN 10 MINUTES", "scheduled": "18:09 ET"}
+{"date": "2026-09-25", "slot": "Dinner", "account": "@macro.architect", "recipe": "Black Bean + Chicken Enchilada Bake", "music": true, "hook_style": "A", "hook": "540 CALORIES. 42G PROTEIN. DONE IN 12.", "scheduled": "18:12 ET"}
+{"date": "2026-09-25", "slot": "Dinner", "account": "@postworkout.plate", "recipe": "Buffalo Chicken Casserole", "music": false, "hook_style": "A", "hook": "45G PROTEIN, ONE PAN, 12 MIN", "scheduled": "18:15 ET"}
+{"date": "2026-09-25", "slot": "Dinner", "account": "@prep.with.alex", "recipe": "Cottage Cheese + Pineapple Bowl", "music": false, "hook_style": "A", "hook": "24G PROTEIN IN 5 MINUTES", "scheduled": "18:18 ET"}
+{"date": "2026-09-25", "slot": "Dinner", "account": "@protein.lab.eats", "recipe": "Cottage Cheese Whip with Berries", "music": true, "hook_style": "A", "hook": "22G PROTEIN IN 5 MINUTES", "scheduled": "18:21 ET"}
+{"date": "2026-09-25", "slot": "Dinner", "account": "@the.lean.cook", "recipe": "Edamame + Sea Salt", "music": true, "hook_style": "A", "hook": "18G PROTEIN IN 5 MINUTES", "scheduled": "18:24 ET"}
+{"date": "2026-09-25", "slot": "Dinner", "account": "@under10.protein", "recipe": "Protein Pancake Tacos", "music": false, "hook_style": "A", "hook": "35G PROTEIN IN 8 MINUTES", "scheduled": "18:27 ET"}
