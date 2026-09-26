@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-25",
+  "last_updated": "2026-09-26",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -72,7 +72,7 @@
       "category": "breakfast",
       "calories": 180,
       "protein_g": 20,
-      "last_posted": "2026-09-22"
+      "last_posted": "2026-09-26"
     },
     "Egg Muffin Cups": {
       "category": "breakfast",
@@ -96,7 +96,7 @@
       "category": "breakfast",
       "calories": 460,
       "protein_g": 28,
-      "last_posted": "2026-09-22"
+      "last_posted": "2026-09-26"
     },
     "Protein Pancake Tacos": {
       "category": "breakfast",
@@ -162,7 +162,7 @@
       "category": "breakfast",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-09-22"
+      "last_posted": "2026-09-26"
     },
     "Coconut Mango Chia Parfait": {
       "category": "breakfast",
@@ -222,7 +222,7 @@
       "category": "lunch",
       "calories": 360,
       "protein_g": 38,
-      "last_posted": "2026-09-22"
+      "last_posted": "2026-09-26"
     },
     "Asian Beef Bowl": {
       "category": "lunch",
@@ -264,7 +264,7 @@
       "category": "lunch",
       "calories": 480,
       "protein_g": 38,
-      "last_posted": "2026-09-22"
+      "last_posted": "2026-09-26"
     },
     "Greek Tuna Salad Bowl": {
       "category": "lunch",
@@ -282,7 +282,7 @@
       "category": "lunch",
       "calories": 460,
       "protein_g": 40,
-      "last_posted": "2026-09-22"
+      "last_posted": "2026-09-26"
     },
     "Italian Sub Lettuce Wraps": {
       "category": "lunch",
@@ -354,7 +354,7 @@
       "category": "dinner",
       "calories": 490,
       "protein_g": 42,
-      "last_posted": "2026-09-22"
+      "last_posted": "2026-09-26"
     },
     "Chimichurri Steak Bites": {
       "category": "dinner",
@@ -462,7 +462,7 @@
       "category": "dinner",
       "calories": 530,
       "protein_g": 42,
-      "last_posted": "2026-09-22"
+      "last_posted": "2026-09-26"
     },
     "Shrimp Scampi over Zoodles": {
       "category": "dinner",
@@ -492,7 +492,7 @@
       "category": "dinner",
       "calories": 460,
       "protein_g": 42,
-      "last_posted": "2026-09-22"
+      "last_posted": "2026-09-26"
     },
     "Black Bean + Chicken Enchilada Bake": {
       "category": "dinner",
@@ -636,7 +636,7 @@
       "category": "snack",
       "calories": 130,
       "protein_g": 20,
-      "last_posted": "2026-09-22"
+      "last_posted": "2026-09-26"
     },
     "Caprese Skewers": {
       "category": "snack",
