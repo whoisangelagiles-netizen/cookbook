@@ -12152,7 +12152,322 @@
       "sha256_16": "210ea1e77e12ad58",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "BBQ Chicken Stuffed Sweet Potato|@cleanfuel.kitchen|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/58800a9b-2471-498c-a17d-ffaf80a9fb04.png",
+      "created": "2026-09-27",
+      "sha256_16": "eb12b616bdd5a9bd",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Chicken Stuffed Sweet Potato|@cleanfuel.kitchen|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/81d83a67-996a-4b15-a1dc-2ee488840a8c.png",
+      "created": "2026-09-27",
+      "sha256_16": "9ff1f1befaff691d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Chicken Stuffed Sweet Potato|@cleanfuel.kitchen|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/09ecd3f7-91ab-4647-aa85-b04a936847ca.png",
+      "created": "2026-09-27",
+      "sha256_16": "9202b70db187d6db",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Chicken Stuffed Sweet Potato|@cleanfuel.kitchen|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/19b1bf5c-92ae-4915-8d7d-479be81f7eb9.png",
+      "created": "2026-09-27",
+      "sha256_16": "635cd5ab9f4f92c2",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "BBQ Chicken Stuffed Sweet Potato|@cleanfuel.kitchen|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/be8ca8fc-448e-47bb-a48d-8a5764ada921.png",
+      "created": "2026-09-27",
+      "sha256_16": "d6ee0194c4a570f1",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Beef Stir Fry with Cauliflower Rice|@coach.macro|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5107cc8e-45af-45c4-a6f4-6e90a65de3a4.png",
+      "created": "2026-09-27",
+      "sha256_16": "6c17cbf1dd379980",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Beef Stir Fry with Cauliflower Rice|@coach.macro|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7bfe6238-16ad-439d-9fd7-167eb9b8b157.png",
+      "created": "2026-09-27",
+      "sha256_16": "dcc4eed5476c9816",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Beef Stir Fry with Cauliflower Rice|@coach.macro|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a515b799-2cd0-4f7b-a702-b9f068398145.png",
+      "created": "2026-09-27",
+      "sha256_16": "f6b21693a8641355",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Beef Stir Fry with Cauliflower Rice|@coach.macro|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/3c8c8bf7-674a-4a6b-a8bc-cb89b38404cc.png",
+      "created": "2026-09-27",
+      "sha256_16": "3ca625fc5b6daafd",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Beef Stir Fry with Cauliflower Rice|@coach.macro|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7c97c775-30b5-4c91-bbe5-9915046b3c89.png",
+      "created": "2026-09-27",
+      "sha256_16": "1b7eff0375c05eab",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@gymfood.simple|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/370d764c-df63-4926-8ce6-c835fe8b2a14.png",
+      "created": "2026-09-27",
+      "sha256_16": "d5a80ee830340c50",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@gymfood.simple|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6263f644-943e-43cd-ae3a-5c6b932381e2.png",
+      "created": "2026-09-27",
+      "sha256_16": "989b43d43c2a7e9c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@gymfood.simple|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/96e2d366-2b84-425c-b4ea-cc30d90ba204.png",
+      "created": "2026-09-27",
+      "sha256_16": "f25adb99755eece5",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@gymfood.simple|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a7b3d3ed-3d5e-4251-bc55-127b1a00c026.png",
+      "created": "2026-09-27",
+      "sha256_16": "4ab2db6ff162972a",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chicken + Cheese Roll-Ups|@gymfood.simple|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/e6df3705-7b8a-46d4-90a9-2c02ccd95067.png",
+      "created": "2026-09-27",
+      "sha256_16": "2bfb02be56cf1590",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chimichurri Steak Bites|@macro.architect|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/3ffbba79-24a4-46e3-a614-9672d7c0d50e.png",
+      "created": "2026-09-27",
+      "sha256_16": "50ae72101705f3e3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chimichurri Steak Bites|@macro.architect|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/34eb7c65-a947-4ed0-a077-37a04586780e.png",
+      "created": "2026-09-27",
+      "sha256_16": "8b34dd6afce6278a",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chimichurri Steak Bites|@macro.architect|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/e8fd941f-3841-48e3-82c1-0935ad03c897.png",
+      "created": "2026-09-27",
+      "sha256_16": "50554534abca2e78",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chimichurri Steak Bites|@macro.architect|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/23b31d2d-3dc8-40a9-b08d-a71d2217255d.png",
+      "created": "2026-09-27",
+      "sha256_16": "2687da4b5492e35d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chimichurri Steak Bites|@macro.architect|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/1e9a3f27-5217-442e-9c2c-acca4c31a8fb.png",
+      "created": "2026-09-27",
+      "sha256_16": "a5c5fdadb852b634",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Roll Protein Bowl|@postworkout.plate|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/62f4b8c7-a145-4b92-821d-72dbb78e182d.png",
+      "created": "2026-09-27",
+      "sha256_16": "5632c15c071c90dc",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Roll Protein Bowl|@postworkout.plate|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d589cb5c-3838-48f4-871c-e4f458c6f16a.png",
+      "created": "2026-09-27",
+      "sha256_16": "2874b74a1333a0b5",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Roll Protein Bowl|@postworkout.plate|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d30b66be-c4eb-48ed-99ef-14ba75bd0136.png",
+      "created": "2026-09-27",
+      "sha256_16": "ce1562fb1652c0bd",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Roll Protein Bowl|@postworkout.plate|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/c43139c4-ddbf-4a7c-a47d-2e7c2d4baef4.png",
+      "created": "2026-09-27",
+      "sha256_16": "bbcb4c02388a9f39",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Roll Protein Bowl|@postworkout.plate|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/20f4c7d0-865f-4b67-a8c9-4b6126fd7ae0.png",
+      "created": "2026-09-27",
+      "sha256_16": "317d6e2ce158af69",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Coconut Mango Chia Parfait|@prep.with.alex|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/00dc36aa-5c53-42fd-9e98-4cad976c29d5.png",
+      "created": "2026-09-27",
+      "sha256_16": "5bd124165377478c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Coconut Mango Chia Parfait|@prep.with.alex|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b92c3ee3-3d94-4758-a175-374863821e8b.png",
+      "created": "2026-09-27",
+      "sha256_16": "55f2322d92a51279",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Coconut Mango Chia Parfait|@prep.with.alex|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/c30dfc42-1c64-4f9c-a653-9a1ac1394532.png",
+      "created": "2026-09-27",
+      "sha256_16": "32784ba546909e2c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Coconut Mango Chia Parfait|@prep.with.alex|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/cb41802e-8590-48a5-97c3-db02a5513009.png",
+      "created": "2026-09-27",
+      "sha256_16": "0cf36c16f583e3b2",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Coconut Mango Chia Parfait|@prep.with.alex|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/41ce8c55-d568-4e0e-84fb-cd6a238e6698.png",
+      "created": "2026-09-27",
+      "sha256_16": "1548108a921ff046",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@protein.lab.eats|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f3b9d4fd-56a0-4111-a919-3379aeddad6b.png",
+      "created": "2026-09-27",
+      "sha256_16": "751d163bdfdb84d0",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@protein.lab.eats|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/29dfaac0-0325-4f24-9a3e-cab69b0bc2b6.png",
+      "created": "2026-09-27",
+      "sha256_16": "e90138a2ff46c9d8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@protein.lab.eats|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/1bde71c5-32c7-43ec-b64b-52086c6eff07.png",
+      "created": "2026-09-27",
+      "sha256_16": "fcc3e1d6e627d9f9",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@protein.lab.eats|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/88e38b01-dd31-47f1-81c4-4787e637fef6.png",
+      "created": "2026-09-27",
+      "sha256_16": "1ac244e58eb982e1",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cottage Cheese Power Bowl|@protein.lab.eats|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ac999ace-f626-474a-9be0-a30642a7baf0.png",
+      "created": "2026-09-27",
+      "sha256_16": "ea14001e05967c25",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Quinoa Power Salad|@the.lean.cook|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/feb19a37-8b93-4ef2-a926-17410c178464.png",
+      "created": "2026-09-27",
+      "sha256_16": "eb8fab5ce4c253e0",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Quinoa Power Salad|@the.lean.cook|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d539a69a-e81f-42a5-a523-fb016d30b585.png",
+      "created": "2026-09-27",
+      "sha256_16": "a7e0cf5d80ece77c",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Quinoa Power Salad|@the.lean.cook|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/276b50a0-1806-42c6-acce-e5446456798a.png",
+      "created": "2026-09-27",
+      "sha256_16": "4d8ca2eb9bf4bf66",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Quinoa Power Salad|@the.lean.cook|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7503a1d0-87c3-4a9a-9db3-d9c716b72809.png",
+      "created": "2026-09-27",
+      "sha256_16": "d039ebbd0f3e6d02",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Quinoa Power Salad|@the.lean.cook|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ac897ac6-3646-4f27-8268-40825679b75c.png",
+      "created": "2026-09-27",
+      "sha256_16": "dcf553525b89f6e8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Asian Beef Bowl|@under10.protein|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/62b032de-056b-4cfa-9431-0a9efcde6707.png",
+      "created": "2026-09-27",
+      "sha256_16": "7033ae56cacafb97",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Asian Beef Bowl|@under10.protein|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/377744c3-8883-4854-9e7c-ffffcd0acda0.png",
+      "created": "2026-09-27",
+      "sha256_16": "a3b43f56575d6291",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Asian Beef Bowl|@under10.protein|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/cf649ec4-9f6c-414d-8480-7d5fa0a06145.png",
+      "created": "2026-09-27",
+      "sha256_16": "2519f37f25a0809e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Asian Beef Bowl|@under10.protein|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/8d0a92f9-83a2-4a42-897f-1d637caaa1d9.png",
+      "created": "2026-09-27",
+      "sha256_16": "505acbffea3c1bbd",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Asian Beef Bowl|@under10.protein|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6acbb869-1d53-4877-9cc5-df1e0dcedfc3.png",
+      "created": "2026-09-27",
+      "sha256_16": "f98071f4904e610f",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-27T12:26:15+00:00"
+  "last_updated": "2026-09-27T18:21:36+00:00"
 }

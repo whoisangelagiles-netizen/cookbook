@@ -317,3 +317,13 @@
 {"date": "2026-09-27", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Vanilla Berry Protein Smoothie", "music": true, "hook_style": "B", "hook": "TASTES LIKE A MILKSHAKE. 32G PROTEIN.", "scheduled": "12:21 ET"}
 {"date": "2026-09-27", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "BBQ Pork + Slaw", "music": true, "hook_style": "B", "hook": "TASTES LIKE A BBQ JOINT. 45G PROTEIN.", "scheduled": "12:24 ET"}
 {"date": "2026-09-27", "slot": "Lunch", "account": "@under10.protein", "recipe": "Hard-Boiled Eggs + Hummus", "music": false, "hook_style": "B", "hook": "LOOKS LIKE A MEZZE PLATE. 16G PROTEIN.", "scheduled": "12:27 ET"}
+{"date": "2026-09-27", "slot": "Dinner", "account": "@cleanfuel.kitchen", "recipe": "BBQ Chicken Stuffed Sweet Potato", "music": false, "hook_style": "A", "hook": "38G PROTEIN IN 10 MINUTES", "scheduled": "18:00 ET"}
+{"date": "2026-09-27", "slot": "Dinner", "account": "@coach.macro", "recipe": "Beef Stir Fry with Cauliflower Rice", "music": true, "hook_style": "A", "hook": "42G PROTEIN, ONE PAN, 12 MIN", "scheduled": "18:03 ET"}
+{"date": "2026-09-27", "slot": "Dinner", "account": "@fuel.your.gains", "recipe": "Caprese Skewers", "music": true, "hook_style": "A", "hook": "12G PROTEIN IN 5 MINUTES", "scheduled": "18:06 ET"}
+{"date": "2026-09-27", "slot": "Dinner", "account": "@gymfood.simple", "recipe": "Chicken + Cheese Roll-Ups", "music": false, "hook_style": "A", "hook": "28G PROTEIN IN 5 MINUTES", "scheduled": "18:09 ET"}
+{"date": "2026-09-27", "slot": "Dinner", "account": "@macro.architect", "recipe": "Chimichurri Steak Bites", "music": true, "hook_style": "A", "hook": "44G PROTEIN, ONE PAN, 12 MIN", "scheduled": "18:12 ET"}
+{"date": "2026-09-27", "slot": "Dinner", "account": "@postworkout.plate", "recipe": "Cinnamon Roll Protein Bowl", "music": false, "hook_style": "A", "hook": "430 CALORIES. 32G PROTEIN. DONE IN 8.", "scheduled": "18:15 ET"}
+{"date": "2026-09-27", "slot": "Dinner", "account": "@prep.with.alex", "recipe": "Coconut Mango Chia Parfait", "music": false, "hook_style": "A", "hook": "22G PROTEIN, PREPPED IN 8 MIN", "scheduled": "18:18 ET"}
+{"date": "2026-09-27", "slot": "Dinner", "account": "@protein.lab.eats", "recipe": "Cottage Cheese Power Bowl", "music": true, "hook_style": "A", "hook": "30G PROTEIN IN 8 MINUTES", "scheduled": "18:21 ET"}
+{"date": "2026-09-27", "slot": "Dinner", "account": "@the.lean.cook", "recipe": "Quinoa Power Salad", "music": true, "hook_style": "A", "hook": "22G PROTEIN IN 10 MINUTES", "scheduled": "18:24 ET"}
+{"date": "2026-09-27", "slot": "Dinner", "account": "@under10.protein", "recipe": "Asian Beef Bowl", "music": false, "hook_style": "A", "hook": "40G PROTEIN IN 10 MINUTES", "scheduled": "18:27 ET"}
