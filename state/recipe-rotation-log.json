@@ -1,12 +1,12 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-27",
+  "last_updated": "2026-09-28",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
       "calories": 520,
       "protein_g": 30,
-      "last_posted": "2026-09-24"
+      "last_posted": "2026-09-28"
     },
     "Sunrise Power Bowl": {
       "category": "breakfast",
@@ -36,7 +36,7 @@
       "category": "breakfast",
       "calories": 320,
       "protein_g": 32,
-      "last_posted": "2026-09-24"
+      "last_posted": "2026-09-28"
     },
     "Chocolate Protein Overnight Oats": {
       "category": "breakfast",
@@ -78,7 +78,7 @@
       "category": "breakfast",
       "calories": 90,
       "protein_g": 9,
-      "last_posted": "2026-09-24"
+      "last_posted": "2026-09-28"
     },
     "Greek Yogurt Smoothie Bowl": {
       "category": "breakfast",
@@ -240,7 +240,7 @@
       "category": "lunch",
       "calories": 540,
       "protein_g": 36,
-      "last_posted": "2026-09-24"
+      "last_posted": "2026-09-28"
     },
     "BBQ Chicken Stuffed Sweet Potato": {
       "category": "lunch",
@@ -324,7 +324,7 @@
       "category": "lunch",
       "calories": 360,
       "protein_g": 28,
-      "last_posted": "2026-09-24"
+      "last_posted": "2026-09-28"
     },
     "Korean Tuna Rice Bowl": {
       "category": "lunch",
@@ -342,7 +342,7 @@
       "category": "lunch",
       "calories": 510,
       "protein_g": 38,
-      "last_posted": "2026-09-24"
+      "last_posted": "2026-09-28"
     },
     "Garlic Butter Steak + Potatoes": {
       "category": "dinner",
@@ -372,7 +372,7 @@
       "category": "dinner",
       "calories": 530,
       "protein_g": 42,
-      "last_posted": "2026-09-24"
+      "last_posted": "2026-09-28"
     },
     "Cashew Chicken Stir Fry": {
       "category": "dinner",
@@ -570,7 +570,7 @@
       "category": "snack",
       "calories": 380,
       "protein_g": 24,
-      "last_posted": "2026-09-24"
+      "last_posted": "2026-09-28"
     },
     "Beef Jerky + Cheese Stick Plate": {
       "category": "snack",
@@ -594,7 +594,7 @@
       "category": "snack",
       "calories": 110,
       "protein_g": 8,
-      "last_posted": "2026-09-24"
+      "last_posted": "2026-09-28"
     },
     "Edamame + Sea Salt": {
       "category": "snack",
@@ -648,7 +648,7 @@
       "category": "snack",
       "calories": 320,
       "protein_g": 22,
-      "last_posted": "2026-09-24"
+      "last_posted": "2026-09-28"
     },
     "Smoked Salmon Cucumber Bites": {
       "category": "snack",
