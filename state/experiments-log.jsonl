@@ -367,3 +367,13 @@
 {"date": "2026-09-29", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Edamame + Sea Salt", "music": true, "hook_style": "B", "hook": "MOVIE NIGHT SNACK. 18G PROTEIN.", "scheduled": "12:21 ET"}
 {"date": "2026-09-29", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "Mongolian Beef Bowl", "music": true, "hook_style": "B", "hook": "TASTES LIKE TAKEOUT. 40G PROTEIN.", "scheduled": "12:24 ET"}
 {"date": "2026-09-29", "slot": "Lunch", "account": "@under10.protein", "recipe": "Pork Tenderloin + Roasted Veg", "music": false, "hook_style": "B", "hook": "DINNER-PARTY LOOK. 42G PROTEIN.", "scheduled": "12:27 ET"}
+{"date": "2026-09-29", "slot": "Dinner", "account": "@cleanfuel.kitchen", "recipe": "Berry Almond Chia Parfait", "music": false, "hook_style": "A", "hook": "20G PROTEIN IN 8 MINUTES", "scheduled": "18:00 ET"}
+{"date": "2026-09-29", "slot": "Dinner", "account": "@coach.macro", "recipe": "Breakfast Burrito Bowl", "music": true, "hook_style": "A", "hook": "38G PROTEIN IN 8 MINUTES", "scheduled": "18:03 ET"}
+{"date": "2026-09-29", "slot": "Dinner", "account": "@fuel.your.gains", "recipe": "Buffalo Chicken Lettuce Wraps", "music": true, "hook_style": "A", "hook": "38G PROTEIN IN 10 MINUTES", "scheduled": "18:06 ET"}
+{"date": "2026-09-29", "slot": "Dinner", "account": "@gymfood.simple", "recipe": "Cajun Salmon Bowl", "music": false, "hook_style": "A", "hook": "38G PROTEIN IN 12 MINUTES", "scheduled": "18:09 ET"}
+{"date": "2026-09-29", "slot": "Dinner", "account": "@macro.architect", "recipe": "Caprese Chicken Wrap", "music": true, "hook_style": "A", "hook": "38G PROTEIN IN 10 MINUTES", "scheduled": "18:12 ET"}
+{"date": "2026-09-29", "slot": "Dinner", "account": "@postworkout.plate", "recipe": "Chicken Caesar Wrap", "music": false, "hook_style": "A", "hook": "40G PROTEIN IN 10 MINUTES", "scheduled": "18:15 ET"}
+{"date": "2026-09-29", "slot": "Dinner", "account": "@prep.with.alex", "recipe": "Shrimp Scampi over Zoodles", "music": false, "hook_style": "A", "hook": "38G PROTEIN IN 12 MINUTES", "scheduled": "18:18 ET"}
+{"date": "2026-09-29", "slot": "Dinner", "account": "@protein.lab.eats", "recipe": "Banana Protein French Toast", "music": true, "hook_style": "A", "hook": "30G PROTEIN IN 8 MINUTES", "scheduled": "18:21 ET"}
+{"date": "2026-09-29", "slot": "Dinner", "account": "@the.lean.cook", "recipe": "Beef Jerky + Cheese Stick Plate", "music": true, "hook_style": "A", "hook": "28G PROTEIN IN 5 MINUTES", "scheduled": "18:24 ET"}
+{"date": "2026-09-29", "slot": "Dinner", "account": "@under10.protein", "recipe": "Beef and Broccoli Stir Fry", "music": false, "hook_style": "A", "hook": "42G PROTEIN IN 12 MINUTES", "scheduled": "18:27 ET"}
