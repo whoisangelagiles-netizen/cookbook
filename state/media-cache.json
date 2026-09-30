@@ -14497,7 +14497,112 @@
       "sha256_16": "c5d454837b83eb5a",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Stuffed Bell Peppers|@cleanfuel.kitchen|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/c400c9b5-e95f-4a7f-a098-eb7969fcdd02.png",
+      "created": "2026-09-30",
+      "sha256_16": "d3e1f844e7c3b0bc",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Stuffed Bell Peppers|@cleanfuel.kitchen|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/8766d96a-7666-4e16-b101-ead9c2c83105.png",
+      "created": "2026-09-30",
+      "sha256_16": "bc2228cd241ec3b6",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Stuffed Bell Peppers|@cleanfuel.kitchen|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/e28e71fa-b413-4ca4-97e1-8de6b70fb1e2.png",
+      "created": "2026-09-30",
+      "sha256_16": "ba4bbaaa0292714d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Stuffed Bell Peppers|@cleanfuel.kitchen|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/29fca05f-38a7-460b-bf06-8514d49a7230.png",
+      "created": "2026-09-30",
+      "sha256_16": "89cf46ca3c671929",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Stuffed Bell Peppers|@cleanfuel.kitchen|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/828435f5-0958-4928-a62e-bf3b5b7a5c4a.png",
+      "created": "2026-09-30",
+      "sha256_16": "479cb2bed8552ffd",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Overnight Oats|@protein.lab.eats|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/850ff6e2-9a63-437a-adac-a51422096fe2.png",
+      "created": "2026-09-30",
+      "sha256_16": "257fc48f836f1b43",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Overnight Oats|@protein.lab.eats|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/039ec7d0-26fa-44c1-9e12-d5c7eaffb2b2.png",
+      "created": "2026-09-30",
+      "sha256_16": "d6d1048e42d0e419",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Overnight Oats|@protein.lab.eats|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/24da44a9-e56e-44fb-8251-250056dad752.png",
+      "created": "2026-09-30",
+      "sha256_16": "540a2b8de48f9c0d",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Overnight Oats|@protein.lab.eats|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/ae5bbb1d-4ea5-4104-b9b4-50eb69c05e75.png",
+      "created": "2026-09-30",
+      "sha256_16": "61f54c3cc050d741",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Chocolate Protein Overnight Oats|@protein.lab.eats|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f9f2302a-bf07-42cb-b499-b06b23ba1879.png",
+      "created": "2026-09-30",
+      "sha256_16": "24ff8ca3056f8cd1",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Apple Protein Oats|@the.lean.cook|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5aac1c27-f4ca-4edc-b29b-594fcf0e8692.png",
+      "created": "2026-09-30",
+      "sha256_16": "7e7ac87d0f529e6b",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Apple Protein Oats|@the.lean.cook|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/432dde2c-762e-4cb0-95b4-9f7b05a8f493.png",
+      "created": "2026-09-30",
+      "sha256_16": "79ca7b83e0ef797a",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Apple Protein Oats|@the.lean.cook|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/bc49ee49-7b2d-4e20-ac5f-7069819e8b69.png",
+      "created": "2026-09-30",
+      "sha256_16": "0c58f3ca8c522d34",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Apple Protein Oats|@the.lean.cook|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/52a7c8f1-215f-47aa-8d52-c4c4aaa4fd16.png",
+      "created": "2026-09-30",
+      "sha256_16": "a604015d3d925ed4",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Cinnamon Apple Protein Oats|@the.lean.cook|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2ab64e51-9451-441b-9f08-cef78476658e.png",
+      "created": "2026-09-30",
+      "sha256_16": "a9c8e2a6be4ed1ab",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-09-30T12:17:41+00:00"
+  "last_updated": "2026-09-30T18:14:17+00:00"
 }

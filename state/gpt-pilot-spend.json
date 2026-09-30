@@ -123,12 +123,12 @@
       "posts": 30
     },
     "2026-09-30": {
-      "images_generated": 75,
-      "cost_usd": 0.963936,
-      "cache_hits": 25,
-      "posts": 20
+      "images_generated": 90,
+      "cost_usd": 1.156542,
+      "cache_hits": 60,
+      "posts": 30
     }
   },
   "quality": "medium",
-  "last_updated": "2026-09-30T12:17:41+00:00"
+  "last_updated": "2026-09-30T18:14:17+00:00"
 }
