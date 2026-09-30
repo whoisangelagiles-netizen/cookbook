@@ -121,8 +121,14 @@
       "cost_usd": 1.541272,
       "cache_hits": 30,
       "posts": 30
+    },
+    "2026-09-30": {
+      "images_generated": 45,
+      "cost_usd": 0.57801,
+      "cache_hits": 5,
+      "posts": 10
     }
   },
   "quality": "medium",
-  "last_updated": "2026-09-29T18:16:59+00:00"
+  "last_updated": "2026-09-30T08:20:37+00:00"
 }
