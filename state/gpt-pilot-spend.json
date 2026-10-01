@@ -129,12 +129,12 @@
       "posts": 30
     },
     "2026-10-01": {
-      "images_generated": 40,
-      "cost_usd": 0.51385,
-      "cache_hits": 10,
-      "posts": 10
+      "images_generated": 85,
+      "cost_usd": 1.091774,
+      "cache_hits": 15,
+      "posts": 20
     }
   },
   "quality": "medium",
-  "last_updated": "2026-10-01T08:19:05+00:00"
+  "last_updated": "2026-10-01T12:20:14+00:00"
 }
