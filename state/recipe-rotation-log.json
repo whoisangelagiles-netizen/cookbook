@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-09-30",
+  "last_updated": "2026-10-01",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -48,7 +48,7 @@
       "category": "breakfast",
       "calories": 310,
       "protein_g": 30,
-      "last_posted": "2026-09-27"
+      "last_posted": "2026-10-01"
     },
     "Smoked Salmon Whole-Grain Bagel": {
       "category": "breakfast",
@@ -156,7 +156,7 @@
       "category": "breakfast",
       "calories": 430,
       "protein_g": 32,
-      "last_posted": "2026-09-27"
+      "last_posted": "2026-10-01"
     },
     "Smoked Salmon Egg Roll-Ups": {
       "category": "breakfast",
@@ -168,7 +168,7 @@
       "category": "breakfast",
       "calories": 390,
       "protein_g": 22,
-      "last_posted": "2026-09-27"
+      "last_posted": "2026-10-01"
     },
     "Turkey Bacon English Muffin": {
       "category": "breakfast",
@@ -270,7 +270,7 @@
       "category": "lunch",
       "calories": 410,
       "protein_g": 35,
-      "last_posted": "2026-09-27"
+      "last_posted": "2026-10-01"
     },
     "Spicy Shrimp Burrito Bowl": {
       "category": "lunch",
@@ -336,7 +336,7 @@
       "category": "lunch",
       "calories": 380,
       "protein_g": 32,
-      "last_posted": "2026-09-27"
+      "last_posted": "2026-10-01"
     },
     "Southwest Chicken Bowl": {
       "category": "lunch",
@@ -348,7 +348,7 @@
       "category": "dinner",
       "calories": 610,
       "protein_g": 45,
-      "last_posted": "2026-09-27"
+      "last_posted": "2026-10-01"
     },
     "Lemon Herb Chicken Plate": {
       "category": "dinner",
@@ -360,7 +360,7 @@
       "category": "dinner",
       "calories": 560,
       "protein_g": 44,
-      "last_posted": "2026-09-27"
+      "last_posted": "2026-10-01"
     },
     "Honey Garlic Salmon Bowl": {
       "category": "dinner",
@@ -402,7 +402,7 @@
       "category": "dinner",
       "calories": 440,
       "protein_g": 36,
-      "last_posted": "2026-09-27"
+      "last_posted": "2026-10-01"
     },
     "Turkey Meatballs Marinara": {
       "category": "dinner",
@@ -546,7 +546,7 @@
       "category": "snack",
       "calories": 240,
       "protein_g": 16,
-      "last_posted": "2026-09-27"
+      "last_posted": "2026-10-01"
     },
     "Vanilla Berry Protein Smoothie": {
       "category": "snack",
@@ -558,7 +558,7 @@
       "category": "snack",
       "calories": 280,
       "protein_g": 22,
-      "last_posted": "2026-09-27"
+      "last_posted": "2026-10-01"
     },
     "Tuna Cucumber Bites": {
       "category": "snack",
