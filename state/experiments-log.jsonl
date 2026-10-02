@@ -457,3 +457,13 @@
 {"date": "2026-10-02", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Protein Iced Coffee", "music": true, "hook_style": "A", "hook": "25G PROTEIN IN 5 MINUTES", "scheduled": "12:21 ET"}
 {"date": "2026-10-02", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "Pumpkin Spice Greek Yogurt", "music": true, "hook_style": "A", "hook": "22G PROTEIN IN 5 MINUTES", "scheduled": "12:24 ET"}
 {"date": "2026-10-02", "slot": "Lunch", "account": "@under10.protein", "recipe": "Thai Peanut Chicken", "music": false, "hook_style": "A", "hook": "42G PROTEIN IN 12 MINUTES", "scheduled": "12:27 ET"}
+{"date": "2026-10-02", "slot": "Dinner", "account": "@cleanfuel.kitchen", "recipe": "Buffalo Chicken Casserole", "music": false, "hook_style": "B", "hook": "COMFORT FOOD, 45G PROTEIN", "scheduled": "18:00 ET"}
+{"date": "2026-10-02", "slot": "Dinner", "account": "@coach.macro", "recipe": "Cajun Salmon Bowl", "music": true, "hook_style": "B", "hook": "TASTES LIKE TAKEOUT. 38G PROTEIN.", "scheduled": "18:03 ET"}
+{"date": "2026-10-02", "slot": "Dinner", "account": "@fuel.your.gains", "recipe": "Caprese Chicken Wrap", "music": true, "hook_style": "B", "hook": "DELI WRAP VIBES, 38G PROTEIN", "scheduled": "18:06 ET"}
+{"date": "2026-10-02", "slot": "Dinner", "account": "@gymfood.simple", "recipe": "Smoked Salmon Cucumber Bites", "music": false, "hook_style": "B", "hook": "LOOKS FANCY. 16G PROTEIN.", "scheduled": "18:09 ET"}
+{"date": "2026-10-02", "slot": "Dinner", "account": "@macro.architect", "recipe": "Apple + Almond Butter Protein Plate", "music": true, "hook_style": "B", "hook": "LOOKS LIKE DESSERT. 18G PROTEIN.", "scheduled": "18:12 ET"}
+{"date": "2026-10-02", "slot": "Dinner", "account": "@postworkout.plate", "recipe": "Banana Protein French Toast", "music": false, "hook_style": "B", "hook": "TASTES LIKE BRUNCH. 30G PROTEIN.", "scheduled": "18:15 ET"}
+{"date": "2026-10-02", "slot": "Dinner", "account": "@prep.with.alex", "recipe": "Beef Jerky + Cheese Stick Plate", "music": false, "hook_style": "B", "hook": "GAS STATION UPGRADE. 28G PROTEIN.", "scheduled": "18:18 ET"}
+{"date": "2026-10-02", "slot": "Dinner", "account": "@protein.lab.eats", "recipe": "Beef and Broccoli Stir Fry", "music": true, "hook_style": "B", "hook": "TASTES LIKE TAKEOUT. 42G PROTEIN.", "scheduled": "18:21 ET"}
+{"date": "2026-10-02", "slot": "Dinner", "account": "@the.lean.cook", "recipe": "Berry Almond Chia Parfait", "music": true, "hook_style": "B", "hook": "LOOKS LIKE DESSERT. 20G PROTEIN.", "scheduled": "18:24 ET"}
+{"date": "2026-10-02", "slot": "Dinner", "account": "@under10.protein", "recipe": "Breakfast Burrito Bowl", "music": false, "hook_style": "B", "hook": "TASTES LIKE BURRITO. 38G PROTEIN.", "scheduled": "18:27 ET"}
