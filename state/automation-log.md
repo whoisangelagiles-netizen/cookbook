@@ -265,3 +265,5 @@ Append-only log of daily runs. Migrated from Cowork on 2026-07-27.
 - [2026-10-01T18:20:00Z] STATS: GrowthDaily: today's snapshot already present, appended 0 rows
 - [2026-10-01T18:20:05Z] STATS: PostLog: 10 updated, 20 appended, 70 frozen (skipped)
 - [2026-10-02T08:21:42Z] DAILY-3X slot Breakfast 08:00 ET: 10/10 accounts, 10/10 posts scheduled 08:00-08:27 ET, 0 errors, 0 skipped. blotato_list_posts confirmed the 08:00-08:30 ET window empty before scheduling (run at ~04:20 ET). Recipes: [PB Banana Protein Wrap, Salmon Poke Bowl, Southwest Chicken Bowl, Spicy Shrimp Burrito Bowl, Teriyaki Salmon with Rice, Golden Protein Pancakes, Greek Yogurt Smoothie Bowl, High-Protein Waffles, No-Bake Protein Brownie Bites, PB Banana Protein Sushi] (mix 3 breakfast/3 lunch/1 dinner/3 snack). hook_style=B, music on 5/10. Launch CTAs on: [@fuel.your.gains, @gymfood.simple, @prep.with.alex]. [GPT] rows_ok=10 rows_failed=0 generated=50 cached=0 cost=$0.6422. GPT-ALERT: none.
+- [2026-10-02T08:22:13Z] STATS: GrowthDaily: appended 10 row(s) at 385
+- [2026-10-02T08:22:24Z] STATS: PostLog: 20 updated, 12 appended, 68 frozen (skipped)
