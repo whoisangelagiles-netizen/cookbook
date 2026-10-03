@@ -272,3 +272,5 @@ Append-only log of daily runs. Migrated from Cowork on 2026-07-27.
 - [2026-10-02T18:18:46Z] STATS: GrowthDaily: today's snapshot already present, appended 0 rows
 - [2026-10-02T18:18:51Z] STATS: PostLog: 12 updated, 20 appended, 68 frozen (skipped)
 - [2026-10-03T08:20:00Z] DAILY-3X slot Breakfast 08:00 ET: 10/10 accounts, 10/10 posts scheduled 08:00-08:27 ET, 0 errors, 0 skipped. blotato_list_posts confirmed the 08:00-08:30 ET window empty before scheduling (run at ~04:10 ET). Recipes: [Mongolian Beef Bowl, Protein Pancake Tacos, Thai Chicken Lettuce Cups, Tropical Power Salad, Chicken Caesar Wrap, Cinnamon Roll Protein Pudding, Cottage Cheese + Pineapple Bowl, Cottage Cheese Whip with Berries, Honey Garlic Salmon Bowl, Korean BBQ Ground Beef Bowl] (category mix 3 dinner/3 lunch/3 snack/1 breakfast). hook_style=A, music on 5/10. Launch CTAs on: [@fuel.your.gains, @gymfood.simple, @prep.with.alex]. [GPT] rows_ok=10 rows_failed=0 generated=40 cached=10 cost=$0.5137. GPT-ALERT: none.
+- [2026-10-03T08:19:47Z] STATS: GrowthDaily: appended 10 row(s) at 395
+- [2026-10-03T08:19:53Z] STATS: PostLog: 20 updated, 10 appended, 70 frozen (skipped)
