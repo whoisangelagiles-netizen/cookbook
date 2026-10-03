@@ -477,3 +477,13 @@
 {"date": "2026-10-03", "slot": "Breakfast", "account": "@protein.lab.eats", "recipe": "Cottage Cheese Whip with Berries", "music": true, "hook_style": "A", "hook": "22G PROTEIN IN 5 MINUTES", "scheduled": "08:21 ET"}
 {"date": "2026-10-03", "slot": "Breakfast", "account": "@the.lean.cook", "recipe": "Honey Garlic Salmon Bowl", "music": true, "hook_style": "A", "hook": "40G PROTEIN IN 12 MINUTES", "scheduled": "08:24 ET"}
 {"date": "2026-10-03", "slot": "Breakfast", "account": "@under10.protein", "recipe": "Korean BBQ Ground Beef Bowl", "music": false, "hook_style": "A", "hook": "40G PROTEIN IN 12 MINUTES", "scheduled": "08:27 ET"}
+{"date": "2026-10-03", "slot": "Lunch", "account": "@cleanfuel.kitchen", "recipe": "Turkey Avocado Club Wrap", "music": false, "hook_style": "B", "hook": "TASTES LIKE A DELI CLUB. 38G PROTEIN.", "scheduled": "12:00 ET"}
+{"date": "2026-10-03", "slot": "Lunch", "account": "@coach.macro", "recipe": "Turkey Bacon English Muffin", "music": true, "hook_style": "B", "hook": "DRIVE-THRU BREAKFAST. 32G PROTEIN.", "scheduled": "12:03 ET"}
+{"date": "2026-10-03", "slot": "Lunch", "account": "@fuel.your.gains", "recipe": "Turkey Sausage + Sweet Potato Hash", "music": true, "hook_style": "B", "hook": "DINER BREAKFAST. 35G PROTEIN.", "scheduled": "12:06 ET"}
+{"date": "2026-10-03", "slot": "Lunch", "account": "@gymfood.simple", "recipe": "Edamame + Sea Salt", "music": false, "hook_style": "B", "hook": "SUSHI BAR SNACK. 18G PROTEIN.", "scheduled": "12:09 ET"}
+{"date": "2026-10-03", "slot": "Lunch", "account": "@macro.architect", "recipe": "Pork Tenderloin + Roasted Veg", "music": true, "hook_style": "B", "hook": "RESTAURANT DINNER. 42G PROTEIN.", "scheduled": "12:12 ET"}
+{"date": "2026-10-03", "slot": "Lunch", "account": "@postworkout.plate", "recipe": "Sheet Pan Chicken Fajitas", "music": false, "hook_style": "B", "hook": "TASTES LIKE TAKEOUT. 40G PROTEIN.", "scheduled": "12:15 ET"}
+{"date": "2026-10-03", "slot": "Lunch", "account": "@prep.with.alex", "recipe": "Shrimp Scampi over Zoodles", "music": false, "hook_style": "B", "hook": "TASTES LIKE PASTA NIGHT. 38G PROTEIN.", "scheduled": "12:18 ET"}
+{"date": "2026-10-03", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Spicy Roasted Chickpeas", "music": true, "hook_style": "B", "hook": "TASTES LIKE CHIPS. 10G PROTEIN.", "scheduled": "12:21 ET"}
+{"date": "2026-10-03", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "Tuna Avocado Salad", "music": true, "hook_style": "B", "hook": "DELI LUNCH. 32G PROTEIN.", "scheduled": "12:24 ET"}
+{"date": "2026-10-03", "slot": "Lunch", "account": "@under10.protein", "recipe": "Turkey & Hummus Wrap", "music": false, "hook_style": "B", "hook": "DELI WRAP. 35G PROTEIN.", "scheduled": "12:27 ET"}
