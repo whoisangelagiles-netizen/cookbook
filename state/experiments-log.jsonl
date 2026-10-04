@@ -507,3 +507,13 @@
 {"date": "2026-10-04", "slot": "Breakfast", "account": "@protein.lab.eats", "recipe": "High Protein Steak Salad", "music": true, "hook_style": "B", "hook": "STEAKHOUSE VIBES. 42G PROTEIN.", "scheduled": "08:21 ET"}
 {"date": "2026-10-04", "slot": "Breakfast", "account": "@the.lean.cook", "recipe": "Honey Garlic Chicken Wrap", "music": true, "hook_style": "B", "hook": "TASTES LIKE TAKEOUT. 40G PROTEIN.", "scheduled": "08:24 ET"}
 {"date": "2026-10-04", "slot": "Breakfast", "account": "@under10.protein", "recipe": "Lemon Herb Chicken Plate", "music": false, "hook_style": "B", "hook": "RESTAURANT PLATE. 42G PROTEIN.", "scheduled": "08:27 ET"}
+{"date": "2026-10-04", "slot": "Lunch", "account": "@cleanfuel.kitchen", "recipe": "Stuffed Bell Peppers", "music": false, "hook_style": "A", "hook": "38G PROTEIN IN 12 MINUTES", "scheduled": "12:00 ET"}
+{"date": "2026-10-04", "slot": "Lunch", "account": "@coach.macro", "recipe": "Beef Banh Mi Bowl", "music": true, "hook_style": "A", "hook": "530 CALORIES. 40G PROTEIN. DONE IN 10.", "scheduled": "12:03 ET"}
+{"date": "2026-10-04", "slot": "Lunch", "account": "@fuel.your.gains", "recipe": "Mediterranean Chicken Bowl", "music": true, "hook_style": "A", "hook": "38G PROTEIN, 10 MIN PREP", "scheduled": "12:06 ET"}
+{"date": "2026-10-04", "slot": "Lunch", "account": "@gymfood.simple", "recipe": "Mediterranean Cod with Quinoa", "music": false, "hook_style": "A", "hook": "38G PROTEIN IN 12 MINUTES", "scheduled": "12:09 ET"}
+{"date": "2026-10-04", "slot": "Lunch", "account": "@macro.architect", "recipe": "Mexican Chicken Quinoa Bowl", "music": true, "hook_style": "A", "hook": "480 CALORIES. 36G PROTEIN. DONE IN 10.", "scheduled": "12:12 ET"}
+{"date": "2026-10-04", "slot": "Lunch", "account": "@postworkout.plate", "recipe": "Pesto Chicken Pasta", "music": false, "hook_style": "A", "hook": "42G PROTEIN, 12 MIN PREP", "scheduled": "12:15 ET"}
+{"date": "2026-10-04", "slot": "Lunch", "account": "@prep.with.alex", "recipe": "Smoked Salmon Egg Roll-Ups", "music": false, "hook_style": "A", "hook": "32G PROTEIN IN 8 MINUTES", "scheduled": "12:18 ET"}
+{"date": "2026-10-04", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Smoked Salmon Whole-Grain Bagel", "music": true, "hook_style": "A", "hook": "480 CALORIES. 32G PROTEIN. DONE IN 8.", "scheduled": "12:21 ET"}
+{"date": "2026-10-04", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "Spinach + Feta Egg Wraps", "music": true, "hook_style": "A", "hook": "30G PROTEIN, 8 MIN PREP", "scheduled": "12:24 ET"}
+{"date": "2026-10-04", "slot": "Lunch", "account": "@under10.protein", "recipe": "Strawberry Protein Pops", "music": false, "hook_style": "A", "hook": "20G PROTEIN IN 5 MINUTES", "scheduled": "12:27 ET"}
