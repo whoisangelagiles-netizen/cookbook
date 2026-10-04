@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-10-03",
+  "last_updated": "2026-10-04",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -24,7 +24,7 @@
       "category": "breakfast",
       "calories": 410,
       "protein_g": 28,
-      "last_posted": "2026-09-30"
+      "last_posted": "2026-10-04"
     },
     "Power Avocado Toast + Egg": {
       "category": "breakfast",
@@ -72,7 +72,7 @@
       "category": "breakfast",
       "calories": 180,
       "protein_g": 20,
-      "last_posted": "2026-09-30"
+      "last_posted": "2026-10-04"
     },
     "Egg Muffin Cups": {
       "category": "breakfast",
@@ -96,7 +96,7 @@
       "category": "breakfast",
       "calories": 460,
       "protein_g": 28,
-      "last_posted": "2026-09-30"
+      "last_posted": "2026-10-04"
     },
     "Protein Pancake Tacos": {
       "category": "breakfast",
@@ -192,13 +192,13 @@
       "category": "lunch",
       "calories": 440,
       "protein_g": 42,
-      "last_posted": "2026-09-30"
+      "last_posted": "2026-10-04"
     },
     "Honey Garlic Chicken Wrap": {
       "category": "lunch",
       "calories": 540,
       "protein_g": 40,
-      "last_posted": "2026-09-30"
+      "last_posted": "2026-10-04"
     },
     "Tropical Power Salad": {
       "category": "lunch",
@@ -300,7 +300,7 @@
       "category": "lunch",
       "calories": 440,
       "protein_g": 38,
-      "last_posted": "2026-09-30"
+      "last_posted": "2026-10-04"
     },
     "Beef Banh Mi Bowl": {
       "category": "lunch",
@@ -354,7 +354,7 @@
       "category": "dinner",
       "calories": 490,
       "protein_g": 42,
-      "last_posted": "2026-09-30"
+      "last_posted": "2026-10-04"
     },
     "Chimichurri Steak Bites": {
       "category": "dinner",
@@ -462,7 +462,7 @@
       "category": "dinner",
       "calories": 530,
       "protein_g": 42,
-      "last_posted": "2026-09-30"
+      "last_posted": "2026-10-04"
     },
     "Shrimp Scampi over Zoodles": {
       "category": "dinner",
@@ -492,7 +492,7 @@
       "category": "dinner",
       "calories": 460,
       "protein_g": 42,
-      "last_posted": "2026-09-30"
+      "last_posted": "2026-10-04"
     },
     "Black Bean + Chicken Enchilada Bake": {
       "category": "dinner",
@@ -522,7 +522,7 @@
       "category": "snack",
       "calories": 180,
       "protein_g": 12,
-      "last_posted": "2026-09-30"
+      "last_posted": "2026-10-04"
     },
     "Protein Energy Bites": {
       "category": "snack",
