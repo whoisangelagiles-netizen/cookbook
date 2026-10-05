@@ -527,3 +527,13 @@
 {"date": "2026-10-04", "slot": "Dinner", "account": "@protein.lab.eats", "recipe": "Chocolate Protein Mug Cake", "music": true, "hook_style": "B", "hook": "LOOKS LIKE DESSERT. 28G PROTEIN.", "scheduled": "18:21 ET"}
 {"date": "2026-10-04", "slot": "Dinner", "account": "@the.lean.cook", "recipe": "Cinnamon Roll Protein Bowl", "music": true, "hook_style": "B", "hook": "TASTES LIKE A CINNAMON ROLL. 32G PROTEIN.", "scheduled": "18:24 ET"}
 {"date": "2026-10-04", "slot": "Dinner", "account": "@under10.protein", "recipe": "Egg Salad Lettuce Wraps", "music": false, "hook_style": "B", "hook": "DELI LUNCH, 28G PROTEIN.", "scheduled": "18:27 ET"}
+{"date": "2026-10-05", "slot": "Breakfast", "account": "@cleanfuel.kitchen", "recipe": "Hard-Boiled Eggs + Hummus", "music": false, "hook_style": "A", "hook": "16G PROTEIN, PREPPED IN 5 MIN", "scheduled": "08:00 ET"}
+{"date": "2026-10-05", "slot": "Breakfast", "account": "@coach.macro", "recipe": "Italian Sub Lettuce Wraps", "music": true, "hook_style": "A", "hook": "35G PROTEIN IN 10 MINUTES", "scheduled": "08:03 ET"}
+{"date": "2026-10-05", "slot": "Breakfast", "account": "@fuel.your.gains", "recipe": "Coconut Mango Chia Parfait", "music": true, "hook_style": "A", "hook": "22G PROTEIN, PREPPED IN 8 MIN", "scheduled": "08:06 ET"}
+{"date": "2026-10-05", "slot": "Breakfast", "account": "@gymfood.simple", "recipe": "Cottage Cheese Power Bowl", "music": false, "hook_style": "A", "hook": "30G PROTEIN IN 8 MINUTES", "scheduled": "08:09 ET"}
+{"date": "2026-10-05", "slot": "Breakfast", "account": "@macro.architect", "recipe": "Egg Muffin Cups", "music": true, "hook_style": "A", "hook": "90 CALORIES. 9G PROTEIN. DONE IN 8.", "scheduled": "08:12 ET"}
+{"date": "2026-10-05", "slot": "Breakfast", "account": "@postworkout.plate", "recipe": "Garlic Butter Steak + Potatoes", "music": false, "hook_style": "A", "hook": "45G PROTEIN, ONE PAN, 12 MIN", "scheduled": "08:15 ET"}
+{"date": "2026-10-05", "slot": "Breakfast", "account": "@prep.with.alex", "recipe": "Garlic Shrimp + Lemon Rice", "music": false, "hook_style": "A", "hook": "36G PROTEIN IN 12 MINUTES", "scheduled": "08:18 ET"}
+{"date": "2026-10-05", "slot": "Breakfast", "account": "@protein.lab.eats", "recipe": "Greek Lamb Bowl", "music": true, "hook_style": "A", "hook": "42G PROTEIN IN 12 MINUTES", "scheduled": "08:21 ET"}
+{"date": "2026-10-05", "slot": "Breakfast", "account": "@the.lean.cook", "recipe": "Greek Yogurt Layered Parfait", "music": true, "hook_style": "A", "hook": "22G PROTEIN, PREPPED IN 5 MIN", "scheduled": "08:24 ET"}
+{"date": "2026-10-05", "slot": "Breakfast", "account": "@under10.protein", "recipe": "Ham + Swiss Egg Roll-Ups", "music": false, "hook_style": "A", "hook": "32G PROTEIN IN 10 MINUTES", "scheduled": "08:27 ET"}
