@@ -547,3 +547,13 @@
 {"date": "2026-10-05", "slot": "Lunch", "account": "@protein.lab.eats", "recipe": "Sunrise Power Bowl", "music": true, "hook_style": "B", "hook": "LOOKS LIKE BRUNCH OUT. 25G PROTEIN.", "scheduled": "12:21 ET"}
 {"date": "2026-10-05", "slot": "Lunch", "account": "@the.lean.cook", "recipe": "Tuna Cucumber Bites", "music": true, "hook_style": "B", "hook": "LOOKS LIKE PARTY FOOD. 18G PROTEIN.", "scheduled": "12:24 ET"}
 {"date": "2026-10-05", "slot": "Lunch", "account": "@under10.protein", "recipe": "Vanilla Berry Protein Smoothie", "music": false, "hook_style": "B", "hook": "TASTES LIKE A MILKSHAKE. 32G PROTEIN.", "scheduled": "12:27 ET"}
+{"date": "2026-10-05", "slot": "Dinner", "account": "@cleanfuel.kitchen", "recipe": "Tuna Avocado Toast", "music": false, "hook_style": "A", "hook": "30G PROTEIN IN 8 MINUTES", "scheduled": "18:00 ET"}
+{"date": "2026-10-05", "slot": "Dinner", "account": "@coach.macro", "recipe": "Banana Protein French Toast", "music": true, "hook_style": "A", "hook": "30G PROTEIN IN 8 MINUTES", "scheduled": "18:03 ET"}
+{"date": "2026-10-05", "slot": "Dinner", "account": "@fuel.your.gains", "recipe": "Beef Jerky + Cheese Stick Plate", "music": true, "hook_style": "A", "hook": "28G PROTEIN, PREPPED IN 5 MIN", "scheduled": "18:06 ET"}
+{"date": "2026-10-05", "slot": "Dinner", "account": "@gymfood.simple", "recipe": "Beef and Broccoli Stir Fry", "music": false, "hook_style": "A", "hook": "42G PROTEIN, ONE PAN, 12 MIN", "scheduled": "18:09 ET"}
+{"date": "2026-10-05", "slot": "Dinner", "account": "@macro.architect", "recipe": "Berry Almond Chia Parfait", "music": true, "hook_style": "A", "hook": "350 CALORIES. 20G PROTEIN. DONE IN 8.", "scheduled": "18:12 ET"}
+{"date": "2026-10-05", "slot": "Dinner", "account": "@postworkout.plate", "recipe": "Buffalo Chicken Casserole", "music": false, "hook_style": "A", "hook": "45G PROTEIN, PREPPED IN 12 MIN", "scheduled": "18:15 ET"}
+{"date": "2026-10-05", "slot": "Dinner", "account": "@prep.with.alex", "recipe": "Buffalo Chicken Lettuce Wraps", "music": false, "hook_style": "A", "hook": "38G PROTEIN IN 10 MINUTES", "scheduled": "18:18 ET"}
+{"date": "2026-10-05", "slot": "Dinner", "account": "@protein.lab.eats", "recipe": "Cajun Salmon Bowl", "music": true, "hook_style": "A", "hook": "38G PROTEIN IN 12 MINUTES", "scheduled": "18:21 ET"}
+{"date": "2026-10-05", "slot": "Dinner", "account": "@the.lean.cook", "recipe": "Caprese Chicken Wrap", "music": true, "hook_style": "A", "hook": "480 CALORIES. 38G PROTEIN. DONE IN 10.", "scheduled": "18:24 ET"}
+{"date": "2026-10-05", "slot": "Dinner", "account": "@under10.protein", "recipe": "No-Bake Protein Brownie Bites", "music": false, "hook_style": "A", "hook": "8G PROTEIN, PREPPED IN 5 MIN", "scheduled": "18:27 ET"}
