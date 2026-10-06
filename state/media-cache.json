@@ -18767,7 +18767,182 @@
       "sha256_16": "d642bbc16cadc8c3",
       "model": "gpt-image-1-mini",
       "quality": "medium"
+    },
+    "Teriyaki Salmon with Rice|@cleanfuel.kitchen|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7b5dc95e-b459-46b1-8311-18c9254995f4.png",
+      "created": "2026-10-06",
+      "sha256_16": "9b0fbe72984840ab",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Teriyaki Salmon with Rice|@cleanfuel.kitchen|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/38d95c12-de32-42a4-b88f-0ce23360cb5c.png",
+      "created": "2026-10-06",
+      "sha256_16": "85e1f23f37b75ead",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Teriyaki Salmon with Rice|@cleanfuel.kitchen|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/1ba549e0-3a0c-46d0-bf17-086e8e971a3c.png",
+      "created": "2026-10-06",
+      "sha256_16": "708dab50bc2f43b8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Teriyaki Salmon with Rice|@cleanfuel.kitchen|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5f17a7d0-acf2-4ade-9f5d-bbb9a0546dce.png",
+      "created": "2026-10-06",
+      "sha256_16": "8c36de5ef46cd37e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Teriyaki Salmon with Rice|@cleanfuel.kitchen|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a2ef554d-e647-47b6-912f-555ee7ec4038.png",
+      "created": "2026-10-06",
+      "sha256_16": "94346c748e0d2144",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Greek Yogurt Smoothie Bowl|@gymfood.simple|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/222d41c5-21fe-4075-8b7a-78be68727c79.png",
+      "created": "2026-10-06",
+      "sha256_16": "d21f23eb966611a5",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Greek Yogurt Smoothie Bowl|@gymfood.simple|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/47697136-74e2-447e-977d-fa76105bff6f.png",
+      "created": "2026-10-06",
+      "sha256_16": "2da011753611308e",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Greek Yogurt Smoothie Bowl|@gymfood.simple|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/89e521a1-ebcf-4959-b6d3-8b60d705c875.png",
+      "created": "2026-10-06",
+      "sha256_16": "07f73b3dd1bb75ca",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Greek Yogurt Smoothie Bowl|@gymfood.simple|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/1b02deb5-6425-4378-a568-db355e23ec2c.png",
+      "created": "2026-10-06",
+      "sha256_16": "e038a0957ddaba4f",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Greek Yogurt Smoothie Bowl|@gymfood.simple|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/9ace18ca-9c04-4b61-9f66-aee8b7d6c891.png",
+      "created": "2026-10-06",
+      "sha256_16": "8c55229e42fc73ec",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Sushi|@macro.architect|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/126f85cb-2c08-435c-9ce2-fb44fc93aab3.png",
+      "created": "2026-10-06",
+      "sha256_16": "3471f6bb1d2a8076",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Sushi|@macro.architect|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/c11dbcc6-7ca7-4514-947a-3fd7bbae3560.png",
+      "created": "2026-10-06",
+      "sha256_16": "9123f73cea7fe419",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Sushi|@macro.architect|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/46163a79-b9d2-4f18-8fd9-3d21b0d4059b.png",
+      "created": "2026-10-06",
+      "sha256_16": "a86a5d9a37bfc1b0",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Sushi|@macro.architect|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/f574524f-1e04-42dd-9520-139c2b2ce8c6.png",
+      "created": "2026-10-06",
+      "sha256_16": "44663adaa9034c16",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Sushi|@macro.architect|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/b362502a-b440-4a35-934d-fb899410c9de.png",
+      "created": "2026-10-06",
+      "sha256_16": "ff8035de8958ac44",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Wrap|@postworkout.plate|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/d73d5cd0-8407-4a93-a922-f2f616806d27.png",
+      "created": "2026-10-06",
+      "sha256_16": "2f98dd85c5a06e61",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Wrap|@postworkout.plate|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/5533a79b-bf98-4ced-95c9-981aaa0e1e8e.png",
+      "created": "2026-10-06",
+      "sha256_16": "7c494fd0e150e4bf",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Wrap|@postworkout.plate|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/7f032fd9-19a1-472b-8719-0d1a85322360.png",
+      "created": "2026-10-06",
+      "sha256_16": "b4849d5a1cdf4693",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Wrap|@postworkout.plate|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/2e30d244-eb55-461c-b590-a206b2795c29.png",
+      "created": "2026-10-06",
+      "sha256_16": "8e96a3ea71f124b3",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "PB Banana Protein Wrap|@postworkout.plate|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/dc8f7aae-3782-4348-aacf-a0e7e873c42b.png",
+      "created": "2026-10-06",
+      "sha256_16": "59a361923266a66b",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Shrimp Burrito Bowl|@under10.protein|1": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/6b9d0735-62c4-4be7-b075-d3fe0b545602.png",
+      "created": "2026-10-06",
+      "sha256_16": "eb4f354dff9d248b",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Shrimp Burrito Bowl|@under10.protein|2": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a6290880-0b8a-4a37-a166-b80f35bd2c86.png",
+      "created": "2026-10-06",
+      "sha256_16": "900788ffabd98c71",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Shrimp Burrito Bowl|@under10.protein|3": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/4ff11ee5-caa6-445b-8f8a-01cd16c52c4c.png",
+      "created": "2026-10-06",
+      "sha256_16": "53cdf9368f1e6358",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Shrimp Burrito Bowl|@under10.protein|4": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/9cce7dc7-be2a-407d-a2b3-769e969554b0.png",
+      "created": "2026-10-06",
+      "sha256_16": "891743ac2ec190b8",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
+    },
+    "Spicy Shrimp Burrito Bowl|@under10.protein|5": {
+      "url": "https://database.blotato.io/storage/v1/object/public/public_media/f29b0757-eb02-4cd6-b584-b03e1729476a/a58b62dd-1acc-4ec1-ab8f-a24482f4f893.png",
+      "created": "2026-10-06",
+      "sha256_16": "28ec62ffdb665aaa",
+      "model": "gpt-image-1-mini",
+      "quality": "medium"
     }
   },
-  "last_updated": "2026-10-05T18:18:16+00:00"
+  "last_updated": "2026-10-06T08:16:25+00:00"
 }
