@@ -587,3 +587,13 @@
 {"date": "2026-10-06", "slot": "Dinner", "account": "@protein.lab.eats", "recipe": "Chicken Caesar Wrap", "music": true, "hook_style": "B", "hook": "CAFE LUNCH WRAP, 40G PROTEIN.", "scheduled": "18:21 ET"}
 {"date": "2026-10-06", "slot": "Dinner", "account": "@the.lean.cook", "recipe": "Chickpea + Tuna Lemon Salad", "music": true, "hook_style": "B", "hook": "DELI SALAD VIBES. 30G PROTEIN.", "scheduled": "18:24 ET"}
 {"date": "2026-10-06", "slot": "Dinner", "account": "@under10.protein", "recipe": "Turkey Bacon Breakfast Burrito", "music": false, "hook_style": "B", "hook": "TASTES LIKE DINER. 38G PROTEIN.", "scheduled": "18:27 ET"}
+{"date": "2026-10-07", "slot": "Breakfast", "account": "@cleanfuel.kitchen", "recipe": "Chocolate Protein Overnight Oats", "music": false, "hook_style": "A", "hook": "35G PROTEIN IN 8 MINUTES", "scheduled": "08:00 ET"}
+{"date": "2026-10-07", "slot": "Breakfast", "account": "@coach.macro", "recipe": "Cinnamon Roll Protein Pudding", "music": true, "hook_style": "A", "hook": "26G PROTEIN IN 5 MINUTES", "scheduled": "08:03 ET"}
+{"date": "2026-10-07", "slot": "Breakfast", "account": "@fuel.your.gains", "recipe": "Cottage Cheese + Pineapple Bowl", "music": true, "hook_style": "A", "hook": "24G PROTEIN IN 5 MINUTES", "scheduled": "08:06 ET"}
+{"date": "2026-10-07", "slot": "Breakfast", "account": "@gymfood.simple", "recipe": "Cottage Cheese Whip with Berries", "music": false, "hook_style": "A", "hook": "22G PROTEIN, PREPPED IN 5 MIN", "scheduled": "08:09 ET"}
+{"date": "2026-10-07", "slot": "Breakfast", "account": "@macro.architect", "recipe": "Honey Garlic Salmon Bowl", "music": true, "hook_style": "A", "hook": "40G PROTEIN IN 12 MINUTES", "scheduled": "08:12 ET"}
+{"date": "2026-10-07", "slot": "Breakfast", "account": "@postworkout.plate", "recipe": "Korean BBQ Ground Beef Bowl", "music": false, "hook_style": "A", "hook": "40G PROTEIN IN 12 MINUTES", "scheduled": "08:15 ET"}
+{"date": "2026-10-07", "slot": "Breakfast", "account": "@prep.with.alex", "recipe": "Mongolian Beef Bowl", "music": false, "hook_style": "A", "hook": "560 CALORIES. 40G PROTEIN. DONE IN 12.", "scheduled": "08:18 ET"}
+{"date": "2026-10-07", "slot": "Breakfast", "account": "@protein.lab.eats", "recipe": "Protein Pancake Tacos", "music": true, "hook_style": "A", "hook": "35G PROTEIN IN 8 MINUTES", "scheduled": "08:21 ET"}
+{"date": "2026-10-07", "slot": "Breakfast", "account": "@the.lean.cook", "recipe": "Thai Chicken Lettuce Cups", "music": true, "hook_style": "A", "hook": "38G PROTEIN IN 10 MINUTES", "scheduled": "08:24 ET"}
+{"date": "2026-10-07", "slot": "Breakfast", "account": "@under10.protein", "recipe": "Tropical Power Salad", "music": false, "hook_style": "A", "hook": "36G PROTEIN IN 10 MINUTES", "scheduled": "08:27 ET"}

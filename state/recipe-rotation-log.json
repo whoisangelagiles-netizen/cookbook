@@ -1,6 +1,6 @@
 {
   "schema_version": 1,
-  "last_updated": "2026-10-06",
+  "last_updated": "2026-10-07",
   "recipes": {
     "Golden Protein Pancakes": {
       "category": "breakfast",
@@ -42,7 +42,7 @@
       "category": "breakfast",
       "calories": 460,
       "protein_g": 35,
-      "last_posted": "2026-10-03"
+      "last_posted": "2026-10-07"
     },
     "Cottage Cheese Power Bowl": {
       "category": "breakfast",
@@ -102,7 +102,7 @@
       "category": "breakfast",
       "calories": 420,
       "protein_g": 35,
-      "last_posted": "2026-10-03"
+      "last_posted": "2026-10-07"
     },
     "Tuna Avocado Toast": {
       "category": "breakfast",
@@ -204,7 +204,7 @@
       "category": "lunch",
       "calories": 460,
       "protein_g": 36,
-      "last_posted": "2026-10-03"
+      "last_posted": "2026-10-07"
     },
     "Turkey & Hummus Wrap": {
       "category": "lunch",
@@ -258,7 +258,7 @@
       "category": "lunch",
       "calories": 420,
       "protein_g": 38,
-      "last_posted": "2026-10-03"
+      "last_posted": "2026-10-07"
     },
     "Caprese Chicken Wrap": {
       "category": "lunch",
@@ -366,7 +366,7 @@
       "category": "dinner",
       "calories": 580,
       "protein_g": 40,
-      "last_posted": "2026-10-03"
+      "last_posted": "2026-10-07"
     },
     "High-Protein Chicken Alfredo": {
       "category": "dinner",
@@ -414,7 +414,7 @@
       "category": "dinner",
       "calories": 540,
       "protein_g": 40,
-      "last_posted": "2026-10-03"
+      "last_posted": "2026-10-07"
     },
     "Cajun Salmon Bowl": {
       "category": "dinner",
@@ -504,7 +504,7 @@
       "category": "dinner",
       "calories": 560,
       "protein_g": 40,
-      "last_posted": "2026-10-03"
+      "last_posted": "2026-10-07"
     },
     "Tuscan Garlic Chicken": {
       "category": "dinner",
@@ -540,7 +540,7 @@
       "category": "snack",
       "calories": 220,
       "protein_g": 22,
-      "last_posted": "2026-10-03"
+      "last_posted": "2026-10-07"
     },
     "Hard-Boiled Eggs + Hummus": {
       "category": "snack",
@@ -630,7 +630,7 @@
       "category": "snack",
       "calories": 280,
       "protein_g": 26,
-      "last_posted": "2026-10-03"
+      "last_posted": "2026-10-07"
     },
     "Strawberry Protein Pops": {
       "category": "snack",
@@ -660,7 +660,7 @@
       "category": "snack",
       "calories": 240,
       "protein_g": 24,
-      "last_posted": "2026-10-03"
+      "last_posted": "2026-10-07"
     }
   }
 }
